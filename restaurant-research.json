@@ -1,0 +1,1316 @@
+{
+  "r01": {
+    "id": "r01",
+    "name": "Amok Sunset Restaurant & Bar",
+    "hours_label": "11:00–23:00 ежедневно",
+    "planning_windows": [
+      [
+        660,
+        1380
+      ]
+    ],
+    "source": "https://amoksunset.com/",
+    "checked": "2026-10-08",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Стол на обед желательно заказать. Время последнего заказа не опубликовано.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r02": {
+    "id": "r02",
+    "name": "Batu Karu Kopi",
+    "hours_label": "08:00–17:00 в будни; 08:00–18:00 в выходные",
+    "planning_windows": [
+      [
+        480,
+        1020
+      ]
+    ],
+    "source": "https://www.instagram.com/batukarukopi/",
+    "checked": "2026-10-08",
+    "hours_status": "historical_snapshot_not_currently_reverified",
+    "last_order": null,
+    "booking_note": "Уточнить наличие полноценного обеда: нужен сэндвич/тосты с начинкой, а не только кофе. Last order не подтверждён.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r06": {
+    "id": "r06",
+    "name": "AKASA",
+    "hours_label": "05:30–22:00 по снимку 06.10",
+    "planning_windows": [
+      [
+        330,
+        1320
+      ]
+    ],
+    "source": "https://akasacoffee.com/",
+    "checked": "2026-10-08",
+    "hours_status": "historical_hours_brand_site_no_published_hours",
+    "last_order": null,
+    "booking_note": "Заказать полноценный обед; часы и last order подтвердить напрямую.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r24": {
+    "id": "r24",
+    "name": "FROM HERE BALI",
+    "hours_label": "Плановое окно 06:30–22:00; часы уточнить",
+    "planning_windows": [
+      [
+        390,
+        1320
+      ]
+    ],
+    "source": "https://linktr.ee/fromherebali",
+    "checked": "2026-10-08",
+    "hours_status": "official_address_hours_unverified",
+    "last_order": null,
+    "booking_note": "Официальный профиль подтверждает адрес Danau Poso 54. Часы, last order и боксы на ранний выезд подтвердить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r28": {
+    "id": "r28",
+    "name": "L'Osteria Pizza e Cucina Ubud",
+    "hours_label": "Плановое окно 12:00–23:00; часы уточнить",
+    "planning_windows": [
+      [
+        720,
+        1380
+      ]
+    ],
+    "source": "https://losteriapizzaecucina.com/about-us/",
+    "checked": "2026-10-08",
+    "hours_status": "official_location_hours_unverified",
+    "last_order": null,
+    "booking_note": "Именно филиал Ubud на Monkey Forest. Стол на ужин желательно заказать; last order уточнить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r37": {
+    "id": "r37",
+    "name": "Penny Lane",
+    "hours_label": "08:00–00:00 ежедневно",
+    "planning_windows": [
+      [
+        480,
+        1440
+      ]
+    ],
+    "source": "https://pennylanebali.com/",
+    "checked": "2026-10-08",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Стол на ужин желательно заказать. Отдельное время последнего заказа не опубликовано.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r44": {
+    "id": "r44",
+    "name": "Muaya Terrace, Jimbaran",
+    "hours_label": "07:00–22:00 по снимку 06.10",
+    "planning_windows": [
+      [
+        420,
+        1320
+      ]
+    ],
+    "source": "https://linktr.ee/muaya.terrace",
+    "checked": "2026-10-08",
+    "hours_status": "official_address_historical_hours",
+    "last_order": null,
+    "booking_note": "Официальный профиль: бронирование через Instagram. Часы кухни/last order подтвердить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r45": {
+    "id": "r45",
+    "name": "La Baracca Bali (Uluwatu)",
+    "hours_label": "Плановое окно 11:30–23:00; закрытие уточнить",
+    "planning_windows": [
+      [
+        690,
+        1380
+      ]
+    ],
+    "source": "https://labaraccabali.com/",
+    "checked": "2026-10-08",
+    "hours_status": "official_site_hours_unverified",
+    "last_order": null,
+    "booking_note": "Именно филиал Uluwatu, Labuansait 10. На ужин желательно забронировать; last order уточнить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r52": {
+    "id": "r52",
+    "name": "Gooseberry French Restaurant | Uluwatu",
+    "hours_label": "08:00–22:30 ежедневно",
+    "planning_windows": [
+      [
+        480,
+        1350
+      ]
+    ],
+    "source": "https://www.gooseberry-restaurant.com/",
+    "checked": "2026-10-08",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Бронирование рекомендуется; отдельное время последнего заказа не опубликовано.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r54": {
+    "id": "r54",
+    "name": "SUKA ULUWATU",
+    "hours_label": "07:30–22:00 ежедневно",
+    "planning_windows": [
+      [
+        450,
+        1320
+      ]
+    ],
+    "source": "https://www.sukacollective.co/about",
+    "checked": "2026-10-08",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Именно SUKA Uluwatu. Заказать стол и подтвердить упаковку завтрака на следующий день; last order уточнить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r59": {
+    "id": "r59",
+    "name": "Boneka Restaurant",
+    "hours_label": "Пн–сб 07:00–11:00 / 18:00–22:00; вс 07:00–15:00 / 18:00–22:00",
+    "planning_windows": [
+      [
+        420,
+        660
+      ],
+      [
+        1080,
+        1320
+      ]
+    ],
+    "source": "https://www.marriott.com/en-us/hotels/dpsxr-the-st-regis-bali-resort/dining/",
+    "checked": "2026-10-08",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Завтрак платный; заранее согласовать стол для внешних гостей. Smart casual. Координата комплекса, подход к Boneka уточнить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r60": {
+    "id": "r60",
+    "name": "Brook Nusa Dua - Restaurant",
+    "hours_label": "Часы конфликтуют: в источниках 08:00 и 14:00",
+    "planning_windows": [
+      [
+        840,
+        1320
+      ]
+    ],
+    "source": "https://brookbali.com/",
+    "checked": "2026-10-08",
+    "hours_status": "hours_conflict_not_verified",
+    "last_order": null,
+    "booking_note": "Оставлен альтернативой после 14:00. Часы и last order подтвердить, сайт не ответил.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r62": {
+    "id": "r62",
+    "name": "Signa Cafe",
+    "hours_label": "08:00–23:00 ежедневно; кухня до 22:30",
+    "planning_windows": [
+      [
+        480,
+        1350
+      ]
+    ],
+    "source": "https://signa.cafe/",
+    "checked": "2026-10-08",
+    "hours_status": "official_current",
+    "last_order": "22:30",
+    "booking_note": "Для двоих допускается walk-in; стол к точному времени можно согласовать. Пицца с 14:00. Парковка для байков на месте.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r66": {
+    "id": "r66",
+    "name": "Artisan - Ungasan",
+    "hours_label": "Плановое окно 07:30–22:30; часы уточнить",
+    "planning_windows": [
+      [
+        450,
+        1350
+      ]
+    ],
+    "source": "https://id.linkedin.com/company/artisangroupbali",
+    "checked": "2026-10-08",
+    "hours_status": "official_brand_hours_unverified",
+    "last_order": null,
+    "booking_note": "Именно Ungasan. Старый домен сейчас показывает постороннюю страницу, не используется как подтверждение часов. Стол/last order уточнить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r67": {
+    "id": "r67",
+    "name": "AMINO - Early Breakfast, Lunch, Dinner",
+    "hours_label": "07:30–23:00 ежедневно; завтраки до 15:00",
+    "planning_windows": [
+      [
+        450,
+        1380
+      ]
+    ],
+    "source": "https://amino-restobali.com/",
+    "checked": "2026-10-08",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Есть прямой заказ и доставка через WhatsApp. Боксы, выдачу накануне и хранение отдельно согласовать; last order не опубликован.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r69": {
+    "id": "r69",
+    "name": "Sari timbul resto by kububali",
+    "hours_label": "Плановое окно 07:00–19:00; кухня отдельно не подтверждена",
+    "planning_windows": [
+      [
+        420,
+        1140
+      ]
+    ],
+    "source": "https://linktr.ee/saritimbulofficial",
+    "checked": "2026-10-08",
+    "hours_status": "official_brand_restaurant_hours_unverified",
+    "last_order": null,
+    "booking_note": "Resto by KubuBali, Jl. Raya Bayad: отдельная точка рядом с арт-галереей. Не подменять часами другого объекта Sari Timbul. Last order уточнить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r70": {
+    "id": "r70",
+    "name": "Rumah Gemuk Bali",
+    "hours_label": "Плановое окно 10:00–18:00; часы уточнить",
+    "planning_windows": [
+      [
+        600,
+        1080
+      ]
+    ],
+    "source": "https://www.instagram.com/rumahgemukbali/",
+    "checked": "2026-10-08",
+    "hours_status": "historical_hours_official_profile_unavailable",
+    "last_order": null,
+    "booking_note": "Стол/пикник заказать заранее; часы кухни и last order уточнить. Подъём к стеклянному ресторану входит в запас.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r71": {
+    "id": "r71",
+    "name": "Single Fin Bali",
+    "hours_label": "Ежедневно 08:00–22:00; ср/вс до 02:00 по сайту управляющей группы",
+    "planning_windows": [
+      [
+        480,
+        1320
+      ]
+    ],
+    "source": "https://www.projectblack.co/singlefin",
+    "checked": "2026-10-08",
+    "hours_status": "official_operator_current",
+    "last_order": null,
+    "booking_note": "Стол к закату желательно заказать. Кухня/last order отдельно не опубликованы; вход и лестницы уточнить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r72": {
+    "id": "r72",
+    "name": "Koral: Bali’s First Aquarium Restaurant",
+    "hours_label": "12:00–15:00 / 17:30–22:30 ежедневно",
+    "planning_windows": [
+      [
+        720,
+        900
+      ],
+      [
+        1050,
+        1350
+      ]
+    ],
+    "source": "https://www.kempinski.com/en/the-apurva-kempinski-bali/restaurants-bars/koral-restaurant",
+    "checked": "2026-10-08",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Предварительная бронь обязательна; 2 часа на ужин. Smart casual: мужчинам длинные брюки; спортивная одежда и шлёпанцы не подходят. Координата комплекса, вход уточнить.",
+    "booking_required": true,
+    "current_availability_confirmed": false
+  },
+  "r53": {
+    "id": "r53",
+    "name": "Analog Uluwatu | Cafe | Bar | Bistro",
+    "source": "https://analog-uluwatu.com/",
+    "checked": "2026-10-08",
+    "planning_windows": [
+      [
+        480,
+        1380
+      ]
+    ],
+    "hours_label": "Плановое окно 08:00–23:00; текущие часы уточнить",
+    "hours_status": "planning_window_unverified",
+    "last_order": null,
+    "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r55": {
+    "id": "r55",
+    "name": "Alchemy Uluwatu",
+    "source": "https://www.alchemybali.co/home",
+    "checked": "2026-10-08",
+    "planning_windows": [
+      [
+        450,
+        1320
+      ]
+    ],
+    "hours_label": "07:30–22:00 ежедневно",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r57": {
+    "id": "r57",
+    "name": "The Loft",
+    "source": "https://www.theloft-bali.com/breakfast",
+    "checked": "2026-10-08",
+    "planning_windows": [
+      [
+        450,
+        1320
+      ]
+    ],
+    "hours_label": "07:30–22:00 ежедневно; takeaway доступен",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r50": {
+    "id": "r50",
+    "name": "YUKI Uluwatu",
+    "source": "https://www.yuki-bali.com/contact",
+    "checked": "2026-10-08",
+    "planning_windows": [
+      [
+        660,
+        1380
+      ]
+    ],
+    "hours_label": "Ежедневно с 11:00 до позднего вечера; точное закрытие и кухня уточняются",
+    "hours_status": "official_opening_only_closing_estimated",
+    "last_order": null,
+    "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r49": {
+    "id": "r49",
+    "name": "ZALI Uluwatu | Lebanese Restaurant",
+    "source": "https://www.zalirestaurant.com/",
+    "checked": "2026-10-08",
+    "planning_windows": [
+      [
+        480,
+        1440
+      ]
+    ],
+    "hours_label": "08:00–00:00 ежедневно",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r46": {
+    "id": "r46",
+    "name": "Ours Uluwatu",
+    "source": "https://oursbali.com/menu/",
+    "checked": "2026-10-08",
+    "planning_windows": [
+      [
+        480,
+        1380
+      ]
+    ],
+    "hours_label": "08:00–23:00 ежедневно; кухня примерно до 22:30",
+    "hours_status": "official_current",
+    "last_order": "22:30, ориентировочно по официальной статье",
+    "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r40": {
+    "id": "r40",
+    "name": "nüde cafe Berawa",
+    "source": "https://nude-bali.com/locations/berawa/",
+    "checked": "2026-10-09",
+    "planning_windows": [
+      [
+        420,
+        1380
+      ]
+    ],
+    "hours_label": "07:00–23:00 ежедневно · Berawa",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r56": {
+    "id": "r56",
+    "name": "Drifter Surf Shop & Cafe - Uluwatu",
+    "source": "https://driftersurf.com/en-ca/pages/cafe",
+    "checked": "2026-10-08",
+    "planning_windows": [
+      [
+        420,
+        1320
+      ]
+    ],
+    "hours_label": "07:00–22:00 ежедневно; завтрак до 17:00, обед/ужин до 21:30",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r51": {
+    "id": "r51",
+    "name": "KALA Uluwatu - Greek Inspired Grill",
+    "source": "https://kalauluwatu.com/",
+    "checked": "2026-10-08",
+    "planning_windows": [
+      [
+        720,
+        1410
+      ]
+    ],
+    "hours_label": "12:00–23:30 ежедневно",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r05": {
+    "id": "r05",
+    "name": "Tis Cafe",
+    "source": "https://www.instagram.com/tiscafe/",
+    "checked": "2026-10-08",
+    "planning_windows": [
+      [
+        480,
+        1200
+      ]
+    ],
+    "hours_label": "Плановое окно 08:00–20:00; текущие часы уточнить",
+    "hours_status": "planning_window_unverified",
+    "last_order": null,
+    "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r03": {
+    "id": "r03",
+    "name": "Paperhills",
+    "hours_label": "06:00–19:00 пн–пт; 05:30–20:00 сб–вс",
+    "planning_windows": [
+      [
+        360,
+        1140
+      ]
+    ],
+    "source": "https://www.chope.co/bali-restaurants/restaurant/paperhills-kintamani?lang=id_ID",
+    "checked": "2026-10-09",
+    "hours_status": "published_booking_directory",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r04": {
+    "id": "r04",
+    "name": "el lago",
+    "hours_label": "05:30–21:00 ежедневно",
+    "planning_windows": [
+      [
+        330,
+        1260
+      ]
+    ],
+    "source": "https://ellagohotelkintamani.com/restaurants",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r07": {
+    "id": "r07",
+    "name": "Old Man's",
+    "hours_label": "С 12:00 до позднего вечера; на сайте также 11:00–01:00",
+    "planning_windows": [
+      [
+        720,
+        1440
+      ]
+    ],
+    "source": "https://www.oldmans.net/contact",
+    "checked": "2026-10-09",
+    "hours_status": "official_conflicting_opening_use_12",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r08": {
+    "id": "r08",
+    "name": "Vedzpresso Coffee",
+    "hours_label": "07:00–20:00 в будни; 06:00–20:00 в выходные",
+    "planning_windows": [
+      [
+        420,
+        1200
+      ]
+    ],
+    "source": "https://wanderlog.com/place/details/3854209",
+    "checked": "2026-10-09",
+    "hours_status": "published_directory",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r09": {
+    "id": "r09",
+    "name": "ATTALAS CAFE",
+    "hours_label": "07:00–20:00 ежедневно",
+    "planning_windows": [
+      [
+        420,
+        1200
+      ]
+    ],
+    "source": "https://restaurantguru.com/Restoran-Batur-Sari-2-Indonesia",
+    "checked": "2026-10-09",
+    "hours_status": "published_directory",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r10": {
+    "id": "r10",
+    "name": "warung baling baling",
+    "hours_label": "Текущие часы и last order ещё не подтверждены",
+    "planning_windows": [
+      [
+        420,
+        1440
+      ]
+    ],
+    "source": "https://sisparnas.kemenpar.go.id/p/14667",
+    "checked": "2026-10-09",
+    "hours_status": "unverified_planning_window_is_estimate",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r11": {
+    "id": "r11",
+    "name": "Mahen Cafe",
+    "hours_label": "06:00–19:00 ежедневно",
+    "planning_windows": [
+      [
+        360,
+        1140
+      ]
+    ],
+    "source": "https://restaurantguru.com/Mahen-Cafe-Kintamani",
+    "checked": "2026-10-09",
+    "hours_status": "published_directory",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r12": {
+    "id": "r12",
+    "name": "Brie Restaurant & Cheesery | Italian Season",
+    "hours_label": "08:00–22:30; завтрак до 14:30",
+    "planning_windows": [
+      [
+        480,
+        1350
+      ]
+    ],
+    "source": "https://www.briebali.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r13": {
+    "id": "r13",
+    "name": "Tebasari Resto, Bar & Lounge",
+    "hours_label": "10:00–22:00 ежедневно · именно Tegallalang",
+    "planning_windows": [
+      [
+        600,
+        1320
+      ]
+    ],
+    "source": "https://tebasari.com/tebasari-resto-bar-lounge/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r14": {
+    "id": "r14",
+    "name": "Teamo - Gastro-Bistro, Restaurant Canggu",
+    "hours_label": "08:00–24:00 ежедневно; основное меню с 15:00",
+    "planning_windows": [
+      [
+        480,
+        1440
+      ]
+    ],
+    "source": "https://teamobali.com/en/menu",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r15": {
+    "id": "r15",
+    "name": "Echo Beach Sunset Point",
+    "hours_label": "Заказ еды или кофе не подтверждён; в части источников это смотровая точка",
+    "planning_windows": [
+      [
+        420,
+        1440
+      ]
+    ],
+    "source": "https://mapstr.com/place/VQPitFmsn3",
+    "checked": "2026-10-09",
+    "hours_status": "food_service_unconfirmed_user_clarification_pending",
+    "last_order": null,
+    "booking_note": "Точка остаётся в списке. Не объявлять её подтверждённым ресторанным посещением до уточнения.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r16": {
+    "id": "r16",
+    "name": "Motel Mexicola | Canggu",
+    "hours_label": "11:00–01:00 ежедневно — справочник; last order уточнить",
+    "planning_windows": [
+      [
+        660,
+        1500
+      ]
+    ],
+    "source": "https://restaurantguru.com/Motel-Mexicola-Canggu-Mengwi",
+    "checked": "2026-10-09",
+    "hours_status": "published_directory",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r17": {
+    "id": "r17",
+    "name": "Artisan - Pererenan",
+    "hours_label": "07:00–23:00 по справочнику; уточнить актуальность",
+    "planning_windows": [
+      [
+        420,
+        1380
+      ]
+    ],
+    "source": "https://www.corner.inc/place/pJgu7F2PM6YR",
+    "checked": "2026-10-09",
+    "hours_status": "published_directory",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r18": {
+    "id": "r18",
+    "name": "LUSA Bistro",
+    "hours_label": "07:30–22:00",
+    "planning_windows": [
+      [
+        450,
+        1320
+      ]
+    ],
+    "source": "https://www.bysuka.com/lusa-by-suka",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r19": {
+    "id": "r19",
+    "name": "LOLITAS Cantina Mexicana",
+    "hours_label": "12:00–20:00 на официальном сайте; другой справочник: понедельник закрыт",
+    "planning_windows": [
+      [
+        720,
+        1200
+      ]
+    ],
+    "source": "https://lolitasbali.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current_directory_day_conflict",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false,
+    "closed_days_provisional": [
+      0
+    ]
+  },
+  "r20": {
+    "id": "r20",
+    "name": "Tarragon Georgian Restaurant and Lounge Bar",
+    "hours_label": "Текущие часы и last order ещё не подтверждены",
+    "planning_windows": [
+      [
+        420,
+        1440
+      ]
+    ],
+    "source": "https://baliforum.ru/places/tarragon-georgian-restaurant-and-lounge-bar",
+    "checked": "2026-10-09",
+    "hours_status": "unverified_planning_window_is_estimate",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r21": {
+    "id": "r21",
+    "name": "SODA CAFE",
+    "hours_label": "07:00–22:00 ежедневно",
+    "planning_windows": [
+      [
+        420,
+        1320
+      ]
+    ],
+    "source": "https://linktr.ee/Soda_cafe",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r22": {
+    "id": "r22",
+    "name": "Солтвуд Бингин",
+    "hours_label": "С 06:00 до позднего вечера; время закрытия не уточнено",
+    "planning_windows": [
+      [
+        360,
+        1320
+      ]
+    ],
+    "source": "https://saltwoodbingin.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_open_closing_provisional",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r23": {
+    "id": "r23",
+    "name": "My Place cafe beach",
+    "hours_label": "07:00–23:00 в справочнике; профиль владельца: Bukit 24/7",
+    "planning_windows": [
+      [
+        420,
+        1380
+      ]
+    ],
+    "source": "https://lokasibali.com/lokasi/my-place-cafe-beach",
+    "checked": "2026-10-09",
+    "hours_status": "published_directory_official_conflict",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r25": {
+    "id": "r25",
+    "name": "Akar Ubud by K Club",
+    "hours_label": "Текущие часы и last order ещё не подтверждены",
+    "planning_windows": [
+      [
+        420,
+        1440
+      ]
+    ],
+    "source": "https://www.google.com/maps/search/?api=1&query=Akar%20Ubud%20by%20K%20Club%20Bali",
+    "checked": "2026-10-09",
+    "hours_status": "unverified_planning_window_is_estimate",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r26": {
+    "id": "r26",
+    "name": "FLOCK Bali",
+    "hours_label": "07:00–22:00 ежедневно; на странице контактов есть старое 09:00–18:00",
+    "planning_windows": [
+      [
+        420,
+        1320
+      ]
+    ],
+    "source": "https://flockbali.com/flock-menu/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current_contact_conflict",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r27": {
+    "id": "r27",
+    "name": "Milk & Madu Ubud",
+    "hours_label": "07:00–22:00 ежедневно · Ubud",
+    "planning_windows": [
+      [
+        420,
+        1320
+      ]
+    ],
+    "source": "https://milkandmadu.com/location/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r29": {
+    "id": "r29",
+    "name": "Ramu Kitchen",
+    "hours_label": "15:00–23:00 по меню; сайт отеля 07:00–22:00 — используем пересечение 15:00–22:00",
+    "planning_windows": [
+      [
+        900,
+        1320
+      ]
+    ],
+    "source": "https://www.ramukitchen.com/menu",
+    "checked": "2026-10-09",
+    "hours_status": "official_conflicting_use_overlap",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r30": {
+    "id": "r30",
+    "name": "Zest",
+    "hours_label": "08:00–22:00 ежедневно",
+    "planning_windows": [
+      [
+        480,
+        1320
+      ]
+    ],
+    "source": "https://www.zestubud.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r31": {
+    "id": "r31",
+    "name": "SkaZka Bali",
+    "hours_label": "07:00–22:00 ежедневно",
+    "planning_windows": [
+      [
+        420,
+        1320
+      ]
+    ],
+    "source": "https://skazkabali.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r32": {
+    "id": "r32",
+    "name": "Nyom Nyom Coffee",
+    "hours_label": "07:00–22:00 ежедневно",
+    "planning_windows": [
+      [
+        420,
+        1320
+      ]
+    ],
+    "source": "https://nyomnyomcoffee.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r33": {
+    "id": "r33",
+    "name": "Monsieur Spoon Canggu",
+    "hours_label": "07:00–21:00 ежедневно · Canggu",
+    "planning_windows": [
+      [
+        420,
+        1260
+      ]
+    ],
+    "source": "https://www.monsieurspoon.com/contact-2/",
+    "checked": "2026-10-09",
+    "hours_status": "official_published_page_contains_legacy_covid_section",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r34": {
+    "id": "r34",
+    "name": "TWO FACE Canggu",
+    "hours_label": "07:30–15:30 ежедневно · Canggu",
+    "planning_windows": [
+      [
+        450,
+        930
+      ]
+    ],
+    "source": "https://www.twofacebali.com/two-face-canggu",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r35": {
+    "id": "r35",
+    "name": "Фабрика авокадо",
+    "hours_label": "07:00–23:00 ежедневно; последний заказ 22:30",
+    "planning_windows": [
+      [
+        420,
+        1380
+      ]
+    ],
+    "source": "https://theavocadofactory.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": "22:30",
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r36": {
+    "id": "r36",
+    "name": "WOODS PERERENAN",
+    "hours_label": "08:00–23:00; кухня 08:00–17:00 и 18:00–22:30; напитки в перерыве доступны",
+    "planning_windows": [
+      [
+        480,
+        1380
+      ]
+    ],
+    "source": "https://woodsbali.com/about/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r38": {
+    "id": "r38",
+    "name": "LOVA CAFE",
+    "hours_label": "Текущие часы и last order ещё не подтверждены",
+    "planning_windows": [
+      [
+        420,
+        1440
+      ]
+    ],
+    "source": "https://baliforum.ru/places/lova-cafe",
+    "checked": "2026-10-09",
+    "hours_status": "unverified_planning_window_is_estimate",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r39": {
+    "id": "r39",
+    "name": "BELLA. Canggu",
+    "hours_label": "С 18:00 до позднего вечера; на другой странице сайта с 17:00",
+    "planning_windows": [
+      [
+        1080,
+        1440
+      ]
+    ],
+    "source": "https://bellacanggu.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_conflicting_opening_use_18",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r41": {
+    "id": "r41",
+    "name": "Neighbourhood Food",
+    "hours_label": "Brunch 07:00–18:00 ежедневно; вечернее меню только пт–вс",
+    "planning_windows": [
+      [
+        420,
+        1080
+      ]
+    ],
+    "source": "https://www.neighbourhoodfood.co/menu-1",
+    "checked": "2026-10-09",
+    "hours_status": "official_current_day_dependent",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r42": {
+    "id": "r42",
+    "name": "Копенгаген",
+    "hours_label": "06:00–18:00; меню весь день · Canggu",
+    "planning_windows": [
+      [
+        360,
+        1080
+      ]
+    ],
+    "source": "https://cphbali.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r43": {
+    "id": "r43",
+    "name": "Margaret Bistro",
+    "hours_label": "Текущие часы и last order ещё не подтверждены",
+    "planning_windows": [
+      [
+        420,
+        1440
+      ]
+    ],
+    "source": "https://margaretbistro.com/location",
+    "checked": "2026-10-09",
+    "hours_status": "unverified_planning_window_is_estimate",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r47": {
+    "id": "r47",
+    "name": "AVLI Uluwatu - Modern Greek",
+    "hours_label": "Ежедневно с 17:00 до позднего вечера; закрытие и last order уточнить",
+    "planning_windows": [
+      [
+        1020,
+        1380
+      ]
+    ],
+    "source": "https://avlibali.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_open_closing_provisional",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r48": {
+    "id": "r48",
+    "name": "Alma Tapas Bar - Uluwatu",
+    "hours_label": "Завтрак 07:00–12:00; tapas 15:00–23:00 · Uluwatu",
+    "planning_windows": [
+      [
+        420,
+        720
+      ],
+      [
+        900,
+        1380
+      ]
+    ],
+    "source": "https://almatapasbar.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r58": {
+    "id": "r58",
+    "name": "Sundays Beach Club",
+    "hours_label": "07:30–22:00 ежедневно; нужен платный вход beach pass",
+    "planning_windows": [
+      [
+        450,
+        1320
+      ]
+    ],
+    "source": "https://www.sundaysbeachclub.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Заложен полноценный ужин и платный вход. Подъёмник, парковку и условия beach pass подтвердить; VIP не требуется автоматически.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r61": {
+    "id": "r61",
+    "name": "The Community",
+    "hours_label": "09:00–22:00, понедельник выходной по Балифоруму; другие справочники 09:00–02:00 ежедневно",
+    "planning_windows": [
+      [
+        540,
+        1320
+      ]
+    ],
+    "source": "https://baliforum.ru/p/est-li-restorany-russkoy-kuhni-na-bali",
+    "checked": "2026-10-09",
+    "hours_status": "published_conflicting_use_non_monday",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false,
+    "closed_days_provisional": [
+      0
+    ]
+  },
+  "r63": {
+    "id": "r63",
+    "name": "HEDONIST SPACE restaurant | lounge | bar",
+    "hours_label": "08:00–01:00 вс–чт; 08:00–02:00 пт–сб",
+    "planning_windows": [
+      [
+        480,
+        1500
+      ]
+    ],
+    "source": "https://hedonist-space.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r64": {
+    "id": "r64",
+    "name": "Eden Lounge Uluwatu — Restaurant with live music and Co-working space",
+    "hours_label": "11:00–03:00 ежедневно · Uluwatu",
+    "planning_windows": [
+      [
+        660,
+        1620
+      ]
+    ],
+    "source": "https://edenhookah.com/faq",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r65": {
+    "id": "r65",
+    "name": "NOURISH CAFE WHOLEFOODS PIZZERIA & BAKERY - UNGASAN",
+    "hours_label": "Текущие часы и last order ещё не подтверждены",
+    "planning_windows": [
+      [
+        420,
+        1440
+      ]
+    ],
+    "source": "https://linktr.ee/nourishbali",
+    "checked": "2026-10-09",
+    "hours_status": "unverified_planning_window_is_estimate",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r68": {
+    "id": "r68",
+    "name": "Made’s Bakery Cafe Playground",
+    "hours_label": "08:00–22:00 по справочнику; кухня и last order уточняются",
+    "planning_windows": [
+      [
+        480,
+        1320
+      ]
+    ],
+    "source": "https://restaurantguru.com/Mades-Bakery-South-Kuta",
+    "checked": "2026-10-09",
+    "hours_status": "published_directory_not_live_reverified",
+    "last_order": null,
+    "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "checked_date": "2026-10-08",
+  "timezone": "Asia/Makassar",
+  "utc_offset": "+08:00",
+  "arrival": {
+    "date": "2026-10-10",
+    "time": "23:55",
+    "airport": "DPS",
+    "flight": "MU5029",
+    "verified_against_receipt": true
+  },
+  "departure": {
+    "date": "2026-10-23",
+    "time": "00:30",
+    "airport": "DPS",
+    "flight": "MU890",
+    "verified_against_receipt": true
+  },
+  "airport_target": {
+    "date": "2026-10-22",
+    "time": "21:30",
+    "receipt_recommends_hours_before_departure": 3
+  },
+  "hotel": {
+    "name": "Nunamkhalu Private Villas & Spa",
+    "checkin_date": "2026-10-10",
+    "checkout_date": "2026-10-22",
+    "dates_verified_against_receipt": true,
+    "standard_checkout": "12:00",
+    "checkout_source": "https://www.booking.com/hotel/id/nusa-dua-retreat-boutique-villas.html",
+    "checkout_status": "published_property_policy_not_individual_booking_confirmation",
+    "late_arrival": "Нужно согласовать сохранение брони от 10.10 при прибытии после полуночи 11.10",
+    "late_checkout_confirmed": false,
+    "luggage_storage_confirmed": false,
+    "shower_after_checkout_confirmed": false
+  },
+  "transport": {
+    "mainland": "Один арендованный байк, два человека; получение и возврат у виллы",
+    "airport_transfers": "Отдельный автомобиль с багажом"
+  },
+  "documents": {
+    "flight_receipt_pages_read": 10,
+    "hotel_receipt_pages_read": 1,
+    "material_discrepancies": []
+  },
+  "privacy": "Имена пассажиров, номера билетов, бронирований и платежи не включены"
+}

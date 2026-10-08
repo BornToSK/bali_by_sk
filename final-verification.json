@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-09",
+  "attractions": 29,
+  "food_list_points": 72,
+  "no_repeated_onsite_food_visits": true,
+  "main_meals": 36,
+  "packed_meals": 7,
+  "coffee_snack_stops": 43,
+  "pdf": {
+    "pdf_pages": 70,
+    "all_pages_rendered": true,
+    "all_24_QR_match_exact_first_and_last_legs": true,
+    "text_inside_page_bounds": true,
+    "visual_review_pending": false,
+    "changed_pages": [
+      12,
+      13
+    ],
+    "all_pages_visually_reviewed": true,
+    "visual_review_method": "All 70 rendered pages inspected; changed pages 12 and 13 inspected again"
+  },
+  "mobile_and_exchange_test": {
+    "stats": {
+      "attractions": 29,
+      "restaurants": 72,
+      "onsite": 72
+    },
+    "mobile12Days": true,
+    "swapPreserves72": true,
+    "lockedBookingRejectedAtomically": true,
+    "persistenceAndReset": true
+  },
+  "localhost_HTTP_checks_passed": true,
+  "night_navigation_includes_Bedugul": true,
+  "limitations": [
+    "Echo Beach food service unconfirmed",
+    "13 restaurant opening windows estimated",
+    "Entrance, parking and walking routes not fully confirmed",
+    "Car OSRM profile; scooter permissions not fully verified",
+    "Reservations, boxes, boats and hotel post-checkout access unconfirmed",
+    "No certified full-coverage rain or major-delay fallback",
+    "Source lists: 6 October snapshot plus user changes, not fully resynced live"
+  ]
+}
