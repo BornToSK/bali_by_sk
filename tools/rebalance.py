@@ -28,26 +28,26 @@ def clock(t): return f'{t//60:02}:{t%60:02}'
 def food(id, kind='coffee'): return (id,kind)
 # Geographic blocks, with all 70 restaurants visited once. Dolphin watching is optional.
 plans = {
-2:[food('r22','breakfast'),food('r53'),'v23',food('r44','lunch'),food('r65'),'v26','v25',food('r47'),food('r72','dinner')],
+2:[food('r22','breakfast'),food('r53'),'v23',food('r44','lunch'),food('r68'),food('r65'),food('r64'),'v24',food('r71'),food('r47'),food('r72','dinner')],
 3:[food('r66','breakfast'),'v13','v12',food('r13','lunch'),food('r05'),food('r25'),food('r69'),'v16',food('r31','dinner'),food('r12')],
 4:[food('r24','breakfast'),'v09','v01',food('r29','lunch'),food('r26'),food('r28'),food('r27'),food('r30','dinner')],
 5:['v10','v11',food('r09','lunch'),food('r10'),food('r11'),food('r06'),food('r03'),food('r08'),food('r04','dinner')],
 6:[food('r57','breakfast'),food('r56'),'v14','v15','v02',food('r19'),food('r50','dinner')],
 7:['v07','v05','v06','v04',food('r01','lunch'),food('r18','dinner'),food('r43')],
 8:['v17','v21','v03',food('r70','lunch'),'v20',food('r15'),food('r14','dinner'),food('r51')],
-9:[food('r48','breakfast'),'v27','v29','v28',food('r68'),food('r62','lunch'),food('r63'),food('r64'),food('r21'),food('r46'),'v24',food('r71'),food('r20','dinner')],
+9:[food('r48','breakfast'),'v27','v29','v28',food('r62','lunch'),'v26','v25',food('r63'),food('r21'),food('r46'),food('r20','dinner')],
 10:[food('r61','breakfast'),food('r42'),food('r33'),food('r34'),food('r41','lunch'),'v22',food('r37'),food('r07'),food('r16'),food('r39','dinner')],
 11:['v18','v19',food('r02','lunch'),food('r36'),food('r17'),food('r35','dinner'),food('r32'),food('r38'),food('r40')],
 12:[food('r59','breakfast'),'checkout',food('r23'),food('r55'),food('r67','lunch'),food('r60'),food('r54'),food('r49','dinner'),food('r45'),'baggage'],
 }
-titles={2:'SAKA, пляжи Букита и ужин Koral',3:'Водопады и Тегаллаланг',
+titles={2:'SAKA, закат и ужин Koral без пляжей',3:'Водопады и Тегаллаланг',
 4:'Sanur, Marine Safari и Убуд',5:'Бесаких и Кинтамани',6:'Восточные пляжи',7:'Пенида и ужин в Бераве',
-8:'Озёра и северный храм без ночного выезда',9:'Нуса-Дуа и вкусы Букита',10:'Чангу и Nuanu без дальнего выезда',
+8:'Озёра и северный храм без ночного выезда',9:'Пляжи Нуса-Дуа, Пандава и Melasti',10:'Чангу и Nuanu без дальнего выезда',
 11:'Террасы, водопад и кафе по дороге домой',12:'Юг, багаж и аэропорт'}
-starts={2:'07:30',3:'06:45',4:'06:45',5:'07:15',6:'07:00',7:'05:40',8:'06:30',9:'07:00',10:'08:30',11:'07:00',12:'08:15'}
-why={2:'Первый день маршрута: SAKA, Пандава и Melasti в одном южном круге. Jaran Hill и Single Fin перенесены на 19 октября; Koral сохранён.',
+starts={2:'07:15',3:'06:45',4:'06:45',5:'07:15',6:'07:00',7:'05:40',8:'06:30',9:'07:00',10:'08:30',11:'07:00',12:'08:15'}
+why={2:'12 октября без посещения пляжей: музей SAKA, местные заведения, смотровая Jaran Hill и ужин Koral. Пандава и Melasti перенесены на 19 октября.',
 8:'Brahmavihara-Arama объединён с озёрами в один дневной северный круг. Дельфины не обязательны. Это самый дальний день; рекомендуется машина с водителем.',
-9:'Нет дневного сна ради ночной дороги. Утром пляжи, затем местные заведения и обычный вечер на вилле.',
+9:'Пандава и Melasti перенесены с 12 октября в южный пляжный круг. Made’s Bakery, Eden Lounge, Jaran Hill и Single Fin перенесены на 12-е, чтобы освободить время для пляжей.',
 10:'Кафе Чангу из дня вылета и вечеров других дней объединены с Nuanu; ночной Lovina убран из основного плана.',
 11:'Nuanu перенесён на 20 октября. После террас нет цепочки поздних баров; кафе расположены на обратном пути.',
 12:'Нет поездки в Чангу: все заведения на юге, багаж и возврат байка у виллы, затем отдельный автомобиль в DPS.'}
@@ -166,7 +166,7 @@ def build(n):
             if id=='v20':duration=60
             if id=='v21':duration=60
             if id=='v17':duration=60
-            if n in (2,6) and id in ('v25','v26','v14','v15','v02'):duration=60
+            if n in (2,6,9) and id in ('v25','v26','v14','v15','v02'):duration=60
             if id=='v24':wait(minutes('16:30'))
             row('visit',p['name'],duration,place_id=id,number=num,place_url=p['place_url'],note=r['note'])
             row('buffer','Парковка, вода и короткий перерыв',10,note='Пеший подход включён в посещение.')

@@ -18,6 +18,9 @@ assert len(onsite)==70 and {m['restaurant_id'] for m in onsite}==food_ids
 assert len(data['coverage'])==29 and len(data['optional_visits'])==1
 assert len([s for d in data['days'] for s in d['stops']])==28
 assert all('v30' not in [s['id'] for s in d['route_stops']] for d in data['days'])
+beach_ids={p['id'] for p in reg['places'] if 'пляж' in p.get('type','').lower()}
+assert not beach_ids.intersection(s['id'] for s in data['days'][0]['stops'])
+assert {s['id'] for s in next(d for d in data['days'] if d['date']=='2026-10-19')['stops']} >= {'v25','v26'}
 for d in data['days']:
     rows=d['timeline']; assert all(a['end']==b['start'] for a,b in zip(rows,rows[1:]))
     expected={m['restaurant_id'] for m in d['meals'] if m['meal_mode']=='onsite'}
@@ -38,7 +41,7 @@ missing=[p['name'] for p in reg['places'] if 'meal' in p['roles'] and p['name'].
 assert not missing,missing
 assert len(reader.pages)>30
 result=dict(date='2026-10-12',food_list_points=70,scheduled_attractions=28,optional_attractions=1,
-    trip_start="2026-10-12",trip_end="2026-10-22",day_count=11,day_11_removed=True,all_food_stops_have_day_map_markers=True,
+    trip_start="2026-10-12",trip_end="2026-10-22",day_count=11,day_11_removed=True,october_12_has_no_beach_visits=True,pandawa_and_melasti_date="2026-10-19",all_food_stops_have_day_map_markers=True,
     no_repeated_current_food_visits=True,max_future_food_stops=9,night_dolphin_trip_removed=True,
     departure_day_canggu_removed=True,airport_plan=last['return_time'],minimum_sleep_hours=7,
     route_continuity_and_boat_windows_checked=True,pdf=dict(pages=len(reader.pages),all_current_restaurant_names_present=True,

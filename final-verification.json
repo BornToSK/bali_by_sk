@@ -7,6 +7,8 @@
   "trip_end": "2026-10-22",
   "day_count": 11,
   "day_11_removed": true,
+  "october_12_has_no_beach_visits": true,
+  "pandawa_and_melasti_date": "2026-10-19",
   "all_food_stops_have_day_map_markers": true,
   "no_repeated_current_food_visits": true,
   "max_future_food_stops": 9,
