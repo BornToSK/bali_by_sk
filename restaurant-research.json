@@ -143,24 +143,6 @@
     "booking_required": false,
     "current_availability_confirmed": false
   },
-  "r52": {
-    "id": "r52",
-    "name": "Gooseberry French Restaurant | Uluwatu",
-    "hours_label": "08:00–22:30 ежедневно",
-    "planning_windows": [
-      [
-        480,
-        1350
-      ]
-    ],
-    "source": "https://www.gooseberry-restaurant.com/",
-    "checked": "2026-10-08",
-    "hours_status": "official_current",
-    "last_order": null,
-    "booking_note": "Бронирование рекомендуется; отдельное время последнего заказа не опубликовано.",
-    "booking_required": false,
-    "current_availability_confirmed": false
-  },
   "r54": {
     "id": "r54",
     "name": "SUKA ULUWATU",
@@ -1199,24 +1181,6 @@
     "hours_status": "official_current",
     "last_order": null,
     "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
-    "booking_required": false,
-    "current_availability_confirmed": false
-  },
-  "r58": {
-    "id": "r58",
-    "name": "Sundays Beach Club",
-    "hours_label": "07:30–22:00 ежедневно; нужен платный вход beach pass",
-    "planning_windows": [
-      [
-        450,
-        1320
-      ]
-    ],
-    "source": "https://www.sundaysbeachclub.com/",
-    "checked": "2026-10-09",
-    "hours_status": "official_current",
-    "last_order": null,
-    "booking_note": "Заложен полноценный ужин и платный вход. Подъёмник, парковку и условия beach pass подтвердить; VIP не требуется автоматически.",
     "booking_required": false,
     "current_availability_confirmed": false
   },

@@ -1,0 +1,33 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><title>Экспорт актуальных карт</title>
+<link rel="stylesheet" href="../vendor/maplibre-gl.css"><script src="../vendor/maplibre-gl.js"></script>
+<style>body{margin:0;font:16px Arial;background:#f5f2e9}header{padding:12px}#map{width:1500px;height:1100px}button{padding:12px}</style>
+<header><strong id="title">Загрузка</strong> <span id="status">Карта загружается</span> <button id="download" disabled>Скачать карту PNG</button></header><div id="map"></div>
+<script>
+(async()=>{
+const data=await(await fetch('../itinerary.json')).json(),n=new URLSearchParams(location.search).get('day')||'overview';
+const days=n==='overview'?data.days:[data.days[Number(n)-1]],title=n==='overview'?'Бали · актуальные дорожные цепочки':`${days[0].date} · ${days[0].title}`;
+document.getElementById('title').textContent=title;
+const map=new maplibregl.Map({container:'map',style:'https://tiles.openfreemap.org/styles/liberty',attributionControl:false,preserveDrawingBuffer:true,fadeDuration:0});
+map.on('load',()=>{
+const features=days.flatMap(d=>d.legs.map(l=>({type:'Feature',properties:{back:l.returning},geometry:l.geometry}))),line={type:'FeatureCollection',features};
+map.addSource('roads',{type:'geojson',data:line});map.addLayer({id:'road-border',type:'line',source:'roads',paint:{'line-color':'#fff','line-width':7}});
+map.addLayer({id:'road',type:'line',source:'roads',paint:{'line-color':['case',['get','back'],'#bd744e','#235749'],'line-width':4}});
+let stops=days.flatMap(d=>d.route_stops);if(n==='overview')stops=[...new Map(stops.map(s=>[s.id,s])).values()];
+stops=[data.hotel,...(n==='7'?data.logistics_points.filter(p=>p.role==='port'):[]),...stops,...(n==='12'?data.logistics_points.filter(p=>p.role==='airport'):[])];
+const pins={type:'FeatureCollection',features:stops.map(p=>({type:'Feature',geometry:{type:'Point',coordinates:[p.lon,p.lat]},properties:{label:n==='overview'?p.name:`${p.number||'База'}. ${p.name}`,number:String(p.number||'Б'),food:p.role==='meal'}}))};
+map.addSource('pins',{type:'geojson',data:pins});map.addLayer({id:'dots',type:'circle',source:'pins',paint:{'circle-radius':12,'circle-color':['case',['get','food'],'#c47850','#235749'],'circle-stroke-color':'#fff','circle-stroke-width':2}});
+map.addLayer({id:'numbers',type:'symbol',source:'pins',layout:{'text-field':['get','number'],'text-font':['Noto Sans Regular'],'text-size':12,'text-allow-overlap':true},paint:{'text-color':'white'}});
+map.addLayer({id:'names',type:'symbol',source:'pins',layout:{'text-field':['get','label'],'text-font':['Noto Sans Regular'],'text-size':14,'text-variable-anchor':['bottom','top','left','right'],'text-radial-offset':1.3,'text-max-width':15},paint:{'text-color':'#173f37','text-halo-color':'white','text-halo-width':2}});
+const coords=[...features.flatMap(f=>f.geometry.coordinates),...stops.map(s=>[s.lon,s.lat])],bounds=coords.reduce((b,p)=>b.extend(p),new maplibregl.LngLatBounds(coords[0],coords[0]));
+map.fitBounds(bounds,{padding:100,duration:0,maxZoom:13});
+map.once('idle',()=>{document.getElementById('status').textContent='Готово';document.getElementById('download').disabled=false;});
+});
+map.on('error',e=>{document.getElementById('status').textContent='Ошибка карты: '+e.error.message;});
+document.getElementById('download').onclick=()=>{
+const source=map.getCanvas(),canvas=document.createElement('canvas');canvas.width=source.width;canvas.height=source.height+120;const c=canvas.getContext('2d');
+c.fillStyle='#f5f2e9';c.fillRect(0,0,canvas.width,canvas.height);c.drawImage(source,0,65);c.fillStyle='#173f37';c.font='bold 26px Arial';c.fillText(title,25,42);c.font='17px Arial';
+c.fillText('OpenFreeMap / OpenMapTiles / © OpenStreetMap contributors · OSRM · 12.10.2026',25,canvas.height-18);
+canvas.toBlob(blob=>{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=n==='overview'?'overview.png':`day-${String(n).padStart(2,'0')}.png`;a.click();URL.revokeObjectURL(a.href);});
+};
+})();
+</script></html>
