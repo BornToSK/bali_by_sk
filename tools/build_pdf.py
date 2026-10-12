@@ -14,8 +14,8 @@ data=json.loads((root/'itinerary.json').read_text('utf-8'))
 font='C:/Windows/Fonts/arial.ttf';bold='C:/Windows/Fonts/arialbd.ttf'
 pdfmetrics.registerFont(TTFont('Bali',font));pdfmetrics.registerFont(TTFont('BaliBold',bold))
 # Browser screenshots are JPEG bytes; convert into true PNGs, with a clean heading
-# and visible map attribution. Day 1 remains the original historical map.
-for n in [*range(2,13),'overview']:
+# and visible map attribution. All maps follow the current 12-22 October calendar.
+for n in [*(d['number'] for d in data['days']),'overview']:
     path=root/'maps'/('overview.png' if n=='overview' else f'day-{n:02}.png')
     image=PILImage.open(path)
     if image.format!='JPEG':continue
@@ -37,13 +37,12 @@ def img(path,width=499):
     im=PILImage.open(path);return Image(str(path),width=width,height=width*im.height/im.width)
 def footer(c,doc):
     c.setStrokeColor(colors.HexColor('#d6d9cc'));c.line(48,39,547,39);c.setFont('Bali',8);c.setFillColor(colors.HexColor('#173f37'));c.drawString(48,26,'Бали вдвоём - обновлено 12.10.2026 - время Бали, UTC+8');c.drawRightString(547,26,str(doc.page))
-story=[p('Бали вдвоём','BaliTitle'),p('Ваш маршрут на 11-22 октября 2026','BaliH'),img(root/'assets/coast.png'),Spacer(1,18),p('Одна база: Nunamkhalu Private Villas & Spa. 11 октября сохранено, 12-22 октября перераспределены.'),p('70 точек еды на картах дней. 28 достопримечательностей в основном плане; Lovina Dolphin Watching - необязательный вариант, решение не принято.'),p('Основной план без ночного выезда к дельфинам. Время в пути оценочное; катера, столы и услуги виллы ещё нужно подтвердить.'),PageBreak(),p('Поездка в одном взгляде','BaliTitle'),img(root/'maps/overview.png'),Spacer(1,12)]
+story=[p('Бали вдвоём','BaliTitle'),p('Ваш маршрут на 12-22 октября 2026','BaliH'),img(root/'assets/coast.png'),Spacer(1,18),p('Одна база: Nunamkhalu Private Villas & Spa. Маршрут начинается 12 октября. Все 70 точек еды распределены по 11 дням.'),p('70 точек еды на картах дней. 28 достопримечательностей в основном плане; Lovina Dolphin Watching - необязательный вариант, решение не принято.'),p('Основной план без ночного выезда к дельфинам. Время в пути оценочное; катера, столы и услуги виллы ещё нужно подтвердить.'),PageBreak(),p('Поездка в одном взгляде','BaliTitle'),img(root/'maps/overview.png'),Spacer(1,12)]
 overview=[[p('Дата','BaliSmall'),p('Маршрут','BaliSmall'),p('Выезд / финиш','BaliSmall')]]
 for d in data['days']:overview.append([p(d['date'][5:],'BaliSmall'),p(d['title'],'BaliSmall'),p(d['depart']+' / '+d['return_time'],'BaliSmall')])
 table=Table(overview,colWidths=[65,315,119],repeatRows=1);table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e6eadf')),('VALIGN',(0,0),(-1,-1),'TOP'),('BOTTOMPADDING',(0,0),(-1,-1),7)]));story.extend([table,PageBreak()])
 for d in data['days']:
     story.extend([p(f"{d['date']} - день {d['number']}",'BaliH'),p(d['title'],'BaliTitle'),p(f"Выезд {d['depart']} - {'аэропорт' if d['last'] else 'возвращение'} {d['return_time']} - {d['distance_km_known']} км - {d['road_minutes']//60} ч {d['road_minutes']%60} мин в дороге"),img(root/'maps'/f"day-{d['number']:02}.png"),Spacer(1,10),p(d['why'])])
-    if d.get('historical'):story.append(p('План 11 октября сохранён без перераспределения. Sundays остаётся здесь как историческая остановка, но отсутствует в текущем каталоге из 70 заведений.'))
     story.extend([p(d['risk'],'BaliSmall'),link('Первый переезд - открыть Google Maps',d['legs'][0]['navigation_url']),link('Последний переезд - открыть Google Maps',d['legs'][-1]['navigation_url']),PageBreak(),p(f"{d['date']} - расписание",'BaliTitle')])
     rows=[[p('Время','BaliSmall'),p('Действие','BaliSmall')]]
     for r in d['timeline']:
@@ -64,7 +63,7 @@ table=Table(rows,colWidths=[414,85],repeatRows=1);table.setStyle(TableStyle([('V
 for c in data['coverage']:story.append(p(c['name']+' - '+(c['planned_date'] or 'по желанию; решение не принято')))
 story.extend([PageBreak(),p('Что согласовать','BaliTitle')])
 for s in data['limitations']:story.append(p(s))
-story.extend([p('Боксы','BaliH'),p('Zest 14 октября: завтрак 15-го. YUKI 16 октября: завтрак 17-го. Выдачу, упаковку, охлаждение и хранение согласовать.'),p('Вылет','BaliH'),p('22 октября checkout до 12:00; хранение багажа и душ подтвердить. План DPS 19:55, обязательная цель не позднее 21:30. Вылет 23 октября 00:30.'),p('Источники','BaliH')])
+story.extend([p('Боксы','BaliH'),p('Zest 14 октября: завтрак 15-го. YUKI 16 октября: завтрак 17-го. Выдачу, упаковку, охлаждение и хранение согласовать.'),p('Вылет','BaliH'),p('22 октября checkout до 12:00; хранение багажа и душ подтвердить. План DPS 20:40, обязательная цель не позднее 21:30. Вылет 23 октября 00:30.'),p('Источники','BaliH')])
 for s in data['sources']:story.append(link(s['name']+' - '+s.get('checked',''),s['url']))
 SimpleDocTemplate(str(root/'guide.pdf'),pagesize=A4,leftMargin=48,rightMargin=48,topMargin=45,bottomMargin=52,title='Бали вдвоём - маршрут из 70 заведений',author='Bali by SK').build(story,onFirstPage=footer,onLaterPages=footer)
 print('PDF and updated static maps generated',flush=True)

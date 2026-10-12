@@ -17,9 +17,9 @@
   },
   "meal_capacity": {
     "restaurant_count": 70,
-    "main_meals": 35,
-    "onsite_full_meals": 31,
-    "coffee_snack_stops": 40,
+    "main_meals": 32,
+    "onsite_full_meals": 28,
+    "coffee_snack_stops": 42,
     "packed_meals": 2,
     "note": "Завтраки на вилле и обед на восточном побережье отдельно. Echo Beach: еда не подтверждена."
   },
@@ -1290,7 +1290,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-12",
+      "assigned_date": "2026-10-19",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1342,7 +1342,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-11",
+      "assigned_date": "2026-10-12",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1394,7 +1394,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-11",
+      "assigned_date": "2026-10-12",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3318,7 +3318,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-11",
+      "assigned_date": "2026-10-22",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5110,7 +5110,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-12",
+      "assigned_date": "2026-10-19",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5489,7 +5489,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-19",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6144,7 +6144,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-11",
+      "assigned_date": "2026-10-20",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6468,7 +6468,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-19",
+      "assigned_date": "2026-10-12",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6732,7 +6732,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-11",
+      "assigned_date": "2026-10-19",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6987,7 +6987,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-12",
+      "assigned_date": "2026-10-19",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",

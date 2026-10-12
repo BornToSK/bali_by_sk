@@ -28,25 +28,24 @@ def clock(t): return f'{t//60:02}:{t%60:02}'
 def food(id, kind='coffee'): return (id,kind)
 # Geographic blocks, with all 70 restaurants visited once. Dolphin watching is optional.
 plans = {
-1:[food('r68','breakfast'),food('r23'),'v26',food('r61','lunch'),'v25',food('r58','dinner')],
-2:[food('r22','breakfast'),food('r53'),'v23',food('r44','lunch'),food('r46'),'v24',food('r71'),food('r47'),food('r72','dinner')],
+2:[food('r22','breakfast'),food('r53'),'v23',food('r44','lunch'),food('r65'),'v26','v25',food('r47'),food('r72','dinner')],
 3:[food('r66','breakfast'),'v13','v12',food('r13','lunch'),food('r05'),food('r25'),food('r69'),'v16',food('r31','dinner'),food('r12')],
 4:[food('r24','breakfast'),'v09','v01',food('r29','lunch'),food('r26'),food('r28'),food('r27'),food('r30','dinner')],
 5:['v10','v11',food('r09','lunch'),food('r10'),food('r11'),food('r06'),food('r03'),food('r08'),food('r04','dinner')],
 6:[food('r57','breakfast'),food('r56'),'v14','v15','v02',food('r19'),food('r50','dinner')],
 7:['v07','v05','v06','v04',food('r01','lunch'),food('r18','dinner'),food('r43')],
-8:['v17','v21','v03',food('r70','lunch'),'v20',food('r15'),food('r14','dinner')],
-9:[food('r48','breakfast'),'v27','v29','v28',food('r62','lunch'),food('r63'),food('r64'),food('r65'),food('r21'),food('r20','dinner'),food('r51')],
-10:[food('r42','breakfast'),food('r33'),food('r34'),food('r41','lunch'),'v22',food('r37'),food('r07'),food('r16'),food('r39','dinner')],
+8:['v17','v21','v03',food('r70','lunch'),'v20',food('r15'),food('r14','dinner'),food('r51')],
+9:[food('r48','breakfast'),'v27','v29','v28',food('r68'),food('r62','lunch'),food('r63'),food('r64'),food('r21'),food('r46'),'v24',food('r71'),food('r20','dinner')],
+10:[food('r61','breakfast'),food('r42'),food('r33'),food('r34'),food('r41','lunch'),'v22',food('r37'),food('r07'),food('r16'),food('r39','dinner')],
 11:['v18','v19',food('r02','lunch'),food('r36'),food('r17'),food('r35','dinner'),food('r32'),food('r38'),food('r40')],
-12:[food('r59','breakfast'),'checkout',food('r55'),food('r67','lunch'),food('r60'),food('r54'),food('r49','dinner'),food('r45'),'baggage'],
+12:[food('r59','breakfast'),'checkout',food('r23'),food('r55'),food('r67','lunch'),food('r60'),food('r54'),food('r49','dinner'),food('r45'),'baggage'],
 }
-titles={1:'Первый океан и вкусы Букита',2:'SAKA, закат и ужин Koral',3:'Водопады и Тегаллаланг',
+titles={2:'SAKA, пляжи Букита и ужин Koral',3:'Водопады и Тегаллаланг',
 4:'Sanur, Marine Safari и Убуд',5:'Бесаких и Кинтамани',6:'Восточные пляжи',7:'Пенида и ужин в Бераве',
 8:'Озёра и северный храм без ночного выезда',9:'Нуса-Дуа и вкусы Букита',10:'Чангу и Nuanu без дальнего выезда',
 11:'Террасы, водопад и кафе по дороге домой',12:'Юг, багаж и аэропорт'}
-starts={1:'11:15',2:'07:30',3:'06:45',4:'06:45',5:'07:15',6:'07:00',7:'05:40',8:'06:30',9:'07:00',10:'08:15',11:'07:00',12:'08:15'}
-why={2:'Убраны три дополнительные остановки и отсутствующий в списке Gooseberry; Koral и закат сохранены.',
+starts={2:'07:30',3:'06:45',4:'06:45',5:'07:15',6:'07:00',7:'05:40',8:'06:30',9:'07:00',10:'08:30',11:'07:00',12:'08:15'}
+why={2:'Первый день маршрута: SAKA, Пандава и Melasti в одном южном круге. Jaran Hill и Single Fin перенесены на 19 октября; Koral сохранён.',
 8:'Brahmavihara-Arama объединён с озёрами в один дневной северный круг. Дельфины не обязательны. Это самый дальний день; рекомендуется машина с водителем.',
 9:'Нет дневного сна ради ночной дороги. Утром пляжи, затем местные заведения и обычный вечер на вилле.',
 10:'Кафе Чангу из дня вылета и вечеров других дней объединены с Nuanu; ночной Lovina убран из основного плана.',
@@ -105,10 +104,6 @@ with ThreadPoolExecutor(max_workers=4) as pool:
 save('road-cache.json',cache)
 
 def build(n):
-    if n==1:
-        d=copy.deepcopy(data['days'][0]);d['historical']=True
-        d['notes'].append('11 октября сохранено без перераспределения по просьбе пользователя; Sundays уже отсутствует в актуальном каталоге.')
-        return d
     d=copy.deepcopy(data['days'][n-1]); rows=[];legs=[];stops=[]; t=minutes(starts[n]);current='hotel';num=0
     def row(kind,title,duration,**kw):
         nonlocal t
@@ -159,7 +154,7 @@ def build(n):
             if not window:raise ValueError(f'{n} {id} arrival {clock(t)} outside hours {h["planning_windows"]}')
             wait(window[0]);p['meal_type']=kind
             label={'coffee':'Дегустация, десерт или небольшой перекус','breakfast':'Завтрак','lunch':'Обед','dinner':'Ужин'}[kind]
-            note='Небольшая порция: полноценный приём пищи в каждом из 70 заведений за 12 дней не предусмотрен.' if kind=='coffee' else 'Полноценный приём пищи; кухню, наличие стола и последний заказ подтвердить.'
+            note='Небольшая порция: полноценный приём пищи в каждом из 70 заведений за 11 дней не предусмотрен.' if kind=='coffee' else 'Полноценный приём пищи; кухню, наличие стола и последний заказ подтвердить.'
             if id=='r15':note='Точка списка сохранена на карте, но возможность заказа еды не подтверждена. Не считать выполненной целью по питанию до подтверждения.'
             row('meal',label+' · '+p['name'],duration,restaurant_id=id,place_id=id,place_url=p['place_url'],number=num,meal_type=kind,meal_mode='onsite',hours_label=h['hours_label'],hours_status=h['hours_status'],source_url=h['source'],checked=h['checked'],booking_required=h['booking_required'],booking_note=h['booking_note'],note=note)
         else:
@@ -171,6 +166,7 @@ def build(n):
             if id=='v20':duration=60
             if id=='v21':duration=60
             if id=='v17':duration=60
+            if n in (2,6) and id in ('v25','v26','v14','v15','v02'):duration=60
             if id=='v24':wait(minutes('16:30'))
             row('visit',p['name'],duration,place_id=id,number=num,place_url=p['place_url'],note=r['note'])
             row('buffer','Парковка, вода и короткий перерыв',10,note='Пеший подход включён в посещение.')
@@ -203,11 +199,12 @@ def build(n):
 
 days=[]
 for n in plans:
-    d=build(n);days.append(d)
+    d=build(n);days.append(d);d['number']=len(days)
     print('built',n,d['depart'],d['return_time'],d['road_minutes'],flush=True)
 for d in days:
     print('DAY',d['number'],d['depart'],d['return_time'],d['distance_km_known'],d['road_minutes'],len([m for m in d['meals'] if m['meal_mode']=='onsite']),flush=True)
 data['days']=days
+data['trip_start']='2026-10-12';data['trip_end']='2026-10-22';data['restaurant_selection']['meal_slots']=33
 data['created']='2026-10-12';data['status']='balanced_70_food_stops_dolphins_optional'
 data['optional_visits']=[dict(id='v30',name=points['v30']['name'],status='decision_pending',planned_date=None,place_url=points['v30']['place_url'],lat=points['v30']['lat'],lon=points['v30']['lon'],note='Дельфины не включены в основной маршрут. При решении ехать нужно заменить целый день, согласовать лодку и автомобиль с водителем, затем пересчитать питание и сон. Ночной байковый выезд не планируется.')]
 data['coverage']=[dict(id=p['id'],name=p['name'],planned_date=next((d['date'] for d in days if any(s['id']==p['id'] for s in d['stops'])),None),status='optional_decision_pending' if p['id']=='v30' else 'planned_access_provisional') for p in registry['places'] if 'visit' in p['roles']]
@@ -219,7 +216,7 @@ for p in foods:
 main=[m for d in days for m in d['meals'] if m['meal_type']!='coffee']
 data['restaurant_selection'].update(unique_onsite_restaurants=70,assigned_meals=len(main),packed_meals=sum(m['meal_mode']=='packed' for m in main),coffee_snack_visits=sum(m['meal_type']=='coffee' for d in days for m in d['meals']),note='70 заведений: основные приёмы пищи и короткие дегустации; завтраки на вилле и два бокса отдельно.',coverage_note='Все 70 текущих точек списка назначены и нанесены на карту; возможность еды в Echo Beach уточнить.')
 data['list_verification']='Два живых списка Google Maps сверены 12 октября 2026: 29 мест и 70 точек еды. Дельфины оставлены необязательным вариантом по сообщению пользователя.'
-data['limitations']=['70 заведений за 12 дней требуют небольших порций и коротких дегустаций; полноценная еда в каждом не обещана.','Lovina Dolphin Watching: решение не принято, в основной программе не назначено.','Северный круг 18 октября остаётся длинным; рекомендуется машина с водителем.','Часы части заведений оценочные, столы и last order не подтверждены.','Echo Beach Sunset Point: возможность заказа еды не подтверждена.','Подъезды, парковки и доступ для байка не полностью проверены; OSRM использует автомобильный профиль.','Катера, стол Koral, два бокса и услуги виллы после checkout согласовать.','PDF и статические карты содержат основной план; личные обмены браузера в них не попадают автоматически.']
+data['limitations']=['70 заведений за 11 дней требуют небольших порций и коротких дегустаций; полноценная еда в каждом не обещана.','Lovina Dolphin Watching: решение не принято, в основной программе не назначено.','Северный круг 18 октября остаётся длинным; рекомендуется машина с водителем.','Часы части заведений оценочные, столы и last order не подтверждены.','Echo Beach Sunset Point: возможность заказа еды не подтверждена.','Подъезды, парковки и доступ для байка не полностью проверены; OSRM использует автомобильный профиль.','Катера, стол Koral, два бокса и услуги виллы после checkout согласовать.','PDF и статические карты содержат основной план; личные обмены браузера в них не попадают автоматически.']
 data['sources']=[dict(name='Текущий список еды: 70 мест',url='https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7',checked='2026-10-12'),dict(name='Текущий список мест: 29, из них дельфины необязательны',url='https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA',checked='2026-10-12'),*data['sources'][2:]]
 registry['places']=[p for p in registry['places'] if p['id'] not in ('r52','r58')]
 registry['created_date']='2026-10-12';registry['source']='Два актуальных списка Google Maps сверены 12 октября 2026: 29 достопримечательностей и 70 точек еды.'
