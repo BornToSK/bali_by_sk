@@ -107,24 +107,6 @@
     "booking_required": false,
     "current_availability_confirmed": false
   },
-  "r44": {
-    "id": "r44",
-    "name": "Muaya Terrace, Jimbaran",
-    "hours_label": "07:00–22:00 по снимку 06.10",
-    "planning_windows": [
-      [
-        420,
-        1320
-      ]
-    ],
-    "source": "https://linktr.ee/muaya.terrace",
-    "checked": "2026-10-08",
-    "hours_status": "official_address_historical_hours",
-    "last_order": null,
-    "booking_note": "Официальный профиль: бронирование через Instagram. Часы кухни/last order подтвердить.",
-    "booking_required": false,
-    "current_availability_confirmed": false
-  },
   "r45": {
     "id": "r45",
     "name": "La Baracca Bali (Uluwatu)",
@@ -180,24 +162,6 @@
     "hours_status": "official_current",
     "last_order": null,
     "booking_note": "Завтрак платный; заранее согласовать стол для внешних гостей. Smart casual. Координата комплекса, подход к Boneka уточнить.",
-    "booking_required": false,
-    "current_availability_confirmed": false
-  },
-  "r60": {
-    "id": "r60",
-    "name": "Brook Nusa Dua - Restaurant",
-    "hours_label": "Часы конфликтуют: в источниках 08:00 и 14:00",
-    "planning_windows": [
-      [
-        840,
-        1320
-      ]
-    ],
-    "source": "https://brookbali.com/",
-    "checked": "2026-10-08",
-    "hours_status": "hours_conflict_not_verified",
-    "last_order": null,
-    "booking_note": "Оставлен альтернативой после 14:00. Часы и last order подтвердить, сайт не ответил.",
     "booking_required": false,
     "current_availability_confirmed": false
   },

@@ -1,4 +1,4 @@
-"""Rebuild the 70-stop itinerary, including road geometry and coverage.
+"""Rebuild the 68-stop itinerary, including road geometry and coverage.
 
 Run from the repository root. The checked-in initial commit is the baseline;
 cached roads are reused, new roads are fetched from OSRM without fabricated lines.
@@ -26,31 +26,22 @@ visits = {r['place_id']:r for d in data['days'] for r in d['timeline'] if r['kin
 def minutes(t): return int(t[:2])*60+int(t[3:5])
 def clock(t): return f'{t//60:02}:{t%60:02}'
 def food(id, kind='coffee'): return (id,kind)
-# Geographic blocks, with all 70 restaurants visited once. Dolphin watching is optional.
+# Geographic blocks, with all 68 restaurants visited once. All departures follow the hotel breakfast.
 plans = {
-2:[food('r22','breakfast'),food('r53'),'v23',food('r44','lunch'),food('r68'),food('r65'),food('r64'),'v24',food('r71'),food('r47'),food('r72','dinner')],
-3:[food('r66','breakfast'),'v13','v12',food('r13','lunch'),food('r05'),food('r25'),food('r69'),'v16',food('r31','dinner'),food('r12')],
-4:[food('r24','breakfast'),'v09','v01',food('r29','lunch'),food('r26'),food('r28'),food('r27'),food('r30','dinner')],
-5:['v10','v11',food('r09','lunch'),food('r10'),food('r11'),food('r06'),food('r03'),food('r08'),food('r04','dinner')],
-6:[food('r57','breakfast'),food('r56'),'v14','v15','v02',food('r19'),food('r50','dinner')],
-7:['v07','v05','v06','v04',food('r01','lunch'),food('r18','dinner'),food('r43')],
-8:['v17','v21','v03',food('r70','lunch'),'v20',food('r15'),food('r14','dinner'),food('r51')],
-9:[food('r48','breakfast'),'v27','v29','v28',food('r62','lunch'),'v26','v25',food('r63'),food('r21'),food('r46'),food('r20','dinner')],
-10:[food('r61','breakfast'),food('r42'),food('r33'),food('r34'),food('r41','lunch'),'v22',food('r37'),food('r07'),food('r16'),food('r39','dinner')],
-11:['v18','v19',food('r02','lunch'),food('r36'),food('r17'),food('r35','dinner'),food('r32'),food('r38'),food('r40')],
-12:[food('r59','breakfast'),'checkout',food('r23'),food('r55'),food('r67','lunch'),food('r60'),food('r54'),food('r49','dinner'),food('r45'),'baggage'],
+3:[food('r66'),'v13','v12',food('r13','lunch'),'v16',food('r69'),food('r25'),food('r05'),food('r31','dinner'),food('r12')],
+4:[food('r24'),'v09','v01',food('r29','lunch'),food('r26'),food('r28'),food('r27'),food('r30','dinner')],
+5:[food('r48'),food('r09','lunch'),food('r10'),food('r11'),food('r06'),food('r03'),food('r08'),food('r04'),food('r72','dinner')],
+6:['v10','v11','free-lunch','v14','v15',food('r50','dinner'),food('r55'),food('r23')],
+7:['v07','v05','free-lunch','v06','return-boat',food('r22'),food('r65'),food('r64','dinner'),food('r47')],
+8:['v04',food('r01','lunch'),'return-boat',food('r18','dinner'),food('r43'),food('r15'),food('r14')],
+9:['v18','v19',food('r02','lunch'),'v21',food('r70'),'v03','v17',food('r51','dinner')],
+10:[food('r34'),food('r42'),food('r33'),food('r41','lunch'),food('r36'),food('r17'),food('r32'),'v22',food('r37'),food('r07'),food('r16'),food('r35','dinner'),food('r38'),food('r40'),food('r39')],
+11:[food('r68'),'v27','v29','v28',food('r62','lunch'),'v26','v25',food('r63'),food('r21'),food('r46'),food('r19','dinner'),food('r57'),food('r56'),food('r20')],
+12:['checkout',food('r61'),food('r53'),food('r67','lunch'),food('r54'),food('r45'),food('r49'),'v24',food('r71'),food('r59','dinner'),'baggage'],
 }
-titles={2:'SAKA, закат и ужин Koral без пляжей',3:'Водопады и Тегаллаланг',
-4:'Sanur, Marine Safari и Убуд',5:'Бесаких и Кинтамани',6:'Восточные пляжи',7:'Пенида и ужин в Бераве',
-8:'Озёра и северный храм без ночного выезда',9:'Пляжи Нуса-Дуа, Пандава и Melasti',10:'Чангу и Nuanu без дальнего выезда',
-11:'Террасы, водопад и кафе по дороге домой',12:'Юг, багаж и аэропорт'}
-starts={2:'07:15',3:'06:45',4:'06:45',5:'07:15',6:'07:00',7:'05:40',8:'06:30',9:'07:00',10:'08:30',11:'07:00',12:'08:15'}
-why={2:'12 октября без посещения пляжей: музей SAKA, местные заведения, смотровая Jaran Hill и ужин Koral. Пандава и Melasti перенесены на 19 октября.',
-8:'Brahmavihara-Arama объединён с озёрами в один дневной северный круг. Дельфины не обязательны. Это самый дальний день; рекомендуется машина с водителем.',
-9:'Пандава и Melasti перенесены с 12 октября в южный пляжный круг. Made’s Bakery, Eden Lounge, Jaran Hill и Single Fin перенесены на 12-е, чтобы освободить время для пляжей.',
-10:'Кафе Чангу из дня вылета и вечеров других дней объединены с Nuanu; ночной Lovina убран из основного плана.',
-11:'Nuanu перенесён на 20 октября. После террас нет цепочки поздних баров; кафе расположены на обратном пути.',
-12:'Нет поездки в Чангу: все заведения на юге, багаж и возврат байка у виллы, затем отдельный автомобиль в DPS.'}
+titles={3:'Водопады, Тегаллаланг и Убуд',4:'Sanur, Marine Safari и Убуд',5:'Кафе Кинтамани и ужин Koral',6:'Бесаких, водопад и восточное побережье',7:'Пенида: западные смотровые',8:'Пенида: Crystal Bay и Amok',9:'Террасы, водопад и озёра',10:'Кафе Чангу и Nuanu',11:'Пляжи юга и местные заведения',12:'Jaran Hill, Boneka, багаж и аэропорт'}
+starts={n:'09:00' for n in plans}
+why={7:'Поздний катер 11:00. Только западные смотровые; Kelingking сверху, без спуска. Отдельный островной водитель. Ночёвка на Nunamkhalu.',8:'Вторая поездка вместо перегруженного островного дня: Crystal Bay и обед Amok, затем возвращение на свою виллу через Чангу.',9:'Длинный северный круг с водителем: все пять мест без поездки к дельфинам.',10:'Заведения Чангу собраны в один район. День очень насыщенный: небольшие порции, часть кафе можно отложить.',11:'Южные пляжи и заведения рядом с базой. Koral перенесён на 15-е, Jaran Hill и Single Fin — на 22-е.',12:'После завтрака checkout, только южный полуостров. Jaran Hill днём, без ожидания заката. Boneka на ужин, затем багаж и DPS.'}
 
 def nav(a,b):
     return 'https://www.google.com/maps/dir/?'+urllib.parse.urlencode(dict(api=1,origin=f"{a['lat']},{a['lon']}",destination=f"{b['lat']},{b['lon']}",travelmode='driving',avoid='tolls'))
@@ -79,18 +70,20 @@ def fetchroad(pair):
     plan=math.ceil((engine*1.5+(5 if distance<5 else 12))/5)*5
     return key,dict(key=key,origin=a['id'],destination=b['id'],geometry=route['geometry'],
         distance_km=distance,engine_minutes=round(engine,1),plan_minutes=plan,
-        range_minutes=[max(5,plan-10),plan+20],source=url,checked='2026-10-12',planning_checked='2026-10-12',
+        range_minutes=[max(5,plan-10),plan+20],source=url,checked='2026-10-13',planning_checked='2026-10-13',
         status='car_road_geometry_scooter_access_not_fully_verified',avoided_toll=avoided,
         road_names=sorted(set(s.get('name','') for l in route['legs'] for s in l['steps'])),
         note='Автомобильная геометрия OSRM; время с запасом, без прогноза пробок. Подъезды и доступ для байка уточняются.')
 
 def roadpairs(n,plan):
     current='hotel'; pairs=[]
-    if n==7: pairs.append(('hotel','sanur'));current='penida-port'
+    if n in (7,8): pairs.append(('hotel','sanur'));current='penida-port'
     for item in plan:
         dest=item[0] if isinstance(item,tuple) else item
+        if dest=='free-lunch':continue
         if dest in ('checkout','baggage'): dest='hotel'
-        if n==7 and dest=='r18': pairs.append((current,'penida-port'));current='sanur'
+        if dest=='return-boat':
+            pairs.append((current,'penida-port'));current='sanur';continue
         pairs.append((current,dest));current=dest
     if current!='hotel':pairs.append((current,'hotel'))
     if n==12:pairs.append(('hotel','airport'))
@@ -120,14 +113,15 @@ def build(n):
         t=start
         p=points[box or 'hotel'];h=research.get(box,{})
         row('meal',{'breakfast':'Завтрак','lunch':'Обед','dinner':'Ужин'}[kind]+(' · заранее полученный бокс' if box else ' · на вилле'),duration,
-            restaurant_id=box or 'hotel',place_id=box or 'hotel',place_url=p['place_url'],meal_type=kind,meal_mode='packed' if box else 'villa',source_url=h.get('source',p['place_url']),checked='2026-10-12',note='Заказать накануне и согласовать охлаждение и хранение.' if box else 'Отдельный завтрак на вилле; услугу и время подачи подтвердить.')
-    if n in (5,7,8,11):
-        start=t;villa('breakfast',t-45,40,box={5:'r30',7:'r50'}.get(n));wait(start)
-    if n==7:
-        road('sanur');wait(minutes('06:50'));assert t<=minutes('06:50'),('late outbound port',t)
-        row('logistics','Регистрация на катер Sanur',40,note='Рейс 07:30 и наличие мест подтвердить.')
-        row('boat','Катер Sanur → Пенида',50,note='Плановый рейс; морская геометрия не рисуется.')
-        row('logistics','Встреча с островным водителем',25,note='На Пениде отдельная машина с водителем.');current='penida-port'
+            restaurant_id=box or 'hotel',place_id=box or 'hotel',place_url=p['place_url'],meal_type=kind,meal_mode='packed' if box else 'villa',source_url=h.get('source',p['place_url']),checked='2026-10-13',note='Заказать накануне и согласовать охлаждение и хранение.' if box else 'Отдельный завтрак на вилле; услугу и время подачи подтвердить.')
+    villa('breakfast',480,45)
+    rows[-1]['note']='Завтрак в отеле с 08:00 по вашему сообщению.'
+    wait(540,'Подготовка к выезду после завтрака')
+    if n in (7,8):
+        road('sanur');assert t<=620,('late outbound port',t)
+        wait(620);row('logistics','Регистрация на катер Sanur',40,note='Axe Stone 11:00 по опубликованному расписанию; наличие мест и терминал подтвердить.')
+        row('boat','Катер Sanur → Пенида',50,note='11:00, Axe Stone. Время пересечения с запасом; морская линия не рисуется.')
+        row('logistics','Встреча с островным водителем',20,note='Заранее договориться о машине; при задержке сокращать посещения.');current='penida-port'
     lastmain=-1000
     for item in plans[n]:
         id=item[0] if isinstance(item,tuple) else item
@@ -135,26 +129,29 @@ def build(n):
             road('hotel',True)
             if id=='checkout':
                 row('logistics','Сбор багажа и checkout до 12:00',50,note='Оставить багаж на вилле по согласованию.');assert t<=720
-            else:row('logistics','Багаж, душ, переодевание и возврат байка',60,note='Хранение багажа и душ после checkout подтвердить.')
+            else:row('logistics','Багаж, душ, переодевание и возврат байка',45,note='Подготовить вещи заранее; хранение багажа и душ после checkout подтвердить.')
             continue
-        if n==7 and id=='r18':
-            road('penida-port',True);assert t<=minutes('16:10'),('late return port',t)
-            wait(minutes('16:10'));row('logistics','Регистрация на обратный катер',50,note='Рейс 17:00 и терминал подтвердить.')
-            row('boat','Катер Пенида → Sanur',50,note='Плановое возвращение; при задержке вечерние кафе требуют пересчёта.')
-            row('logistics','Получение байка в Sanur',20,note='Согласовать стоянку.');current='sanur'
+        if id=='return-boat':
+            road('penida-port',True);assert t<=980,('late return port',n,clock(t))
+            wait(980);row('logistics','Регистрация на обратный катер',40,note='Axe Stone 17:00. Сохранять запас на регистрацию; при задержке сокращать посещения.')
+            row('boat','Катер Пенида → Sanur',50,note='17:00 по расписанию оператора; наличие мест и условия погоды подтвердить.')
+            row('logistics','Получение байка в Sanur',20,note='Согласовать стоянку.');current='sanur';continue
+        if id=='free-lunch':
+            row('logistics','Обед рядом с маршрутом',25 if n==7 else 45,note='Быстрый обед на месте; не дополнительное заведение вашего списка. На Пениде при задержке взять еду с собой в машину.');continue
         road(id);num+=1;p=copy.deepcopy(points[id]);p['number']=num
         if isinstance(item,tuple):
-            kind=item[1];h=research[id];duration=30 if kind=='coffee' else (120 if id=='r72' else 55)
+            kind=item[1];h=research[id];duration=25 if kind=='coffee' else (120 if id=='r72' else 55)
+            if n==9 and id=='r02':duration=35
             if kind!='coffee':wait(lastmain+210);lastmain=t
             if kind=='lunch':wait(720)
             if kind=='dinner' and n!=12:wait(1020)
             if kind!='coffee':lastmain=t
-            if id=='r72':wait(minutes('19:00'))
+            if id=='r72':wait(minutes('17:30'))
             window=next(([a,b] for a,b in h['planning_windows'] if max(t,a)+duration<=b),None)
             if not window:raise ValueError(f'{n} {id} arrival {clock(t)} outside hours {h["planning_windows"]}')
             wait(window[0]);p['meal_type']=kind
             label={'coffee':'Дегустация, десерт или небольшой перекус','breakfast':'Завтрак','lunch':'Обед','dinner':'Ужин'}[kind]
-            note='Небольшая порция: полноценный приём пищи в каждом из 70 заведений за 11 дней не предусмотрен.' if kind=='coffee' else 'Полноценный приём пищи; кухню, наличие стола и последний заказ подтвердить.'
+            note='Небольшая порция: полноценный приём пищи в каждом из 68 заведений за 10 дней не предусмотрен.' if kind=='coffee' else 'Полноценный приём пищи; кухню, наличие стола и последний заказ подтвердить.'
             if id=='r15':note='Точка списка сохранена на карте, но возможность заказа еды не подтверждена. Не считать выполненной целью по питанию до подтверждения.'
             row('meal',label+' · '+p['name'],duration,restaurant_id=id,place_id=id,place_url=p['place_url'],number=num,meal_type=kind,meal_mode='onsite',hours_label=h['hours_label'],hours_status=h['hours_status'],source_url=h['source'],checked=h['checked'],booking_required=h['booking_required'],booking_note=h['booking_note'],note=note)
         else:
@@ -167,33 +164,27 @@ def build(n):
             if id=='v21':duration=60
             if id=='v17':duration=60
             if n in (2,6,9) and id in ('v25','v26','v14','v15','v02'):duration=60
-            if id=='v24':wait(minutes('16:30'))
+            duration={'v13':45,'v12':45,'v16':45,'v01':180,'v10':60,'v11':45,'v14':45,'v15':45,'v07':30,'v05':25,'v06':20,'v04':40,'v19':40,'v18':40,'v03':20,'v17':30,'v21':40,'v24':30,'v25':40,'v26':40}.get(id,duration)
+            if id=='v24':wait(minutes('16:00'))
             row('visit',p['name'],duration,place_id=id,number=num,place_url=p['place_url'],note=r['note'])
-            row('buffer','Парковка, вода и короткий перерыв',10,note='Пеший подход включён в посещение.')
+            row('buffer','Парковка, вода и короткий перерыв',5 if n in (7,9) else 10,note='Пеший подход включён в посещение.')
         stops.append(p)
     if current!='hotel':road('hotel',True)
     if n==12:
-        wait(minutes('19:00'));road('airport',True);assert t<=minutes('21:30')
+        wait(minutes('19:00'));road('airport',True);assert t<=minutes('21:30'),[(r['start'],r['end'],r['title']) for r in rows]
         row('logistics','Аэропорт DPS · международный терминал',0,note='Цель не позднее 21:30, вылет 23 октября в 00:30.')
     else:row('logistics','Возвращение на Nunamkhalu',0,note='Полный обратный путь учтён.')
     assert t<1440,(n,t)
     onsite=[r for r in rows if r['kind']=='meal' and r['meal_mode']=='onsite']
-    # Hotel lunch on the eastern beach day replaces a previously packed meal.
-    if n==6:
-        idx=next(i for i,r in enumerate(rows) if r.get('place_id')=='v15' and r['kind']=='visit')
-        lunch=dict(kind='logistics',title='Обед на восточном побережье',start=rows[idx]['end'],end=clock(minutes(rows[idx]['end'])+45),duration_minutes=45,note='Свободный обед рядом с пляжем: выбрать на месте; это не дополнительная точка вашего списка.')
-        rows.insert(idx+1,lunch)
-        for r in rows[idx+2:]:r['start']=clock(minutes(r['start'])+45);r['end']=clock(minutes(r['end'])+45)
-        t+=45
-    d.update(title=titles[n],subtitle=' → '.join(points[x[0] if isinstance(x,tuple) else x]['name'] for x in plans[n] if not isinstance(x,tuple) and x not in ('checkout','baggage')) or 'Местные заведения → вилла → аэропорт',
-        wake=clock(max(360,minutes(starts[n])-45)) if n!=7 else '04:30',depart=starts[n],return_time=clock(t),timeline=rows,legs=legs,route_stops=stops,
+    d.update(title=titles[n],subtitle=' → '.join(points[x[0] if isinstance(x,tuple) else x]['name'] for x in plans[n] if not isinstance(x,tuple) and x not in ('checkout','baggage','return-boat','free-lunch')) or ('Местные заведения → вилла → аэропорт' if n==12 else 'Кафе Кинтамани → Koral → вилла'),
+        wake='07:30',island=n in (7,8),last=n==12,depart=starts[n],return_time=clock(t),timeline=rows,legs=legs,route_stops=stops,
         stops=[p for p in stops if p['role']=='visit'],meals=[r for r in rows if r['kind']=='meal'],alternatives=[],distance_km_known=round(sum(l['distance_km'] for l in legs),1),road_minutes=sum(l['plan_minutes'] for l in legs),missing_legs=0,
-        meal_restaurants_assigned=len(onsite),status='70_food_stops_dolphins_optional',why=why.get(n,'Заведения сгруппированы по району; все переезды и возврат на одну виллу включены.'),
+        meal_restaurants_assigned=len(onsite),status='hotel_breakfast_departure_after_9',why=why.get(n,'Заведения сгруппированы по району; все переезды и возврат на одну виллу включены.'),
         load='Высокий' if t-minutes(starts[n])>780 else 'Средний' if t-minutes(starts[n])>600 else 'Лёгкий',
         risk='Часы и время в пути плановые. Возможность короткой дегустации и last order подтвердить. Не переносить опоздание на катер или аэропорт; при задержке отложить кафе и пересчитать покрытие.',
-        notes=['Каждая из 70 точек еды назначена один раз и нанесена на карту дня.','Основной маршрут без дельфинов; Lovina остаётся необязательным вариантом.','Завтраки на вилле и боксы не считаются повторными посещениями заведений.'])
-    if n==8:d['risk']+=' Самый дальний день: машина с водителем рекомендуется; кафе после северного круга зависят от фактического возвращения.'
-    if n==7:d['port_arrival_estimate']='16:10 или раньше; фактический запас зависит от дорог'
+        notes=['Каждая из 68 точек еды назначена один раз и нанесена на карту дня.','Завтрак на вилле 08:00–08:45, выезд не раньше 09:00.','Все ночи на Nunamkhalu; ночёвки на Пениде не предусмотрены.'])
+    if n==9:d['risk']+=' Самый дальний день: машина с водителем рекомендуется; кафе после северного круга зависят от фактического возвращения.'
+    if n in (7,8):d['port_arrival_estimate']='16:20 или раньше; регистрация на 17:00'
     for k in ('sleep_window','customized'):d.pop(k,None)
     return d
 
@@ -204,35 +195,37 @@ for n in plans:
 for d in days:
     print('DAY',d['number'],d['depart'],d['return_time'],d['distance_km_known'],d['road_minutes'],len([m for m in d['meals'] if m['meal_mode']=='onsite']),flush=True)
 data['days']=days
-data['trip_start']='2026-10-12';data['trip_end']='2026-10-22';data['restaurant_selection']['meal_slots']=33
-data['created']='2026-10-12';data['status']='balanced_70_food_stops_dolphins_optional'
-data['optional_visits']=[dict(id='v30',name=points['v30']['name'],status='decision_pending',planned_date=None,place_url=points['v30']['place_url'],lat=points['v30']['lat'],lon=points['v30']['lon'],note='Дельфины не включены в основной маршрут. При решении ехать нужно заменить целый день, согласовать лодку и автомобиль с водителем, затем пересчитать питание и сон. Ночной байковый выезд не планируется.')]
-data['coverage']=[dict(id=p['id'],name=p['name'],planned_date=next((d['date'] for d in days if any(s['id']==p['id'] for s in d['stops'])),None),status='optional_decision_pending' if p['id']=='v30' else 'planned_access_provisional') for p in registry['places'] if 'visit' in p['roles']]
-foods=[p for p in registry['places'] if 'meal' in p['roles'] and p['id'] not in ('r52','r58')]
+snapshot=json.loads((ROOT/'latest-lists.json').read_text('utf-8'))
+food_names=set(snapshot['food_names']);sight_names=set(snapshot['sight_names'])
+registry['places']=[p for p in registry['places'] if p['name'] in (food_names if 'meal' in p['roles'] else sight_names)]
+assert {p['name'] for p in registry['places'] if 'meal' in p['roles']}==food_names
+assert {p['name'] for p in registry['places'] if 'visit' in p['roles']}==sight_names
+foods=[p for p in registry['places'] if 'meal' in p['roles']]
+data.update(trip_start='2026-10-13',trip_end='2026-10-22',created='2026-10-13',status='hotel_breakfast_departure_after_9',optional_visits=[])
+data['user_list_updates'].append(dict(date='2026-10-13',removed=['r44','r60','v02','v20','v23','v30'],source='Полная сверка двух живых списков Google Maps'))
+data['coverage']=[dict(id=p['id'],name=p['name'],planned_date=next((d['date'] for d in days if any(s['id']==p['id'] for s in d['stops'])),None),status='planned_access_provisional') for p in registry['places'] if 'visit' in p['roles']]
 data['restaurant_coverage']=[]
 for p in foods:
     assigned=[dict(date=d['date'],meal_type=m['meal_type'],start=m['start'],end=m['end'],mode=m['meal_mode']) for d in days for m in d['meals'] if m['restaurant_id']==p['id']]
-    data['restaurant_coverage'].append(dict(id=p['id'],name=p['name'],date=next(a['date'] for a in assigned if a['mode']=='onsite'),visits=assigned,status='food_service_unconfirmed' if p['id']=='r15' else 'planned_onsite',reason='Один личный визит; еду и часы уточнить.'))
+    data['restaurant_coverage'].append(dict(id=p['id'],name=p['name'],date=next(a['date'] for a in assigned if a['mode']=='onsite'),visits=assigned,status='food_service_unconfirmed' if p['id']=='r15' else 'planned_onsite',reason='Один личный визит; часы кухни и возможность небольшого заказа подтвердить.'))
 main=[m for d in days for m in d['meals'] if m['meal_type']!='coffee']
-data['restaurant_selection'].update(unique_onsite_restaurants=70,assigned_meals=len(main),packed_meals=sum(m['meal_mode']=='packed' for m in main),coffee_snack_visits=sum(m['meal_type']=='coffee' for d in days for m in d['meals']),note='70 заведений: основные приёмы пищи и короткие дегустации; завтраки на вилле и два бокса отдельно.',coverage_note='Все 70 текущих точек списка назначены и нанесены на карту; возможность еды в Echo Beach уточнить.')
-data['list_verification']='Два живых списка Google Maps сверены 12 октября 2026: 29 мест и 70 точек еды. Дельфины оставлены необязательным вариантом по сообщению пользователя.'
-data['limitations']=['70 заведений за 11 дней требуют небольших порций и коротких дегустаций; полноценная еда в каждом не обещана.','Lovina Dolphin Watching: решение не принято, в основной программе не назначено.','Северный круг 18 октября остаётся длинным; рекомендуется машина с водителем.','Часы части заведений оценочные, столы и last order не подтверждены.','Echo Beach Sunset Point: возможность заказа еды не подтверждена.','Подъезды, парковки и доступ для байка не полностью проверены; OSRM использует автомобильный профиль.','Катера, стол Koral, два бокса и услуги виллы после checkout согласовать.','PDF и статические карты содержат основной план; личные обмены браузера в них не попадают автоматически.']
-data['sources']=[dict(name='Текущий список еды: 70 мест',url='https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7',checked='2026-10-12'),dict(name='Текущий список мест: 29, из них дельфины необязательны',url='https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA',checked='2026-10-12'),*data['sources'][2:]]
-registry['places']=[p for p in registry['places'] if p['id'] not in ('r52','r58')]
-registry['created_date']='2026-10-12';registry['source']='Два актуальных списка Google Maps сверены 12 октября 2026: 29 достопримечательностей и 70 точек еды.'
-registry['counts']=dict(attractions=29,scheduled_attractions=28,optional_attractions=1,restaurants=70,total_records=99)
-registry['meal_capacity']=dict(restaurant_count=70,main_meals=len(main),onsite_full_meals=sum(m['meal_mode']=='onsite' for m in main),coffee_snack_stops=data['restaurant_selection']['coffee_snack_visits'],packed_meals=2,note='Завтраки на вилле и обед на восточном побережье отдельно. Echo Beach: еда не подтверждена.')
+data['restaurant_selection'].update(meal_slots=30,unique_onsite_restaurants=68,assigned_meals=len(main),packed_meals=0,coffee_snack_visits=sum(m['meal_type']=='coffee' for d in days for m in d['meals']),note='Ежедневно завтрак на вилле в 08:00. Заведения списка — обеды, ужины и небольшие дегустации.',coverage_note='Все 68 текущих точек назначены и нанесены на карты. Echo Beach: еда не подтверждена.')
+data['list_verification']='Два живых списка Google Maps сверены 13 октября 2026: 68 заведений и 25 достопримечательностей. Полные названия сохранены в latest-lists.json.'
+data['limitations']=['68 заведений за 10 дней — плотная программа, особенно Чангу и южный день. Большинство остановок — небольшие порции, а не полноценный приём пищи.','Пенида разделена на две поездки 17 и 18 октября с возвратом на виллу. Рейсы 11:00 и 17:00 опубликованы Axe Stone, но места и регистрация не забронированы.','Запад Пениды: короткие смотровые, без спуска на Kelingking и без купания у Angel’s Billabong. При задержке водителя сокращать посещения, чтобы сохранить катер.','Северный круг 19 октября насыщенный; рекомендуется машина с водителем. Посещения короткие, часы входа подтвердить.','Часы части заведений оценочные, кухню, последний заказ и столы подтвердить.','Echo Beach Sunset Point: возможность заказа еды не подтверждена.','Подъезды, парковки и доступ для байка не полностью проверены; OSRM использует автомобильный профиль.','Завтрак в отеле с 08:00 — по вашему сообщению. Выезд ежедневно 09:00; боксы убраны.','Koral, Boneka на ужин и услуги виллы после checkout согласовать.','PDF и статические карты показывают основной план; личные обмены в браузере не меняют их автоматически.']
+data['sources']=[dict(name='Текущий список еды: 68 мест',url=snapshot['food_url'],checked='2026-10-13'),dict(name='Текущий список достопримечательностей: 25 мест',url=snapshot['sights_url'],checked='2026-10-13'),dict(name='Axe Stone: Sanur 11:00, Пенида 17:00',url='https://axestonefastcruise.com/time-schedule/',checked='2026-10-13'),dict(name='Bali Farm House: 09:00–17:00',url='https://linktr.ee/balifarmhouse',checked='2026-10-13'),* [x for x in data['sources'][2:] if not any(w in x['name'].lower() for w in ['lovina','saka','gooseberry','sundays','бокс','brahmavihara','ocean speed'])]]
+registry.update(created_date='2026-10-13',source=data['list_verification'],counts=dict(attractions=25,scheduled_attractions=25,optional_attractions=0,restaurants=68,total_records=93))
+registry['meal_capacity']=dict(restaurant_count=68,main_meals=len(main),onsite_full_meals=sum(m['meal_mode']=='onsite' for m in main),coffee_snack_stops=data['restaurant_selection']['coffee_snack_visits'],packed_meals=0,note='10 завтраков на вилле отдельно; Echo Beach: еда не подтверждена.')
 for p in registry['places']:
     role='meal' if 'meal' in p['roles'] else 'visit'
-    p['source_list'].update(url='https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7' if role=='meal' else 'https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA',snapshot_date='2026-10-12',current_membership_confirmed=True)
+    p['source_list'].update(url=snapshot['food_url'] if role=='meal' else snapshot['sights_url'],snapshot_date='2026-10-13',current_membership_confirmed=True)
     collection=data['restaurant_coverage'] if role=='meal' else data['coverage']
     entry=next(x for x in collection if x['id']==p['id']);p['assigned_date']=entry.get('date',entry.get('planned_date'))
-    if p['id']=='v30':p['schedule_status']='optional_decision_pending'
-research={k:v for k,v in research.items() if k not in ('r52','r58')}
-physical=[m['restaurant_id'] for d in days for m in d['meals'] if m['meal_mode']=='onsite' and m['restaurant_id']!='r58']
-assert len(physical)==len(set(physical))==70
+    p['schedule_status']='planned'
+research={k:v for k,v in research.items() if k in {p['id'] for p in foods}}
+physical=[m['restaurant_id'] for d in days for m in d['meals'] if m['meal_mode']=='onsite']
+assert len(physical)==len(set(physical))==68
 assert set(physical)=={p['id'] for p in foods}
-assert len([s for d in days for s in d['stops']])==28
+assert len([s for d in days for s in d['stops']])==25
 for d in days:
     assert {m['restaurant_id'] for m in d['meals'] if m['meal_mode']=='onsite'} <= {s['id'] for s in d['route_stops']}
     for a,b in zip(d['timeline'],d['timeline'][1:]):assert a['end']==b['start'],(d['number'],a['title'],b['title'])
@@ -244,4 +237,4 @@ with (ROOT/'coverage.csv').open('w',encoding='utf-8-sig',newline='') as f:
     writer=csv.writer(f);writer.writerow(['id','name','date','type','status'])
     for c in data['coverage']:writer.writerow([c['id'],c['name'],c['planned_date'] or '', 'visit',c['status']])
     for c in data['restaurant_coverage']:writer.writerow([c['id'],c['name'],c['date'],'meal',c['status']])
-print('ALL 70 RESTAURANTS, 28 SCHEDULED + 1 OPTIONAL ATTRACTIONS VERIFIED',flush=True)
+print('ALL 68 RESTAURANTS AND 25 ATTRACTIONS VERIFIED',flush=True)
