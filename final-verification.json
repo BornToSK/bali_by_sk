@@ -13,6 +13,11 @@
   "no_repeated_current_food_visits": true,
   "max_future_food_stops": 14,
   "night_dolphin_trip_removed": true,
+  "october_13_ubud": true,
+  "october_14_beach_day": true,
+  "marine_safari_date": "2026-10-21",
+  "tolls_allowed": true,
+  "toll_legs": 7,
   "departure_day_canggu_removed": true,
   "airport_plan": "21:10",
   "minimum_sleep_hours": 7,
@@ -28,6 +33,7 @@
     "same_day_exchange_and_restore_passed": true
   },
   "limitations": [
+    "На платной Bali Mandara для байка использовать выделенную полосу. Геометрия карты рассчитана для автомобиля; фактические мотоциклетные въезды и съезды уточнить.",
     "68 заведений за 10 дней — плотная программа, особенно Чангу и южный день. Большинство остановок — небольшие порции, а не полноценный приём пищи.",
     "Пенида разделена на две поездки 17 и 18 октября с возвратом на виллу. Рейсы 11:00 и 17:00 опубликованы Axe Stone, но места и регистрация не забронированы.",
     "Запад Пениды: короткие смотровые, без спуска на Kelingking и без купания у Angel’s Billabong. При задержке водителя сокращать посещения, чтобы сохранить катер.",

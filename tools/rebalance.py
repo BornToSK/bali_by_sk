@@ -41,14 +41,20 @@ plans = {
 }
 titles={3:'Водопады, Тегаллаланг и Убуд',4:'Sanur, Marine Safari и Убуд',5:'Кафе Кинтамани и ужин Koral',6:'Бесаких, водопад и восточное побережье',7:'Пенида: западные смотровые',8:'Пенида: Crystal Bay и Amok',9:'Террасы, водопад и озёра',10:'Кафе Чангу и Nuanu',11:'Пляжи юга и местные заведения',12:'Jaran Hill, Boneka, багаж и аэропорт'}
 starts={n:'09:00' for n in plans}
+plans[4],plans[11]=plans[11],plans[4]
+titles[4]='Пляжный день: Пандава, Melasti и Нуса-Дуа'
+titles[11]='Sanur, Marine Safari и Убуд'
 why={7:'Поздний катер 11:00. Только западные смотровые; Kelingking сверху, без спуска. Отдельный островной водитель. Ночёвка на Nunamkhalu.',8:'Вторая поездка вместо перегруженного островного дня: Crystal Bay и обед Amok, затем возвращение на свою виллу через Чангу.',9:'Длинный северный круг с водителем: все пять мест без поездки к дельфинам.',10:'Заведения Чангу собраны в один район. День очень насыщенный: небольшие порции, часть кафе можно отложить.',11:'Южные пляжи и заведения рядом с базой. Koral перенесён на 15-е, Jaran Hill и Single Fin — на 22-е.',12:'После завтрака checkout, только южный полуостров. Jaran Hill днём, без ожидания заката. Boneka на ужин, затем багаж и DPS.'}
 
+why[3]='13 октября — Убуд: водопады, Тегаллаланг, Sari Timbul и ваши заведения. Платная дорога разрешена там, где сокращает путь.'
+why[4]='14 октября — пляжный день: Нуса-Дуа, Пандава и Melasti, затем местные заведения. Программа Marine Safari и Sanur перенесена на 21-е.'
+why[11]='Marine Safari, Sanur и заведения Убуда перенесены с 14 октября, чтобы освободить пляжный день. Все точки сохранены.'
+
 def nav(a,b):
-    return 'https://www.google.com/maps/dir/?'+urllib.parse.urlencode(dict(api=1,origin=f"{a['lat']},{a['lon']}",destination=f"{b['lat']},{b['lon']}",travelmode='driving',avoid='tolls'))
+    return 'https://www.google.com/maps/dir/?'+urllib.parse.urlencode(dict(api=1,origin=f"{a['lat']},{a['lon']}",destination=f"{b['lat']},{b['lon']}",travelmode='driving'))
 def fetchroad(pair):
     a,b=map(points.get,pair); key='>'.join(pair)
-    if key in oldlegs: return key, copy.deepcopy(oldlegs[key])
-    if key in cache: return key, copy.deepcopy(cache[key])
+    if key in cache and cache[key].get('routing_policy')=='tolls_allowed_v1':return key,copy.deepcopy(cache[key])
     coords=f"{a['lon']},{a['lat']};{b['lon']},{b['lat']}"
     base='https://router.project-osrm.org/route/v1/driving/'
     url=base+coords+'?overview=full&geometries=geojson&steps=true'
@@ -59,21 +65,15 @@ def fetchroad(pair):
         return any('tol' in s.get('name','').lower().split() or 'toll' in s.get('name','').lower() or
             any('motorway' in i.get('classes',[]) for i in s.get('intersections',[]))
             for l in r['legs'] for s in l['steps'])
-    avoided=False
-    if toll(route):
-        # Existing mainland non-toll corridor through Denpasar, away from Bali Mandara.
-        coords=f"{a['lon']},{a['lat']};115.185,-8.708;115.194,-8.672;{b['lon']},{b['lat']}"
-        url=base+coords+'?overview=full&geometries=geojson&steps=true'
-        route=get(url); avoided=True
-        if toll(route): raise ValueError('Non-toll road could not be verified: '+key)
+    uses_toll=toll(route)
     distance=round(route['distance']/1000,1); engine=route['duration']/60
     plan=math.ceil((engine*1.5+(5 if distance<5 else 12))/5)*5
     return key,dict(key=key,origin=a['id'],destination=b['id'],geometry=route['geometry'],
         distance_km=distance,engine_minutes=round(engine,1),plan_minutes=plan,
         range_minutes=[max(5,plan-10),plan+20],source=url,checked='2026-10-13',planning_checked='2026-10-13',
-        status='car_road_geometry_scooter_access_not_fully_verified',avoided_toll=avoided,
+        status='car_road_geometry_scooter_access_not_fully_verified',avoided_toll=False,uses_toll=uses_toll,routing_policy='tolls_allowed_v1',
         road_names=sorted(set(s.get('name','') for l in route['legs'] for s in l['steps'])),
-        note='Автомобильная геометрия OSRM; время с запасом, без прогноза пробок. Подъезды и доступ для байка уточняются.')
+        note=('Через Bali Mandara, платная дорога разрешена. Для байка использовать отдельную мотоциклетную полосу; линия карты рассчитана для автомобиля. ' if uses_toll else 'Платные дороги разрешены; здесь выбран обычный дорожный маршрут. ')+ 'Геометрия OSRM, время с запасом без прогноза пробок.')
 
 def roadpairs(n,plan):
     current='hotel'; pairs=[]
@@ -119,6 +119,9 @@ def build(n):
     wait(540,'Подготовка к выезду после завтрака')
     if n in (7,8):
         road('sanur');assert t<=620,('late outbound port',t)
+        if n==7:
+            row('logistics','Купить готовый обед с собой в порту',10,note='На западной Пениде нет длинной остановки на обед. Купить готовую еду до регистрации; хранение согласовать.')
+            assert t<=620
         wait(620);row('logistics','Регистрация на катер Sanur',40,note='Axe Stone 11:00 по опубликованному расписанию; наличие мест и терминал подтвердить.')
         row('boat','Катер Sanur → Пенида',50,note='11:00, Axe Stone. Время пересечения с запасом; морская линия не рисуется.')
         row('logistics','Встреча с островным водителем',20,note='Заранее договориться о машине; при задержке сокращать посещения.');current='penida-port'
@@ -137,7 +140,7 @@ def build(n):
             row('boat','Катер Пенида → Sanur',50,note='17:00 по расписанию оператора; наличие мест и условия погоды подтвердить.')
             row('logistics','Получение байка в Sanur',20,note='Согласовать стоянку.');current='sanur';continue
         if id=='free-lunch':
-            row('logistics','Обед рядом с маршрутом',25 if n==7 else 45,note='Быстрый обед на месте; не дополнительное заведение вашего списка. На Пениде при задержке взять еду с собой в машину.');continue
+            row('logistics','Готовый обед с собой' if n==7 else 'Обед рядом с маршрутом',10 if n==7 else 45,note='Готовая еда, купленная в порту; без ожидания заказа.' if n==7 else 'Выбор на месте; не дополнительное заведение вашего списка.');continue
         road(id);num+=1;p=copy.deepcopy(points[id]);p['number']=num
         if isinstance(item,tuple):
             kind=item[1];h=research[id];duration=25 if kind=='coffee' else (120 if id=='r72' else 55)
@@ -164,7 +167,7 @@ def build(n):
             if id=='v21':duration=60
             if id=='v17':duration=60
             if n in (2,6,9) and id in ('v25','v26','v14','v15','v02'):duration=60
-            duration={'v13':45,'v12':45,'v16':45,'v01':180,'v10':60,'v11':45,'v14':45,'v15':45,'v07':30,'v05':25,'v06':20,'v04':40,'v19':40,'v18':40,'v03':20,'v17':30,'v21':40,'v24':30,'v25':40,'v26':40}.get(id,duration)
+            duration={'v13':45,'v12':45,'v16':45,'v01':180,'v10':60,'v11':45,'v14':45,'v15':45,'v07':30,'v05':25,'v06':20,'v04':25,'v19':40,'v18':40,'v03':20,'v17':30,'v21':40,'v24':30,'v25':40,'v26':40}.get(id,duration)
             if id=='v24':wait(minutes('16:00'))
             row('visit',p['name'],duration,place_id=id,number=num,place_url=p['place_url'],note=r['note'])
             row('buffer','Парковка, вода и короткий перерыв',5 if n in (7,9) else 10,note='Пеший подход включён в посещение.')
@@ -176,7 +179,7 @@ def build(n):
     else:row('logistics','Возвращение на Nunamkhalu',0,note='Полный обратный путь учтён.')
     assert t<1440,(n,t)
     onsite=[r for r in rows if r['kind']=='meal' and r['meal_mode']=='onsite']
-    d.update(title=titles[n],subtitle=' → '.join(points[x[0] if isinstance(x,tuple) else x]['name'] for x in plans[n] if not isinstance(x,tuple) and x not in ('checkout','baggage','return-boat','free-lunch')) or ('Местные заведения → вилла → аэропорт' if n==12 else 'Кафе Кинтамани → Koral → вилла'),
+    d.update(image='penida' if n in (7,8) else 'rice' if n in (3,5,9,11) else 'coast',title=titles[n],subtitle=' → '.join(points[x[0] if isinstance(x,tuple) else x]['name'] for x in plans[n] if not isinstance(x,tuple) and x not in ('checkout','baggage','return-boat','free-lunch')) or ('Местные заведения → вилла → аэропорт' if n==12 else 'Кафе Кинтамани → Koral → вилла'),
         wake='07:30',island=n in (7,8),last=n==12,depart=starts[n],return_time=clock(t),timeline=rows,legs=legs,route_stops=stops,
         stops=[p for p in stops if p['role']=='visit'],meals=[r for r in rows if r['kind']=='meal'],alternatives=[],distance_km_known=round(sum(l['distance_km'] for l in legs),1),road_minutes=sum(l['plan_minutes'] for l in legs),missing_legs=0,
         meal_restaurants_assigned=len(onsite),status='hotel_breakfast_departure_after_9',why=why.get(n,'Заведения сгруппированы по району; все переезды и возврат на одну виллу включены.'),
@@ -211,8 +214,9 @@ for p in foods:
 main=[m for d in days for m in d['meals'] if m['meal_type']!='coffee']
 data['restaurant_selection'].update(meal_slots=30,unique_onsite_restaurants=68,assigned_meals=len(main),packed_meals=0,coffee_snack_visits=sum(m['meal_type']=='coffee' for d in days for m in d['meals']),note='Ежедневно завтрак на вилле в 08:00. Заведения списка — обеды, ужины и небольшие дегустации.',coverage_note='Все 68 текущих точек назначены и нанесены на карты. Echo Beach: еда не подтверждена.')
 data['list_verification']='Два живых списка Google Maps сверены 13 октября 2026: 68 заведений и 25 достопримечательностей. Полные названия сохранены в latest-lists.json.'
-data['limitations']=['68 заведений за 10 дней — плотная программа, особенно Чангу и южный день. Большинство остановок — небольшие порции, а не полноценный приём пищи.','Пенида разделена на две поездки 17 и 18 октября с возвратом на виллу. Рейсы 11:00 и 17:00 опубликованы Axe Stone, но места и регистрация не забронированы.','Запад Пениды: короткие смотровые, без спуска на Kelingking и без купания у Angel’s Billabong. При задержке водителя сокращать посещения, чтобы сохранить катер.','Северный круг 19 октября насыщенный; рекомендуется машина с водителем. Посещения короткие, часы входа подтвердить.','Часы части заведений оценочные, кухню, последний заказ и столы подтвердить.','Echo Beach Sunset Point: возможность заказа еды не подтверждена.','Подъезды, парковки и доступ для байка не полностью проверены; OSRM использует автомобильный профиль.','Завтрак в отеле с 08:00 — по вашему сообщению. Выезд ежедневно 09:00; боксы убраны.','Koral, Boneka на ужин и услуги виллы после checkout согласовать.','PDF и статические карты показывают основной план; личные обмены в браузере не меняют их автоматически.']
-data['sources']=[dict(name='Текущий список еды: 68 мест',url=snapshot['food_url'],checked='2026-10-13'),dict(name='Текущий список достопримечательностей: 25 мест',url=snapshot['sights_url'],checked='2026-10-13'),dict(name='Axe Stone: Sanur 11:00, Пенида 17:00',url='https://axestonefastcruise.com/time-schedule/',checked='2026-10-13'),dict(name='Bali Farm House: 09:00–17:00',url='https://linktr.ee/balifarmhouse',checked='2026-10-13'),* [x for x in data['sources'][2:] if not any(w in x['name'].lower() for w in ['lovina','saka','gooseberry','sundays','бокс','brahmavihara','ocean speed'])]]
+data['routing_preference']=dict(tolls_allowed=True,preference='Более быстрые маршруты, в том числе через Bali Mandara',motorcycle_lane_source='https://bpjt.pu.go.id/faq/apakah-motor-boleh-masuk-jalan-tol/')
+data['limitations']=['На платной Bali Mandara для байка использовать выделенную полосу. Геометрия карты рассчитана для автомобиля; фактические мотоциклетные въезды и съезды уточнить.','68 заведений за 10 дней — плотная программа, особенно Чангу и южный день. Большинство остановок — небольшие порции, а не полноценный приём пищи.','Пенида разделена на две поездки 17 и 18 октября с возвратом на виллу. Рейсы 11:00 и 17:00 опубликованы Axe Stone, но места и регистрация не забронированы.','Запад Пениды: короткие смотровые, без спуска на Kelingking и без купания у Angel’s Billabong. При задержке водителя сокращать посещения, чтобы сохранить катер.','Северный круг 19 октября насыщенный; рекомендуется машина с водителем. Посещения короткие, часы входа подтвердить.','Часы части заведений оценочные, кухню, последний заказ и столы подтвердить.','Echo Beach Sunset Point: возможность заказа еды не подтверждена.','Подъезды, парковки и доступ для байка не полностью проверены; OSRM использует автомобильный профиль.','Завтрак в отеле с 08:00 — по вашему сообщению. Выезд ежедневно 09:00; боксы убраны.','Koral, Boneka на ужин и услуги виллы после checkout согласовать.','PDF и статические карты показывают основной план; личные обмены в браузере не меняют их автоматически.']
+data['sources']=[dict(name='BPJT: отдельная полоса для мотоциклов на Bali Mandara',url='https://bpjt.pu.go.id/faq/apakah-motor-boleh-masuk-jalan-tol/',checked='2026-10-13'),dict(name='Текущий список еды: 68 мест',url=snapshot['food_url'],checked='2026-10-13'),dict(name='Текущий список достопримечательностей: 25 мест',url=snapshot['sights_url'],checked='2026-10-13'),dict(name='Axe Stone: Sanur 11:00, Пенида 17:00',url='https://axestonefastcruise.com/time-schedule/',checked='2026-10-13'),dict(name='Bali Farm House: 09:00–17:00',url='https://linktr.ee/balifarmhouse',checked='2026-10-13'),* [x for x in data['sources'][2:] if not any(w in x['name'].lower() for w in ['lovina','saka','gooseberry','sundays','бокс','brahmavihara','ocean speed'])]]
 registry.update(created_date='2026-10-13',source=data['list_verification'],counts=dict(attractions=25,scheduled_attractions=25,optional_attractions=0,restaurants=68,total_records=93))
 registry['meal_capacity']=dict(restaurant_count=68,main_meals=len(main),onsite_full_meals=sum(m['meal_mode']=='onsite' for m in main),coffee_snack_stops=data['restaurant_selection']['coffee_snack_visits'],packed_meals=0,note='10 завтраков на вилле отдельно; Echo Beach: еда не подтверждена.')
 for p in registry['places']:

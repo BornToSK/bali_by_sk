@@ -11,6 +11,11 @@ assert len(data['days'])==10
 assert [d['number'] for d in data['days']]==list(range(1,11))
 assert [d['date'] for d in data['days']]==[f'2026-10-{n}' for n in range(13,23)]
 assert all(not d.get('historical') for d in data['days'])
+assert {s['id'] for s in data['days'][0]['stops']} >= {'v12','v13','v16'}
+assert {s['id'] for s in data['days'][1]['stops']} >= {'v25','v26'}
+assert 'v01' not in {s['id'] for s in data['days'][1]['stops']}
+assert 'v01' in {s['id'] for s in data['days'][8]['stops']}
+assert data['routing_preference']['tolls_allowed']
 food_ids={p['id'] for p in reg['places'] if 'meal' in p['roles']}
 snapshot=json.loads((root/'latest-lists.json').read_text('utf-8'))
 assert len(food_ids)==68 and not {'r44','r52','r58','r60'}.intersection(food_ids)
@@ -31,6 +36,7 @@ for d in data['days']:
     assert all(a['destination']==b['origin'] or d['island'] for a,b in zip(d['legs'],d['legs'][1:]))
     assert d['legs'][0]['origin']=='hotel' and d['legs'][-1]['destination']==('airport' if d['last'] else 'hotel')
     assert d['road_minutes']==sum(l['plan_minutes'] for l in d['legs'])
+    assert all(l['routing_policy']=='tolls_allowed_v1' and 'avoid=tolls' not in l['navigation_url'] for l in d['legs'])
     assert len(expected)<=14 and minutes(d['depart'])>=540
     breakfast=[m for m in d['meals'] if m['meal_type']=='breakfast']
     assert len(breakfast)==1 and breakfast[0]['meal_mode']=='villa' and breakfast[0]['restaurant_id']=='hotel'
@@ -65,6 +71,7 @@ assert len(reader.pages)>30
 result=dict(date='2026-10-13',food_list_points=68,scheduled_attractions=25,optional_attractions=0,
     trip_start="2026-10-13",trip_end="2026-10-22",day_count=10,october_11_and_12_removed=True,hotel_breakfast_daily="08:00–08:45",earliest_departure="09:00",all_food_stops_have_day_map_markers=True,
     no_repeated_current_food_visits=True,max_future_food_stops=14,night_dolphin_trip_removed=True,
+    october_13_ubud=True,october_14_beach_day=True,marine_safari_date='2026-10-21',tolls_allowed=True,toll_legs=sum(l['uses_toll'] for d in data['days'] for l in d['legs']),
     departure_day_canggu_removed=True,airport_plan=last['return_time'],minimum_sleep_hours=7,
     route_continuity_and_boat_windows_checked=True,pdf=dict(pages=len(reader.pages),all_current_restaurant_names_present=True,
     all_pages_rendered=True,all_pages_visually_reviewed=True),browser=dict(all_10_days_and_markers_verified=True,
