@@ -71,24 +71,6 @@
     "booking_required": false,
     "current_availability_confirmed": false
   },
-  "r28": {
-    "id": "r28",
-    "name": "L'Osteria Pizza e Cucina Ubud",
-    "hours_label": "Плановое окно 12:00–23:00; часы уточнить",
-    "planning_windows": [
-      [
-        720,
-        1380
-      ]
-    ],
-    "source": "https://losteriapizzaecucina.com/about-us/",
-    "checked": "2026-10-08",
-    "hours_status": "official_location_hours_unverified",
-    "last_order": null,
-    "booking_note": "Именно филиал Ubud на Monkey Forest. Стол на ужин желательно заказать; last order уточнить.",
-    "booking_required": false,
-    "current_availability_confirmed": false
-  },
   "r37": {
     "id": "r37",
     "name": "Penny Lane",
