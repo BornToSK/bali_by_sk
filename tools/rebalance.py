@@ -230,6 +230,8 @@ for d in days:
 for a,b in zip(days,days[1:]):
     rest=1440-minutes(a['return_time'])-30+minutes(b['wake'])
     assert rest>=420,('sleep',a['number'],rest)
+from tides import apply_tides
+apply_tides(data)
 save('itinerary.json',data);save('registry.json',registry);save('restaurant-research.json',research)
 with (ROOT/'coverage.csv').open('w',encoding='utf-8-sig',newline='') as f:
     writer=csv.writer(f);writer.writerow(['id','name','date','type','status'])

@@ -11795,7 +11795,15 @@
         "Каждая из 67 точек еды назначена один раз и нанесена на карту дня.",
         "Завтрак на вилле 08:00–08:45, выезд не раньше 09:00.",
         "Все ночи на Nunamkhalu; ночёвки на Пениде не предусмотрены."
-      ]
+      ],
+      "tides": {
+        "area": "Пандава и Melasti: ориентир Беноа",
+        "text": "Высокая вода около 12:00, низкая около 17:40. Пандава 14:25-15:25 приходится на убывающую воду; Melasti 16:10-17:55 близко к минимуму. Весь интервал Melasti не считается подтверждённым временем для купания; условия уточнить на пляже.",
+        "source_name": "Tides Today: прогноз Беноа",
+        "source_url": "https://tides.today/en/%F0%9F%8C%8D/indonesia/bali/benoa",
+        "checked": "2026-10-14",
+        "timezone": "Asia/Makassar"
+      }
     },
     {
       "number": 2,
@@ -66825,7 +66833,15 @@
         "Каждая из 67 точек еды назначена один раз и нанесена на карту дня.",
         "Завтрак на вилле 08:00–08:45, выезд не раньше 09:00.",
         "Все ночи на Nunamkhalu; ночёвки на Пениде не предусмотрены."
-      ]
+      ],
+      "tides": {
+        "area": "Blue Lagoon и Bias Tugel: ориентир Падангбай",
+        "text": "По Surfline высокая вода около 13:29, низкая около 18:05. Blue Lagoon 15:20-16:05 и Bias Tugel 16:35-17:20 приходятся на убывающую воду. Это ориентир порта Падангбай; возможность купаться на каждом пляже проверяется на месте.",
+        "source_name": "Surfline: прогноз Падангбая",
+        "source_url": "https://www.surfline.com/tide-charts/padangbai/640a67cd99dd4433510cdc38",
+        "checked": "2026-10-14",
+        "timezone": "Asia/Makassar"
+      }
     },
     {
       "number": 4,
@@ -109032,7 +109048,15 @@
         "Каждая из 67 точек еды назначена один раз и нанесена на карту дня.",
         "Завтрак на вилле 08:00–08:45, выезд не раньше 09:00.",
         "Все ночи на Nunamkhalu; ночёвки на Пениде не предусмотрены."
-      ]
+      ],
+      "tides": {
+        "area": "Crystal Bay: ориентир Нуса-Пенида",
+        "text": "По прогнозу для Нуса-Пениды низкая вода около 09:07, высокая около 14:31. Короткое посещение Crystal Bay 12:50-13:15 ориентировочно приходится на растущую воду. Это не отдельный прогноз для бухты и не подтверждённое окно купания.",
+        "source_name": "Havstemperatur: прогноз Нуса-Пениды",
+        "source_url": "https://www.havstemperatur.se/sydostasien/bali/nusa-penida/tides/month/all/?m=2026-10",
+        "checked": "2026-10-14",
+        "timezone": "Asia/Makassar"
+      }
     },
     {
       "number": 6,
@@ -209936,6 +209960,21 @@
       "name": "Made’s Bakery Cafe Playground · часы / источник",
       "url": "https://restaurantguru.com/Mades-Bakery-South-Kuta",
       "checked": "2026-10-09"
+    },
+    {
+      "name": "Tides Today: прогноз Беноа",
+      "url": "https://tides.today/en/%F0%9F%8C%8D/indonesia/bali/benoa",
+      "checked": "2026-10-14"
+    },
+    {
+      "name": "Surfline: прогноз Падангбая",
+      "url": "https://www.surfline.com/tide-charts/padangbai/640a67cd99dd4433510cdc38",
+      "checked": "2026-10-14"
+    },
+    {
+      "name": "Havstemperatur: прогноз Нуса-Пениды",
+      "url": "https://www.havstemperatur.se/sydostasien/bali/nusa-penida/tides/month/all/?m=2026-10",
+      "checked": "2026-10-14"
     }
   ],
   "user_list_updates": [
@@ -209967,5 +210006,6 @@
     "tolls_allowed": true,
     "preference": "Более быстрые маршруты, в том числе через Bali Mandara",
     "motorcycle_lane_source": "https://bpjt.pu.go.id/faq/apakah-motor-boleh-masuk-jalan-tol/"
-  }
+  },
+  "tide_notice": "Проверено 14.10.2026; время Бали, WITA / UTC+8. Это прогнозы для ближайших районов, а не измерения на конкретном пляже. Разные модели дают разные времена и высоты. Купание зависит также от волн, течений и флагов; следуйте указаниям спасателей. Запланированное время на пляже включает отдых на берегу, если купание запрещено."
 }

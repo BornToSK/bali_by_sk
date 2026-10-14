@@ -41,6 +41,12 @@ story=[p('Бали вдвоём','BaliTitle'),p('Ваш маршрут на 14-2
 overview=[[p('Дата','BaliSmall'),p('Маршрут','BaliSmall'),p('Выезд / финиш','BaliSmall')]]
 for d in data['days']:overview.append([p(d['date'][5:],'BaliSmall'),p(d['title'],'BaliSmall'),p(d['depart']+' / '+d['return_time'],'BaliSmall')])
 table=Table(overview,colWidths=[65,315,119],repeatRows=1);table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e6eadf')),('VALIGN',(0,0),(-1,-1),'TOP'),('BOTTOMPADDING',(0,0),(-1,-1),7)]));story.extend([table,PageBreak()])
+story.extend([p('Приливы и купание','BaliTitle'),p(data['tide_notice'])])
+for d in data['days']:
+    if d.get('tides'):
+        t=d['tides']
+        story.extend([p(d['date']+' - '+t['area'],'BaliH'),p(t['text']),link(t['source_name']+' - проверено '+t['checked'],t['source_url']),Spacer(1,12)])
+story.append(PageBreak())
 for d in data['days']:
     story.extend([p(f"{d['date']} - день {d['number']}",'BaliH'),p(d['title'],'BaliTitle'),p(f"Выезд {d['depart']} - {'аэропорт' if d['last'] else 'возвращение'} {d['return_time']} - {d['distance_km_known']} км - {d['road_minutes']//60} ч {d['road_minutes']%60} мин в дороге"),img(root/'maps'/f"day-{d['number']:02}.png"),Spacer(1,10),p(d['why'])])
     story.extend([p(d['risk'],'BaliSmall'),link('Первый переезд - открыть Google Maps',d['legs'][0]['navigation_url']),link('Последний переезд - открыть Google Maps',d['legs'][-1]['navigation_url']),PageBreak(),p(f"{d['date']} - расписание",'BaliTitle')])

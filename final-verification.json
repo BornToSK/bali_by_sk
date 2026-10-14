@@ -22,7 +22,7 @@
   "minimum_sleep_hours": 7,
   "route_continuity_and_boat_windows_checked": true,
   "pdf": {
-    "pages": 35,
+    "pages": 36,
     "all_current_restaurant_names_present": true,
     "all_pages_rendered": true,
     "all_pages_visually_reviewed": true
@@ -43,5 +43,16 @@
     "Завтрак в отеле с 08:00 — по вашему сообщению. Выезд ежедневно 09:00; боксы убраны.",
     "Koral, Boneka на ужин и услуги виллы после checkout согласовать.",
     "PDF и статические карты показывают основной план; личные обмены в браузере не меняют их автоматически."
-  ]
+  ],
+  "tides": {
+    "checked": "2026-10-14",
+    "dates": [
+      "2026-10-14",
+      "2026-10-16",
+      "2026-10-18"
+    ],
+    "regional_references_only": true,
+    "website_and_pdf_checked": true,
+    "schedule_unchanged": true
+  }
 }
