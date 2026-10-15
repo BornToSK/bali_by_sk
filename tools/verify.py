@@ -13,7 +13,8 @@ assert [d['date'] for d in data['days']]==[f'2026-10-{n}' for n in range(15,23)]
 assert all(not d.get('historical') for d in data['days'])
 assert {s['id'] for s in data['days'][3]['stops']} >= {'v25','v26'}
 assert 'v01' not in {s['id'] for s in data['days'][3]['stops']}
-assert {s['id'] for s in data['days'][0]['stops']}=={'v01','v14','v15'}
+assert {s['id'] for s in data['days'][0]['stops']}=={'v01','v14','v15','v09'}
+assert not any(s['id']=='v09' for d in data['days'][1:] for s in d['stops'])
 assert sum(r['duration_minutes'] for r in data['days'][3]['timeline'] if r['kind']=='visit' and r.get('place_id') in ('v25','v26'))>=165
 assert data['routing_preference']['tolls_allowed']
 food_ids={p['id'] for p in reg['places'] if 'meal' in p['roles']}

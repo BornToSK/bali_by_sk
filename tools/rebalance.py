@@ -28,13 +28,13 @@ def clock(t): return f'{t//60:02}:{t%60:02}'
 def food(id, kind='coffee'): return (id,kind)
 # Geographic blocks, with all 67 restaurants visited once. All departures follow the hotel breakfast.
 plans = {
-5:['v01','free-lunch','v14','v15',food('r50','dinner'),food('r55'),food('r21'),food('r63'),food('r65')],
+5:['v01','free-lunch','v14','v15','v09',food('r50','dinner'),food('r55'),food('r21'),food('r63'),food('r65')],
 6:[food('r13'),'v16',food('r69','lunch'),food('r25'),food('r05'),food('r11'),food('r03'),food('r08'),food('r09'),food('r06'),food('r10'),food('r04','dinner')],
 7:['v07','v05','v06','v04',food('r01','lunch'),'return-boat',food('r62','dinner'),food('r46'),food('r57'),food('r56'),food('r20'),food('r64')],
 8:['v26','v25',food('r19','lunch'),'v27','v28',food('r72','dinner'),food('r23'),food('r66'),food('r22'),food('r47'),food('r51')],
 9:['v18','v19',food('r02','lunch'),'v21',food('r70'),'v03','v17',food('r18','dinner'),food('r43'),food('r15'),food('r14')],
 10:[food('r34'),food('r42'),food('r33'),food('r41','lunch'),food('r36'),food('r17'),food('r32'),'v22',food('r37'),food('r07'),food('r16'),food('r35','dinner'),food('r38'),food('r40'),food('r39')],
-11:[food('r68'),food('r24'),'v09','v10','v11',food('r29','lunch'),food('r26'),food('r27'),food('r30'),food('r31','dinner'),food('r12')],
+11:[food('r68'),food('r24'),'v10','v11',food('r29','lunch'),food('r26'),food('r27'),food('r30'),food('r31','dinner'),food('r12')],
 12:['checkout',food('r61'),food('r48'),food('r53'),food('r67','lunch'),food('r54'),food('r45'),food('r49'),'v24',food('r71'),food('r59','dinner'),'baggage'],
 }
 titles={4:'Пандава и Melasti: пляжи и купание',5:'Тегаллаланг, Sari Timbul и Кинтамани',6:'Бесаких, водопад и восточные пляжи',7:'Запад Пениды и заведения юга',8:'Crystal Bay, Amok и Чангу',9:'Террасы, озёра и северный круг',10:'Чангу и Nuanu',11:'Marine Safari, Sanur и Убуд',12:'Jaran Hill, Boneka и аэропорт'}
@@ -42,7 +42,7 @@ starts={n:'09:00' for n in plans}
 starts[7]='06:50'  # Early Penida departure explicitly authorized by user on 15 October.
 titles[7]='Пенида за один день: четыре места и Amok'
 titles[8]='Пандава, Melasti и Нуса-Дуа'
-titles[5]='Marine Safari, Blue Lagoon и Bias Tugel'
+titles[5]='Marine Safari, пляжи и Satya Dharma'
 titles[6]='Тегаллаланг, Sari Timbul и Кинтамани'
 titles[11]='Бесаких, Tukad Cepung и заведения Убуда'
 why={4:'Первый день программы посвящён купанию: 1 час на Пандаве и 1 час 45 минут на Melasti. Утром короткие осмотры Нуса-Дуа; Waterblow без купания. Обед и ужин включены, без цепочки из девяти кафе.',5:'Северные заведения Убуда и Sari Timbul расположены по дороге к кафе Кинтамани. Часы закрытия определяют порядок кафе; день очень насыщенный.',7:'Катер 11:00 после завтрака. Kelingking только сверху, без спуска; на острове отдельная машина. Готовый обед купить до регистрации. Все ночи на вилле.',8:'Вторая поездка на Пениду: Crystal Bay и Amok, затем заведения Чангу. Короткое посещение Crystal Bay; для купания выделен первый день.',9:'Северный круг с водителем. Farm House до закрытия, затем озёра. Кафе юга посещаются на обратном пути.',10:'Все 14 заведений Чангу сохранены по вашему выбору: преимущественно небольшие порции. Это самый плотный день.',11:'Marine Safari и южные заведения Убуда объединены в один день. Последний вход Safari до 14:00; северные заведения Убуда стоят 15-го.',12:'После завтрака checkout, только южный полуостров. Jaran Hill без ожидания заката, ужин Boneka, затем багаж и DPS.'}
@@ -50,7 +50,7 @@ why={4:'Первый день программы посвящён купанию
 why[7]='Единственный день Пениды: четыре короткие смотровые и обед Amok. Kelingking только сверху, Crystal Bay без купания, Angel’s Billabong без входа в воду. Машина с водителем обязательна; ранний катер требует отдельного подтверждения.'
 why[8]='Сначала Пандава и Melasti подряд, затем обед, короткие посещения Mengiat и Waterblow и ужин Koral. После Koral - небольшие заказы в заведениях юга; день очень насыщенный.'
 why[9]='Северный круг, затем заведения Чангу на обратном пути. Farm House до закрытия; день с водителем и короткими остановками.'
-why[5]='Сначала Marine Safari, затем обед и два пляжа Падангбая рядом друг с другом. Без дальнего заезда к Бесаких; дополнительные осмотры только при запасе времени.'
+why[5]='Сначала Marine Safari, затем обед и два пляжа Падангбая. Satya Dharma на обратном пути перед ужином в YUKI; с 21 октября храм убран, повторного посещения нет.'
 why[6]='Заведения Тегаллаланга и Sari Timbul по дороге к Кинтамани. Короткие дегустации сохраняют время на сон перед ранним выездом на Пениду.'
 why[11]='Бесаких и Tukad Cepung перенесены с восточных пляжей в отдельный круг с возвратом через Убуд. День плотный; рекомендуется водитель.'
 
@@ -178,6 +178,10 @@ def build(n):
             if n in (2,6,9) and id in ('v25','v26','v14','v15','v02'):duration=60
             duration={'v27':20,'v29':15,'v28':15,'v13':45,'v12':45,'v16':45,'v01':180,'v10':60,'v11':45,'v14':45,'v15':45,'v07':25,'v05':20,'v06':15,'v04':20,'v19':40,'v18':40,'v03':20,'v17':30,'v21':40,'v24':30,'v25':105,'v26':60}.get(id,duration)
             if id in ('v25','v26'):r['note']='Купание и отдых у воды. Ориентироваться на флаги и указания спасателей; при запрете купания отдыхать на берегу.'
+            if n==5 and id=='v09':
+                duration=30
+                assert t+duration<=minutes('19:00'),('Satya Dharma late',clock(t))
+                r['note']='В справочнике Wihara указаны часы 10:00-19:00; вечерний вход официально не подтверждён. Уточнить доступ перед выездом. При задержке после закрытия не считать осмотр выполненным и пересчитать день.'
             if n==6 and id in ('v14','v15'):
                 duration=30
                 r['note']='Короткое посещение с подходом, без гарантированного времени для купания. Вход, волны, течения и флаги проверить на месте.'
@@ -204,9 +208,8 @@ def build(n):
         notes=['Каждая из 67 точек еды назначена один раз и нанесена на карту дня.','Завтрак на вилле 08:00-08:45, выезд 09:00; 17 октября исключение: выезд 06:50 и завтрак с собой.','Все ночи на Nunamkhalu; ночёвки на Пениде не предусмотрены.'])
     if n==9:d['risk']+=' Самый дальний день: машина с водителем рекомендуется; кафе после северного круга зависят от фактического возвращения.'
     if n==5:
-        d['risk']+=' Дополнительно: Goa Lawah, храм с пещерой летучих мышей, на обратном пути. Только если закончите пляжи раньше и появится 30-40 минут запаса: осмотр 20-30 минут, вход и часы уточнить. В основной расчёт не включён; при добавлении пересчитать вечер.'
-        d['extra_activity']=dict(name='Goa Lawah — запасная остановка',url='https://www.google.com/maps/search/?api=1&query=Pura+Goa+Lawah+Bali',note='Не обязательная точка: только при запасе времени, доступность и часы не подтверждены.')
-    else:d.pop('extra_activity',None)
+        d['risk']+=' Satya Dharma 18:20-18:50: справочник указывает закрытие в 19:00, но вечерний вход официально не подтверждён. Уточнить доступ. Goa Lawah не добавлен: вечер занят храмом. Время в пути без прогноза пробок.'
+    d.pop('extra_activity',None)
     if n in (7,8):d['port_arrival_estimate']='16:20 или раньше; регистрация на 17:00'
     for k in ('sleep_window','customized'):d.pop(k,None)
     if n==7:
@@ -243,6 +246,7 @@ data['routing_preference']=dict(tolls_allowed=True,preference='Более быс
 data['limitations']=['На платной Bali Mandara для байка использовать выделенную полосу. Геометрия карты рассчитана для автомобиля; фактические мотоциклетные въезды и съезды уточнить.','67 заведений за 8 дней — плотная программа, особенно Чангу и южный день. Большинство остановок — небольшие порции, а не полноценный приём пищи.','Пенида только 17 октября: четыре короткие смотровые и 30 минут на Amok. Ранний выезд 06:50, завтрак с собой. Плановый катер The Angkal 08:30 опубликован агентами; обратный 17:00. Рейсы, места, время регистрации и островного водителя подтвердить. При задержке пересчитать маршрут, не рискуя обратным катером.','Запад Пениды: короткие смотровые, без спуска на Kelingking и без купания у Angel’s Billabong. При задержке водителя сокращать посещения, чтобы сохранить катер.','Северный круг 19 октября и круг Бесаких–Tukad Cepung–Убуд 21 октября насыщенные; рекомендуется машина с водителем. Посещения короткие, часы входа подтвердить.','Часы части заведений оценочные, кухню, последний заказ и столы подтвердить.','Echo Beach Sunset Point: возможность заказа еды не подтверждена.','Подъезды, парковки и доступ для байка не полностью проверены; OSRM использует автомобильный профиль.','Завтрак в отеле 08:00-08:45, выезд 09:00. Исключение 17 октября: выезд 06:50, заранее заказанный завтрак с собой; выдачу и хранение подтвердить.','Koral 18 октября 17:30-19:30, Boneka на ужин 22 октября и услуги виллы после checkout согласовать. Брони не выполнены.','PDF и статические карты показывают основной план; личные обмены в браузере не меняют их автоматически.']
 data['sources']=[dict(name='BPJT: отдельная полоса для мотоциклов на Bali Mandara',url='https://bpjt.pu.go.id/faq/apakah-motor-boleh-masuk-jalan-tol/',checked='2026-10-15'),dict(name='Текущий список еды: 67 мест',url=snapshot['food_url'],checked='2026-10-15'),dict(name='Текущий список достопримечательностей: 22 места',url=snapshot['sights_url'],checked='2026-10-15'),dict(name='The Angkal: 08:30 в расписании агента; рейс на 17 октября подтвердить',url='https://sailtix.com/operators/the-angkal',checked='2026-10-15'),dict(name='Axe Stone: обратный 17:00, проверен 13-го; доступ 15-го недоступен',url='https://axestonefastcruise.com/time-schedule/',checked='2026-10-13'),dict(name='Bali Farm House: 09:00–17:00',url='https://linktr.ee/balifarmhouse',checked='2026-10-15'),* [x for x in data['sources'][2:] if not any(w in x['name'].lower() for w in ['lovina','saka','gooseberry','sundays','бокс','brahmavihara','ocean speed'])]]
 data['sources'].insert(0,{'name': 'Marine Safari: официальный билетный сайт, часы 09:00-17:00', 'url': 'https://overseasmarinesafari.balisafarimarinepark.com/attraction/clownfish---general-day-admission-lunch-65778?lang=en', 'checked': '2026-10-15'})
+data['sources'].insert(0,dict(name='Satya Dharma: справочник Wihara 10:00-19:00; вечерний доступ подтвердить',url='https://www.wihara.org/listings/hok-tek-bio-sokaraja/94',checked='2026-10-15'))
 registry.update(created_date='2026-10-15',source=data['list_verification'],counts=dict(attractions=22,scheduled_attractions=22,optional_attractions=0,restaurants=67,total_records=89))
 registry['meal_capacity']=dict(restaurant_count=67,main_meals=len(main),onsite_full_meals=sum(m['meal_mode']=='onsite' for m in main),coffee_snack_stops=data['restaurant_selection']['coffee_snack_visits'],packed_meals=1,note='7 завтраков на вилле и 1 завтрак с собой отдельно; Echo Beach: еда не подтверждена.')
 for p in registry['places']:

@@ -42,12 +42,12 @@
       "number": 1,
       "date": "2026-10-15",
       "weekday": "четверг",
-      "title": "Marine Safari, Blue Lagoon и Bias Tugel",
-      "subtitle": "Marine Safari Bali → Blue Lagoon Beach → Bias Tugel Beach",
+      "title": "Marine Safari, пляжи и Satya Dharma",
+      "subtitle": "Marine Safari Bali → Blue Lagoon Beach → Bias Tugel Beach → Satya Dharma Temple",
       "image": "rice",
       "load": "Высокий",
-      "why": "Сначала Marine Safari, затем обед и два пляжа Падангбая рядом друг с другом. Без дальнего заезда к Бесаких; дополнительные осмотры только при запасе времени.",
-      "risk": "Часы и время в пути плановые. Возможность короткой дегустации и last order подтвердить. Не переносить опоздание на катер или аэропорт; при задержке отложить кафе и пересчитать покрытие. Дополнительно: Goa Lawah, храм с пещерой летучих мышей, на обратном пути. Только если закончите пляжи раньше и появится 30-40 минут запаса: осмотр 20-30 минут, вход и часы уточнить. В основной расчёт не включён; при добавлении пересчитать вечер.",
+      "why": "Сначала Marine Safari, затем обед и два пляжа Падангбая. Satya Dharma на обратном пути перед ужином в YUKI; с 21 октября храм убран, повторного посещения нет.",
+      "risk": "Часы и время в пути плановые. Возможность короткой дегустации и last order подтвердить. Не переносить опоздание на катер или аэропорт; при задержке отложить кафе и пересчитать покрытие. Satya Dharma 18:20-18:50: справочник указывает закрытие в 19:00, но вечерний вход официально не подтверждён. Уточнить доступ. Goa Lawah не добавлен: вечер занят храмом. Время в пути без прогноза пробок.",
       "wake": "07:30",
       "depart": "09:00",
       "status": "hotel_breakfast_departure_after_9",
@@ -81,6 +81,16 @@
           "place_url": "https://www.google.com/maps/search/?api=1&query=Bias%20Tugel%20Beach%20Bali",
           "coordinate_status": "osm_named_feature_match_entrance_not_verified",
           "number": 3
+        },
+        {
+          "id": "v09",
+          "name": "Satya Dharma Temple",
+          "role": "visit",
+          "lat": -8.7208914,
+          "lon": 115.2139638,
+          "place_url": "https://www.google.com/maps/search/?api=1&query=Satya%20Dharma%20Temple%20Bali",
+          "coordinate_status": "historical_snapshot_not_reverified",
+          "number": 4
         }
       ],
       "route_stops": [
@@ -115,6 +125,16 @@
           "number": 3
         },
         {
+          "id": "v09",
+          "name": "Satya Dharma Temple",
+          "role": "visit",
+          "lat": -8.7208914,
+          "lon": 115.2139638,
+          "place_url": "https://www.google.com/maps/search/?api=1&query=Satya%20Dharma%20Temple%20Bali",
+          "coordinate_status": "historical_snapshot_not_reverified",
+          "number": 4
+        },
+        {
           "id": "r50",
           "name": "YUKI Uluwatu",
           "role": "meal",
@@ -122,7 +142,7 @@
           "lon": 115.0939427,
           "place_url": "https://www.google.com/maps/search/?api=1&query=YUKI%20Uluwatu%20Bali",
           "coordinate_status": "osm_named_feature_match_entrance_not_verified",
-          "number": 4,
+          "number": 5,
           "meal_type": "dinner"
         },
         {
@@ -133,7 +153,7 @@
           "lon": 115.1131861,
           "place_url": "https://www.google.com/maps/search/?api=1&query=Alchemy%20Uluwatu%20Bali",
           "coordinate_status": "osm_named_feature_match_entrance_not_verified",
-          "number": 5,
+          "number": 6,
           "meal_type": "coffee"
         },
         {
@@ -144,7 +164,7 @@
           "lon": 115.1398732,
           "place_url": "https://www.google.com/maps/search/?api=1&query=SODA%20CAFE%20Bali",
           "coordinate_status": "published_directory_coordinate_entrance_not_verified",
-          "number": 6,
+          "number": 7,
           "meal_type": "coffee"
         },
         {
@@ -155,7 +175,7 @@
           "lon": 115.15064482417895,
           "place_url": "https://www.google.com/maps/search/?api=1&query=HEDONIST%20SPACE%20restaurant%20%7C%20lounge%20%7C%20bar%20Bali",
           "coordinate_status": "official_published_geo_entrance_not_verified",
-          "number": 7,
+          "number": 8,
           "meal_type": "coffee"
         },
         {
@@ -166,7 +186,7 @@
           "lon": 115.1412525,
           "place_url": "https://www.google.com/maps/search/?api=1&query=NOURISH%20CAFE%20WHOLEFOODS%20PIZZERIA%20%26%20BAKERY%20-%20UNGASAN%20Bali",
           "coordinate_status": "official_published_branch_location_link_entrance_not_verified",
-          "number": 8,
+          "number": 9,
           "meal_type": "coffee"
         }
       ],
@@ -306,29 +326,63 @@
         },
         {
           "kind": "road",
-          "title": "Bias Tugel Beach → YUKI Uluwatu",
+          "title": "Bias Tugel Beach → Satya Dharma Temple",
           "start": "17:05",
-          "end": "18:55",
-          "duration_minutes": 110,
+          "end": "18:20",
+          "duration_minutes": 75,
           "leg_index": 3,
-          "distance_km": 73.3,
+          "distance_km": 49.0,
           "range_minutes": [
-            100,
-            130
+            65,
+            95
           ],
-          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.5363233%2C115.5089537&destination=-8.81712%2C115.0939427&travelmode=driving",
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.5363233%2C115.5089537&destination=-8.7208914%2C115.2139638&travelmode=driving",
+          "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок."
+        },
+        {
+          "kind": "visit",
+          "title": "Satya Dharma Temple",
+          "start": "18:20",
+          "end": "18:50",
+          "duration_minutes": 30,
+          "place_id": "v09",
+          "number": 4,
+          "place_url": "https://www.google.com/maps/search/?api=1&query=Satya%20Dharma%20Temple%20Bali",
+          "note": "В справочнике Wihara указаны часы 10:00-19:00; вечерний вход официально не подтверждён. Уточнить доступ перед выездом. При задержке после закрытия не считать осмотр выполненным и пересчитать день."
+        },
+        {
+          "kind": "buffer",
+          "title": "Парковка, вода и короткий перерыв",
+          "start": "18:50",
+          "end": "19:00",
+          "duration_minutes": 10,
+          "note": "Пеший подход включён в посещение."
+        },
+        {
+          "kind": "road",
+          "title": "Satya Dharma Temple → YUKI Uluwatu",
+          "start": "19:00",
+          "end": "19:55",
+          "duration_minutes": 55,
+          "leg_index": 4,
+          "distance_km": 25.8,
+          "range_minutes": [
+            45,
+            75
+          ],
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.7208914%2C115.2139638&destination=-8.81712%2C115.0939427&travelmode=driving",
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок."
         },
         {
           "kind": "meal",
           "title": "Ужин · YUKI Uluwatu",
-          "start": "18:55",
-          "end": "19:50",
+          "start": "19:55",
+          "end": "20:50",
           "duration_minutes": 55,
           "restaurant_id": "r50",
           "place_id": "r50",
           "place_url": "https://www.google.com/maps/search/?api=1&query=YUKI%20Uluwatu%20Bali",
-          "number": 4,
+          "number": 5,
           "meal_type": "dinner",
           "meal_mode": "onsite",
           "hours_label": "Ежедневно с 11:00 до позднего вечера; точное закрытие и кухня уточняются",
@@ -342,10 +396,10 @@
         {
           "kind": "road",
           "title": "YUKI Uluwatu → Alchemy Uluwatu",
-          "start": "19:50",
-          "end": "20:00",
+          "start": "20:50",
+          "end": "21:00",
           "duration_minutes": 10,
-          "leg_index": 4,
+          "leg_index": 5,
           "distance_km": 2.8,
           "range_minutes": [
             5,
@@ -357,13 +411,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · Alchemy Uluwatu",
-          "start": "20:00",
-          "end": "20:20",
+          "start": "21:00",
+          "end": "21:20",
           "duration_minutes": 20,
           "restaurant_id": "r55",
           "place_id": "r55",
           "place_url": "https://www.google.com/maps/search/?api=1&query=Alchemy%20Uluwatu%20Bali",
-          "number": 5,
+          "number": 6,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "07:30–22:00 ежедневно",
@@ -377,10 +431,10 @@
         {
           "kind": "road",
           "title": "Alchemy Uluwatu → SODA CAFE",
-          "start": "20:20",
-          "end": "20:35",
+          "start": "21:20",
+          "end": "21:35",
           "duration_minutes": 15,
-          "leg_index": 5,
+          "leg_index": 6,
           "distance_km": 4.5,
           "range_minutes": [
             5,
@@ -392,13 +446,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · SODA CAFE",
-          "start": "20:35",
-          "end": "20:55",
+          "start": "21:35",
+          "end": "21:55",
           "duration_minutes": 20,
           "restaurant_id": "r21",
           "place_id": "r21",
           "place_url": "https://www.google.com/maps/search/?api=1&query=SODA%20CAFE%20Bali",
-          "number": 6,
+          "number": 7,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "07:00–22:00 ежедневно",
@@ -412,10 +466,10 @@
         {
           "kind": "road",
           "title": "SODA CAFE → HEDONIST SPACE restaurant | lounge | bar",
-          "start": "20:55",
-          "end": "21:05",
+          "start": "21:55",
+          "end": "22:05",
           "duration_minutes": 10,
-          "leg_index": 6,
+          "leg_index": 7,
           "distance_km": 1.5,
           "range_minutes": [
             5,
@@ -427,13 +481,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · HEDONIST SPACE restaurant | lounge | bar",
-          "start": "21:05",
-          "end": "21:25",
+          "start": "22:05",
+          "end": "22:25",
           "duration_minutes": 20,
           "restaurant_id": "r63",
           "place_id": "r63",
           "place_url": "https://www.google.com/maps/search/?api=1&query=HEDONIST%20SPACE%20restaurant%20%7C%20lounge%20%7C%20bar%20Bali",
-          "number": 7,
+          "number": 8,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "08:00–01:00 вс–чт; 08:00–02:00 пт–сб",
@@ -447,10 +501,10 @@
         {
           "kind": "road",
           "title": "HEDONIST SPACE restaurant | lounge | bar → NOURISH CAFE WHOLEFOODS PIZZERIA & BAKERY - UNGASAN",
-          "start": "21:25",
-          "end": "21:35",
+          "start": "22:25",
+          "end": "22:35",
           "duration_minutes": 10,
-          "leg_index": 7,
+          "leg_index": 8,
           "distance_km": 1.3,
           "range_minutes": [
             5,
@@ -462,13 +516,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · NOURISH CAFE WHOLEFOODS PIZZERIA & BAKERY - UNGASAN",
-          "start": "21:35",
-          "end": "21:55",
+          "start": "22:35",
+          "end": "22:55",
           "duration_minutes": 20,
           "restaurant_id": "r65",
           "place_id": "r65",
           "place_url": "https://www.google.com/maps/search/?api=1&query=NOURISH%20CAFE%20WHOLEFOODS%20PIZZERIA%20%26%20BAKERY%20-%20UNGASAN%20Bali",
-          "number": 8,
+          "number": 9,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "Текущие часы и last order ещё не подтверждены",
@@ -482,10 +536,10 @@
         {
           "kind": "road",
           "title": "NOURISH CAFE WHOLEFOODS PIZZERIA & BAKERY - UNGASAN → Nunamkhalu Private Villas & Spa",
-          "start": "21:55",
-          "end": "22:20",
+          "start": "22:55",
+          "end": "23:20",
           "duration_minutes": 25,
-          "leg_index": 8,
+          "leg_index": 9,
           "distance_km": 6.2,
           "range_minutes": [
             15,
@@ -497,8 +551,8 @@
         {
           "kind": "logistics",
           "title": "Возвращение на Nunamkhalu",
-          "start": "22:20",
-          "end": "22:20",
+          "start": "23:20",
+          "end": "23:20",
           "duration_minutes": 0,
           "note": "Полный обратный путь учтён."
         }
@@ -8458,9 +8512,9 @@
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.5299997%2C115.5131995&destination=-8.5363233%2C115.5089537&travelmode=driving"
         },
         {
-          "key": "v15>r50",
+          "key": "v15>v09",
           "origin": "v15",
-          "destination": "r50",
+          "destination": "v09",
           "geometry": {
             "coordinates": [
               [
@@ -13440,6 +13494,276 @@
                 -8.717228
               ],
               [
+                115.215077,
+                -8.717415
+              ],
+              [
+                115.214998,
+                -8.717877
+              ],
+              [
+                115.214969,
+                -8.718146
+              ],
+              [
+                115.214941,
+                -8.718351
+              ],
+              [
+                115.214918,
+                -8.718622
+              ],
+              [
+                115.214897,
+                -8.718951
+              ],
+              [
+                115.214862,
+                -8.719378
+              ],
+              [
+                115.214827,
+                -8.719778
+              ],
+              [
+                115.214784,
+                -8.720202
+              ],
+              [
+                115.214726,
+                -8.720731
+              ],
+              [
+                115.214652,
+                -8.721388
+              ],
+              [
+                115.214619,
+                -8.721807
+              ],
+              [
+                115.214602,
+                -8.721975
+              ],
+              [
+                115.214594,
+                -8.722066
+              ],
+              [
+                115.214585,
+                -8.722179
+              ],
+              [
+                115.214572,
+                -8.722288
+              ],
+              [
+                115.214563,
+                -8.722328
+              ],
+              [
+                115.214459,
+                -8.722841
+              ],
+              [
+                115.214444,
+                -8.722917
+              ],
+              [
+                115.214417,
+                -8.723313
+              ],
+              [
+                115.214392,
+                -8.723381
+              ],
+              [
+                115.214374,
+                -8.723407
+              ],
+              [
+                115.214353,
+                -8.723423
+              ],
+              [
+                115.214327,
+                -8.723434
+              ],
+              [
+                115.214286,
+                -8.723425
+              ],
+              [
+                115.214263,
+                -8.723408
+              ],
+              [
+                115.214255,
+                -8.723392
+              ],
+              [
+                115.214238,
+                -8.723305
+              ],
+              [
+                115.214269,
+                -8.723193
+              ],
+              [
+                115.214299,
+                -8.723077
+              ],
+              [
+                115.214358,
+                -8.722839
+              ],
+              [
+                115.214374,
+                -8.72276
+              ],
+              [
+                115.214405,
+                -8.722609
+              ],
+              [
+                115.214412,
+                -8.722579
+              ],
+              [
+                115.214455,
+                -8.722361
+              ],
+              [
+                115.214469,
+                -8.72229
+              ],
+              [
+                115.214481,
+                -8.722143
+              ],
+              [
+                115.214499,
+                -8.721921
+              ],
+              [
+                115.214536,
+                -8.721558
+              ],
+              [
+                115.214553,
+                -8.721356
+              ],
+              [
+                115.214589,
+                -8.721038
+              ],
+              [
+                115.214404,
+                -8.720992
+              ],
+              [
+                115.214379,
+                -8.720986
+              ],
+              [
+                115.214312,
+                -8.720969
+              ],
+              [
+                115.214238,
+                -8.720953
+              ],
+              [
+                115.214124,
+                -8.720927
+              ],
+              [
+                115.214029,
+                -8.720904
+              ]
+            ],
+            "type": "LineString"
+          },
+          "distance_km": 49.0,
+          "engine_minutes": 40.2,
+          "plan_minutes": 75,
+          "range_minutes": [
+            65,
+            95
+          ],
+          "source": "https://router.project-osrm.org/route/v1/driving/115.5089537,-8.5363233;115.2139638,-8.7208914?overview=full&geometries=geojson&steps=true",
+          "checked": "2026-10-15",
+          "planning_checked": "2026-10-15",
+          "status": "car_road_geometry_scooter_access_not_fully_verified",
+          "avoided_toll": false,
+          "uses_toll": false,
+          "routing_policy": "tolls_allowed_v1",
+          "road_names": [
+            "",
+            "Jalan Bypass Ngurah Rai",
+            "Jalan Pelabuhan Padang Bai",
+            "Jalan Pentaran Agung",
+            "Jalan Profesor Dokter Ida Bagus Mantra",
+            "Jalan Profesor Ida Bagus Mantra",
+            "Jalan Raya Pelabuhan Benoa",
+            "Profesor Ida Bagus Mantra Bypass"
+          ],
+          "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
+          "index": 3,
+          "returning": false,
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.5363233%2C115.5089537&destination=-8.7208914%2C115.2139638&travelmode=driving"
+        },
+        {
+          "key": "v09>r50",
+          "origin": "v09",
+          "destination": "r50",
+          "geometry": {
+            "coordinates": [
+              [
+                115.214029,
+                -8.720904
+              ],
+              [
+                115.214124,
+                -8.720927
+              ],
+              [
+                115.214238,
+                -8.720953
+              ],
+              [
+                115.214312,
+                -8.720969
+              ],
+              [
+                115.214379,
+                -8.720986
+              ],
+              [
+                115.214404,
+                -8.720992
+              ],
+              [
+                115.214589,
+                -8.721038
+              ],
+              [
+                115.214683,
+                -8.720126
+              ],
+              [
+                115.214764,
+                -8.719283
+              ],
+              [
+                115.214866,
+                -8.718136
+              ],
+              [
+                115.214964,
+                -8.717391
+              ],
+              [
                 115.215015,
                 -8.717192
               ],
@@ -17366,16 +17690,16 @@
             ],
             "type": "LineString"
           },
-          "distance_km": 73.3,
-          "engine_minutes": 64.2,
-          "plan_minutes": 110,
+          "distance_km": 25.8,
+          "engine_minutes": 26.0,
+          "plan_minutes": 55,
           "range_minutes": [
-            100,
-            130
+            45,
+            75
           ],
-          "source": "https://router.project-osrm.org/route/v1/driving/115.5089537,-8.5363233;115.0939427,-8.81712?overview=full&geometries=geojson&steps=true",
-          "checked": "2026-10-13",
-          "planning_checked": "2026-10-13",
+          "source": "https://router.project-osrm.org/route/v1/driving/115.2139638,-8.7208914;115.0939427,-8.81712?overview=full&geometries=geojson&steps=true",
+          "checked": "2026-10-15",
+          "planning_checked": "2026-10-15",
           "status": "car_road_geometry_scooter_access_not_fully_verified",
           "avoided_toll": false,
           "uses_toll": false,
@@ -17385,17 +17709,13 @@
             "Jalan Bypass Ngurah Rai",
             "Jalan Kampus Unud",
             "Jalan Labuan Sait- Pecatu",
-            "Jalan Pelabuhan Padang Bai",
-            "Jalan Pentaran Agung",
-            "Jalan Profesor Dokter Ida Bagus Mantra",
-            "Jalan Profesor Ida Bagus Mantra",
-            "Jalan Uluwatu 2",
-            "Profesor Ida Bagus Mantra Bypass"
+            "Jalan Raya Pelabuhan Benoa",
+            "Jalan Uluwatu 2"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 3,
+          "index": 4,
           "returning": false,
-          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.5363233%2C115.5089537&destination=-8.81712%2C115.0939427&travelmode=driving"
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.7208914%2C115.2139638&destination=-8.81712%2C115.0939427&travelmode=driving"
         },
         {
           "key": "r50>r55",
@@ -18061,7 +18381,7 @@
             "Jalan Pantai Bingin"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 4,
+          "index": 5,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.81712%2C115.0939427&destination=-8.8145232%2C115.1131861&travelmode=driving"
         },
@@ -18962,7 +19282,7 @@
             "Jalan Raya Uluwatu"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 5,
+          "index": 6,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.8145232%2C115.1131861&destination=-8.826936%2C115.1398732&travelmode=driving"
         },
@@ -19189,7 +19509,7 @@
             "Jalan Raya Uluwatu"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 6,
+          "index": 7,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.826936%2C115.1398732&destination=-8.820273755980747%2C115.15064482417895&travelmode=driving"
         },
@@ -19381,7 +19701,7 @@
             "Jalan Raya Uluwatu"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 7,
+          "index": 8,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.820273755980747%2C115.15064482417895&destination=-8.8251255%2C115.1412525&travelmode=driving"
         },
@@ -20435,7 +20755,7 @@
             "Jalan Raya Uluwatu"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 8,
+          "index": 9,
           "returning": true,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.8251255%2C115.1412525&destination=-8.8348817%2C115.1795756&travelmode=driving"
         }
@@ -20459,13 +20779,13 @@
         {
           "kind": "meal",
           "title": "Ужин · YUKI Uluwatu",
-          "start": "18:55",
-          "end": "19:50",
+          "start": "19:55",
+          "end": "20:50",
           "duration_minutes": 55,
           "restaurant_id": "r50",
           "place_id": "r50",
           "place_url": "https://www.google.com/maps/search/?api=1&query=YUKI%20Uluwatu%20Bali",
-          "number": 4,
+          "number": 5,
           "meal_type": "dinner",
           "meal_mode": "onsite",
           "hours_label": "Ежедневно с 11:00 до позднего вечера; точное закрытие и кухня уточняются",
@@ -20479,13 +20799,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · Alchemy Uluwatu",
-          "start": "20:00",
-          "end": "20:20",
+          "start": "21:00",
+          "end": "21:20",
           "duration_minutes": 20,
           "restaurant_id": "r55",
           "place_id": "r55",
           "place_url": "https://www.google.com/maps/search/?api=1&query=Alchemy%20Uluwatu%20Bali",
-          "number": 5,
+          "number": 6,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "07:30–22:00 ежедневно",
@@ -20499,13 +20819,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · SODA CAFE",
-          "start": "20:35",
-          "end": "20:55",
+          "start": "21:35",
+          "end": "21:55",
           "duration_minutes": 20,
           "restaurant_id": "r21",
           "place_id": "r21",
           "place_url": "https://www.google.com/maps/search/?api=1&query=SODA%20CAFE%20Bali",
-          "number": 6,
+          "number": 7,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "07:00–22:00 ежедневно",
@@ -20519,13 +20839,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · HEDONIST SPACE restaurant | lounge | bar",
-          "start": "21:05",
-          "end": "21:25",
+          "start": "22:05",
+          "end": "22:25",
           "duration_minutes": 20,
           "restaurant_id": "r63",
           "place_id": "r63",
           "place_url": "https://www.google.com/maps/search/?api=1&query=HEDONIST%20SPACE%20restaurant%20%7C%20lounge%20%7C%20bar%20Bali",
-          "number": 7,
+          "number": 8,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "08:00–01:00 вс–чт; 08:00–02:00 пт–сб",
@@ -20539,13 +20859,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · NOURISH CAFE WHOLEFOODS PIZZERIA & BAKERY - UNGASAN",
-          "start": "21:35",
-          "end": "21:55",
+          "start": "22:35",
+          "end": "22:55",
           "duration_minutes": 20,
           "restaurant_id": "r65",
           "place_id": "r65",
           "place_url": "https://www.google.com/maps/search/?api=1&query=NOURISH%20CAFE%20WHOLEFOODS%20PIZZERIA%20%26%20BAKERY%20-%20UNGASAN%20Bali",
-          "number": 8,
+          "number": 9,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "Текущие часы и last order ещё не подтверждены",
@@ -20558,9 +20878,9 @@
         }
       ],
       "alternatives": [],
-      "return_time": "22:20",
-      "distance_km_known": 159.1,
-      "road_minutes": 320,
+      "return_time": "23:20",
+      "distance_km_known": 160.6,
+      "road_minutes": 340,
       "missing_legs": 0,
       "island": false,
       "last": false,
@@ -20570,11 +20890,6 @@
         "Завтрак на вилле 08:00-08:45, выезд 09:00; 17 октября исключение: выезд 06:50 и завтрак с собой.",
         "Все ночи на Nunamkhalu; ночёвки на Пениде не предусмотрены."
       ],
-      "extra_activity": {
-        "name": "Goa Lawah — запасная остановка",
-        "url": "https://www.google.com/maps/search/?api=1&query=Pura+Goa+Lawah+Bali",
-        "note": "Не обязательная точка: только при запасе времени, доступность и часы не подтверждены."
-      },
       "tides": {
         "area": "Blue Lagoon и Bias Tugel: ориентир Падангбай",
         "text": "По Surfline высокая вода около 12:57, низкая около 17:55. Blue Lagoon 14:55-15:40 и Bias Tugel 16:10-16:55 приходятся на убывающую воду. Каждая остановка 45 минут включает подход. Это ориентир порта Падангбай, а не подтверждённые окна безопасного купания: волны, течения и флаги проверяются на месте.",
@@ -153052,7 +153367,7 @@
       "date": "2026-10-21",
       "weekday": "среда",
       "title": "Бесаких, Tukad Cepung и заведения Убуда",
-      "subtitle": "Satya Dharma Temple → Храм Пура Бесаких → Tukad Cepung Waterfall",
+      "subtitle": "Храм Пура Бесаких → Tukad Cepung Waterfall",
       "image": "rice",
       "load": "Высокий",
       "why": "Бесаких и Tukad Cepung перенесены с восточных пляжей в отдельный круг с возвратом через Убуд. День плотный; рекомендуется водитель.",
@@ -153062,16 +153377,6 @@
       "status": "hotel_breakfast_departure_after_9",
       "stops": [
         {
-          "id": "v09",
-          "name": "Satya Dharma Temple",
-          "role": "visit",
-          "lat": -8.7208914,
-          "lon": 115.2139638,
-          "place_url": "https://www.google.com/maps/search/?api=1&query=Satya%20Dharma%20Temple%20Bali",
-          "coordinate_status": "historical_snapshot_not_reverified",
-          "number": 3
-        },
-        {
           "id": "v10",
           "name": "Храм Пура Бесаких",
           "role": "visit",
@@ -153079,7 +153384,7 @@
           "lon": 115.4507063,
           "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A5%D1%80%D0%B0%D0%BC%20%D0%9F%D1%83%D1%80%D0%B0%20%D0%91%D0%B5%D1%81%D0%B0%D0%BA%D0%B8%D1%85%20Bali",
           "coordinate_status": "historical_snapshot_not_reverified",
-          "number": 4
+          "number": 3
         },
         {
           "id": "v11",
@@ -153089,7 +153394,7 @@
           "lon": 115.3879035,
           "place_url": "https://www.google.com/maps/search/?api=1&query=Tukad%20Cepung%20Waterfall%20Bali",
           "coordinate_status": "historical_snapshot_not_reverified",
-          "number": 5
+          "number": 4
         }
       ],
       "route_stops": [
@@ -153116,16 +153421,6 @@
           "meal_type": "coffee"
         },
         {
-          "id": "v09",
-          "name": "Satya Dharma Temple",
-          "role": "visit",
-          "lat": -8.7208914,
-          "lon": 115.2139638,
-          "place_url": "https://www.google.com/maps/search/?api=1&query=Satya%20Dharma%20Temple%20Bali",
-          "coordinate_status": "historical_snapshot_not_reverified",
-          "number": 3
-        },
-        {
           "id": "v10",
           "name": "Храм Пура Бесаких",
           "role": "visit",
@@ -153133,7 +153428,7 @@
           "lon": 115.4507063,
           "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A5%D1%80%D0%B0%D0%BC%20%D0%9F%D1%83%D1%80%D0%B0%20%D0%91%D0%B5%D1%81%D0%B0%D0%BA%D0%B8%D1%85%20Bali",
           "coordinate_status": "historical_snapshot_not_reverified",
-          "number": 4
+          "number": 3
         },
         {
           "id": "v11",
@@ -153143,7 +153438,7 @@
           "lon": 115.3879035,
           "place_url": "https://www.google.com/maps/search/?api=1&query=Tukad%20Cepung%20Waterfall%20Bali",
           "coordinate_status": "historical_snapshot_not_reverified",
-          "number": 5
+          "number": 4
         },
         {
           "id": "r29",
@@ -153153,7 +153448,7 @@
           "lon": 115.2709408,
           "place_url": "https://www.google.com/maps/search/?api=1&query=Ramu%20Kitchen%20Bali",
           "coordinate_status": "osm_named_feature_match_entrance_not_verified",
-          "number": 6,
+          "number": 5,
           "meal_type": "lunch"
         },
         {
@@ -153164,7 +153459,7 @@
           "lon": 115.2654373,
           "place_url": "https://www.google.com/maps/search/?api=1&query=FLOCK%20Bali%20Bali",
           "coordinate_status": "osm_named_feature_match_entrance_not_verified",
-          "number": 7,
+          "number": 6,
           "meal_type": "coffee"
         },
         {
@@ -153175,7 +153470,7 @@
           "lon": 115.2624831,
           "place_url": "https://www.google.com/maps/search/?api=1&query=Milk%20%26%20Madu%20Ubud%20Bali",
           "coordinate_status": "osm_named_feature_match_entrance_not_verified",
-          "number": 8,
+          "number": 7,
           "meal_type": "coffee"
         },
         {
@@ -153186,7 +153481,7 @@
           "lon": 115.2537798,
           "place_url": "https://www.google.com/maps/search/?api=1&query=Zest%20Bali",
           "coordinate_status": "osm_named_feature_match_entrance_not_verified",
-          "number": 9,
+          "number": 8,
           "meal_type": "coffee"
         },
         {
@@ -153197,7 +153492,7 @@
           "lon": 115.2533029,
           "place_url": "https://www.google.com/maps/search/?api=1&query=SkaZka%20Bali%20Bali",
           "coordinate_status": "official_published_geo_entrance_not_verified",
-          "number": 10,
+          "number": 9,
           "meal_type": "dinner"
         },
         {
@@ -153208,7 +153503,7 @@
           "lon": 115.2517895,
           "place_url": "https://www.google.com/maps/search/?api=1&query=Brie%20Restaurant%20%26%20Cheesery%20%7C%20Italian%20Season%20Bali",
           "coordinate_status": "osm_named_feature_match_entrance_not_verified",
-          "number": 11,
+          "number": 10,
           "meal_type": "coffee"
         }
       ],
@@ -153308,79 +153603,45 @@
         },
         {
           "kind": "road",
-          "title": "FROM HERE BALI → Satya Dharma Temple",
+          "title": "FROM HERE BALI → Храм Пура Бесаких",
           "start": "10:45",
-          "end": "11:05",
-          "duration_minutes": 20,
+          "end": "12:00",
+          "duration_minutes": 75,
           "leg_index": 2,
-          "distance_km": 5.7,
+          "distance_km": 52.9,
           "range_minutes": [
-            10,
-            40
+            65,
+            95
           ],
-          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.7058825%2C115.253739&destination=-8.7208914%2C115.2139638&travelmode=driving",
-          "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок."
-        },
-        {
-          "kind": "visit",
-          "title": "Satya Dharma Temple",
-          "start": "11:05",
-          "end": "11:45",
-          "duration_minutes": 40,
-          "place_id": "v09",
-          "number": 3,
-          "place_url": "https://www.google.com/maps/search/?api=1&query=Satya%20Dharma%20Temple%20Bali",
-          "note": "Время включает осмотр и подход; точный вход, парковка и доступность на дату требуют подтверждения."
-        },
-        {
-          "kind": "buffer",
-          "title": "Парковка, вода и короткий перерыв",
-          "start": "11:45",
-          "end": "11:55",
-          "duration_minutes": 10,
-          "note": "Пеший подход включён в посещение."
-        },
-        {
-          "kind": "road",
-          "title": "Satya Dharma Temple → Храм Пура Бесаких",
-          "start": "11:55",
-          "end": "13:20",
-          "duration_minutes": 85,
-          "leg_index": 3,
-          "distance_km": 57.9,
-          "range_minutes": [
-            75,
-            105
-          ],
-          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.7208914%2C115.2139638&destination=-8.3753612%2C115.4507063&travelmode=driving",
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.7058825%2C115.253739&destination=-8.3753612%2C115.4507063&travelmode=driving",
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок."
         },
         {
           "kind": "visit",
           "title": "Храм Пура Бесаких",
-          "start": "13:20",
-          "end": "14:20",
+          "start": "12:00",
+          "end": "13:00",
           "duration_minutes": 60,
           "place_id": "v10",
-          "number": 4,
+          "number": 3,
           "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A5%D1%80%D0%B0%D0%BC%20%D0%9F%D1%83%D1%80%D0%B0%20%D0%91%D0%B5%D1%81%D0%B0%D0%BA%D0%B8%D1%85%20Bali",
           "note": "Время включает осмотр и подход; точный вход, парковка и доступность на дату требуют подтверждения."
         },
         {
           "kind": "buffer",
           "title": "Парковка, вода и короткий перерыв",
-          "start": "14:20",
-          "end": "14:30",
+          "start": "13:00",
+          "end": "13:10",
           "duration_minutes": 10,
           "note": "Пеший подход включён в посещение."
         },
         {
           "kind": "road",
           "title": "Храм Пура Бесаких → Tukad Cepung Waterfall",
-          "start": "14:30",
-          "end": "15:10",
+          "start": "13:10",
+          "end": "13:50",
           "duration_minutes": 40,
-          "leg_index": 4,
+          "leg_index": 3,
           "distance_km": 17.0,
           "range_minutes": [
             30,
@@ -153392,29 +153653,29 @@
         {
           "kind": "visit",
           "title": "Tukad Cepung Waterfall",
-          "start": "15:10",
-          "end": "15:55",
+          "start": "13:50",
+          "end": "14:35",
           "duration_minutes": 45,
           "place_id": "v11",
-          "number": 5,
+          "number": 4,
           "place_url": "https://www.google.com/maps/search/?api=1&query=Tukad%20Cepung%20Waterfall%20Bali",
           "note": "Время включает осмотр и подход; точный вход, парковка и доступность на дату требуют подтверждения."
         },
         {
           "kind": "buffer",
           "title": "Парковка, вода и короткий перерыв",
-          "start": "15:55",
-          "end": "16:05",
+          "start": "14:35",
+          "end": "14:45",
           "duration_minutes": 10,
           "note": "Пеший подход включён в посещение."
         },
         {
           "kind": "road",
           "title": "Tukad Cepung Waterfall → Ramu Kitchen",
-          "start": "16:05",
-          "end": "17:05",
+          "start": "14:45",
+          "end": "15:45",
           "duration_minutes": 60,
-          "leg_index": 5,
+          "leg_index": 4,
           "distance_km": 28.8,
           "range_minutes": [
             50,
@@ -153426,13 +153687,13 @@
         {
           "kind": "meal",
           "title": "Обед · Ramu Kitchen",
-          "start": "17:05",
-          "end": "18:00",
+          "start": "15:45",
+          "end": "16:40",
           "duration_minutes": 55,
           "restaurant_id": "r29",
           "place_id": "r29",
           "place_url": "https://www.google.com/maps/search/?api=1&query=Ramu%20Kitchen%20Bali",
-          "number": 6,
+          "number": 5,
           "meal_type": "lunch",
           "meal_mode": "onsite",
           "hours_label": "15:00–23:00 по меню; сайт отеля 07:00–22:00 — используем пересечение 15:00–22:00",
@@ -153446,10 +153707,10 @@
         {
           "kind": "road",
           "title": "Ramu Kitchen → FLOCK Bali",
-          "start": "18:00",
-          "end": "18:15",
+          "start": "16:40",
+          "end": "16:55",
           "duration_minutes": 15,
-          "leg_index": 6,
+          "leg_index": 5,
           "distance_km": 4.3,
           "range_minutes": [
             5,
@@ -153461,13 +153722,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · FLOCK Bali",
-          "start": "18:15",
-          "end": "18:40",
+          "start": "16:55",
+          "end": "17:20",
           "duration_minutes": 25,
           "restaurant_id": "r26",
           "place_id": "r26",
           "place_url": "https://www.google.com/maps/search/?api=1&query=FLOCK%20Bali%20Bali",
-          "number": 7,
+          "number": 6,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "07:00–22:00 ежедневно; на странице контактов есть старое 09:00–18:00",
@@ -153481,10 +153742,10 @@
         {
           "kind": "road",
           "title": "FLOCK Bali → Milk & Madu Ubud",
-          "start": "18:40",
-          "end": "18:55",
+          "start": "17:20",
+          "end": "17:35",
           "duration_minutes": 15,
-          "leg_index": 7,
+          "leg_index": 6,
           "distance_km": 3.2,
           "range_minutes": [
             5,
@@ -153496,13 +153757,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · Milk & Madu Ubud",
-          "start": "18:55",
-          "end": "19:20",
+          "start": "17:35",
+          "end": "18:00",
           "duration_minutes": 25,
           "restaurant_id": "r27",
           "place_id": "r27",
           "place_url": "https://www.google.com/maps/search/?api=1&query=Milk%20%26%20Madu%20Ubud%20Bali",
-          "number": 8,
+          "number": 7,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "07:00–22:00 ежедневно · Ubud",
@@ -153516,10 +153777,10 @@
         {
           "kind": "road",
           "title": "Milk & Madu Ubud → Zest",
-          "start": "19:20",
-          "end": "19:30",
+          "start": "18:00",
+          "end": "18:10",
           "duration_minutes": 10,
-          "leg_index": 8,
+          "leg_index": 7,
           "distance_km": 2.5,
           "range_minutes": [
             5,
@@ -153531,13 +153792,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · Zest",
-          "start": "19:30",
-          "end": "19:55",
+          "start": "18:10",
+          "end": "18:35",
           "duration_minutes": 25,
           "restaurant_id": "r30",
           "place_id": "r30",
           "place_url": "https://www.google.com/maps/search/?api=1&query=Zest%20Bali",
-          "number": 9,
+          "number": 8,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "08:00–22:00 ежедневно",
@@ -153551,10 +153812,10 @@
         {
           "kind": "road",
           "title": "Zest → SkaZka Bali",
-          "start": "19:55",
-          "end": "20:05",
+          "start": "18:35",
+          "end": "18:45",
           "duration_minutes": 10,
-          "leg_index": 9,
+          "leg_index": 8,
           "distance_km": 1.3,
           "range_minutes": [
             5,
@@ -153566,21 +153827,21 @@
         {
           "kind": "buffer",
           "title": "Запас до временного окна",
-          "start": "20:05",
-          "end": "20:35",
+          "start": "18:45",
+          "end": "19:15",
           "duration_minutes": 30,
           "note": "Свободное время; при задержке этот запас сокращается первым."
         },
         {
           "kind": "meal",
           "title": "Ужин · SkaZka Bali",
-          "start": "20:35",
-          "end": "21:30",
+          "start": "19:15",
+          "end": "20:10",
           "duration_minutes": 55,
           "restaurant_id": "r31",
           "place_id": "r31",
           "place_url": "https://www.google.com/maps/search/?api=1&query=SkaZka%20Bali%20Bali",
-          "number": 10,
+          "number": 9,
           "meal_type": "dinner",
           "meal_mode": "onsite",
           "hours_label": "07:00–22:00 ежедневно",
@@ -153594,10 +153855,10 @@
         {
           "kind": "road",
           "title": "SkaZka Bali → Brie Restaurant & Cheesery | Italian Season",
-          "start": "21:30",
-          "end": "21:40",
+          "start": "20:10",
+          "end": "20:20",
           "duration_minutes": 10,
-          "leg_index": 10,
+          "leg_index": 9,
           "distance_km": 1.6,
           "range_minutes": [
             5,
@@ -153609,13 +153870,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · Brie Restaurant & Cheesery | Italian Season",
-          "start": "21:40",
-          "end": "22:05",
+          "start": "20:20",
+          "end": "20:45",
           "duration_minutes": 25,
           "restaurant_id": "r12",
           "place_id": "r12",
           "place_url": "https://www.google.com/maps/search/?api=1&query=Brie%20Restaurant%20%26%20Cheesery%20%7C%20Italian%20Season%20Bali",
-          "number": 11,
+          "number": 10,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "08:00–22:30; завтрак до 14:30",
@@ -153629,10 +153890,10 @@
         {
           "kind": "road",
           "title": "Brie Restaurant & Cheesery | Italian Season → Nunamkhalu Private Villas & Spa",
-          "start": "22:05",
-          "end": "23:25",
+          "start": "20:45",
+          "end": "22:05",
           "duration_minutes": 80,
-          "leg_index": 11,
+          "leg_index": 10,
           "distance_km": 48.2,
           "range_minutes": [
             70,
@@ -153644,8 +153905,8 @@
         {
           "kind": "logistics",
           "title": "Возвращение на Nunamkhalu",
-          "start": "23:25",
-          "end": "23:25",
+          "start": "22:05",
+          "end": "22:05",
           "duration_minutes": 0,
           "note": "Полный обратный путь учтён."
         }
@@ -157221,9 +157482,9 @@
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.8269008%2C115.170387&destination=-8.7058825%2C115.253739&travelmode=driving"
         },
         {
-          "key": "r24>v09",
+          "key": "r24>v10",
           "origin": "r24",
-          "destination": "v09",
+          "destination": "v10",
           "geometry": {
             "coordinates": [
               [
@@ -157231,1218 +157492,36 @@
                 -8.705738
               ],
               [
-                115.253528,
-                -8.705715
+                115.253977,
+                -8.70573
               ],
               [
-                115.253278,
-                -8.705667
+                115.254027,
+                -8.705724
               ],
               [
-                115.253182,
-                -8.705649
+                115.254084,
+                -8.705381
               ],
               [
-                115.253,
-                -8.705632
+                115.254108,
+                -8.705193
               ],
               [
-                115.252959,
-                -8.70563
+                115.254132,
+                -8.704849
               ],
               [
-                115.252228,
-                -8.705625
+                115.254131,
+                -8.704637
               ],
               [
-                115.252009,
-                -8.705625
+                115.2541,
+                -8.704362
               ],
               [
-                115.251743,
-                -8.705625
-              ],
-              [
-                115.251518,
-                -8.705625
-              ],
-              [
-                115.251456,
-                -8.705623
-              ],
-              [
-                115.251391,
-                -8.705623
-              ],
-              [
-                115.251168,
-                -8.705583
-              ],
-              [
-                115.250981,
-                -8.705545
-              ],
-              [
-                115.250624,
-                -8.705464
-              ],
-              [
-                115.25018,
-                -8.705336
-              ],
-              [
-                115.249749,
-                -8.705225
-              ],
-              [
-                115.248574,
-                -8.704895
-              ],
-              [
-                115.248423,
-                -8.704841
-              ],
-              [
-                115.247613,
-                -8.704628
-              ],
-              [
-                115.247368,
-                -8.704572
-              ],
-              [
-                115.247254,
-                -8.70454
-              ],
-              [
-                115.247194,
-                -8.704527
-              ],
-              [
-                115.247129,
-                -8.70451
-              ],
-              [
-                115.247015,
-                -8.704462
-              ],
-              [
-                115.246824,
-                -8.70451
-              ],
-              [
-                115.246801,
-                -8.70452
-              ],
-              [
-                115.246513,
-                -8.704641
-              ],
-              [
-                115.246242,
-                -8.704779
-              ],
-              [
-                115.246061,
-                -8.704893
-              ],
-              [
-                115.245889,
-                -8.705016
-              ],
-              [
-                115.245631,
-                -8.70523
-              ],
-              [
-                115.245573,
-                -8.705281
-              ],
-              [
-                115.245531,
-                -8.705317
-              ],
-              [
-                115.245201,
-                -8.70562
-              ],
-              [
-                115.245032,
-                -8.705776
-              ],
-              [
-                115.244614,
-                -8.706176
-              ],
-              [
-                115.244174,
-                -8.706582
-              ],
-              [
-                115.243513,
-                -8.707185
-              ],
-              [
-                115.243004,
-                -8.707622
-              ],
-              [
-                115.242471,
-                -8.708001
-              ],
-              [
-                115.242098,
-                -8.708214
-              ],
-              [
-                115.241896,
-                -8.708313
-              ],
-              [
-                115.241628,
-                -8.708428
-              ],
-              [
-                115.241221,
-                -8.708589
-              ],
-              [
-                115.240718,
-                -8.708764
-              ],
-              [
-                115.240304,
-                -8.708915
-              ],
-              [
-                115.239501,
-                -8.709194
-              ],
-              [
-                115.23805,
-                -8.70971
-              ],
-              [
-                115.236492,
-                -8.710253
-              ],
-              [
-                115.23636,
-                -8.710302
-              ],
-              [
-                115.236336,
-                -8.710311
-              ],
-              [
-                115.236178,
-                -8.710367
-              ],
-              [
-                115.234934,
-                -8.710804
-              ],
-              [
-                115.234251,
-                -8.711046
-              ],
-              [
-                115.233474,
-                -8.71132
-              ],
-              [
-                115.23269,
-                -8.711596
-              ],
-              [
-                115.231996,
-                -8.711854
-              ],
-              [
-                115.231883,
-                -8.711892
-              ],
-              [
-                115.231597,
-                -8.711987
-              ],
-              [
-                115.231459,
-                -8.712031
-              ],
-              [
-                115.230975,
-                -8.712152
-              ],
-              [
-                115.230907,
-                -8.712158
-              ],
-              [
-                115.230555,
-                -8.712215
-              ],
-              [
-                115.230166,
-                -8.712239
-              ],
-              [
-                115.229875,
-                -8.712247
-              ],
-              [
-                115.229763,
-                -8.712244
-              ],
-              [
-                115.229477,
-                -8.712236
-              ],
-              [
-                115.228667,
-                -8.712142
-              ],
-              [
-                115.227711,
-                -8.712051
-              ],
-              [
-                115.227373,
-                -8.712061
-              ],
-              [
-                115.227169,
-                -8.712071
-              ],
-              [
-                115.226971,
-                -8.712102
-              ],
-              [
-                115.226642,
-                -8.712169
-              ],
-              [
-                115.226369,
-                -8.712244
-              ],
-              [
-                115.22609,
-                -8.712355
-              ],
-              [
-                115.225798,
-                -8.712498
-              ],
-              [
-                115.225705,
-                -8.712543
-              ],
-              [
-                115.22563,
-                -8.712579
-              ],
-              [
-                115.225562,
-                -8.712616
-              ],
-              [
-                115.225137,
-                -8.712854
-              ],
-              [
-                115.224595,
-                -8.713181
-              ],
-              [
-                115.224381,
-                -8.713308
-              ],
-              [
-                115.223761,
-                -8.713693
-              ],
-              [
-                115.223566,
-                -8.7138
-              ],
-              [
-                115.223511,
-                -8.713832
-              ],
-              [
-                115.223409,
-                -8.713894
-              ],
-              [
-                115.223181,
-                -8.714027
-              ],
-              [
-                115.222757,
-                -8.714273
-              ],
-              [
-                115.222669,
-                -8.714323
-              ],
-              [
-                115.222515,
-                -8.714418
-              ],
-              [
-                115.222486,
-                -8.714435
-              ],
-              [
-                115.222351,
-                -8.714519
-              ],
-              [
-                115.22223,
-                -8.714596
-              ],
-              [
-                115.222061,
-                -8.714703
-              ],
-              [
-                115.221192,
-                -8.715212
-              ],
-              [
-                115.22103,
-                -8.715304
-              ],
-              [
-                115.220779,
-                -8.715452
-              ],
-              [
-                115.220597,
-                -8.715561
-              ],
-              [
-                115.220499,
-                -8.715612
-              ],
-              [
-                115.220237,
-                -8.71577
-              ],
-              [
-                115.220127,
-                -8.715836
-              ],
-              [
-                115.21976,
-                -8.716047
-              ],
-              [
-                115.219533,
-                -8.716172
-              ],
-              [
-                115.218878,
-                -8.71656
-              ],
-              [
-                115.218511,
-                -8.716782
-              ],
-              [
-                115.218101,
-                -8.717031
-              ],
-              [
-                115.217872,
-                -8.717155
-              ],
-              [
-                115.217768,
-                -8.717212
-              ],
-              [
-                115.217609,
-                -8.717277
-              ],
-              [
-                115.217466,
-                -8.717326
-              ],
-              [
-                115.217244,
-                -8.717385
-              ],
-              [
-                115.21685,
-                -8.717457
-              ],
-              [
-                115.216631,
-                -8.717467
-              ],
-              [
-                115.216447,
-                -8.717466
-              ],
-              [
-                115.215952,
-                -8.717399
-              ],
-              [
-                115.215274,
-                -8.717274
-              ],
-              [
-                115.215127,
-                -8.717228
-              ],
-              [
-                115.215077,
-                -8.717415
-              ],
-              [
-                115.214998,
-                -8.717877
-              ],
-              [
-                115.214969,
-                -8.718146
-              ],
-              [
-                115.214941,
-                -8.718351
-              ],
-              [
-                115.214918,
-                -8.718622
-              ],
-              [
-                115.214897,
-                -8.718951
-              ],
-              [
-                115.214862,
-                -8.719378
-              ],
-              [
-                115.214827,
-                -8.719778
-              ],
-              [
-                115.214784,
-                -8.720202
-              ],
-              [
-                115.214726,
-                -8.720731
-              ],
-              [
-                115.214652,
-                -8.721388
-              ],
-              [
-                115.214619,
-                -8.721807
-              ],
-              [
-                115.214602,
-                -8.721975
-              ],
-              [
-                115.214594,
-                -8.722066
-              ],
-              [
-                115.214585,
-                -8.722179
-              ],
-              [
-                115.214572,
-                -8.722288
-              ],
-              [
-                115.214563,
-                -8.722328
-              ],
-              [
-                115.214459,
-                -8.722841
-              ],
-              [
-                115.214444,
-                -8.722917
-              ],
-              [
-                115.214417,
-                -8.723313
-              ],
-              [
-                115.214392,
-                -8.723381
-              ],
-              [
-                115.214374,
-                -8.723407
-              ],
-              [
-                115.214353,
-                -8.723423
-              ],
-              [
-                115.214327,
-                -8.723434
-              ],
-              [
-                115.214286,
-                -8.723425
-              ],
-              [
-                115.214263,
-                -8.723408
-              ],
-              [
-                115.214255,
-                -8.723392
-              ],
-              [
-                115.214238,
-                -8.723305
-              ],
-              [
-                115.214269,
-                -8.723193
-              ],
-              [
-                115.214299,
-                -8.723077
-              ],
-              [
-                115.214358,
-                -8.722839
-              ],
-              [
-                115.214374,
-                -8.72276
-              ],
-              [
-                115.214405,
-                -8.722609
-              ],
-              [
-                115.214412,
-                -8.722579
-              ],
-              [
-                115.214455,
-                -8.722361
-              ],
-              [
-                115.214469,
-                -8.72229
-              ],
-              [
-                115.214481,
-                -8.722143
-              ],
-              [
-                115.214499,
-                -8.721921
-              ],
-              [
-                115.214536,
-                -8.721558
-              ],
-              [
-                115.214553,
-                -8.721356
-              ],
-              [
-                115.214589,
-                -8.721038
-              ],
-              [
-                115.214404,
-                -8.720992
-              ],
-              [
-                115.214379,
-                -8.720986
-              ],
-              [
-                115.214312,
-                -8.720969
-              ],
-              [
-                115.214238,
-                -8.720953
-              ],
-              [
-                115.214124,
-                -8.720927
-              ],
-              [
-                115.214029,
-                -8.720904
-              ]
-            ],
-            "type": "LineString"
-          },
-          "distance_km": 5.7,
-          "engine_minutes": 5.2,
-          "plan_minutes": 20,
-          "range_minutes": [
-            10,
-            40
-          ],
-          "source": "https://router.project-osrm.org/route/v1/driving/115.253739,-8.7058825;115.2139638,-8.7208914?overview=full&geometries=geojson&steps=true",
-          "checked": "2026-10-13",
-          "planning_checked": "2026-10-13",
-          "status": "car_road_geometry_scooter_access_not_fully_verified",
-          "avoided_toll": false,
-          "uses_toll": false,
-          "routing_policy": "tolls_allowed_v1",
-          "road_names": [
-            "",
-            "Jalan Bypass Ngurah Rai",
-            "Jalan Danau Poso",
-            "Jalan Raya Pelabuhan Benoa"
-          ],
-          "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 2,
-          "returning": false,
-          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.7058825%2C115.253739&destination=-8.7208914%2C115.2139638&travelmode=driving"
-        },
-        {
-          "key": "v09>v10",
-          "origin": "v09",
-          "destination": "v10",
-          "geometry": {
-            "coordinates": [
-              [
-                115.214029,
-                -8.720904
-              ],
-              [
-                115.214124,
-                -8.720927
-              ],
-              [
-                115.214238,
-                -8.720953
-              ],
-              [
-                115.214312,
-                -8.720969
-              ],
-              [
-                115.214379,
-                -8.720986
-              ],
-              [
-                115.214404,
-                -8.720992
-              ],
-              [
-                115.214589,
-                -8.721038
-              ],
-              [
-                115.214683,
-                -8.720126
-              ],
-              [
-                115.214764,
-                -8.719283
-              ],
-              [
-                115.214866,
-                -8.718136
-              ],
-              [
-                115.214964,
-                -8.717391
-              ],
-              [
-                115.215015,
-                -8.717192
-              ],
-              [
-                115.215047,
-                -8.717064
-              ],
-              [
-                115.215162,
-                -8.717093
-              ],
-              [
-                115.215308,
-                -8.717131
-              ],
-              [
-                115.215448,
-                -8.717167
-              ],
-              [
-                115.215581,
-                -8.717205
-              ],
-              [
-                115.215983,
-                -8.7173
-              ],
-              [
-                115.216419,
-                -8.717349
-              ],
-              [
-                115.216592,
-                -8.71736
-              ],
-              [
-                115.216846,
-                -8.717354
-              ],
-              [
-                115.217106,
-                -8.717315
-              ],
-              [
-                115.217213,
-                -8.717299
-              ],
-              [
-                115.21748,
-                -8.717209
-              ],
-              [
-                115.217547,
-                -8.717186
-              ],
-              [
-                115.217647,
-                -8.717149
-              ],
-              [
-                115.218033,
-                -8.716966
-              ],
-              [
-                115.218449,
-                -8.716723
-              ],
-              [
-                115.218557,
-                -8.71666
-              ],
-              [
-                115.219488,
-                -8.716106
-              ],
-              [
-                115.220438,
-                -8.715541
-              ],
-              [
-                115.220479,
-                -8.715512
-              ],
-              [
-                115.221851,
-                -8.714705
-              ],
-              [
-                115.221906,
-                -8.714673
-              ],
-              [
-                115.222318,
-                -8.714431
-              ],
-              [
-                115.222455,
-                -8.714354
-              ],
-              [
-                115.222572,
-                -8.714281
-              ],
-              [
-                115.222843,
-                -8.714114
-              ],
-              [
-                115.222985,
-                -8.714026
-              ],
-              [
-                115.22311,
-                -8.713957
-              ],
-              [
-                115.223319,
-                -8.713842
-              ],
-              [
-                115.223449,
-                -8.71376
-              ],
-              [
-                115.223582,
-                -8.713677
-              ],
-              [
-                115.223684,
-                -8.71362
-              ],
-              [
-                115.224402,
-                -8.713196
-              ],
-              [
-                115.224691,
-                -8.713027
-              ],
-              [
-                115.225567,
-                -8.712512
-              ],
-              [
-                115.225634,
-                -8.712476
-              ],
-              [
-                115.225753,
-                -8.712418
-              ],
-              [
-                115.22603,
-                -8.712283
-              ],
-              [
-                115.226319,
-                -8.712172
-              ],
-              [
-                115.2266,
-                -8.712081
-              ],
-              [
-                115.226976,
-                -8.712016
-              ],
-              [
-                115.227171,
-                -8.711988
-              ],
-              [
-                115.227376,
-                -8.711983
-              ],
-              [
-                115.227705,
-                -8.711977
-              ],
-              [
-                115.228557,
-                -8.712046
-              ],
-              [
-                115.228824,
-                -8.712076
-              ],
-              [
-                115.2289,
-                -8.712082
-              ],
-              [
-                115.229424,
-                -8.712143
-              ],
-              [
-                115.229474,
-                -8.712148
-              ],
-              [
-                115.229773,
-                -8.71216
-              ],
-              [
-                115.229848,
-                -8.712161
-              ],
-              [
-                115.230113,
-                -8.712159
-              ],
-              [
-                115.230367,
-                -8.712141
-              ],
-              [
-                115.23055,
-                -8.712129
-              ],
-              [
-                115.2309,
-                -8.712071
-              ],
-              [
-                115.231426,
-                -8.711957
-              ],
-              [
-                115.231691,
-                -8.711866
-              ],
-              [
-                115.231891,
-                -8.711798
-              ],
-              [
-                115.231972,
-                -8.711768
-              ],
-              [
-                115.232242,
-                -8.711672
-              ],
-              [
-                115.232659,
-                -8.711522
-              ],
-              [
-                115.232673,
-                -8.711517
-              ],
-              [
-                115.232805,
-                -8.711469
-              ],
-              [
-                115.233141,
-                -8.711346
-              ],
-              [
-                115.233309,
-                -8.71129
-              ],
-              [
-                115.233462,
-                -8.711239
-              ],
-              [
-                115.233536,
-                -8.711213
-              ],
-              [
-                115.233613,
-                -8.711188
-              ],
-              [
-                115.233742,
-                -8.71114
-              ],
-              [
-                115.233993,
-                -8.711053
-              ],
-              [
-                115.23412,
-                -8.711009
-              ],
-              [
-                115.234877,
-                -8.710738
-              ],
-              [
-                115.236194,
-                -8.71027
-              ],
-              [
-                115.2363,
-                -8.710228
-              ],
-              [
-                115.236355,
-                -8.710213
-              ],
-              [
-                115.238966,
-                -8.709282
-              ],
-              [
-                115.240678,
-                -8.70868
-              ],
-              [
-                115.241182,
-                -8.708499
-              ],
-              [
-                115.241624,
-                -8.708324
-              ],
-              [
-                115.241974,
-                -8.708169
-              ],
-              [
-                115.242101,
-                -8.708106
-              ],
-              [
-                115.242532,
-                -8.707845
-              ],
-              [
-                115.24296,
-                -8.707554
-              ],
-              [
-                115.24301,
-                -8.707509
-              ],
-              [
-                115.243457,
-                -8.707107
-              ],
-              [
-                115.243708,
-                -8.706882
-              ],
-              [
-                115.244105,
-                -8.706516
-              ],
-              [
-                115.244862,
-                -8.705817
-              ],
-              [
-                115.24507,
-                -8.705631
-              ],
-              [
-                115.245137,
-                -8.705563
-              ],
-              [
-                115.245491,
-                -8.70524
-              ],
-              [
-                115.245814,
-                -8.704957
-              ],
-              [
-                115.245995,
-                -8.704824
-              ],
-              [
-                115.246198,
-                -8.704697
-              ],
-              [
-                115.246444,
-                -8.704566
-              ],
-              [
-                115.246779,
-                -8.70443
-              ],
-              [
-                115.24711,
-                -8.704344
-              ],
-              [
-                115.247391,
-                -8.704288
-              ],
-              [
-                115.247847,
-                -8.704244
-              ],
-              [
-                115.248272,
-                -8.70424
-              ],
-              [
-                115.24836,
-                -8.70424
-              ],
-              [
-                115.248527,
-                -8.704244
-              ],
-              [
-                115.249314,
-                -8.704239
-              ],
-              [
-                115.249935,
-                -8.704233
-              ],
-              [
-                115.250032,
-                -8.70423
-              ],
-              [
-                115.250634,
-                -8.704228
-              ],
-              [
-                115.251193,
-                -8.704234
-              ],
-              [
-                115.251326,
-                -8.704235
-              ],
-              [
-                115.251428,
-                -8.704234
-              ],
-              [
-                115.251729,
-                -8.704235
-              ],
-              [
-                115.251942,
-                -8.704233
-              ],
-              [
-                115.251985,
-                -8.70423
-              ],
-              [
-                115.252272,
-                -8.704224
-              ],
-              [
-                115.252361,
-                -8.704224
-              ],
-              [
-                115.25274,
-                -8.704227
-              ],
-              [
-                115.253091,
-                -8.70422
-              ],
-              [
-                115.253494,
-                -8.704215
-              ],
-              [
-                115.253775,
-                -8.704212
-              ],
-              [
-                115.25399,
-                -8.704212
+                115.254093,
+                -8.704306
               ],
               [
                 115.25408,
@@ -166367,14 +165446,14 @@
             ],
             "type": "LineString"
           },
-          "distance_km": 57.9,
-          "engine_minutes": 45.4,
-          "plan_minutes": 85,
+          "distance_km": 52.9,
+          "engine_minutes": 41.7,
+          "plan_minutes": 75,
           "range_minutes": [
-            75,
-            105
+            65,
+            95
           ],
-          "source": "https://router.project-osrm.org/route/v1/driving/115.2139638,-8.7208914;115.4507063,-8.3753612?overview=full&geometries=geojson&steps=true",
+          "source": "https://router.project-osrm.org/route/v1/driving/115.253739,-8.7058825;115.4507063,-8.3753612?overview=full&geometries=geojson&steps=true",
           "checked": "2026-10-15",
           "planning_checked": "2026-10-15",
           "status": "car_road_geometry_scooter_access_not_fully_verified",
@@ -166384,18 +165463,19 @@
           "road_names": [
             "",
             "Jalan Bypass Ngurah Rai",
+            "Jalan Danau Poso",
             "Jalan Flamboyan",
             "Jalan Profesor Dokter Ida Bagus Mantra",
             "Jalan Profesor Ida Bagus Mantra",
             "Jalan Raya Batu Tabih",
-            "Jalan Raya Pelabuhan Benoa",
+            "Jalan Tirta Nadi I",
             "Jalan Untung Surapati",
             "Profesor Ida Bagus Mantra Bypass"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 3,
+          "index": 2,
           "returning": false,
-          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.7208914%2C115.2139638&destination=-8.3753612%2C115.4507063&travelmode=driving"
+          "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.7058825%2C115.253739&destination=-8.3753612%2C115.4507063&travelmode=driving"
         },
         {
           "key": "v10>v11",
@@ -169033,7 +168113,7 @@
             "Jalan Erlangga"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 4,
+          "index": 3,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.3753612%2C115.4507063&destination=-8.4423213%2C115.3879035&travelmode=driving"
         },
@@ -173592,7 +172672,7 @@
             "Jalan Raya Teges Kanginan"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 5,
+          "index": 4,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.4423213%2C115.3879035&destination=-8.5281828%2C115.2709408&travelmode=driving"
         },
@@ -174053,7 +173133,7 @@
             "Jalan Sugriwa"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 6,
+          "index": 5,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.5281828%2C115.2709408&destination=-8.516438%2C115.2654373&travelmode=driving"
         },
@@ -174400,7 +173480,7 @@
             "Jalan Suweta"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 7,
+          "index": 6,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.516438%2C115.2654373&destination=-8.5063288%2C115.2624831&travelmode=driving"
         },
@@ -174749,7 +173829,7 @@
             "Jalan Suweta"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 8,
+          "index": 7,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.5063288%2C115.2624831&destination=-8.5050235%2C115.2537798&travelmode=driving"
         },
@@ -174942,7 +174022,7 @@
             "Jalan Raya Sanggingan"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 9,
+          "index": 8,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.5050235%2C115.2537798&destination=-8.4941316%2C115.2533029&travelmode=driving"
         },
@@ -175150,7 +174230,7 @@
             "Jalan Raya Sanggingan"
           ],
           "note": "Платные дороги разрешены; здесь выбран обычный дорожный маршрут. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 10,
+          "index": 9,
           "returning": false,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.4941316%2C115.2533029&destination=-8.506287%2C115.2517895&travelmode=driving"
         },
@@ -181850,7 +180930,7 @@
             "Profesor Ida Bagus Mantra Bypass"
           ],
           "note": "Через Bali Mandara, платная дорога разрешена. Для байка использовать отдельную мотоциклетную полосу; линия карты рассчитана для автомобиля. Геометрия OSRM, время с запасом без прогноза пробок.",
-          "index": 11,
+          "index": 10,
           "returning": true,
           "navigation_url": "https://www.google.com/maps/dir/?api=1&origin=-8.506287%2C115.2517895&destination=-8.8348817%2C115.1795756&travelmode=driving"
         }
@@ -181914,13 +180994,13 @@
         {
           "kind": "meal",
           "title": "Обед · Ramu Kitchen",
-          "start": "17:05",
-          "end": "18:00",
+          "start": "15:45",
+          "end": "16:40",
           "duration_minutes": 55,
           "restaurant_id": "r29",
           "place_id": "r29",
           "place_url": "https://www.google.com/maps/search/?api=1&query=Ramu%20Kitchen%20Bali",
-          "number": 6,
+          "number": 5,
           "meal_type": "lunch",
           "meal_mode": "onsite",
           "hours_label": "15:00–23:00 по меню; сайт отеля 07:00–22:00 — используем пересечение 15:00–22:00",
@@ -181934,13 +181014,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · FLOCK Bali",
-          "start": "18:15",
-          "end": "18:40",
+          "start": "16:55",
+          "end": "17:20",
           "duration_minutes": 25,
           "restaurant_id": "r26",
           "place_id": "r26",
           "place_url": "https://www.google.com/maps/search/?api=1&query=FLOCK%20Bali%20Bali",
-          "number": 7,
+          "number": 6,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "07:00–22:00 ежедневно; на странице контактов есть старое 09:00–18:00",
@@ -181954,13 +181034,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · Milk & Madu Ubud",
-          "start": "18:55",
-          "end": "19:20",
+          "start": "17:35",
+          "end": "18:00",
           "duration_minutes": 25,
           "restaurant_id": "r27",
           "place_id": "r27",
           "place_url": "https://www.google.com/maps/search/?api=1&query=Milk%20%26%20Madu%20Ubud%20Bali",
-          "number": 8,
+          "number": 7,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "07:00–22:00 ежедневно · Ubud",
@@ -181974,13 +181054,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · Zest",
-          "start": "19:30",
-          "end": "19:55",
+          "start": "18:10",
+          "end": "18:35",
           "duration_minutes": 25,
           "restaurant_id": "r30",
           "place_id": "r30",
           "place_url": "https://www.google.com/maps/search/?api=1&query=Zest%20Bali",
-          "number": 9,
+          "number": 8,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "08:00–22:00 ежедневно",
@@ -181994,13 +181074,13 @@
         {
           "kind": "meal",
           "title": "Ужин · SkaZka Bali",
-          "start": "20:35",
-          "end": "21:30",
+          "start": "19:15",
+          "end": "20:10",
           "duration_minutes": 55,
           "restaurant_id": "r31",
           "place_id": "r31",
           "place_url": "https://www.google.com/maps/search/?api=1&query=SkaZka%20Bali%20Bali",
-          "number": 10,
+          "number": 9,
           "meal_type": "dinner",
           "meal_mode": "onsite",
           "hours_label": "07:00–22:00 ежедневно",
@@ -182014,13 +181094,13 @@
         {
           "kind": "meal",
           "title": "Дегустация, десерт или небольшой перекус · Brie Restaurant & Cheesery | Italian Season",
-          "start": "21:40",
-          "end": "22:05",
+          "start": "20:20",
+          "end": "20:45",
           "duration_minutes": 25,
           "restaurant_id": "r12",
           "place_id": "r12",
           "place_url": "https://www.google.com/maps/search/?api=1&query=Brie%20Restaurant%20%26%20Cheesery%20%7C%20Italian%20Season%20Bali",
-          "number": 11,
+          "number": 10,
           "meal_type": "coffee",
           "meal_mode": "onsite",
           "hours_label": "08:00–22:30; завтрак до 14:30",
@@ -182033,9 +181113,9 @@
         }
       ],
       "alternatives": [],
-      "return_time": "23:25",
-      "distance_km_known": 194.8,
-      "road_minutes": 400,
+      "return_time": "22:05",
+      "distance_km_known": 184.1,
+      "road_minutes": 370,
       "missing_legs": 0,
       "island": false,
       "last": false,
@@ -196983,7 +196063,7 @@
     {
       "id": "v09",
       "name": "Satya Dharma Temple",
-      "planned_date": "2026-10-21",
+      "planned_date": "2026-10-15",
       "status": "planned_access_provisional"
     },
     {
@@ -197262,8 +196342,8 @@
         {
           "date": "2026-10-21",
           "meal_type": "coffee",
-          "start": "21:40",
-          "end": "22:05",
+          "start": "20:20",
+          "end": "20:45",
           "mode": "onsite"
         }
       ],
@@ -197406,8 +196486,8 @@
         {
           "date": "2026-10-15",
           "meal_type": "coffee",
-          "start": "20:35",
-          "end": "20:55",
+          "start": "21:35",
+          "end": "21:55",
           "mode": "onsite"
         }
       ],
@@ -197486,8 +196566,8 @@
         {
           "date": "2026-10-21",
           "meal_type": "coffee",
-          "start": "18:15",
-          "end": "18:40",
+          "start": "16:55",
+          "end": "17:20",
           "mode": "onsite"
         }
       ],
@@ -197502,8 +196582,8 @@
         {
           "date": "2026-10-21",
           "meal_type": "coffee",
-          "start": "18:55",
-          "end": "19:20",
+          "start": "17:35",
+          "end": "18:00",
           "mode": "onsite"
         }
       ],
@@ -197518,8 +196598,8 @@
         {
           "date": "2026-10-21",
           "meal_type": "lunch",
-          "start": "17:05",
-          "end": "18:00",
+          "start": "15:45",
+          "end": "16:40",
           "mode": "onsite"
         }
       ],
@@ -197534,8 +196614,8 @@
         {
           "date": "2026-10-21",
           "meal_type": "coffee",
-          "start": "19:30",
-          "end": "19:55",
+          "start": "18:10",
+          "end": "18:35",
           "mode": "onsite"
         }
       ],
@@ -197550,8 +196630,8 @@
         {
           "date": "2026-10-21",
           "meal_type": "dinner",
-          "start": "20:35",
-          "end": "21:30",
+          "start": "19:15",
+          "end": "20:10",
           "mode": "onsite"
         }
       ],
@@ -197838,8 +196918,8 @@
         {
           "date": "2026-10-15",
           "meal_type": "dinner",
-          "start": "18:55",
-          "end": "19:50",
+          "start": "19:55",
+          "end": "20:50",
           "mode": "onsite"
         }
       ],
@@ -197902,8 +196982,8 @@
         {
           "date": "2026-10-15",
           "meal_type": "coffee",
-          "start": "20:00",
-          "end": "20:20",
+          "start": "21:00",
+          "end": "21:20",
           "mode": "onsite"
         }
       ],
@@ -197998,8 +197078,8 @@
         {
           "date": "2026-10-15",
           "meal_type": "coffee",
-          "start": "21:05",
-          "end": "21:25",
+          "start": "22:05",
+          "end": "22:25",
           "mode": "onsite"
         }
       ],
@@ -198030,8 +197110,8 @@
         {
           "date": "2026-10-15",
           "meal_type": "coffee",
-          "start": "21:35",
-          "end": "21:55",
+          "start": "22:35",
+          "end": "22:55",
           "mode": "onsite"
         }
       ],
@@ -198175,6 +197255,11 @@
     "PDF и статические карты показывают основной план; личные обмены в браузере не меняют их автоматически."
   ],
   "sources": [
+    {
+      "name": "Satya Dharma: справочник Wihara 10:00-19:00; вечерний доступ подтвердить",
+      "url": "https://www.wihara.org/listings/hok-tek-bio-sokaraja/94",
+      "checked": "2026-10-15"
+    },
     {
       "name": "Marine Safari: официальный билетный сайт, часы 09:00-17:00",
       "url": "https://overseasmarinesafari.balisafarimarinepark.com/attraction/clownfish---general-day-admission-lunch-65778?lang=en",
