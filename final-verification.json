@@ -1,58 +1,50 @@
 {
-  "date": "2026-10-14",
+  "date": "2026-10-15",
   "food_list_points": 67,
-  "scheduled_attractions": 23,
+  "scheduled_attractions": 22,
   "optional_attractions": 0,
-  "trip_start": "2026-10-14",
+  "trip_start": "2026-10-15",
   "trip_end": "2026-10-22",
-  "day_count": 9,
-  "october_11_12_13_removed": true,
-  "hotel_breakfast_daily": "08:00–08:45",
-  "earliest_departure": "09:00",
+  "day_count": 8,
+  "october_11_12_13_14_removed": true,
+  "hotel_breakfast_regular": "08:00–08:45",
+  "penida_breakfast": "06:00–06:45 packed",
+  "earliest_departure": "06:50",
+  "early_departure_user_authorized": true,
+  "penida_single_day": true,
   "all_food_stops_have_day_map_markers": true,
   "no_repeated_current_food_visits": true,
   "max_future_food_stops": 14,
   "night_dolphin_trip_removed": true,
-  "october_14_beach_day": true,
+  "october_18_beach_day": true,
   "marine_safari_date": "2026-10-21",
   "tolls_allowed": true,
-  "toll_legs": 7,
+  "toll_legs": 6,
   "departure_day_canggu_removed": true,
   "airport_plan": "21:10",
   "minimum_sleep_hours": 7,
   "route_continuity_and_boat_windows_checked": true,
   "pdf": {
-    "pages": 36,
+    "pages": 33,
     "all_current_restaurant_names_present": true,
     "all_pages_rendered": true,
     "all_pages_visually_reviewed": true
   },
   "browser": {
-    "all_9_days_and_markers_verified": true,
+    "all_8_days_and_markers_verified": true,
     "same_day_exchange_and_restore_passed": true
   },
   "limitations": [
     "На платной Bali Mandara для байка использовать выделенную полосу. Геометрия карты рассчитана для автомобиля; фактические мотоциклетные въезды и съезды уточнить.",
-    "67 заведений за 9 дней — плотная программа, особенно Чангу и южный день. Большинство остановок — небольшие порции, а не полноценный приём пищи.",
-    "Пенида разделена на две поездки 17 и 18 октября с возвратом на виллу. Рейсы 11:00 и 17:00 опубликованы Axe Stone, но места и регистрация не забронированы.",
+    "67 заведений за 8 дней — плотная программа, особенно Чангу и южный день. Большинство остановок — небольшие порции, а не полноценный приём пищи.",
+    "Пенида только 17 октября: четыре короткие смотровые и 30 минут на Amok. Ранний выезд 06:50, завтрак с собой. Плановый катер The Angkal 08:30 опубликован агентами; обратный 17:00. Рейсы, места, время регистрации и островного водителя подтвердить. При задержке пересчитать маршрут, не рискуя обратным катером.",
     "Запад Пениды: короткие смотровые, без спуска на Kelingking и без купания у Angel’s Billabong. При задержке водителя сокращать посещения, чтобы сохранить катер.",
     "Северный круг 19 октября насыщенный; рекомендуется машина с водителем. Посещения короткие, часы входа подтвердить.",
     "Часы части заведений оценочные, кухню, последний заказ и столы подтвердить.",
     "Echo Beach Sunset Point: возможность заказа еды не подтверждена.",
     "Подъезды, парковки и доступ для байка не полностью проверены; OSRM использует автомобильный профиль.",
-    "Завтрак в отеле с 08:00 — по вашему сообщению. Выезд ежедневно 09:00; боксы убраны.",
-    "Koral, Boneka на ужин и услуги виллы после checkout согласовать.",
+    "Завтрак в отеле 08:00-08:45, выезд 09:00. Исключение 17 октября: выезд 06:50, заранее заказанный завтрак с собой; выдачу и хранение подтвердить.",
+    "Koral 18 октября 17:30-19:30, Boneka на ужин 22 октября и услуги виллы после checkout согласовать. Брони не выполнены.",
     "PDF и статические карты показывают основной план; личные обмены в браузере не меняют их автоматически."
-  ],
-  "tides": {
-    "checked": "2026-10-14",
-    "dates": [
-      "2026-10-14",
-      "2026-10-16",
-      "2026-10-18"
-    ],
-    "regional_references_only": true,
-    "website_and_pdf_checked": true,
-    "schedule_unchanged": true
-  }
+  ]
 }

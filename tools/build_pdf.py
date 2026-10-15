@@ -14,7 +14,7 @@ data=json.loads((root/'itinerary.json').read_text('utf-8'))
 font='C:/Windows/Fonts/arial.ttf';bold='C:/Windows/Fonts/arialbd.ttf'
 pdfmetrics.registerFont(TTFont('Bali',font));pdfmetrics.registerFont(TTFont('BaliBold',bold))
 # Browser screenshots are JPEG bytes; convert into true PNGs, with a clean heading
-# and visible map attribution. All maps follow the current 14-22 October calendar.
+# and visible map attribution. All maps follow the current 15-22 October calendar.
 for n in [*(d['number'] for d in data['days']),'overview']:
     path=root/'maps'/('overview.png' if n=='overview' else f'day-{n:02}.png')
     image=PILImage.open(path)
@@ -22,7 +22,7 @@ for n in [*(d['number'] for d in data['days']),'overview']:
     map_image=image.crop((0,67,1500,1167));canvas=PILImage.new('RGB',(1500,1190),'#f5f2e9');canvas.paste(map_image,(0,50));draw=ImageDraw.Draw(canvas)
     title='Бали - актуальные дорожные цепочки' if n=='overview' else f"{data['days'][n-1]['date']} - {data['days'][n-1]['title']}"
     draw.text((24,12),title,fill='#173f37',font=ImageFont.truetype(bold,24))
-    draw.text((24,1158),'OpenFreeMap / OpenMapTiles / © OpenStreetMap contributors - OSRM - 14.10.2026',fill='#173f37',font=ImageFont.truetype(font,17))
+    draw.text((24,1158),'OpenFreeMap / OpenMapTiles / © OpenStreetMap contributors - OSRM - 15.10.2026',fill='#173f37',font=ImageFont.truetype(font,17))
     canvas.save(path,format='PNG')
 
 styles=getSampleStyleSheet()
@@ -36,8 +36,8 @@ def link(label,url):return Paragraph(f'<link href="{html.escape(url,quote=True)}
 def img(path,width=499):
     im=PILImage.open(path);return Image(str(path),width=width,height=width*im.height/im.width)
 def footer(c,doc):
-    c.setStrokeColor(colors.HexColor('#d6d9cc'));c.line(48,39,547,39);c.setFont('Bali',8);c.setFillColor(colors.HexColor('#173f37'));c.drawString(48,26,'Бали вдвоём - обновлено 14.10.2026 - время Бали, UTC+8');c.drawRightString(547,26,str(doc.page))
-story=[p('Бали вдвоём','BaliTitle'),p('Ваш маршрут на 14-22 октября 2026','BaliH'),img(root/'assets/coast.png'),Spacer(1,18),p('Одна база: Nunamkhalu Private Villas & Spa. 14 октября - пляжи и купание: Пандава 1 час, Melasti 1 час 45 минут. Утром короткие осмотры Нуса-Дуа. Все 67 точек еды распределены по 9 дням. Платные дороги разрешены.'),p('67 точек еды и 23 достопримечательности на картах дней. Все точки назначены по времени по вашему выбору; программа очень насыщенная.'),p('Каждый день завтрак на вилле 08:00-08:45, выезд в 09:00. Все ночи на Nunamkhalu. Время в пути оценочное; катера, столы и услуги виллы ещё нужно подтвердить.'),PageBreak(),p('Поездка в одном взгляде','BaliTitle'),img(root/'maps/overview.png'),Spacer(1,12)]
+    c.setStrokeColor(colors.HexColor('#d6d9cc'));c.line(48,39,547,39);c.setFont('Bali',8);c.setFillColor(colors.HexColor('#173f37'));c.drawString(48,26,'Бали вдвоём - обновлено 15.10.2026 - время Бали, UTC+8');c.drawRightString(547,26,str(doc.page))
+story=[p('Бали вдвоём','BaliTitle'),p('Ваш маршрут на 15-22 октября 2026','BaliH'),img(root/'assets/coast.png'),Spacer(1,18),p('Одна база: Nunamkhalu Private Villas & Spa. 18 октября - Пандава, затем Melasti и короткие осмотры Нуса-Дуа; ужин Koral. Пенида 17 октября за один день, выезд 06:50. Все 67 точек еды распределены по 8 дням. Платные дороги разрешены.'),p('67 точек еды и 22 достопримечательности на картах дней. Все точки назначены по времени по вашему выбору; программа очень насыщенная.'),p('Завтрак на вилле 08:00-08:45, выезд в 09:00. Исключение 17 октября: завтрак с собой и выезд 06:50. Все ночи на Nunamkhalu. Время в пути оценочное; катера, столы и услуги виллы ещё нужно подтвердить.'),PageBreak(),p('Поездка в одном взгляде','BaliTitle'),img(root/'maps/overview.png'),Spacer(1,12)]
 overview=[[p('Дата','BaliSmall'),p('Маршрут','BaliSmall'),p('Выезд / финиш','BaliSmall')]]
 for d in data['days']:overview.append([p(d['date'][5:],'BaliSmall'),p(d['title'],'BaliSmall'),p(d['depart']+' / '+d['return_time'],'BaliSmall')])
 table=Table(overview,colWidths=[65,315,119],repeatRows=1);table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e6eadf')),('VALIGN',(0,0),(-1,-1),'TOP'),('BOTTOMPADDING',(0,0),(-1,-1),7)]));story.extend([table,PageBreak()])
@@ -65,11 +65,11 @@ for d in data['days']:
 story.extend([p('Все 67 точек еды','BaliTitle'),p('Каждое заведение назначено один раз. Часть остановок - дегустация или лёгкое блюдо. Echo Beach: еду ещё нужно подтвердить.')])
 rows=[[p('Заведение','BaliSmall'),p('Дата','BaliSmall')]]
 for c in data['restaurant_coverage']:rows.append([p(c['name'],'BaliSmall'),p(c['date'][5:],'BaliSmall')])
-table=Table(rows,colWidths=[414,85],repeatRows=1);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e6eadf')),('BOTTOMPADDING',(0,0),(-1,-1),5)]));story.extend([table,PageBreak(),p('Все 23 достопримечательности','BaliTitle')])
+table=Table(rows,colWidths=[414,85],repeatRows=1);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e6eadf')),('BOTTOMPADDING',(0,0),(-1,-1),5)]));story.extend([table,PageBreak(),p('Все 22 достопримечательности','BaliTitle')])
 for c in data['coverage']:story.append(p(c['name']+' - '+(c['planned_date'] or 'по желанию; решение не принято')))
 story.extend([PageBreak(),p('Что согласовать','BaliTitle')])
 for s in data['limitations']:story.append(p(s))
-story.extend([p('Завтрак и выезд','BaliH'),p('Завтрак на вилле с 08:00 по вашему сообщению, каждый день 08:00-08:45. Выезд в 09:00. Боксы не нужны.'),p('Вылет','BaliH'),p('22 октября checkout до 12:00; хранение багажа и душ подтвердить. План DPS 21:10, обязательная цель не позднее 21:30. Вылет 23 октября 00:30.'),p('Источники','BaliH')])
+story.extend([p('Завтрак и выезд','BaliH'),p('Завтрак на вилле с 08:00 по вашему сообщению, 08:00-08:45 и выезд в 09:00. Исключение 17 октября: завтрак с собой в 06:00-06:45, выезд 06:50. Бокс заказать заранее; выдачу и хранение подтвердить.'),p('Вылет','BaliH'),p('22 октября checkout до 12:00; хранение багажа и душ подтвердить. План DPS 21:10, обязательная цель не позднее 21:30. Вылет 23 октября 00:30.'),p('Источники','BaliH')])
 for s in data['sources']:story.append(link(s['name']+' - '+s.get('checked',''),s['url']))
 SimpleDocTemplate(str(root/'guide.pdf'),pagesize=A4,leftMargin=48,rightMargin=48,topMargin=45,bottomMargin=52,title='Бали вдвоём - маршрут из 67 заведений',author='Bali by SK').build(story,onFirstPage=footer,onLaterPages=footer)
 print('PDF and updated static maps generated',flush=True)

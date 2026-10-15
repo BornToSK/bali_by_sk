@@ -1,7 +1,7 @@
 ﻿id,name,date,type,status
 v01,Marine Safari Bali,2026-10-21,visit,planned_access_provisional
 v03,Ulun Danu Buyan Temple,2026-10-19,visit,planned_access_provisional
-v04,Кристал Бэй Наса Пенида,2026-10-18,visit,planned_access_provisional
+v04,Кристал Бэй Наса Пенида,2026-10-17,visit,planned_access_provisional
 v05,Broken Beach,2026-10-17,visit,planned_access_provisional
 v06,Angel's Billabong,2026-10-17,visit,planned_access_provisional
 v07,Келингкинг Бич,2026-10-17,visit,planned_access_provisional
@@ -17,12 +17,11 @@ v19,Jatiluwih Rice Terraces,2026-10-19,visit,planned_access_provisional
 v21,Bali Farm House,2026-10-19,visit,planned_access_provisional
 v22,Nuanu Gate,2026-10-20,visit,planned_access_provisional
 v24,Jaran Hill,2026-10-22,visit,planned_access_provisional
-v25,Melasti Beach,2026-10-14,visit,planned_access_provisional
-v26,Пляж Пандава,2026-10-14,visit,planned_access_provisional
-v27,Mengiat Beach,2026-10-14,visit,planned_access_provisional
-v28,Waterblow,2026-10-14,visit,planned_access_provisional
-v29,Pantai Samuh,2026-10-14,visit,planned_access_provisional
-r01,Amok Sunset Restaurant & Bar,2026-10-18,meal,planned_onsite
+v25,Melasti Beach,2026-10-18,visit,planned_access_provisional
+v26,Пляж Пандава,2026-10-18,visit,planned_access_provisional
+v27,Mengiat Beach,2026-10-18,visit,planned_access_provisional
+v28,Waterblow,2026-10-18,visit,planned_access_provisional
+r01,Amok Sunset Restaurant & Bar,2026-10-17,meal,planned_onsite
 r02,Batu Karu Kopi,2026-10-19,meal,planned_onsite
 r03,Paperhills,2026-10-15,meal,planned_onsite
 r04,el lago,2026-10-15,meal,planned_onsite
@@ -35,16 +34,16 @@ r10,warung baling baling,2026-10-15,meal,planned_onsite
 r11,Mahen Cafe,2026-10-15,meal,planned_onsite
 r12,Brie Restaurant & Cheesery | Italian Season,2026-10-21,meal,planned_onsite
 r13,"Tebasari Resto, Bar & Lounge",2026-10-15,meal,planned_onsite
-r14,"Teamo - Gastro-Bistro, Restaurant Canggu",2026-10-18,meal,planned_onsite
-r15,Echo Beach Sunset Point,2026-10-18,meal,food_service_unconfirmed
+r14,"Teamo - Gastro-Bistro, Restaurant Canggu",2026-10-19,meal,planned_onsite
+r15,Echo Beach Sunset Point,2026-10-19,meal,food_service_unconfirmed
 r16,Motel Mexicola | Canggu,2026-10-20,meal,planned_onsite
 r17,Artisan - Pererenan,2026-10-20,meal,planned_onsite
-r18,LUSA Bistro,2026-10-18,meal,planned_onsite
-r19,LOLITAS Cantina Mexicana,2026-10-14,meal,planned_onsite
+r18,LUSA Bistro,2026-10-19,meal,planned_onsite
+r19,LOLITAS Cantina Mexicana,2026-10-18,meal,planned_onsite
 r20,Tarragon Georgian Restaurant and Lounge Bar,2026-10-17,meal,planned_onsite
 r21,SODA CAFE,2026-10-16,meal,planned_onsite
-r22,Солтвуд Бингин,2026-10-19,meal,planned_onsite
-r23,My Place cafe beach,2026-10-19,meal,planned_onsite
+r22,Солтвуд Бингин,2026-10-18,meal,planned_onsite
+r23,My Place cafe beach,2026-10-18,meal,planned_onsite
 r24,FROM HERE BALI,2026-10-21,meal,planned_onsite
 r25,Akar Ubud by K Club,2026-10-15,meal,planned_onsite
 r26,FLOCK Bali,2026-10-21,meal,planned_onsite
@@ -63,14 +62,14 @@ r39,BELLA. Canggu,2026-10-20,meal,planned_onsite
 r40,nüde cafe Berawa,2026-10-20,meal,planned_onsite
 r41,Neighbourhood Food,2026-10-20,meal,planned_onsite
 r42,Копенгаген,2026-10-20,meal,planned_onsite
-r43,Margaret Bistro,2026-10-18,meal,planned_onsite
+r43,Margaret Bistro,2026-10-19,meal,planned_onsite
 r45,La Baracca Bali (Uluwatu),2026-10-22,meal,planned_onsite
 r46,Ours Uluwatu,2026-10-17,meal,planned_onsite
-r47,AVLI Uluwatu - Modern Greek,2026-10-14,meal,planned_onsite
+r47,AVLI Uluwatu - Modern Greek,2026-10-18,meal,planned_onsite
 r48,Alma Tapas Bar - Uluwatu,2026-10-22,meal,planned_onsite
 r49,ZALI Uluwatu | Lebanese Restaurant,2026-10-22,meal,planned_onsite
 r50,YUKI Uluwatu,2026-10-16,meal,planned_onsite
-r51,KALA Uluwatu - Greek Inspired Grill,2026-10-19,meal,planned_onsite
+r51,KALA Uluwatu - Greek Inspired Grill,2026-10-18,meal,planned_onsite
 r53,Analog Uluwatu | Cafe | Bar | Bistro,2026-10-22,meal,planned_onsite
 r54,SUKA ULUWATU,2026-10-22,meal,planned_onsite
 r55,Alchemy Uluwatu,2026-10-16,meal,planned_onsite
@@ -82,10 +81,10 @@ r62,Signa Cafe,2026-10-17,meal,planned_onsite
 r63,HEDONIST SPACE restaurant | lounge | bar,2026-10-16,meal,planned_onsite
 r64,Eden Lounge Uluwatu — Restaurant with live music and Co-working space,2026-10-17,meal,planned_onsite
 r65,NOURISH CAFE WHOLEFOODS PIZZERIA & BAKERY - UNGASAN,2026-10-16,meal,planned_onsite
-r66,Artisan - Ungasan,2026-10-14,meal,planned_onsite
+r66,Artisan - Ungasan,2026-10-18,meal,planned_onsite
 r67,"AMINO - Early Breakfast, Lunch, Dinner",2026-10-22,meal,planned_onsite
 r68,Made’s Bakery Cafe Playground,2026-10-21,meal,planned_onsite
 r69,Sari timbul resto by kububali,2026-10-15,meal,planned_onsite
 r70,Rumah Gemuk Bali,2026-10-19,meal,planned_onsite
 r71,Single Fin Bali,2026-10-22,meal,planned_onsite
-r72,Koral: Bali’s First Aquarium Restaurant,2026-10-14,meal,planned_onsite
+r72,Koral: Bali’s First Aquarium Restaurant,2026-10-18,meal,planned_onsite

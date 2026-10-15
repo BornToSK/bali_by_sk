@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "created_date": "2026-10-14",
+  "created_date": "2026-10-15",
   "status": "author_meal_selection_authorized",
-  "source": "Два живых списка Google Maps сверены 14 октября 2026: 67 заведений и 23 достопримечательности. Полные названия сохранены в latest-lists.json.",
+  "source": "Два живых списка Google Maps сверены 15 октября 2026: 67 заведений и 22 достопримечательности. Полные названия сохранены в latest-lists.json.",
   "counts": {
-    "attractions": 23,
-    "scheduled_attractions": 23,
+    "attractions": 22,
+    "scheduled_attractions": 22,
     "optional_attractions": 0,
     "restaurants": 67,
-    "total_records": 90
+    "total_records": 89
   },
   "duplicate_audit": {
     "exact_name_duplicates": [],
@@ -17,11 +17,11 @@
   },
   "meal_capacity": {
     "restaurant_count": 67,
-    "main_meals": 25,
-    "onsite_full_meals": 16,
-    "coffee_snack_stops": 51,
-    "packed_meals": 0,
-    "note": "9 завтраков на вилле отдельно; Echo Beach: еда не подтверждена."
+    "main_meals": 23,
+    "onsite_full_meals": 15,
+    "coffee_snack_stops": 52,
+    "packed_meals": 1,
+    "note": "7 завтраков на вилле и 1 завтрак с собой отдельно; Echo Beach: еда не подтверждена."
   },
   "places": [
     {
@@ -33,7 +33,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Marine%20Safari%20Bali%20Bali",
@@ -85,7 +85,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Ulun+Danu+Buyan+Temple/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd18ed8227b5df3:0x86eaab972d530ba0!8m2!3d-8.2409771!4d115.1430261!16s%2Fg%2F11bx9clz7n?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -138,7 +138,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BB+%D0%91%D1%8D%D0%B9+%D0%9D%D0%B0%D1%81%D0%B0+%D0%9F%D0%B5%D0%BD%D0%B8%D0%B4%D0%B0/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd26e084c2a5fe3:0x4d4e5b852751c763!8m2!3d-8.7151611!4d115.4590565!16s%2Fg%2F11btsvgz6p?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -172,7 +172,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": "2026-10-17",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -191,7 +191,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Broken+Beach/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd26fdf21a72dcb:0x2fdb3f30123947a5!8m2!3d-8.7327938!4d115.4508319!16s%2Fg%2F11pv5thkp8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -244,7 +244,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Angel's+Billabong/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd26f817e9cb20b:0x168ba6d3daf31579!8m2!3d-8.7335003!4d115.4489788!16s%2Fg%2F11nx09grv3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -297,7 +297,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/%D0%9A%D0%B5%D0%BB%D0%B8%D0%BD%D0%B3%D0%BA%D0%B8%D0%BD%D0%B3+%D0%91%D0%B8%D1%87/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd26e2a9d0779cb:0xb390835442eced6e!8m2!3d-8.7513849!4d115.4732043!16s%2Fg%2F11wr38b9l8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -350,7 +350,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Satya%20Dharma%20Temple%20Bali",
@@ -403,7 +403,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A5%D1%80%D0%B0%D0%BC%20%D0%9F%D1%83%D1%80%D0%B0%20%D0%91%D0%B5%D1%81%D0%B0%D0%BA%D0%B8%D1%85%20Bali",
@@ -456,7 +456,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Tukad%20Cepung%20Waterfall%20Bali",
@@ -517,7 +517,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Blue%20Lagoon%20Beach%20Bali",
@@ -578,7 +578,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Bias%20Tugel%20Beach%20Bali",
@@ -631,7 +631,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Sari+Timbul+Art+Gallery/data=!4m7!3m6!1s0x2dd219006ae39725:0xe4dffe7d0dd46b01!8m2!3d-8.4081187!4d115.2912891!16s%2Fg%2F11mrsg76_l",
@@ -684,7 +684,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A3%D0%BB%D1%83%D0%BD%20%D0%B4%D0%B0%D0%BD%D1%83%20%D0%B1%D0%B5%D1%80%D0%B0%D1%82%D0%B0%D0%BD%20Bali",
@@ -745,7 +745,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Leke%20Leke%20Waterfall%20Bali",
@@ -806,7 +806,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Jatiluwih%20Rice%20Terraces%20Bali",
@@ -859,7 +859,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Bali+Farm+House/@-8.2443238,115.1497093,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd18f91688e0ea3:0x2c6ca8bf93b31e3a!8m2!3d-8.2443238!4d115.1497093!16s%2Fg%2F11l6j_d28g?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -920,7 +920,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Nuanu+Gate/@-8.6304965,115.1004586,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd23971eba79d3d:0x50e2893ce20d985b!8m2!3d-8.6304965!4d115.1004586!16s%2Fg%2F11rzgkh6wf?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -981,7 +981,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Jaran+Hill/@-8.8239322,115.0851908,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd25002559594d7:0x9979076c84736720!8m2!3d-8.8239322!4d115.0851908!16s%2Fg%2F11gbtz0k0n?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1034,7 +1034,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Melasti+Beach/@-8.8482933,115.1631697,15z/data=!3m1!4b1!4m6!3m5!1s0x2dd25be3c65bc987:0xfadb552ebfa90802!8m2!3d-8.8482935!4d115.1631697!16s%2Fg%2F11g2xt94hl?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1068,7 +1068,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-14",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1087,7 +1087,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/%D0%9F%D0%BB%D1%8F%D0%B6+%D0%9F%D0%B0%D0%BD%D0%B4%D0%B0%D0%B2%D0%B0/@-8.8448081,115.1865255,16z/data=!3m1!4b1!4m6!3m5!1s0x2dd25b7cd8ba1f31:0x41b8785dd055b2a4!8m2!3d-8.8452802!4d115.1870679!16s%2Fg%2F1ygbcghrt?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1121,7 +1121,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-14",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1140,7 +1140,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Mengiat+Beach/@-8.8072601,115.2322731,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd2432ee757aebf:0x856277d2d504eec8!8m2!3d-8.8072601!4d115.2322731!16s%2Fg%2F1pzrbz3d2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1182,7 +1182,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-14",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1201,7 +1201,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Waterblow/@-8.8038567,115.2398639,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd242d64fdf1499:0x693ff9065fcd1f44!8m2!3d-8.8038567!4d115.2398639!16s%2Fg%2F11b66sm7gm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1234,61 +1234,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-14",
-      "unverified": [
-        "Текущий статус и часы",
-        "Вход и парковка",
-        "Пеший подход",
-        "Бронирование",
-        "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
-    },
-    {
-      "id": "v29",
-      "name": "Pantai Samuh",
-      "roles": [
-        "visit"
-      ],
-      "source_list": {
-        "name": "Хочу поеду",
-        "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-14",
-        "current_membership_confirmed": true
-      },
-      "place_url": "https://www.google.com/maps/search/?api=1&query=Pantai%20Samuh%20Bali",
-      "address": {
-        "value": "Benoa, South Kuta, Бадунг, Бали 80361, Indonesia",
-        "status": "historical_snapshot"
-      },
-      "coordinates": {
-        "lat": -8.7871666667,
-        "lon": 115.2284916667,
-        "status": "academic_geographic_beach_point_entrance_not_verified",
-        "source": "https://ojs.unud.ac.id/index.php/jmas/article/download/83246/43239/",
-        "source_url": "https://ojs.unud.ac.id/index.php/jmas/article/download/83246/43239/",
-        "checked": "2026-10-09"
-      },
-      "area": {
-        "value": "NUSA DUA",
-        "status": "previous_editorial_classification"
-      },
-      "type": "Пляж",
-      "hours": {
-        "value": "NOT VERIFIED",
-        "by_day": {},
-        "status": "historical_or_unknown",
-        "snapshot_date": "2026-10-06",
-        "last_order": null
-      },
-      "operating_status": "not_currently_verified",
-      "recommended_duration_minutes": null,
-      "entrance": "Географическая точка пляжа из университетской публикации. Точный общественный вход и стоянка ещё не подтверждены; дорожный сервис заканчивает маршрут на ближайшей дороге.",
-      "parking": null,
-      "walking_approach": null,
-      "booking_requirement": null,
-      "access_restrictions": null,
-      "assigned_date": "2026-10-14",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1307,7 +1253,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Amok+Sunset+Restaurant+%26+Bar/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd26d8029cdd447:0x7b44db9af98a45b8!8m2!3d-8.7056559!4d115.465524!16s%2Fg%2F11g2xsf033?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1343,7 +1289,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": "2026-10-17",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1399,7 +1345,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Batu%20Karu%20Kopi%20Bali",
@@ -1499,7 +1445,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Paperhills%20Bali",
@@ -1574,7 +1520,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=el%20lago%20Bali",
@@ -1649,7 +1595,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Tis+Cafe/@-8.4307112,115.2785771,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd2237fb92427e1:0xa0c73a52235a7df8!8m2!3d-8.4307112!4d115.2785771!16s%2Fg%2F11hzbl7lf4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1731,7 +1677,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/AKASA/@-8.279617,115.357559,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd1f5e1984fef6b:0xa5be2accdf6b4ba8!8m2!3d-8.279617!4d115.357559!16s%2Fg%2F11h0_k_2r1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1831,7 +1777,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Old%20Man%27s%20Bali",
@@ -1906,7 +1852,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Vedzpresso%20Coffee%20Bali",
@@ -1981,7 +1927,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=ATTALAS%20CAFE%20Bali",
@@ -2056,7 +2002,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=warung%20baling%20baling%20Bali",
@@ -2131,7 +2077,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Mahen%20Cafe%20Bali",
@@ -2206,7 +2152,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Brie%20Restaurant%20%26%20Cheesery%20%7C%20Italian%20Season%20Bali",
@@ -2281,7 +2227,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Tebasari%20Resto%2C%20Bar%20%26%20Lounge%20Bali",
@@ -2356,7 +2302,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Teamo%20-%20Gastro-Bistro%2C%20Restaurant%20Canggu%20Bali",
@@ -2393,7 +2339,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": "2026-10-19",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2431,7 +2377,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Echo%20Beach%20Sunset%20Point%20Bali",
@@ -2468,7 +2414,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": "2026-10-19",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2506,7 +2452,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Motel%20Mexicola%20%7C%20Canggu%20Bali",
@@ -2581,7 +2527,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Artisan%20-%20Pererenan%20Bali",
@@ -2656,7 +2602,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=LUSA%20Bistro%20Bali",
@@ -2693,7 +2639,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": "2026-10-19",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2731,7 +2677,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=LOLITAS%20Cantina%20Mexicana%20Bali",
@@ -2768,7 +2714,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-14",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2809,7 +2755,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Tarragon%20Georgian%20Restaurant%20and%20Lounge%20Bar%20Bali",
@@ -2884,7 +2830,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=SODA%20CAFE%20Bali",
@@ -2959,7 +2905,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A1%D0%BE%D0%BB%D1%82%D0%B2%D1%83%D0%B4%20%D0%91%D0%B8%D0%BD%D0%B3%D0%B8%D0%BD%20Bali",
@@ -2996,7 +2942,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-19",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3034,7 +2980,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=My%20Place%20cafe%20beach%20Bali",
@@ -3071,7 +3017,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-19",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3109,7 +3055,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/FROM+HERE+BALI/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd241915bc46e6b:0xb0615e393de01ddc!8m2!3d-8.7058825!4d115.253739!16s%2Fg%2F11ymzkxp4y?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -3201,7 +3147,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Akar%20Ubud%20by%20K%20Club%20Bali",
@@ -3275,7 +3221,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=FLOCK%20Bali%20Bali",
@@ -3350,7 +3296,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Milk%20%26%20Madu%20Ubud%20Bali",
@@ -3425,7 +3371,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Ramu%20Kitchen%20Bali",
@@ -3500,7 +3446,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Zest%20Bali",
@@ -3575,7 +3521,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=SkaZka%20Bali%20Bali",
@@ -3650,7 +3596,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Nyom%20Nyom%20Coffee%20Bali",
@@ -3725,7 +3671,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Monsieur%20Spoon%20Canggu%20Bali",
@@ -3800,7 +3746,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=TWO%20FACE%20Canggu%20Bali",
@@ -3875,7 +3821,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0%20%D0%B0%D0%B2%D0%BE%D0%BA%D0%B0%D0%B4%D0%BE%20Bali",
@@ -3950,7 +3896,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=WOODS%20PERERENAN%20Bali",
@@ -4025,7 +3971,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Penny%20Lane%20Bali",
@@ -4117,7 +4063,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=LOVA%20CAFE%20Bali",
@@ -4192,7 +4138,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=BELLA.%20Canggu%20Bali",
@@ -4267,7 +4213,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=n%C3%BCde%20cafe%20Berawa%20Bali",
@@ -4341,7 +4287,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Neighbourhood%20Food%20Bali",
@@ -4416,7 +4362,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%9A%D0%BE%D0%BF%D0%B5%D0%BD%D0%B3%D0%B0%D0%B3%D0%B5%D0%BD%20Bali",
@@ -4491,7 +4437,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Margaret%20Bistro%20Bali",
@@ -4528,7 +4474,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": "2026-10-19",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4566,7 +4512,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=La%20Baracca%20Bali%20%28Uluwatu%29%20Bali",
@@ -4658,7 +4604,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Ours%20Uluwatu%20Bali",
@@ -4732,7 +4678,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=AVLI%20Uluwatu%20-%20Modern%20Greek%20Bali",
@@ -4769,7 +4715,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-14",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4807,7 +4753,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Alma%20Tapas%20Bar%20-%20Uluwatu%20Bali",
@@ -4886,7 +4832,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=ZALI%20Uluwatu%20%7C%20Lebanese%20Restaurant%20Bali",
@@ -4960,7 +4906,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=YUKI%20Uluwatu%20Bali",
@@ -5042,7 +4988,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=KALA%20Uluwatu%20-%20Greek%20Inspired%20Grill%20Bali",
@@ -5078,7 +5024,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-19",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5116,7 +5062,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Analog%20Uluwatu%20%7C%20Cafe%20%7C%20Bar%20%7C%20Bistro%20Bali",
@@ -5190,7 +5136,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/SUKA+ULUWATU/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd24555c469bf0d:0xb5c59aca6f32b70f!8m2!3d-8.81635!4d115.0960262!16s%2Fg%2F11ddxzt9xj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -5290,7 +5236,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Alchemy%20Uluwatu%20Bali",
@@ -5364,7 +5310,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Drifter%20Surf%20Shop%20%26%20Cafe%20-%20Uluwatu%20Bali",
@@ -5438,7 +5384,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=The%20Loft%20Bali",
@@ -5512,7 +5458,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Boneka%20Restaurant%20Bali",
@@ -5612,7 +5558,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=The%20Community%20Bali",
@@ -5690,7 +5636,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Signa+Cafe/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd25d436f4897eb:0x4aec1868e7155c9a!8m2!3d-8.8176127!4d115.1901369!16s%2Fg%2F11lcdm1w8x?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -5790,7 +5736,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=HEDONIST%20SPACE%20restaurant%20%7C%20lounge%20%7C%20bar%20Bali",
@@ -5865,7 +5811,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Eden%20Lounge%20Uluwatu%20%E2%80%94%20Restaurant%20with%20live%20music%20and%20Co-working%20space%20Bali",
@@ -5940,7 +5886,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=NOURISH%20CAFE%20WHOLEFOODS%20PIZZERIA%20%26%20BAKERY%20-%20UNGASAN%20Bali",
@@ -6015,7 +5961,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Artisan+-+Ungasan/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd25b6dd2dec62d:0x254302c94cd3d8e9!8m2!3d-8.8201357!4d115.1506838!16s%2Fg%2F11st639359?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -6051,7 +5997,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-14",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6107,7 +6053,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/AMINO+-+Early+Breakfast,+Lunch,+Dinner/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd25ba632c4ea21:0x718f79651d17edb8!8m2!3d-8.8165881!4d115.1550742!16s%2Fg%2F11tt5f1t90?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -6207,7 +6153,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Made%E2%80%99s%20Bakery%20Cafe%20Playground%20Bali",
@@ -6282,7 +6228,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Sari+timbul+resto+by+kububali/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd218af9a1c2751:0x498ac30aa63167c8!8m2!3d-8.4115906!4d115.2932982!16s%2Fg%2F11f4hq468b?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -6374,7 +6320,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Rumah+Gemuk+Bali/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd189d71e2356df:0x2b4738448285b9c2!8m2!3d-8.2668967!4d115.1606519!16s%2Fg%2F11h9gwc2ln?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -6466,7 +6412,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Single%20Fin%20Bali%20Bali",
@@ -6558,7 +6504,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-14",
+        "snapshot_date": "2026-10-15",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Koral%3A%20Bali%E2%80%99s%20First%20Aquarium%20Restaurant%20Bali",
@@ -6602,7 +6548,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-14",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
