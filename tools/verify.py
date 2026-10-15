@@ -13,7 +13,7 @@ assert [d['date'] for d in data['days']]==[f'2026-10-{n}' for n in range(15,23)]
 assert all(not d.get('historical') for d in data['days'])
 assert {s['id'] for s in data['days'][3]['stops']} >= {'v25','v26'}
 assert 'v01' not in {s['id'] for s in data['days'][3]['stops']}
-assert 'v01' in {s['id'] for s in data['days'][6]['stops']}
+assert {s['id'] for s in data['days'][0]['stops']}=={'v01','v14','v15'}
 assert sum(r['duration_minutes'] for r in data['days'][3]['timeline'] if r['kind']=='visit' and r.get('place_id') in ('v25','v26'))>=165
 assert data['routing_preference']['tolls_allowed']
 food_ids={p['id'] for p in reg['places'] if 'meal' in p['roles']}
@@ -73,7 +73,7 @@ assert len(reader.pages)>30
 result=dict(date='2026-10-15',food_list_points=67,scheduled_attractions=22,optional_attractions=0,
     trip_start="2026-10-15",trip_end="2026-10-22",day_count=8,october_11_12_13_14_removed=True,hotel_breakfast_regular="08:00–08:45",penida_breakfast="06:00–06:45 packed",earliest_departure="06:50",early_departure_user_authorized=True,penida_single_day=True,all_food_stops_have_day_map_markers=True,
     no_repeated_current_food_visits=True,max_future_food_stops=14,night_dolphin_trip_removed=True,
-    october_18_beach_day=True,marine_safari_date='2026-10-21',tolls_allowed=True,toll_legs=sum(l['uses_toll'] for d in data['days'] for l in d['legs']),
+    october_18_beach_day=True,marine_safari_date='2026-10-15',tolls_allowed=True,toll_legs=sum(l['uses_toll'] for d in data['days'] for l in d['legs']),
     departure_day_canggu_removed=True,airport_plan=last['return_time'],minimum_sleep_hours=7,
     route_continuity_and_boat_windows_checked=True,pdf=dict(pages=len(reader.pages),all_current_restaurant_names_present=True,
     all_pages_rendered=True,all_pages_visually_reviewed=True),browser=dict(all_8_days_and_markers_verified=True,
