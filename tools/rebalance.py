@@ -33,12 +33,12 @@ plans = {
 8:['v26','v25',food('r21','lunch'),'v27','v28',food('r47','dinner')],
 9:['v19',food('r02','lunch'),'v21','v03','v17',food('r18','dinner')],
 10:['v18',food('r40','lunch'),'v22',food('r43','dinner')],
-11:['v11','free-lunch','v14','v15','v09',food('r54','dinner')],
+11:['v11','v09',food('r54','lunch')],
 12:['checkout',food('r67','lunch'),'v24',food('r48','dinner'),'baggage'],
 }
-titles={6:'Убуд, Батур и Бесаких',7:'Пенида за один день и Amok',8:'Пандава, Melasti и Нуса-Дуа',9:'Террасы и озёра севера',10:'Nuanu и лучшие бистро Чангу',11:'Tukad Cepung, пляжи и Satya Dharma',12:'Улувату, Alma и аэропорт'}
+titles={6:'Убуд, Батур и Бесаких',7:'Пенида за один день и Amok',8:'Пандава, Melasti и Нуса-Дуа',9:'Террасы и озёра севера',10:'Nuanu и лучшие бистро Чангу',11:'Tukad Cepung и Satya Dharma',12:'Улувату, Alma и аэропорт'}
 starts={n:'09:00' for n in plans};starts[7]='05:50'
-why={6:'Одна видовая кофейня у Батура вместо цепочки дегустаций. Тегаллаланг, Бесаких и ужин Ramu связаны одним кругом с возвратом через Убуд.',7:'Ранний катер даёт время на четыре коротких осмотра и нормальный обед в Amok. Kelingking только сверху, Crystal Bay без долгого купания. После возвращения один ужин YUKI.',8:'Пандава и Melasti подряд, затем обед SODA, короткие осмотры Нуса-Дуа и один ужин AVLI.',9:'Северный круг с водителем. Farm House и храмы до закрытия, ужин LUSA по обратному пути через Чангу.',10:'Утром Leke Leke, затем обед в Berawa, два часа на Nuanu и один ужин. Водопад перенесён с северного круга, чтобы не опоздать в Farm House и храмы 19 октября.',11:'Один водопад, два пляжа рядом и Satya Dharma по обратному пути. Обед выбирается на месте без лишнего крюка; ужин SUKA на юге.',12:'День без дальних переездов: AMINO, видовая Jaran Hill и ранний ужин Alma. Затем багаж, возврат байка и аэропорт.'}
+why={6:'Одна видовая кофейня у Батура вместо цепочки дегустаций. Тегаллаланг, Бесаких и ужин Ramu связаны одним кругом с возвратом через Убуд.',7:'Ранний катер даёт время на четыре коротких осмотра и нормальный обед в Amok. Kelingking только сверху, Crystal Bay без долгого купания. После возвращения один ужин YUKI.',8:'Пандава и Melasti подряд, затем обед SODA, короткие осмотры Нуса-Дуа и один ужин AVLI.',9:'Северный круг с водителем. Farm House и храмы до закрытия, ужин LUSA по обратному пути через Чангу.',10:'Утром Leke Leke, затем обед в Berawa, два часа на Nuanu и один ужин. Водопад перенесён с северного круга, чтобы не опоздать в Farm House и храмы 19 октября.',11:'Blue Lagoon и Bias Tugel удалены из вашего списка. После Tukad Cepung — Satya Dharma и обед SUKA по дороге на виллу. Вечер свободный; ужин на вилле или рядом по вашему выбору.',12:'День без дальних переездов: AMINO, видовая Jaran Hill и ранний ужин Alma. Затем багаж, возврат байка и аэропорт.'}
 
 def nav(a,b):
     return 'https://www.google.com/maps/dir/?'+urllib.parse.urlencode(dict(api=1,origin=f"{a['lat']},{a['lon']}",destination=f"{b['lat']},{b['lon']}",travelmode='driving'))
@@ -161,7 +161,7 @@ def build(n):
             if n in (2,6,9) and id in ('v25','v26','v14','v15','v02'):duration=60
             duration={'v27':20,'v28':20,'v16':60,'v10':60,'v11':60,'v14':60,'v15':60,'v07':30,'v05':20,'v06':15,'v04':30,'v19':60,'v18':60,'v03':30,'v17':60,'v21':60,'v22':120,'v24':45,'v25':120,'v26':90,'v09':30}.get(id,duration)
             if id in ('v25','v26'):r['note']='Купание и отдых у воды. Ориентироваться на флаги и указания спасателей; при запрете купания отдыхать на берегу.'
-            if n==5 and id=='v09':
+            if id=='v09':
                 duration=30
                 assert t+duration<=minutes('19:00'),('Satya Dharma late',clock(t))
                 r['note']='В справочнике Wihara указаны часы 10:00-19:00; вечерний вход официально не подтверждён. Уточнить доступ перед выездом. При задержке после закрытия не считать осмотр выполненным и пересчитать день.'
@@ -204,7 +204,7 @@ assert {p['name'] for p in registry['places'] if 'meal' in p['roles']}==set(snap
 assert {p['name'] for p in registry['places'] if 'visit' in p['roles']}==set(snapshot['sight_names'])
 from curation import finish
 data,registry=finish(data,registry,research,snapshot,days)
-assert len([s for d in days for s in d['stops']])==21
+assert len([s for d in days for s in d['stops']])==len(snapshot['sight_names'])
 for d in days:
     assert all(a['end']==b['start'] for a,b in zip(d['timeline'],d['timeline'][1:]))
 for a,b in zip(days,days[1:]):
@@ -218,4 +218,4 @@ with (ROOT/'coverage.csv').open('w',encoding='utf-8-sig',newline='') as f:
     for c in data['coverage']:writer.writerow([c['id'],c['name'],c['planned_date'],'visit',c['status']])
     for p in registry['places']:
         if 'meal' in p['roles']:writer.writerow([p['id'],p['name'],p['assigned_date'] or '','meal',p['schedule_status']])
-print('CURATED ROUTE VERIFIED: 14 restaurants, 21 sights, 7 days',flush=True)
+print('CURATED ROUTE VERIFIED: 14 restaurants, 19 sights, 7 days',flush=True)

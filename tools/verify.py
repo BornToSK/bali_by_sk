@@ -9,15 +9,15 @@ def minute(s):return int(s[:2])*60+int(s[3:5])
 d,reg,snapshot=read('itinerary.json'),read('registry.json'),read('latest-lists.json')
 assert [x['date'] for x in d['days']]==[f'2026-10-{n}' for n in range(16,23)]
 assert [x['number'] for x in d['days']]==list(range(1,8))
-assert len(snapshot['food_names'])==67 and len(snapshot['sight_names'])==21
+assert len(snapshot['food_names'])==67 and len(snapshot['sight_names'])==19
 assert {p['name'] for p in reg['places'] if 'meal' in p['roles']}==set(snapshot['food_names'])
 assert {p['name'] for p in reg['places'] if 'visit' in p['roles']}==set(snapshot['sight_names'])
 selected={p['id'] for p in reg['places'] if p.get('curated')}
 assert len(selected)==14 and len(d['restaurant_reserve'])==53
-assert len(d['coverage'])==21 and all(c['planned_date'] for c in d['coverage'])
-assert len({s['id'] for x in d['days'] for s in x['stops']})==21
-assert sum(len(x['stops']) for x in d['days'])==21
-assert 'v01' not in {s['id'] for x in d['days'] for s in x['stops']}
+assert len(d['coverage'])==19 and all(c['planned_date'] for c in d['coverage'])
+assert len({s['id'] for x in d['days'] for s in x['stops']})==19
+assert sum(len(x['stops']) for x in d['days'])==19
+assert not {'v01','v14','v15'} & {s['id'] for x in d['days'] for s in x['stops']}
 physical=[m['restaurant_id'] for x in d['days'] for m in x['meals'] if m['meal_mode']=='onsite']
 assert set(physical)==selected and len(physical)==len(set(physical))==14
 hours=read('restaurant-research.json')
@@ -56,6 +56,6 @@ for day,b in zip(d['days'],browser):
 reader=PdfReader(root/'guide.pdf');text='\n'.join(p.extract_text() for p in reader.pages)
 assert all(c['name'].replace('—','-').replace('–','-') in text for c in d['restaurant_coverage'])
 assert len(reader.pages)>=20
-result=dict(date='2026-10-16',trip_start=d['trip_start'],trip_end=d['trip_end'],day_count=7,current_food_catalog=67,selected_restaurants=14,reserve_restaurants=53,attractions=21,visited_marine_safari_removed=True,all_selected_food_and_sight_markers_verified=True,no_duplicate_visits=True,penida_single_day=True,penida_departure='05:50',early_departure_authorized=True,penida_boats=['07:30','17:00'],airport_plan=last['return_time'],minimum_sleep_hours=7,tolls_allowed=True,pdf=dict(pages=len(reader.pages),all_selected_restaurant_names_present=True,all_pages_rendered=True,all_pages_visually_reviewed=True),limitations=d['limitations'])
+result=dict(date='2026-10-16',trip_start=d['trip_start'],trip_end=d['trip_end'],day_count=7,current_food_catalog=67,selected_restaurants=14,reserve_restaurants=53,attractions=19,removed_beaches_absent=True,visited_marine_safari_removed=True,all_selected_food_and_sight_markers_verified=True,no_duplicate_visits=True,penida_single_day=True,penida_departure='05:50',early_departure_authorized=True,penida_boats=['07:30','17:00'],airport_plan=last['return_time'],minimum_sleep_hours=7,tolls_allowed=True,pdf=dict(pages=len(reader.pages),all_selected_restaurant_names_present=True,all_pages_rendered=True,all_pages_visually_reviewed=True),limitations=d['limitations'])
 (root/'final-verification.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n','utf-8')
-print('PASS: 7 days, 21 sights, 14 selected restaurants, 53 reserves; roads, hours, boats, sleep, airport, browser markers and PDF')
+print('PASS: 7 days, 19 sights, 14 selected restaurants, 53 reserves; roads, hours, boats, sleep, airport, browser markers and PDF')

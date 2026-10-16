@@ -11,7 +11,7 @@ CHOICES = {
  'r18':'Ужин на обратном пути с севера через Чангу; 4,8 и европейское бистро.',
  'r40':'Обед в Berawa: 4,8 при большом числе отзывов, официальное меню на весь день.',
  'r43':'Итальянское бистро на ужин в том же районе Чангу; 4,8.',
- 'r54':'Надёжный выбор для ужина по возвращении с востока; 4,8 при большом числе отзывов.',
+ 'r54':'Обед по возвращении с востока; 4,8 при большом числе отзывов.',
  'r67':'Обед в день вылета рядом с виллой, 4,8; без поездки в Чангу.',
  'r48':'Испанские тапас для раннего ужина перед аэропортом; 4,9, подача тапас с 15:00.',
 }
@@ -54,7 +54,7 @@ def finish(data,registry,research,snapshot,days):
   p['review_snapshot']=ratings[p['name']]
   p['dining_research']=research[p['id']]
   p['curated']=p['id'] in selected
-  p['selection_reason']=CHOICES.get(p['id'],'В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.')
+  p['selection_reason']=CHOICES.get(p['id'],'Не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.')
   p['assigned_date']=next((d['date'] for d in days if any(m['restaurant_id']==p['id'] for m in d['meals'])),None)
   p['schedule_status']='planned' if p['curated'] else 'reserve'
   if p['curated']:
@@ -68,24 +68,24 @@ def finish(data,registry,research,snapshot,days):
  data['restaurant_reserve']=[dict(id=p['id'],name=p['name'],reason=p['selection_reason'],place_url=p['place_url']) for p in foods if not p['curated']]
  main=[m for d in days for m in d['meals'] if m['meal_type']!='coffee']
  data['restaurant_selection']=dict(meal_slots=21,unique_onsite_restaurants=len(selected),catalog_restaurants=len(foods),reserve_restaurants=len(foods)-len(selected),assigned_meals=len(main),packed_meals=1,coffee_snack_visits=sum(m['meal_type']=='coffee' for d in days for m in d['meals']),note='Полноценные обеды и ужины, одна видовая остановка на кофе. 17 октября ранний выезд с завтраком с собой.',coverage_note='Субъективный выбор по кухне, актуальным оценкам, числу отзывов и расположению. Это не объективный рейтинг лучших ресторанов Бали.')
- data['list_verification']='Два живых списка Google Maps сверены 16 октября: 67 заведений и 21 место. Marine Safari удалён пользователем после посещения; остальные места сохранены. Полный список еды остаётся каталогом, в маршрут включены 14 заведений.'
- data['user_list_updates'].append(dict(date='2026-10-16',removed=['v01'],source='Полная сверка живых списков; посещение океанариума подтверждено пользователем'))
+ data['list_verification']='Два живых списка Google Maps сверены 16 октября: 67 заведений и 19 мест. Marine Safari посещён; Blue Lagoon и Bias Tugel также удалены пользователем из текущего списка. Полный список еды остаётся каталогом, в маршрут включены 14 заведений.'
+ data['user_list_updates'].append(dict(date='2026-10-16',removed=['v01','v14','v15'],source='Полная сверка живых списков; посещение океанариума подтверждено пользователем'))
  data['limitations']=[
   'В основной маршрут включены 14 из 67 заведений; 53 сохранены в каталоге как резерв. Выбор субъективный: кухня, отзывы, разнообразие и отсутствие лишнего крюка. Высокая оценка не гарантирует качество.',
   'На Пениду 17 октября выезд 05:50 и плановый катер 07:30. Пользователь разрешил ранние выезды. Завтрак с собой заказать накануне, согласовать выдачу и хранение. Катера и островной водитель не забронированы.',
   'Пенида за один день: четыре коротких осмотра и обед Amok. Kelingking только сверху, Angel’s Billabong без входа в воду. При задержке пересчитать программу, сохраняя обратный катер.',
   'В остальные дни завтрак на вилле 08:00-08:45 и выезд 09:00. Все ночи на Nunamkhalu.',
-  'Северный круг 19 октября и поездки 16 и 21 октября остаются длинными; рекомендуется водитель. Время в пути оценочное, без прогноза пробок.',
+  'Северный круг 19 октября и поездки 16 и 20 октября остаются длинными; рекомендуется водитель. Время в пути оценочное, без прогноза пробок.',
   'На платной Bali Mandara байку нужна отдельная полоса. Геометрия OSRM автомобильная; въезды, парковки и доступ для байка не полностью проверены.',
-  '21 октября обед выбирается рядом с маршрутом; он не входит в 14 заведений. Остановки на пляжах включают подход, купание определяется флагами, волнами и указаниями спасателей.',
+  '21 октября Blue Lagoon и Bias Tugel убраны по текущему списку. После Tukad Cepung и Satya Dharma — обед SUKA, затем свободный вечер. Ужин на вилле или рядом выбрать самостоятельно.',
   'Часы части заведений и доступ в храмы требуют подтверждения; столы, последний заказ и точное меню проверить. Бронирования и оплаты не выполнялись.',
   'Koral и Boneka оставлены в резерве: отдельный дорогой ужин и бронь не обязательны. В день вылета Alma заменяет позднюю ресторанную цепочку.',
   '22 октября checkout до 12:00, хранение багажа и душ согласовать. Аэропорт не позже 21:30, вылет 23 октября 00:30.',
   'PDF показывает основной маршрут; личные перестановки еды в браузере не меняют PDF автоматически.',
  ]
  data['sources']=[dict(name=n,url=u,checked='2026-10-16') for n,u in SOURCES]+[dict(name='Живой список еды и оценки Google Maps',url=snapshot['food_url'],checked='2026-10-16'),dict(name='Живой список мест',url=snapshot['sights_url'],checked='2026-10-16')]+[s for s in data['sources'] if not any(x in s['name'] for x in ['Marine Safari','Текущий список','Axe Stone','The Angkal'])]
- registry.update(created_date='2026-10-16',source=data['list_verification'],counts=dict(attractions=21,scheduled_attractions=21,optional_attractions=0,restaurants=len(foods),selected_restaurants=len(selected),reserve_restaurants=len(foods)-len(selected),total_records=len(registry['places'])))
- registry['meal_capacity']=dict(restaurant_count=len(foods),selected_restaurants=len(selected),main_meals=len(main),coffee_snack_stops=data['restaurant_selection']['coffee_snack_visits'],packed_meals=1,note='6 завтраков на вилле, 1 завтрак с собой; местный обед 21 октября отдельно.')
+ registry.update(created_date='2026-10-16',source=data['list_verification'],counts=dict(attractions=len(snapshot['sight_names']),scheduled_attractions=len(snapshot['sight_names']),optional_attractions=0,restaurants=len(foods),selected_restaurants=len(selected),reserve_restaurants=len(foods)-len(selected),total_records=len(registry['places'])))
+ registry['meal_capacity']=dict(restaurant_count=len(foods),selected_restaurants=len(selected),main_meals=len(main),coffee_snack_stops=data['restaurant_selection']['coffee_snack_visits'],packed_meals=1,note='6 завтраков на вилле, 1 завтрак с собой; 21 октября ужин свободный, на вилле или рядом.')
  for p in registry['places']:
   role='meal' if 'meal' in p['roles'] else 'visit'
   p['source_list'].update(url=snapshot['food_url'] if role=='meal' else snapshot['sights_url'],snapshot_date='2026-10-16',current_membership_confirmed=True)
