@@ -1,14 +1,16 @@
 {
   "schema_version": 1,
-  "created_date": "2026-10-15",
+  "created_date": "2026-10-16",
   "status": "author_meal_selection_authorized",
-  "source": "Два живых списка Google Maps сверены 15 октября 2026: 67 заведений и 22 достопримечательности. Полные названия сохранены в latest-lists.json.",
+  "source": "Два живых списка Google Maps сверены 16 октября: 67 заведений и 21 место. Marine Safari удалён пользователем после посещения; остальные места сохранены. Полный список еды остаётся каталогом, в маршрут включены 14 заведений.",
   "counts": {
-    "attractions": 22,
-    "scheduled_attractions": 22,
+    "attractions": 21,
+    "scheduled_attractions": 21,
     "optional_attractions": 0,
     "restaurants": 67,
-    "total_records": 89
+    "selected_restaurants": 14,
+    "reserve_restaurants": 53,
+    "total_records": 88
   },
   "duplicate_audit": {
     "exact_name_duplicates": [],
@@ -17,65 +19,13 @@
   },
   "meal_capacity": {
     "restaurant_count": 67,
-    "main_meals": 23,
-    "onsite_full_meals": 15,
-    "coffee_snack_stops": 52,
+    "selected_restaurants": 14,
+    "main_meals": 20,
+    "coffee_snack_stops": 1,
     "packed_meals": 1,
-    "note": "7 завтраков на вилле и 1 завтрак с собой отдельно; Echo Beach: еда не подтверждена."
+    "note": "6 завтраков на вилле, 1 завтрак с собой; местный обед 21 октября отдельно."
   },
   "places": [
-    {
-      "id": "v01",
-      "name": "Marine Safari Bali",
-      "roles": [
-        "visit"
-      ],
-      "source_list": {
-        "name": "Хочу поеду",
-        "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
-        "current_membership_confirmed": true
-      },
-      "place_url": "https://www.google.com/maps/search/?api=1&query=Marine%20Safari%20Bali%20Bali",
-      "address": {
-        "value": "Jl. Prof. Dr. Ida Bagus Mantra Km.19.8, Serongga, Gianyar, Bali",
-        "status": "historical_snapshot"
-      },
-      "coordinates": {
-        "lat": -8.5817095,
-        "lon": 115.3469507,
-        "status": "historical_snapshot_not_reverified",
-        "source": "Ссылка на место в текущем видимом Google Maps result, 06.10",
-        "source_url": "https://www.google.com/maps/search/?api=1&query=Marine%20Safari%20Bali%20Bali"
-      },
-      "area": {
-        "value": "GIANYAR",
-        "status": "previous_editorial_classification"
-      },
-      "type": "Океанариум",
-      "hours": {
-        "value": "09:00–17:00; последний вход 14:00",
-        "status": "official_current",
-        "source": "https://china.marinesafaribali.com/en/plan/",
-        "checked": "2026-10-09"
-      },
-      "operating_status": "not_currently_verified",
-      "recommended_duration_minutes": null,
-      "entrance": null,
-      "parking": null,
-      "walking_approach": null,
-      "booking_requirement": null,
-      "access_restrictions": null,
-      "assigned_date": "2026-10-15",
-      "unverified": [
-        "Текущий статус и часы",
-        "Вход и парковка",
-        "Пеший подход",
-        "Бронирование",
-        "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
-    },
     {
       "id": "v03",
       "name": "Ulun Danu Buyan Temple",
@@ -85,7 +35,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Ulun+Danu+Buyan+Temple/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd18ed8227b5df3:0x86eaab972d530ba0!8m2!3d-8.2409771!4d115.1430261!16s%2Fg%2F11bx9clz7n?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -126,8 +76,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v04",
@@ -138,7 +87,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B0%D0%BB+%D0%91%D1%8D%D0%B9+%D0%9D%D0%B0%D1%81%D0%B0+%D0%9F%D0%B5%D0%BD%D0%B8%D0%B4%D0%B0/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd26e084c2a5fe3:0x4d4e5b852751c763!8m2!3d-8.7151611!4d115.4590565!16s%2Fg%2F11btsvgz6p?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -179,8 +128,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v05",
@@ -191,7 +139,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Broken+Beach/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd26fdf21a72dcb:0x2fdb3f30123947a5!8m2!3d-8.7327938!4d115.4508319!16s%2Fg%2F11pv5thkp8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -232,8 +180,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v06",
@@ -244,7 +191,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Angel's+Billabong/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd26f817e9cb20b:0x168ba6d3daf31579!8m2!3d-8.7335003!4d115.4489788!16s%2Fg%2F11nx09grv3?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -285,8 +232,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v07",
@@ -297,7 +243,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/%D0%9A%D0%B5%D0%BB%D0%B8%D0%BD%D0%B3%D0%BA%D0%B8%D0%BD%D0%B3+%D0%91%D0%B8%D1%87/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd26e2a9d0779cb:0xb390835442eced6e!8m2!3d-8.7513849!4d115.4732043!16s%2Fg%2F11wr38b9l8?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -338,8 +284,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v09",
@@ -350,7 +295,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Satya%20Dharma%20Temple%20Bali",
@@ -384,15 +329,14 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-15",
+      "assigned_date": "2026-10-21",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v10",
@@ -403,7 +347,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A5%D1%80%D0%B0%D0%BC%20%D0%9F%D1%83%D1%80%D0%B0%20%D0%91%D0%B5%D1%81%D0%B0%D0%BA%D0%B8%D1%85%20Bali",
@@ -437,15 +381,14 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-21",
+      "assigned_date": "2026-10-16",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v11",
@@ -456,7 +399,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Tukad%20Cepung%20Waterfall%20Bali",
@@ -505,8 +448,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v14",
@@ -517,7 +459,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Blue%20Lagoon%20Beach%20Bali",
@@ -559,15 +501,14 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-15",
+      "assigned_date": "2026-10-21",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v15",
@@ -578,7 +519,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Bias%20Tugel%20Beach%20Bali",
@@ -612,15 +553,14 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-15",
+      "assigned_date": "2026-10-21",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v16",
@@ -631,7 +571,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Sari+Timbul+Art+Gallery/data=!4m7!3m6!1s0x2dd219006ae39725:0xe4dffe7d0dd46b01!8m2!3d-8.4081187!4d115.2912891!16s%2Fg%2F11mrsg76_l",
@@ -672,8 +612,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v17",
@@ -684,7 +623,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A3%D0%BB%D1%83%D0%BD%20%D0%B4%D0%B0%D0%BD%D1%83%20%D0%B1%D0%B5%D1%80%D0%B0%D1%82%D0%B0%D0%BD%20Bali",
@@ -733,8 +672,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v18",
@@ -745,7 +683,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Leke%20Leke%20Waterfall%20Bali",
@@ -787,15 +725,14 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-19",
+      "assigned_date": "2026-10-20",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v19",
@@ -806,7 +743,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Jatiluwih%20Rice%20Terraces%20Bali",
@@ -847,8 +784,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v21",
@@ -859,7 +795,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Bali+Farm+House/@-8.2443238,115.1497093,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd18f91688e0ea3:0x2c6ca8bf93b31e3a!8m2!3d-8.2443238!4d115.1497093!16s%2Fg%2F11l6j_d28g?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -908,8 +844,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v22",
@@ -920,7 +855,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Nuanu+Gate/@-8.6304965,115.1004586,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd23971eba79d3d:0x50e2893ce20d985b!8m2!3d-8.6304965!4d115.1004586!16s%2Fg%2F11rzgkh6wf?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -969,8 +904,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v24",
@@ -981,7 +915,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Jaran+Hill/@-8.8239322,115.0851908,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd25002559594d7:0x9979076c84736720!8m2!3d-8.8239322!4d115.0851908!16s%2Fg%2F11gbtz0k0n?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1022,8 +956,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v25",
@@ -1034,7 +967,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Melasti+Beach/@-8.8482933,115.1631697,15z/data=!3m1!4b1!4m6!3m5!1s0x2dd25be3c65bc987:0xfadb552ebfa90802!8m2!3d-8.8482935!4d115.1631697!16s%2Fg%2F11g2xt94hl?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1075,8 +1008,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v26",
@@ -1087,7 +1019,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/%D0%9F%D0%BB%D1%8F%D0%B6+%D0%9F%D0%B0%D0%BD%D0%B4%D0%B0%D0%B2%D0%B0/@-8.8448081,115.1865255,16z/data=!3m1!4b1!4m6!3m5!1s0x2dd25b7cd8ba1f31:0x41b8785dd055b2a4!8m2!3d-8.8452802!4d115.1870679!16s%2Fg%2F1ygbcghrt?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1128,8 +1060,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v27",
@@ -1140,7 +1071,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Mengiat+Beach/@-8.8072601,115.2322731,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd2432ee757aebf:0x856277d2d504eec8!8m2!3d-8.8072601!4d115.2322731!16s%2Fg%2F1pzrbz3d2?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1189,8 +1120,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "v28",
@@ -1201,7 +1131,7 @@
       "source_list": {
         "name": "Хочу поеду",
         "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Waterblow/@-8.8038567,115.2398639,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd242d64fdf1499:0x693ff9065fcd1f44!8m2!3d-8.8038567!4d115.2398639!16s%2Fg%2F11b66sm7gm?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1241,8 +1171,7 @@
         "Пеший подход",
         "Бронирование",
         "Ограничения доступа"
-      ],
-      "schedule_status": "planned"
+      ]
     },
     {
       "id": "r01",
@@ -1253,7 +1182,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Amok+Sunset+Restaurant+%26+Bar/@-8.5295767,115.1323216,11z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd26d8029cdd447:0x7b44db9af98a45b8!8m2!3d-8.7056559!4d115.465524!16s%2Fg%2F11g2xsf033?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1334,6 +1263,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "Amok Sunset Restaurant & Bar",
+        "rating": 4.6,
+        "reviews": 3855,
+        "category": "Ресторан"
+      },
+      "curated": true,
+      "selection_reason": "Обед с видом на Гамат-Бэй на Пениде. Ранний катер даёт время на нормальный обед.",
       "schedule_status": "planned"
     },
     {
@@ -1345,7 +1282,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Batu%20Karu%20Kopi%20Bali",
@@ -1434,6 +1371,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "Batu Karu Kopi",
+        "rating": 4.6,
+        "reviews": 801,
+        "category": "Кофейня"
+      },
+      "curated": true,
+      "selection_reason": "Лёгкий обед и кофе у террас Jatiluwih, без отдельного крюка.",
       "schedule_status": "planned"
     },
     {
@@ -1445,7 +1390,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Paperhills%20Bali",
@@ -1482,7 +1427,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1509,7 +1454,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Paperhills",
+        "rating": 4.5,
+        "reviews": 3489,
+        "category": "Кофейня"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r04",
@@ -1520,7 +1473,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=el%20lago%20Bali",
@@ -1584,6 +1537,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "el lago",
+        "rating": 4.7,
+        "reviews": 7594,
+        "category": "Кафе"
+      },
+      "curated": true,
+      "selection_reason": "Одна остановка на кофе с видом на Батур вместо цепочки кафе Кинтамани.",
       "schedule_status": "planned"
     },
     {
@@ -1595,7 +1556,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Tis+Cafe/@-8.4307112,115.2785771,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd2237fb92427e1:0xa0c73a52235a7df8!8m2!3d-8.4307112!4d115.2785771!16s%2Fg%2F11hzbl7lf4?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1666,6 +1627,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "Tis Cafe",
+        "rating": 4.8,
+        "reviews": 13084,
+        "category": "Кофейня"
+      },
+      "curated": true,
+      "selection_reason": "Террасы Тегаллаланга и полноценный обед по пути; 4,8 при большом числе отзывов.",
       "schedule_status": "planned"
     },
     {
@@ -1677,7 +1646,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/AKASA/@-8.279617,115.357559,17z/data=!3m1!4b1!4m6!3m5!1s0x2dd1f5e1984fef6b:0xa5be2accdf6b4ba8!8m2!3d-8.279617!4d115.357559!16s%2Fg%2F11h0_k_2r1?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -1721,7 +1690,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1766,7 +1735,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "AKASA",
+        "rating": 4.5,
+        "reviews": 11604,
+        "category": "Кофейня"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r07",
@@ -1777,7 +1754,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Old%20Man%27s%20Bali",
@@ -1814,7 +1791,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1841,7 +1818,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Old Man's",
+        "rating": 4.4,
+        "reviews": 6553,
+        "category": "Бар"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r08",
@@ -1852,7 +1837,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Vedzpresso%20Coffee%20Bali",
@@ -1889,7 +1874,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1916,7 +1901,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Vedzpresso Coffee",
+        "rating": 4.2,
+        "reviews": 80,
+        "category": "Кофейня"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r09",
@@ -1927,7 +1920,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=ATTALAS%20CAFE%20Bali",
@@ -1964,7 +1957,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1991,7 +1984,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "ATTALAS CAFE",
+        "rating": 4.4,
+        "reviews": 442,
+        "category": "Кофейня"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r10",
@@ -2002,7 +2003,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=warung%20baling%20baling%20Bali",
@@ -2039,7 +2040,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2066,7 +2067,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "warung baling baling",
+        "rating": 4.4,
+        "reviews": 381,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r11",
@@ -2077,7 +2086,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Mahen%20Cafe%20Bali",
@@ -2114,7 +2123,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2141,7 +2150,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Mahen Cafe",
+        "rating": 4.5,
+        "reviews": 400,
+        "category": "Кафе"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r12",
@@ -2152,7 +2169,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Brie%20Restaurant%20%26%20Cheesery%20%7C%20Italian%20Season%20Bali",
@@ -2189,7 +2206,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-21",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2216,7 +2233,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Brie Restaurant & Cheesery | Italian Season",
+        "rating": 4.8,
+        "reviews": 1958,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r13",
@@ -2227,7 +2252,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Tebasari%20Resto%2C%20Bar%20%26%20Lounge%20Bali",
@@ -2264,7 +2289,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2291,7 +2316,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Tebasari Resto, Bar & Lounge",
+        "rating": 4.7,
+        "reviews": 8514,
+        "category": "Ресторан азиатской фьюжн-кухни"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r14",
@@ -2302,7 +2335,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Teamo%20-%20Gastro-Bistro%2C%20Restaurant%20Canggu%20Bali",
@@ -2339,7 +2372,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-19",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2366,7 +2399,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Teamo - Gastro-Bistro, Restaurant Canggu",
+        "rating": 4.7,
+        "reviews": 3032,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r15",
@@ -2377,7 +2418,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Echo%20Beach%20Sunset%20Point%20Bali",
@@ -2414,7 +2455,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-19",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2441,7 +2482,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Echo Beach Sunset Point",
+        "rating": 4.3,
+        "reviews": 145,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r16",
@@ -2452,7 +2501,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Motel%20Mexicola%20%7C%20Canggu%20Bali",
@@ -2489,7 +2538,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2516,7 +2565,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Motel Mexicola | Canggu",
+        "rating": 4.6,
+        "reviews": 2608,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r17",
@@ -2527,7 +2584,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Artisan%20-%20Pererenan%20Bali",
@@ -2564,7 +2621,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2591,7 +2648,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Artisan - Pererenan",
+        "rating": 4.7,
+        "reviews": 716,
+        "category": "Ресторан современной европейской кухни"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r18",
@@ -2602,7 +2667,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=LUSA%20Bistro%20Bali",
@@ -2666,6 +2731,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "LUSA Bistro",
+        "rating": 4.8,
+        "reviews": 4662,
+        "category": "Кафе"
+      },
+      "curated": true,
+      "selection_reason": "Ужин на обратном пути с севера через Чангу; 4,8 и европейское бистро.",
       "schedule_status": "planned"
     },
     {
@@ -2677,7 +2750,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=LOLITAS%20Cantina%20Mexicana%20Bali",
@@ -2714,7 +2787,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2744,7 +2817,15 @@
           0
         ]
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "LOLITAS Cantina Mexicana",
+        "rating": 4.4,
+        "reviews": 438,
+        "category": "Ресторан мексиканской кухни"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r20",
@@ -2755,7 +2836,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Tarragon%20Georgian%20Restaurant%20and%20Lounge%20Bar%20Bali",
@@ -2792,7 +2873,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-17",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2819,7 +2900,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Tarragon Georgian Restaurant and Lounge Bar",
+        "rating": 4.7,
+        "reviews": 725,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r21",
@@ -2830,7 +2919,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=SODA%20CAFE%20Bali",
@@ -2867,7 +2956,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-15",
+      "assigned_date": "2026-10-18",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2894,6 +2983,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "SODA CAFE",
+        "rating": 4.8,
+        "reviews": 2759,
+        "category": "Ресторан"
+      },
+      "curated": true,
+      "selection_reason": "Обед в Унгасане после пляжей; 4,8 и короткий переезд.",
       "schedule_status": "planned"
     },
     {
@@ -2905,7 +3002,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A1%D0%BE%D0%BB%D1%82%D0%B2%D1%83%D0%B4%20%D0%91%D0%B8%D0%BD%D0%B3%D0%B8%D0%BD%20Bali",
@@ -2942,7 +3039,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -2969,7 +3066,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Солтвуд Бингин",
+        "rating": 4.4,
+        "reviews": 792,
+        "category": "Закрыто навсегда"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r23",
@@ -2980,7 +3085,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=My%20Place%20cafe%20beach%20Bali",
@@ -3017,7 +3122,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3044,7 +3149,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "My Place cafe beach",
+        "rating": 4.3,
+        "reviews": 350,
+        "category": "Кафе"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r24",
@@ -3055,7 +3168,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/FROM+HERE+BALI/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd241915bc46e6b:0xb0615e393de01ddc!8m2!3d-8.7058825!4d115.253739!16s%2Fg%2F11ymzkxp4y?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -3091,7 +3204,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-21",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3136,7 +3249,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "FROM HERE BALI",
+        "rating": 4.9,
+        "reviews": 498,
+        "category": "Ресторан (специализация: завтраки)"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r25",
@@ -3147,7 +3268,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Akar%20Ubud%20by%20K%20Club%20Bali",
@@ -3183,7 +3304,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3210,7 +3331,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Akar Ubud by K Club",
+        "rating": 4.8,
+        "reviews": 1513,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r26",
@@ -3221,7 +3350,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=FLOCK%20Bali%20Bali",
@@ -3258,7 +3387,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-21",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3285,7 +3414,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "FLOCK Bali",
+        "rating": 4.7,
+        "reviews": 896,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r27",
@@ -3296,7 +3433,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Milk%20%26%20Madu%20Ubud%20Bali",
@@ -3333,7 +3470,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-21",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3360,7 +3497,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Milk & Madu Ubud",
+        "rating": 4.6,
+        "reviews": 6240,
+        "category": "Кафе"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r29",
@@ -3371,7 +3516,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Ramu%20Kitchen%20Bali",
@@ -3408,7 +3553,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-21",
+      "assigned_date": "2026-10-16",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3420,21 +3565,29 @@
       "dining_research": {
         "id": "r29",
         "name": "Ramu Kitchen",
-        "hours_label": "15:00–23:00 по меню; сайт отеля 07:00–22:00 — используем пересечение 15:00–22:00",
+        "hours_label": "Официальный сайт 07:00-22:00; используем вечерний визит",
         "planning_windows": [
           [
             900,
             1320
           ]
         ],
-        "source": "https://www.ramukitchen.com/menu",
-        "checked": "2026-10-09",
-        "hours_status": "official_conflicting_use_overlap",
+        "source": "https://titikdua.id/ramu-kitchen/",
+        "checked": "2026-10-16",
+        "hours_status": "official_current",
         "last_order": null,
         "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "Ramu Kitchen",
+        "rating": 4.9,
+        "reviews": 1142,
+        "category": "Ресторан паназиатской кухни"
+      },
+      "curated": true,
+      "selection_reason": "Паназиатская кухня и ужин в Убуде; 4,9, официальный сайт и меню.",
       "schedule_status": "planned"
     },
     {
@@ -3446,7 +3599,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Zest%20Bali",
@@ -3483,7 +3636,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-21",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3510,7 +3663,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Zest",
+        "rating": 4.3,
+        "reviews": 4059,
+        "category": "Веганский ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r31",
@@ -3521,7 +3682,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=SkaZka%20Bali%20Bali",
@@ -3558,7 +3719,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-21",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3585,7 +3746,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "SkaZka Bali",
+        "rating": 5,
+        "reviews": 470,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r32",
@@ -3596,7 +3765,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Nyom%20Nyom%20Coffee%20Bali",
@@ -3633,7 +3802,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3660,7 +3829,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Nyom Nyom Coffee",
+        "rating": 4.5,
+        "reviews": 1827,
+        "category": "Кофейня"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r33",
@@ -3671,7 +3848,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Monsieur%20Spoon%20Canggu%20Bali",
@@ -3708,7 +3885,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3735,7 +3912,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Monsieur Spoon Canggu",
+        "rating": 4.3,
+        "reviews": 2498,
+        "category": "Пекарня"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r34",
@@ -3746,7 +3931,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=TWO%20FACE%20Canggu%20Bali",
@@ -3783,7 +3968,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3810,7 +3995,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "TWO FACE Canggu",
+        "rating": 4.8,
+        "reviews": 2098,
+        "category": "Кафе"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r35",
@@ -3821,7 +4014,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%A4%D0%B0%D0%B1%D1%80%D0%B8%D0%BA%D0%B0%20%D0%B0%D0%B2%D0%BE%D0%BA%D0%B0%D0%B4%D0%BE%20Bali",
@@ -3858,7 +4051,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3885,7 +4078,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Фабрика авокадо",
+        "rating": 4.5,
+        "reviews": 3998,
+        "category": "Ресторан здорового питания"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r36",
@@ -3896,7 +4097,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=WOODS%20PERERENAN%20Bali",
@@ -3933,7 +4134,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -3960,7 +4161,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "WOODS PERERENAN",
+        "rating": 4.7,
+        "reviews": 3858,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r37",
@@ -3971,7 +4180,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Penny%20Lane%20Bali",
@@ -4007,7 +4216,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4052,7 +4261,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Penny Lane",
+        "rating": 4.5,
+        "reviews": 7312,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r38",
@@ -4063,7 +4280,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=LOVA%20CAFE%20Bali",
@@ -4100,7 +4317,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4127,7 +4344,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "LOVA CAFE",
+        "rating": 4.6,
+        "reviews": 1174,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r39",
@@ -4138,7 +4363,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=BELLA.%20Canggu%20Bali",
@@ -4175,7 +4400,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4202,7 +4427,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "BELLA. Canggu",
+        "rating": 4.7,
+        "reviews": 1604,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r40",
@@ -4213,7 +4446,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=n%C3%BCde%20cafe%20Berawa%20Bali",
@@ -4261,21 +4494,29 @@
       "dining_research": {
         "id": "r40",
         "name": "nüde cafe Berawa",
-        "source": "https://nude-bali.com/locations/berawa/",
-        "checked": "2026-10-09",
+        "source": "https://nude-bali.com/locations/berawa",
+        "checked": "2026-10-16",
         "planning_windows": [
           [
             420,
             1380
           ]
         ],
-        "hours_label": "07:00–23:00 ежедневно · Berawa",
+        "hours_label": "Официальный сайт: ежедневно 07:00-23:00",
         "hours_status": "official_current",
         "last_order": null,
         "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "nüde cafe Berawa",
+        "rating": 4.8,
+        "reviews": 9000,
+        "category": "Кафе"
+      },
+      "curated": true,
+      "selection_reason": "Обед в Berawa: 4,8 при большом числе отзывов, официальное меню на весь день.",
       "schedule_status": "planned"
     },
     {
@@ -4287,7 +4528,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Neighbourhood%20Food%20Bali",
@@ -4324,7 +4565,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4351,7 +4592,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Neighbourhood Food",
+        "rating": 4.5,
+        "reviews": 650,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r42",
@@ -4362,7 +4611,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=%D0%9A%D0%BE%D0%BF%D0%B5%D0%BD%D0%B3%D0%B0%D0%B3%D0%B5%D0%BD%20Bali",
@@ -4399,7 +4648,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-20",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4426,7 +4675,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Копенгаген",
+        "rating": 4.4,
+        "reviews": 3144,
+        "category": "Ресторан поздних завтраков"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r43",
@@ -4437,7 +4694,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Margaret%20Bistro%20Bali",
@@ -4474,7 +4731,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-19",
+      "assigned_date": "2026-10-20",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4501,6 +4758,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "Margaret Bistro",
+        "rating": 4.8,
+        "reviews": 3404,
+        "category": "Ресторан итальянской кухни"
+      },
+      "curated": true,
+      "selection_reason": "Итальянское бистро на ужин в том же районе Чангу; 4,8.",
       "schedule_status": "planned"
     },
     {
@@ -4512,7 +4777,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=La%20Baracca%20Bali%20%28Uluwatu%29%20Bali",
@@ -4548,7 +4813,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-22",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4593,7 +4858,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "La Baracca Bali (Uluwatu)",
+        "rating": 4.6,
+        "reviews": 3302,
+        "category": "Ресторан итальянской кухни"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r46",
@@ -4604,7 +4877,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Ours%20Uluwatu%20Bali",
@@ -4640,7 +4913,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-17",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4667,7 +4940,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Ours Uluwatu",
+        "rating": 4.2,
+        "reviews": 2361,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r47",
@@ -4678,7 +4959,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=AVLI%20Uluwatu%20-%20Modern%20Greek%20Bali",
@@ -4742,6 +5023,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "AVLI Uluwatu - Modern Greek",
+        "rating": 4.8,
+        "reviews": 1287,
+        "category": "Ресторан греческой кухни"
+      },
+      "curated": true,
+      "selection_reason": "Греческая кухня на ужин в Улувату; 4,8 и удобный маршрут по югу.",
       "schedule_status": "planned"
     },
     {
@@ -4753,7 +5042,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Alma%20Tapas%20Bar%20-%20Uluwatu%20Bali",
@@ -4802,7 +5091,7 @@
       "dining_research": {
         "id": "r48",
         "name": "Alma Tapas Bar - Uluwatu",
-        "hours_label": "Завтрак 07:00–12:00; tapas 15:00–23:00 · Uluwatu",
+        "hours_label": "Официальный сайт: brunch 07:00-12:00; tapas 15:00-23:00",
         "planning_windows": [
           [
             420,
@@ -4814,13 +5103,21 @@
           ]
         ],
         "source": "https://almatapasbar.com/",
-        "checked": "2026-10-09",
+        "checked": "2026-10-16",
         "hours_status": "official_current",
         "last_order": null,
         "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "Alma Tapas Bar - Uluwatu",
+        "rating": 4.9,
+        "reviews": 1463,
+        "category": "Тапас-бар"
+      },
+      "curated": true,
+      "selection_reason": "Испанские тапас для раннего ужина перед аэропортом; 4,9, подача тапас с 15:00.",
       "schedule_status": "planned"
     },
     {
@@ -4832,7 +5129,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=ZALI%20Uluwatu%20%7C%20Lebanese%20Restaurant%20Bali",
@@ -4868,7 +5165,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-22",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4895,7 +5192,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "ZALI Uluwatu | Lebanese Restaurant",
+        "rating": 4.7,
+        "reviews": 1367,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r50",
@@ -4906,7 +5211,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=YUKI%20Uluwatu%20Bali",
@@ -4950,7 +5255,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-15",
+      "assigned_date": "2026-10-17",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -4977,6 +5282,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "YUKI Uluwatu",
+        "rating": 4.7,
+        "reviews": 2016,
+        "category": "Ресторан японской кухни"
+      },
+      "curated": true,
+      "selection_reason": "Японская кухня: разнообразие меню, 4,7 и отдельная рекомендация Condé Nast Traveler.",
       "schedule_status": "planned"
     },
     {
@@ -4988,7 +5301,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=KALA%20Uluwatu%20-%20Greek%20Inspired%20Grill%20Bali",
@@ -5024,7 +5337,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5051,7 +5364,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "KALA Uluwatu - Greek Inspired Grill",
+        "rating": 4.7,
+        "reviews": 1748,
+        "category": "Ресторан греческой кухни"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r53",
@@ -5062,7 +5383,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Analog%20Uluwatu%20%7C%20Cafe%20%7C%20Bar%20%7C%20Bistro%20Bali",
@@ -5098,7 +5419,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-22",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5125,7 +5446,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Analog Uluwatu | Cafe | Bar | Bistro",
+        "rating": 4.7,
+        "reviews": 1387,
+        "category": "Кафе"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r54",
@@ -5136,7 +5465,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/SUKA+ULUWATU/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd24555c469bf0d:0xb5c59aca6f32b70f!8m2!3d-8.81635!4d115.0960262!16s%2Fg%2F11ddxzt9xj?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -5180,7 +5509,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-22",
+      "assigned_date": "2026-10-21",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5225,6 +5554,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "SUKA ULUWATU",
+        "rating": 4.8,
+        "reviews": 11493,
+        "category": "Ресторан"
+      },
+      "curated": true,
+      "selection_reason": "Надёжный выбор для ужина по возвращении с востока; 4,8 при большом числе отзывов.",
       "schedule_status": "planned"
     },
     {
@@ -5236,7 +5573,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Alchemy%20Uluwatu%20Bali",
@@ -5272,7 +5609,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-15",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5299,7 +5636,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Alchemy Uluwatu",
+        "rating": 4.6,
+        "reviews": 4187,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r56",
@@ -5310,7 +5655,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Drifter%20Surf%20Shop%20%26%20Cafe%20-%20Uluwatu%20Bali",
@@ -5346,7 +5691,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-17",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5373,7 +5718,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Drifter Surf Shop & Cafe - Uluwatu",
+        "rating": 4.4,
+        "reviews": 1329,
+        "category": "Магазин товаров для серфинга"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r57",
@@ -5384,7 +5737,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=The%20Loft%20Bali",
@@ -5420,7 +5773,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-17",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5447,7 +5800,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "The Loft",
+        "rating": 4.3,
+        "reviews": 1387,
+        "category": "Ресторан здорового питания"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r59",
@@ -5458,7 +5819,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Boneka%20Restaurant%20Bali",
@@ -5494,7 +5855,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-22",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5547,7 +5908,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Boneka Restaurant",
+        "rating": 4.8,
+        "reviews": 334,
+        "category": "Ресторан самообслуживания"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r61",
@@ -5558,7 +5927,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=The%20Community%20Bali",
@@ -5595,7 +5964,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-22",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5625,7 +5994,15 @@
           0
         ]
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "The Community",
+        "rating": 4.6,
+        "reviews": 714,
+        "category": "Ресторан русской кухни"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r62",
@@ -5636,7 +6013,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Signa+Cafe/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd25d436f4897eb:0x4aec1868e7155c9a!8m2!3d-8.8176127!4d115.1901369!16s%2Fg%2F11lcdm1w8x?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -5680,7 +6057,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-17",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5725,7 +6102,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Signa Cafe",
+        "rating": 4.7,
+        "reviews": 1545,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r63",
@@ -5736,7 +6121,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=HEDONIST%20SPACE%20restaurant%20%7C%20lounge%20%7C%20bar%20Bali",
@@ -5773,7 +6158,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-15",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5800,7 +6185,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "HEDONIST SPACE restaurant | lounge | bar",
+        "rating": 4.7,
+        "reviews": 1373,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r64",
@@ -5811,7 +6204,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Eden%20Lounge%20Uluwatu%20%E2%80%94%20Restaurant%20with%20live%20music%20and%20Co-working%20space%20Bali",
@@ -5848,7 +6241,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-17",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5875,7 +6268,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Eden Lounge Uluwatu — Restaurant with live music and Co-working space",
+        "rating": 4.9,
+        "reviews": 1507,
+        "category": "Кальянная"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r65",
@@ -5886,7 +6287,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=NOURISH%20CAFE%20WHOLEFOODS%20PIZZERIA%20%26%20BAKERY%20-%20UNGASAN%20Bali",
@@ -5923,7 +6324,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-15",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5950,7 +6351,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "NOURISH CAFE WHOLEFOODS PIZZERIA & BAKERY - UNGASAN",
+        "rating": 4.5,
+        "reviews": 3812,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r66",
@@ -5961,7 +6370,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Artisan+-+Ungasan/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd25b6dd2dec62d:0x254302c94cd3d8e9!8m2!3d-8.8201357!4d115.1506838!16s%2Fg%2F11st639359?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -5997,7 +6406,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6042,7 +6451,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Artisan - Ungasan",
+        "rating": 4.7,
+        "reviews": 1690,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r67",
@@ -6053,7 +6470,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/AMINO+-+Early+Breakfast,+Lunch,+Dinner/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd25ba632c4ea21:0x718f79651d17edb8!8m2!3d-8.8165881!4d115.1550742!16s%2Fg%2F11tt5f1t90?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -6142,6 +6559,14 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
+      "review_snapshot": {
+        "name": "AMINO - Early Breakfast, Lunch, Dinner",
+        "rating": 4.8,
+        "reviews": 1945,
+        "category": "Ресторан"
+      },
+      "curated": true,
+      "selection_reason": "Обед в день вылета рядом с виллой, 4,8; без поездки в Чангу.",
       "schedule_status": "planned"
     },
     {
@@ -6153,7 +6578,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Made%E2%80%99s%20Bakery%20Cafe%20Playground%20Bali",
@@ -6190,7 +6615,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-21",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6217,7 +6642,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Made’s Bakery Cafe Playground",
+        "rating": 4.4,
+        "reviews": 1249,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r69",
@@ -6228,7 +6661,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Sari+timbul+resto+by+kububali/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd218af9a1c2751:0x498ac30aa63167c8!8m2!3d-8.4115906!4d115.2932982!16s%2Fg%2F11f4hq468b?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -6264,7 +6697,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6309,7 +6742,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Sari timbul resto by kububali",
+        "rating": 4.7,
+        "reviews": 1025,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r70",
@@ -6320,7 +6761,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/place/Rumah+Gemuk+Bali/@-8.5571197,115.0606761,11z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd189d71e2356df:0x2b4738448285b9c2!8m2!3d-8.2668967!4d115.1606519!16s%2Fg%2F11h9gwc2ln?entry=ttu&g_ep=EgoyMDI2MDkzMC4wIKXMDSoASAFQAw%3D%3D",
@@ -6356,7 +6797,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-19",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6401,7 +6842,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Rumah Gemuk Bali",
+        "rating": 4.4,
+        "reviews": 1579,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r71",
@@ -6412,7 +6861,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Single%20Fin%20Bali%20Bali",
@@ -6448,7 +6897,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-22",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6493,7 +6942,15 @@
         "booking_required": false,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Single Fin Bali",
+        "rating": 4.6,
+        "reviews": 14316,
+        "category": "Ресторан"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     },
     {
       "id": "r72",
@@ -6504,7 +6961,7 @@
       "source_list": {
         "name": "Еда Бали",
         "url": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
-        "snapshot_date": "2026-10-15",
+        "snapshot_date": "2026-10-16",
         "current_membership_confirmed": true
       },
       "place_url": "https://www.google.com/maps/search/?api=1&query=Koral%3A%20Bali%E2%80%99s%20First%20Aquarium%20Restaurant%20Bali",
@@ -6548,7 +7005,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-18",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -6601,7 +7058,15 @@
         "booking_required": true,
         "current_availability_confirmed": false
       },
-      "schedule_status": "planned"
+      "review_snapshot": {
+        "name": "Koral: Bali’s First Aquarium Restaurant",
+        "rating": 4.4,
+        "reviews": 2269,
+        "category": "Ресторан гастрономической кухни"
+      },
+      "curated": false,
+      "selection_reason": "В резерве: не добавляем ради посещения ещё одного кафе. Можно выбрать вместо основного ресторана.",
+      "schedule_status": "reserve"
     }
   ],
   "user_updates": [

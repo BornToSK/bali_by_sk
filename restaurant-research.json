@@ -71,6 +71,24 @@
     "booking_required": false,
     "current_availability_confirmed": false
   },
+  "r28": {
+    "id": "r28",
+    "name": "L'Osteria Pizza e Cucina Ubud",
+    "hours_label": "Плановое окно 12:00–23:00; часы уточнить",
+    "planning_windows": [
+      [
+        720,
+        1380
+      ]
+    ],
+    "source": "https://losteriapizzaecucina.com/about-us/",
+    "checked": "2026-10-08",
+    "hours_status": "official_location_hours_unverified",
+    "last_order": null,
+    "booking_note": "Именно филиал Ubud на Monkey Forest. Стол на ужин желательно заказать; last order уточнить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
   "r37": {
     "id": "r37",
     "name": "Penny Lane",
@@ -89,6 +107,24 @@
     "booking_required": false,
     "current_availability_confirmed": false
   },
+  "r44": {
+    "id": "r44",
+    "name": "Muaya Terrace, Jimbaran",
+    "hours_label": "07:00–22:00 по снимку 06.10",
+    "planning_windows": [
+      [
+        420,
+        1320
+      ]
+    ],
+    "source": "https://linktr.ee/muaya.terrace",
+    "checked": "2026-10-08",
+    "hours_status": "official_address_historical_hours",
+    "last_order": null,
+    "booking_note": "Официальный профиль: бронирование через Instagram. Часы кухни/last order подтвердить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
   "r45": {
     "id": "r45",
     "name": "La Baracca Bali (Uluwatu)",
@@ -104,6 +140,24 @@
     "hours_status": "official_site_hours_unverified",
     "last_order": null,
     "booking_note": "Именно филиал Uluwatu, Labuansait 10. На ужин желательно забронировать; last order уточнить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r52": {
+    "id": "r52",
+    "name": "Gooseberry French Restaurant | Uluwatu",
+    "hours_label": "08:00–22:30 ежедневно",
+    "planning_windows": [
+      [
+        480,
+        1350
+      ]
+    ],
+    "source": "https://www.gooseberry-restaurant.com/",
+    "checked": "2026-10-08",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Бронирование рекомендуется; отдельное время последнего заказа не опубликовано.",
     "booking_required": false,
     "current_availability_confirmed": false
   },
@@ -144,6 +198,24 @@
     "hours_status": "official_current",
     "last_order": null,
     "booking_note": "Завтрак платный; заранее согласовать стол для внешних гостей. Smart casual. Координата комплекса, подход к Boneka уточнить.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r60": {
+    "id": "r60",
+    "name": "Brook Nusa Dua - Restaurant",
+    "hours_label": "Часы конфликтуют: в источниках 08:00 и 14:00",
+    "planning_windows": [
+      [
+        840,
+        1320
+      ]
+    ],
+    "source": "https://brookbali.com/",
+    "checked": "2026-10-08",
+    "hours_status": "hours_conflict_not_verified",
+    "last_order": null,
+    "booking_note": "Оставлен альтернативой после 14:00. Часы и last order подтвердить, сайт не ответил.",
     "booking_required": false,
     "current_availability_confirmed": false
   },
@@ -388,15 +460,15 @@
   "r40": {
     "id": "r40",
     "name": "nüde cafe Berawa",
-    "source": "https://nude-bali.com/locations/berawa/",
-    "checked": "2026-10-09",
+    "source": "https://nude-bali.com/locations/berawa",
+    "checked": "2026-10-16",
     "planning_windows": [
       [
         420,
         1380
       ]
     ],
-    "hours_label": "07:00–23:00 ежедневно · Berawa",
+    "hours_label": "Официальный сайт: ежедневно 07:00-23:00",
     "hours_status": "official_current",
     "last_order": null,
     "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
@@ -859,16 +931,16 @@
   "r29": {
     "id": "r29",
     "name": "Ramu Kitchen",
-    "hours_label": "15:00–23:00 по меню; сайт отеля 07:00–22:00 — используем пересечение 15:00–22:00",
+    "hours_label": "Официальный сайт 07:00-22:00; используем вечерний визит",
     "planning_windows": [
       [
         900,
         1320
       ]
     ],
-    "source": "https://www.ramukitchen.com/menu",
-    "checked": "2026-10-09",
-    "hours_status": "official_conflicting_use_overlap",
+    "source": "https://titikdua.id/ramu-kitchen/",
+    "checked": "2026-10-16",
+    "hours_status": "official_current",
     "last_order": null,
     "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
     "booking_required": false,
@@ -1111,7 +1183,7 @@
   "r48": {
     "id": "r48",
     "name": "Alma Tapas Bar - Uluwatu",
-    "hours_label": "Завтрак 07:00–12:00; tapas 15:00–23:00 · Uluwatu",
+    "hours_label": "Официальный сайт: brunch 07:00-12:00; tapas 15:00-23:00",
     "planning_windows": [
       [
         420,
@@ -1123,10 +1195,28 @@
       ]
     ],
     "source": "https://almatapasbar.com/",
-    "checked": "2026-10-09",
+    "checked": "2026-10-16",
     "hours_status": "official_current",
     "last_order": null,
     "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
+    "booking_required": false,
+    "current_availability_confirmed": false
+  },
+  "r58": {
+    "id": "r58",
+    "name": "Sundays Beach Club",
+    "hours_label": "07:30–22:00 ежедневно; нужен платный вход beach pass",
+    "planning_windows": [
+      [
+        450,
+        1320
+      ]
+    ],
+    "source": "https://www.sundaysbeachclub.com/",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
+    "last_order": null,
+    "booking_note": "Заложен полноценный ужин и платный вход. Подъёмник, парковку и условия beach pass подтвердить; VIP не требуется автоматически.",
     "booking_required": false,
     "current_availability_confirmed": false
   },
