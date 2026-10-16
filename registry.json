@@ -23,7 +23,7 @@
     "main_meals": 20,
     "coffee_snack_stops": 1,
     "packed_meals": 1,
-    "note": "6 завтраков на вилле, 1 завтрак с собой; 21 октября ужин свободный, на вилле или рядом."
+    "note": "6 завтраков на вилле, 1 завтрак с собой; 21 октября ужин SUKA после осмотра Нуса-Дуа."
   },
   "places": [
     {
@@ -1001,7 +1001,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": "2026-10-21",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1052,7 +1052,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-16",
+      "assigned_date": "2026-10-21",
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5449,7 +5449,7 @@
         "category": "Ресторан"
       },
       "curated": true,
-      "selection_reason": "Обед по возвращении с востока; 4,8 при большом числе отзывов.",
+      "selection_reason": "Ужин по возвращении с востока; 4,8 при большом числе отзывов.",
       "schedule_status": "planned"
     },
     {

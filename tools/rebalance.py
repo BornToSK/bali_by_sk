@@ -21,6 +21,7 @@ points = {p['id']: dict(id=p['id'], name=p['name'], role=p['roles'][0],
     lat=p['coordinates']['lat'], lon=p['coordinates']['lon'], place_url=p['place_url'],
     coordinate_status=p['coordinates']['status']) for p in registry['places']}
 points.update({p['id']:p for p in [data['hotel'], *data['logistics_points']]})
+points['a01']=dict(id='a01',name='Timbis Beach Paragliding · ориентир',role='activity',lat=-8.8423294,lon=115.1905639,place_url='https://www.google.com/maps/search/?api=1&query=Timbis+Beach+Paragliding+Bali',coordinate_status='Google Maps listing; exact weather-dependent launch must be confirmed with operator')
 oldlegs = {l['key']:l for d in data['days'] for l in d['legs']}
 visits = {r['place_id']:r for d in data['days'] for r in d['timeline'] if r['kind']=='visit'}
 def minutes(t): return int(t[:2])*60+int(t[3:5])
@@ -41,6 +42,12 @@ starts={n:'09:00' for n in plans};starts[7]='05:50'
 why={6:'Одна видовая кофейня у Батура вместо цепочки дегустаций. Тегаллаланг, Бесаких и ужин Ramu связаны одним кругом с возвратом через Убуд.',7:'Ранний катер даёт время на четыре коротких осмотра и нормальный обед в Amok. Kelingking только сверху, Crystal Bay без долгого купания. После возвращения один ужин YUKI.',8:'Пандава и Melasti подряд, затем обед SODA, короткие осмотры Нуса-Дуа и один ужин AVLI.',9:'Северный круг с водителем. Farm House и храмы до закрытия, ужин LUSA по обратному пути через Чангу.',10:'Утром Leke Leke, затем обед в Berawa, два часа на Nuanu и один ужин. Водопад перенесён с северного круга, чтобы не опоздать в Farm House и храмы 19 октября.',11:'Blue Lagoon и Bias Tugel удалены из вашего списка. После Tukad Cepung — Satya Dharma и обед SUKA по дороге на виллу. Вечер свободный; ужин на вилле или рядом по вашему выбору.',12:'День без дальних переездов: AMINO, видовая Jaran Hill и ранний ужин Alma. Затем багаж, возврат байка и аэропорт.'}
 for blocks in (plans,titles,why):
     blocks[6],blocks[8]=blocks[8],blocks[6]
+plans[6]=['v26','a01',food('r21','lunch'),'v25',food('r47','dinner')]
+plans[11]=['v11','v09','v27','v28',food('r54','dinner')]
+titles[6]='Параплан, Пандава и Melasti'
+titles[11]='Tukad Cepung, Satya Dharma и Нуса-Дуа'
+why[6]='Утром Пандава, к 12:30 прибытие к организатору полёта. Блок 12:30-14:30 включает подготовку, ожидание, 15 минут полёта и получение фото/видео; это план, не подтверждённое время взлёта. Затем обед SODA, Melasti и ужин AVLI. При задержке полёта сократить Melasti. Точный старт зависит от погоды и геометки организатора; карта показывает ориентир.'
+why[11]='После Tukad Cepung и Satya Dharma короткие осмотры Mengiat и Waterblow, перенесённые с 16 октября ради параплана. Затем ужин SUKA и вилла. Blue Lagoon и Bias Tugel исключены по текущему списку.'
 
 def nav(a,b):
     return 'https://www.google.com/maps/dir/?'+urllib.parse.urlencode(dict(api=1,origin=f"{a['lat']},{a['lon']}",destination=f"{b['lat']},{b['lon']}",travelmode='driving'))
@@ -156,12 +163,18 @@ def build(n):
             if id=='v01':wait(540);assert t<=840
             if id=='v28':wait(540)
             if id=='v22':wait(600)
-            r=copy.deepcopy(visits[id]);duration=r['duration_minutes']
+            r=copy.deepcopy(visits[id]) if id!='a01' else dict(duration_minutes=120,note='Прибытие 12:30 по сообщению пользователя. В билете окно обслуживания 13:00-17:00; сам полёт 15 минут с фото и видео. 12:30-14:30 — резерв на оформление, инструктаж, ожидание и полёт, точный взлёт не подтверждён. Геометка на карте — ориентир Timbis Beach Paragliding; организатор может сменить площадку из-за погоды. Электронный билет предъявить на месте. При задержке сократить последующий пляж.')
+            duration=r['duration_minutes']
             if id=='v20':duration=60
             if id=='v21':duration=60
             if id=='v17':duration=60
             if n in (2,6,9) and id in ('v25','v26','v14','v15','v02'):duration=60
             duration={'v27':20,'v28':20,'v16':60,'v10':60,'v11':60,'v14':60,'v15':60,'v07':30,'v05':20,'v06':15,'v04':30,'v19':60,'v18':60,'v03':30,'v17':60,'v21':60,'v22':120,'v24':45,'v25':120,'v26':90,'v09':30}.get(id,duration)
+            if n==6 and id=='v26':duration=150
+            if n==6 and id=='v25':duration=60
+            if id=='a01':
+                assert t<=750,('late paragliding arrival',clock(t))
+                wait(750)
             if id in ('v25','v26'):r['note']='Купание и отдых у воды. Ориентироваться на флаги и указания спасателей; при запрете купания отдыхать на берегу.'
             if id=='v09':
                 duration=30

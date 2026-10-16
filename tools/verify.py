@@ -18,7 +18,10 @@ assert len(d['coverage'])==19 and all(c['planned_date'] for c in d['coverage'])
 assert len({s['id'] for x in d['days'] for s in x['stops']})==19
 assert sum(len(x['stops']) for x in d['days'])==19
 assert not {'v01','v14','v15'} & {s['id'] for x in d['days'] for s in x['stops']}
-assert [s['id'] for s in d['days'][0]['stops']]==['v26','v25','v27','v28']
+assert [s['id'] for s in d['days'][0]['stops']]==['v26','v25']
+flight=next(r for r in d['days'][0]['timeline'] if r.get('place_id')=='a01')
+assert flight['start']=='12:30' and flight['duration_minutes']>=90
+assert [s['id'] for s in d['days'][5]['stops']]==['v11','v09','v27','v28']
 assert [s['id'] for s in d['days'][2]['stops']]==['v16','v10']
 assert 'tides' in d['days'][0] and 'tides' not in d['days'][2]
 physical=[m['restaurant_id'] for x in d['days'] for m in x['meals'] if m['meal_mode']=='onsite']
