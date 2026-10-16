@@ -65,6 +65,7 @@ def finish(data,registry,research,snapshot,days):
    if r['kind']=='meal' and r['meal_mode']=='onsite':
     h=research[r['restaurant_id']]
     r.update(hours_label=h['hours_label'],hours_status=h['hours_status'],source_url=h['source'],checked=h['checked'])
+ data['schedule_updates']=[dict(date='2026-10-16',reason='По просьбе пользователя 16 октября пляжный день: Пандава, Melasti и Нуса-Дуа. Убуд, Батур и Бесаких перенесены на 18 октября. Пенида остаётся 17 октября.')]
  data['restaurant_reserve']=[dict(id=p['id'],name=p['name'],reason=p['selection_reason'],place_url=p['place_url']) for p in foods if not p['curated']]
  main=[m for d in days for m in d['meals'] if m['meal_type']!='coffee']
  data['restaurant_selection']=dict(meal_slots=21,unique_onsite_restaurants=len(selected),catalog_restaurants=len(foods),reserve_restaurants=len(foods)-len(selected),assigned_meals=len(main),packed_meals=1,coffee_snack_visits=sum(m['meal_type']=='coffee' for d in days for m in d['meals']),note='Полноценные обеды и ужины, одна видовая остановка на кофе. 17 октября ранний выезд с завтраком с собой.',coverage_note='Субъективный выбор по кухне, актуальным оценкам, числу отзывов и расположению. Это не объективный рейтинг лучших ресторанов Бали.')
@@ -75,7 +76,7 @@ def finish(data,registry,research,snapshot,days):
   'На Пениду 17 октября выезд 05:50 и плановый катер 07:30. Пользователь разрешил ранние выезды. Завтрак с собой заказать накануне, согласовать выдачу и хранение. Катера и островной водитель не забронированы.',
   'Пенида за один день: четыре коротких осмотра и обед Amok. Kelingking только сверху, Angel’s Billabong без входа в воду. При задержке пересчитать программу, сохраняя обратный катер.',
   'В остальные дни завтрак на вилле 08:00-08:45 и выезд 09:00. Все ночи на Nunamkhalu.',
-  'Северный круг 19 октября и поездки 16 и 20 октября остаются длинными; рекомендуется водитель. Время в пути оценочное, без прогноза пробок.',
+  'Северный круг 19 октября и поездки 18 и 20 октября остаются длинными; рекомендуется водитель. Время в пути оценочное, без прогноза пробок.',
   'На платной Bali Mandara байку нужна отдельная полоса. Геометрия OSRM автомобильная; въезды, парковки и доступ для байка не полностью проверены.',
   '21 октября Blue Lagoon и Bias Tugel убраны по текущему списку. После Tukad Cepung и Satya Dharma — обед SUKA, затем свободный вечер. Ужин на вилле или рядом выбрать самостоятельно.',
   'Часы части заведений и доступ в храмы требуют подтверждения; столы, последний заказ и точное меню проверить. Бронирования и оплаты не выполнялись.',

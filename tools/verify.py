@@ -18,6 +18,9 @@ assert len(d['coverage'])==19 and all(c['planned_date'] for c in d['coverage'])
 assert len({s['id'] for x in d['days'] for s in x['stops']})==19
 assert sum(len(x['stops']) for x in d['days'])==19
 assert not {'v01','v14','v15'} & {s['id'] for x in d['days'] for s in x['stops']}
+assert [s['id'] for s in d['days'][0]['stops']]==['v26','v25','v27','v28']
+assert [s['id'] for s in d['days'][2]['stops']]==['v16','v10']
+assert 'tides' in d['days'][0] and 'tides' not in d['days'][2]
 physical=[m['restaurant_id'] for x in d['days'] for m in x['meals'] if m['meal_mode']=='onsite']
 assert set(physical)==selected and len(physical)==len(set(physical))==14
 hours=read('restaurant-research.json')

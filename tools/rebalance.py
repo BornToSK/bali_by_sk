@@ -26,7 +26,7 @@ visits = {r['place_id']:r for d in data['days'] for r in d['timeline'] if r['kin
 def minutes(t): return int(t[:2])*60+int(t[3:5])
 def clock(t): return f'{t//60:02}:{t%60:02}'
 def food(id, kind='coffee'): return (id,kind)
-# Geographic blocks, with all 67 restaurants visited once. All departures follow the hotel breakfast.
+# Geographic blocks with a curated restaurant shortlist and an early Penida exception.
 plans = {
 6:['v16',food('r05','lunch'),food('r04'),'v10',food('r29','dinner')],
 7:['v07','v05','v06','v04',food('r01','lunch'),'return-boat',food('r50','dinner')],
@@ -39,6 +39,8 @@ plans = {
 titles={6:'Убуд, Батур и Бесаких',7:'Пенида за один день и Amok',8:'Пандава, Melasti и Нуса-Дуа',9:'Террасы и озёра севера',10:'Nuanu и лучшие бистро Чангу',11:'Tukad Cepung и Satya Dharma',12:'Улувату, Alma и аэропорт'}
 starts={n:'09:00' for n in plans};starts[7]='05:50'
 why={6:'Одна видовая кофейня у Батура вместо цепочки дегустаций. Тегаллаланг, Бесаких и ужин Ramu связаны одним кругом с возвратом через Убуд.',7:'Ранний катер даёт время на четыре коротких осмотра и нормальный обед в Amok. Kelingking только сверху, Crystal Bay без долгого купания. После возвращения один ужин YUKI.',8:'Пандава и Melasti подряд, затем обед SODA, короткие осмотры Нуса-Дуа и один ужин AVLI.',9:'Северный круг с водителем. Farm House и храмы до закрытия, ужин LUSA по обратному пути через Чангу.',10:'Утром Leke Leke, затем обед в Berawa, два часа на Nuanu и один ужин. Водопад перенесён с северного круга, чтобы не опоздать в Farm House и храмы 19 октября.',11:'Blue Lagoon и Bias Tugel удалены из вашего списка. После Tukad Cepung — Satya Dharma и обед SUKA по дороге на виллу. Вечер свободный; ужин на вилле или рядом по вашему выбору.',12:'День без дальних переездов: AMINO, видовая Jaran Hill и ранний ужин Alma. Затем багаж, возврат байка и аэропорт.'}
+for blocks in (plans,titles,why):
+    blocks[6],blocks[8]=blocks[8],blocks[6]
 
 def nav(a,b):
     return 'https://www.google.com/maps/dir/?'+urllib.parse.urlencode(dict(api=1,origin=f"{a['lat']},{a['lon']}",destination=f"{b['lat']},{b['lon']}",travelmode='driving'))
@@ -190,7 +192,7 @@ def build(n):
     if n==7:
         d.update(island=True,image='penida',wake='04:45',depart='05:50',status='early_penida_exception',port_arrival_estimate='16:20 или раньше; регистрация на 17:00')
     else:
-        d.update(island=False,image='coast' if n==8 else d['image'])
+        d.update(island=False,image='coast' if n==6 else 'rice' if n==8 else d['image'])
         d.pop('port_arrival_estimate',None)
     return d
 
