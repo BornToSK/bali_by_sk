@@ -21,6 +21,9 @@ assert not {'v01','v14','v15'} & {s['id'] for x in d['days'] for s in x['stops']
 assert [s['id'] for s in d['days'][0]['stops']]==['v26','v25']
 flight=next(r for r in d['days'][0]['timeline'] if r.get('place_id')=='a01')
 assert flight['start']=='12:30' and flight['duration_minutes']>=90
+water=next(r for r in d['days'][0]['timeline'] if r.get('place_id')=='a02')
+assert water['end']=='16:00' and water['duration_minutes']>=45
+assert next(c['date'] for c in d['restaurant_coverage'] if c['id']=='r21')=='2026-10-21'
 assert [s['id'] for s in d['days'][5]['stops']]==['v11','v09','v27','v28']
 assert [s['id'] for s in d['days'][2]['stops']]==['v16','v10']
 assert 'tides' in d['days'][0] and 'tides' not in d['days'][2]

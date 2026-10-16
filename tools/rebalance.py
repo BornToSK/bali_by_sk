@@ -22,6 +22,7 @@ points = {p['id']: dict(id=p['id'], name=p['name'], role=p['roles'][0],
     coordinate_status=p['coordinates']['status']) for p in registry['places']}
 points.update({p['id']:p for p in [data['hotel'], *data['logistics_points']]})
 points['a01']=dict(id='a01',name='Timbis Beach Paragliding · ориентир',role='activity',lat=-8.8423294,lon=115.1905639,place_url='https://www.google.com/maps/search/?api=1&query=Timbis+Beach+Paragliding+Bali',coordinate_status='Google Maps listing; exact weather-dependent launch must be confirmed with operator')
+points['a02']=dict(id='a02',name='Tanjung Benoa Watersports · парасейлинг и банан',role='activity',lat=-8.7556739,lon=115.2189936,place_url='https://www.google.com/maps/search/?api=1&query=Tanjung+Benoa+Watersports+Jl+Segara+Geni+No+3',coordinate_status='Google Maps listing at Jl. Segara Geni No.3')
 oldlegs = {l['key']:l for d in data['days'] for l in d['legs']}
 visits = {r['place_id']:r for d in data['days'] for r in d['timeline'] if r['kind']=='visit'}
 def minutes(t): return int(t[:2])*60+int(t[3:5])
@@ -42,12 +43,12 @@ starts={n:'09:00' for n in plans};starts[7]='05:50'
 why={6:'Одна видовая кофейня у Батура вместо цепочки дегустаций. Тегаллаланг, Бесаких и ужин Ramu связаны одним кругом с возвратом через Убуд.',7:'Ранний катер даёт время на четыре коротких осмотра и нормальный обед в Amok. Kelingking только сверху, Crystal Bay без долгого купания. После возвращения один ужин YUKI.',8:'Пандава и Melasti подряд, затем обед SODA, короткие осмотры Нуса-Дуа и один ужин AVLI.',9:'Северный круг с водителем. Farm House и храмы до закрытия, ужин LUSA по обратному пути через Чангу.',10:'Утром Leke Leke, затем обед в Berawa, два часа на Nuanu и один ужин. Водопад перенесён с северного круга, чтобы не опоздать в Farm House и храмы 19 октября.',11:'Blue Lagoon и Bias Tugel удалены из вашего списка. После Tukad Cepung — Satya Dharma и обед SUKA по дороге на виллу. Вечер свободный; ужин на вилле или рядом по вашему выбору.',12:'День без дальних переездов: AMINO, видовая Jaran Hill и ранний ужин Alma. Затем багаж, возврат байка и аэропорт.'}
 for blocks in (plans,titles,why):
     blocks[6],blocks[8]=blocks[8],blocks[6]
-plans[6]=['v26','a01',food('r21','lunch'),'v25',food('r47','dinner')]
-plans[11]=['v11','v09','v27','v28',food('r54','dinner')]
-titles[6]='Параплан, Пандава и Melasti'
+plans[6]=['v26','a01','a02','watersports-snack','v25',food('r47','dinner')]
+plans[11]=['v11','v09',food('r21','lunch'),'v27','v28',food('r54','dinner')]
+titles[6]='Параплан, водные развлечения и Melasti'
 titles[11]='Tukad Cepung, Satya Dharma и Нуса-Дуа'
-why[6]='Утром Пандава, к 12:30 прибытие к организатору полёта. Блок 12:30-14:30 включает подготовку, ожидание, 15 минут полёта и получение фото/видео; это план, не подтверждённое время взлёта. Затем обед SODA, Melasti и ужин AVLI. При задержке полёта сократить Melasti. Точный старт зависит от погоды и геометки организатора; карта показывает ориентир.'
-why[11]='После Tukad Cepung и Satya Dharma короткие осмотры Mengiat и Waterblow, перенесённые с 16 октября ради параплана. Затем ужин SUKA и вилла. Blue Lagoon и Bias Tugel исключены по текущему списку.'
+why[6]='К 12:30 прибытие на параплан. Блок до 14:00 включает подготовку и 15 минут полёта; время взлёта не гарантировано. Затем сразу Tanjung Benoa на парасейлинг за катером и банан: пользователь подтвердил приём после 14:00. Оба развлечения планируются до закрытия 16:00, без гарантии очереди и погоды. При задержке полёта сверить возможность успеть с центром, не считать оба развлечения гарантированными. После — перекус, Melasti и ужин AVLI. SODA перенесена на 21 октября. Утренний блок Пандавы сохранён как план, а не подтверждение посещения.'
+why[11]='После Tukad Cepung и Satya Dharma обед SODA, затем Mengiat и Waterblow, перенесённые с 16 октября ради активностей. Вечером SUKA и вилла. Blue Lagoon и Bias Tugel исключены по текущему списку.'
 
 def nav(a,b):
     return 'https://www.google.com/maps/dir/?'+urllib.parse.urlencode(dict(api=1,origin=f"{a['lat']},{a['lon']}",destination=f"{b['lat']},{b['lon']}",travelmode='driving'))
@@ -79,7 +80,7 @@ def roadpairs(n,plan):
     if n==7: pairs.append(('hotel','sanur'));current='penida-port'
     for item in plan:
         dest=item[0] if isinstance(item,tuple) else item
-        if dest=='free-lunch':continue
+        if dest in ('free-lunch','watersports-snack'):continue
         if dest in ('checkout','baggage'): dest='hotel'
         if dest=='return-boat':
             pairs.append((current,'penida-port'));current='sanur';continue
@@ -141,6 +142,8 @@ def build(n):
             row('logistics','Получение байка в Sanur',20,note='Согласовать стоянку.');current='sanur';continue
         if id=='free-lunch':
             row('logistics','Готовый обед с собой' if n==7 else 'Обед рядом с маршрутом',10 if n==7 else 45,note='Готовая еда, купленная в порту; без ожидания заказа.' if n==7 else 'Выбор на месте; не дополнительное заведение вашего списка.');continue
+        if id=='watersports-snack':
+            row('logistics','Перекус, переодевание и вода рядом с центром',20,note='Взять готовый перекус с собой или выбрать на месте. Это не визит в заведение из списка; ужин AVLI вечером.');continue
         road(id);num+=1;p=copy.deepcopy(points[id]);p['number']=num
         if isinstance(item,tuple):
             kind=item[1];h=research[id];duration=45 if kind=='coffee' else (120 if id=='r72' else 75)
@@ -163,7 +166,9 @@ def build(n):
             if id=='v01':wait(540);assert t<=840
             if id=='v28':wait(540)
             if id=='v22':wait(600)
-            r=copy.deepcopy(visits[id]) if id!='a01' else dict(duration_minutes=120,note='Прибытие 12:30 по сообщению пользователя. В билете окно обслуживания 13:00-17:00; сам полёт 15 минут с фото и видео. 12:30-14:30 — резерв на оформление, инструктаж, ожидание и полёт, точный взлёт не подтверждён. Геометка на карте — ориентир Timbis Beach Paragliding; организатор может сменить площадку из-за погоды. Электронный билет предъявить на месте. При задержке сократить последующий пляж.')
+            if id=='a01':r=dict(duration_minutes=90,note='Прибытие 12:30 по сообщению пользователя. Окно билета 13:00-17:00; сам полёт 15 минут с фото/видео. Плановый блок 12:30-14:00, точный взлёт зависит от погоды. Площадку подтвердить у организатора; карта показывает ориентир. Чтобы успеть в водный центр, выехать к 14:00; при задержке согласовать с ним новый приезд. Электронный билет предъявить на месте.')
+            elif id=='a02':r=dict(duration_minutes=60,note='Парасейлинг за катером и катание на банане. По сообщению пользователя центр подтвердил приём после 14:00. Опубликованные часы 09:00-16:00, на скриншоте обычный вход до 14:00. Выделены оставшиеся 75 минут до 16:00: это план на две активности, не подтверждённый слот или гарантия очереди, ветра и работы обеих программ. До выезда согласовать готовность выполнить оба развлечения до 16:00; при задержке параплана пересчитать. Точные слоты и условия пакета ещё требуют подтверждения.')
+            else:r=copy.deepcopy(visits[id])
             duration=r['duration_minutes']
             if id=='v20':duration=60
             if id=='v21':duration=60
@@ -175,6 +180,9 @@ def build(n):
             if id=='a01':
                 assert t<=750,('late paragliding arrival',clock(t))
                 wait(750)
+            if id=='a02':
+                duration=min(90,960-t)
+                assert duration>=45,('insufficient watersports time before closing',clock(t))
             if id in ('v25','v26'):r['note']='Купание и отдых у воды. Ориентироваться на флаги и указания спасателей; при запрете купания отдыхать на берегу.'
             if id=='v09':
                 duration=30
@@ -182,7 +190,7 @@ def build(n):
                 r['note']='В справочнике Wihara указаны часы 10:00-19:00; вечерний вход официально не подтверждён. Уточнить доступ перед выездом. При задержке после закрытия не считать осмотр выполненным и пересчитать день.'
             if id=='v24':wait(minutes('16:00'))
             row('visit',p['name'],duration,place_id=id,number=num,place_url=p['place_url'],note=r['note'])
-            row('buffer','Парковка, вода и короткий перерыв',5 if n in (7,9) or id in ('v27','v29','v28') else 10,note='Пеший подход включён в посещение.')
+            if id not in ('a01','a02'):row('buffer','Парковка, вода и короткий перерыв',5 if n in (7,9) or id in ('v27','v29','v28') else 10,note='Пеший подход включён в посещение.')
         stops.append(p)
     if current!='hotel':road('hotel',True)
     if n==12:
@@ -191,7 +199,7 @@ def build(n):
     else:row('logistics','Возвращение на Nunamkhalu',0,note='Полный обратный путь учтён.')
     assert t<1440,(n,t)
     onsite=[r for r in rows if r['kind']=='meal' and r['meal_mode']=='onsite']
-    d.update(image='penida' if n==7 else 'rice' if n in (3,5,9,11) else 'coast',title=titles[n],subtitle=' → '.join(points[x[0] if isinstance(x,tuple) else x]['name'] for x in plans[n] if not isinstance(x,tuple) and x not in ('checkout','baggage','return-boat','free-lunch')) or ('Местные заведения → вилла → аэропорт' if n==12 else 'Кафе Кинтамани → Koral → вилла'),
+    d.update(image='penida' if n==7 else 'rice' if n in (3,5,9,11) else 'coast',title=titles[n],subtitle=' → '.join(points[x[0] if isinstance(x,tuple) else x]['name'] for x in plans[n] if not isinstance(x,tuple) and x not in ('checkout','baggage','return-boat','free-lunch','watersports-snack')) or ('Местные заведения → вилла → аэропорт' if n==12 else 'Кафе Кинтамани → Koral → вилла'),
         wake='07:30',island=n in (7,8),last=n==12,depart=starts[n],return_time=clock(t),timeline=rows,legs=legs,route_stops=stops,
         stops=[p for p in stops if p['role']=='visit'],meals=[r for r in rows if r['kind']=='meal'],alternatives=[],distance_km_known=round(sum(l['distance_km'] for l in legs),1),road_minutes=sum(l['plan_minutes'] for l in legs),missing_legs=0,
         meal_restaurants_assigned=len(onsite),status='hotel_breakfast_departure_after_9',why=why.get(n,'Заведения сгруппированы по району; все переезды и возврат на одну виллу включены.'),
