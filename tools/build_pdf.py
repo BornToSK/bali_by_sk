@@ -37,7 +37,7 @@ def img(path,width=499):
     im=PILImage.open(path);return Image(str(path),width=width,height=width*im.height/im.width)
 def footer(c,doc):
     c.setStrokeColor(colors.HexColor('#d6d9cc'));c.line(48,39,547,39);c.setFont('Bali',8);c.setFillColor(colors.HexColor('#173f37'));c.drawString(48,26,'Бали вдвоём - обновлено 21.10.2026 - время Бали, UTC+8');c.drawRightString(547,26,str(doc.page))
-story=[p('Бали вдвоём','BaliTitle'),p('Ваш маршрут на 21-22 октября 2026','BaliH'),img(root/'assets/coast.png'),Spacer(1,18),p('Одна база: Nunamkhalu Private Villas & Spa. 12 мест в текущем списке: 10 включены в два дня, Leke Leke и Nuanu сохранены резервом. Три выбранных заведения из 54. Все карточки мест, выбранная еда и оценки заведений перепроверены 21 октября.'),p('Еда выбрана по кухне, отзывам, разнообразию и расположению. Это субъективная подборка. Остальные 51 заведение остаются в каталоге на сайте.'),p('Сегодня 21 октября программа начинается с планового выезда 11:30. Завтра завтрак 08:00-08:45, выезд 09:00 и checkout. Пенида удалена из текущего списка. Все ночи на Nunamkhalu.'),PageBreak(),p('Поездка в одном взгляде','BaliTitle'),img(root/'maps/overview.png'),Spacer(1,12)]
+story=[p('Бали вдвоём','BaliTitle'),p('Ваш маршрут на 21-22 октября 2026','BaliH'),img(root/'assets/coast.png'),Spacer(1,18),p('Одна база: Nunamkhalu Private Villas & Spa. 8 мест в текущем списке: 7 включены в два дня, Leke Leke сохранён резервом. Три выбранных заведения из 54. Все карточки мест, выбранная еда и оценки заведений перепроверены 21 октября.'),p('Еда выбрана по кухне, отзывам, разнообразию и расположению. Это субъективная подборка. Остальные 51 заведение остаются в каталоге на сайте.'),p('Сегодня 21 октября программа начинается с планового выезда 11:30. Завтра завтрак 08:00-08:45, выезд 09:00 и checkout. Пенида удалена из текущего списка. Все ночи на Nunamkhalu.'),PageBreak(),p('Поездка в одном взгляде','BaliTitle'),img(root/'maps/overview.png'),Spacer(1,12)]
 
 overview=[[p('Дата','BaliSmall'),p('Маршрут','BaliSmall'),p('Выезд / финиш','BaliSmall')]]
 for d in data['days']:overview.append([p(d['date'][5:],'BaliSmall'),p(d['title'],'BaliSmall'),p(d['depart']+' / '+d['return_time'],'BaliSmall')])
@@ -67,7 +67,7 @@ for d in data['days']:
 story.extend([p('3 выбранных заведения','BaliTitle'),p('Два заведения 21 октября и один обед 22-го; ужин в аэропорту по желанию. Google-оценки и число отзывов проверены 21.10.2026. Остальные 51 заведение доступны в каталоге на сайте.')])
 rows=[[p('Заведение','BaliSmall'),p('Дата','BaliSmall')]]
 for c in data['restaurant_coverage']:rows.append([p(c['name']+' - '+str(c['rating'])+' / '+str(c['reviews'])+' отзывов. '+c['reason'],'BaliSmall'),p(c['date'][5:],'BaliSmall')])
-table=Table(rows,colWidths=[414,85],repeatRows=1);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e6eadf')),('BOTTOMPADDING',(0,0),(-1,-1),5)]));story.extend([table,PageBreak(),p('Все 12 мест: план и резерв','BaliTitle')])
+table=Table(rows,colWidths=[414,85],repeatRows=1);table.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e6eadf')),('BOTTOMPADDING',(0,0),(-1,-1),5)]));story.extend([table,PageBreak(),p('Все 8 мест: план и резерв','BaliTitle')])
 for c in data['coverage']:story.append(p(c['name']+' - '+(c['planned_date'] or ('РЕЗЕРВ: '+c['reason']))))
 story.extend([PageBreak(),p('Что согласовать','BaliTitle')])
 for s in data['limitations']:story.append(p(s))

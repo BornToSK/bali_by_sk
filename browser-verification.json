@@ -1,6 +1,5 @@
 [
   {
-    "number": 1,
     "pins": [
       "Nunamkhalu Private Villas & Spa",
       "Jatiluwih Rice Terraces",
@@ -14,19 +13,15 @@
     "page": "День 1 из 2"
   },
   {
-    "number": 2,
     "pins": [
       "Nunamkhalu Private Villas & Spa",
-      "Пляж Пандава",
-      "Melasti Beach",
       "SODA CAFE UNGASAN",
       "Гегер Бич",
       "Mengiat Beach",
       "Waterblow",
-      "Jaran Hill",
       "Аэропорт DPS · международный терминал"
     ],
-    "summary": "Подъём\n07:30\nВыезд\n09:00\nАэропорт · оценка\n20:45\nДорога\n92.8 км\nНагрузка\nВысокая\n5 ч 0 мин в дороге",
+    "summary": "Подъём\n07:30\nВыезд\n09:00\nАэропорт · оценка\n20:45\nДорога\n51.5 км\nНагрузка\nСредняя\n2 ч 50 мин в дороге",
     "page": "День 2 из 2"
   }
 ]

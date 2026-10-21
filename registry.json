@@ -2,15 +2,15 @@
   "schema_version": 1,
   "created_date": "2026-10-21",
   "status": "author_meal_selection_authorized",
-  "source": "21 октября повторно сверены списки: 54 заведения и 12 мест. Карточки и координаты всех 12 мест и выбранных ресторанов перепроверены. В программе 10 мест; Leke Leke и Nuanu в резерве.",
+  "source": "21 октября повторно сверены списки: 54 заведения и 8 мест. Карточки и координаты всех 8 мест и выбранных ресторанов проверены 21 октября. В программе 7 мест; Leke Leke в резерве. Пандава, Melasti, Jaran Hill и Nuanu Gate удалены из текущего списка.",
   "counts": {
-    "attractions": 12,
-    "scheduled_attractions": 10,
-    "optional_attractions": 2,
+    "attractions": 8,
+    "scheduled_attractions": 7,
+    "optional_attractions": 1,
     "restaurants": 54,
     "selected_restaurants": 3,
     "reserve_restaurants": 51,
-    "total_records": 66
+    "total_records": 62
   },
   "duplicate_audit": {
     "exact_name_duplicates": [],
@@ -310,226 +310,6 @@
         "Ограничения доступа"
       ],
       "verification_note": "\nПосмотреть фото\nBali Farm House\n4,6\n(3 789)\nДостопримечательность·\nОбзор\nОтзывы\nИнформация\n\nПроложить маршрут\n\nСохранить\n\nИскать поблизости\n\nОтправить на телефон\n\nПоделиться\n\nСохранено в списке \"Хочу поеду\"\n\n \n\nJl. Raya Singaraja-Denpasar, Pancasari, Kec. Sukasada, Kabupaten Buleleng, Bali 81161, Индонезия\n\n\nОткрыто · Закроется в 17:00\n\n\nbalifarmhouse.com\n\n\n\n+62 823-4143-6775\n\n\n\nQ44X+7V Pancasari, Булеленг, Бали, Индонезия\n\n\n \n\nПредложить правку\n \nФото\n\n8778 фото\n \n\nДобавить фото и видео\n \n",
-      "schedule_status": "planned"
-    },
-    {
-      "id": "v22",
-      "name": "Nuanu Gate",
-      "roles": [
-        "visit"
-      ],
-      "source_list": {
-        "name": "Хочу поеду",
-        "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-21",
-        "current_membership_confirmed": true
-      },
-      "place_url": "https://www.google.com/maps/place/Nuanu+Gate/@-8.2409771,114.5662439,10z/data=!4m9!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m4!1s0x2dd23971eba79d3d:0x50e2893ce20d985b!8m2!3d-8.6304965!4d115.1004586?coh=318247&entry=tt&ved=1t%3A314688",
-      "address": {
-        "value": "93CX+6C, Beraban, Kec. Kediri, Kabupaten Tabanan, Bali 80351, Indonesia",
-        "status": "historical_snapshot"
-      },
-      "coordinates": {
-        "lat": -8.6304965,
-        "lon": 115.1004586,
-        "status": "Google Maps card verified 2026-10-21",
-        "source_url": "https://www.google.com/maps/place/Nuanu+Gate/@-8.2409771,114.5662439,10z/data=!4m9!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m4!1s0x2dd23971eba79d3d:0x50e2893ce20d985b!8m2!3d-8.6304965!4d115.1004586?coh=318247&entry=tt&ved=1t%3A314688"
-      },
-      "area": {
-        "value": "NYANYI / TABANAN",
-        "status": "previous_editorial_classification"
-      },
-      "type": "Достопримечательность",
-      "hours": {
-        "value": "среда: 08:00–23:00; четверг: 08:00–23:00; пятница: 08:00–23:00; суббота: 08:00–23:00; воскресенье: 08:00–23:00; понедельник: 08:00–23:00; вторник: 08:00–23:00",
-        "by_day": {
-          "среда": "08:00–23:00",
-          "четверг": "08:00–23:00",
-          "пятница": "08:00–23:00",
-          "суббота": "08:00–23:00",
-          "воскресенье": "08:00–23:00",
-          "понедельник": "08:00–23:00",
-          "вторник": "08:00–23:00"
-        },
-        "status": "historical_or_unknown",
-        "snapshot_date": "2026-10-06",
-        "last_order": null
-      },
-      "operating_status": "card_checked_2026-10-21_access_not_guaranteed",
-      "recommended_duration_minutes": null,
-      "entrance": null,
-      "parking": null,
-      "walking_approach": null,
-      "booking_requirement": null,
-      "access_restrictions": null,
-      "assigned_date": null,
-      "unverified": [
-        "Текущий статус и часы",
-        "Вход и парковка",
-        "Пеший подход",
-        "Бронирование",
-        "Ограничения доступа"
-      ],
-      "verification_note": "\nПосмотреть фото\nNuanu Gate\n4,4\n(4 058)\nДостопримечательность·\nОбзор\nОтзывы\nИнформация\n\nПроложить маршрут\n\nСохранить\n\nИскать поблизости\n\nОтправить на телефон\n\nПоделиться\n\nСохранено в списке \"Хочу поеду\"\n\n \n\n93CX+6C, Beraban, Kec. Kediri, Kabupaten Tabanan, Bali 80351, Индонезия\n\n\nОткрыто · Закроется в 23:00\n\n\nnuanu.com\n\n\n \n\nПредложить правку\n \nДобавьте данные\n\n\nДобавить номер телефона места\n \nФото\n\n8051 фото\n \n\nДобавить фото и видео\n \nЧто здесь есть\nAsh Nuanu | Music, Nighlife & Dining Bali\n4,8(867)\nРесторан\nОткрыто · Закроется в 00:00\nMagic Garden\n5,0(769)\nСад\nОткрыто · Закроется в 19:00\nLUMEIRA Wellness Sanctuary\n4,5(422)\nЦентр оздоровления\nОткрыто · Закроется в 22:00\nAurora Media Park\n4,8(103)\nПарк\nОткрыто · Закроется в 22:00\n \nПоказать все\n \n",
-      "schedule_status": "reserve"
-    },
-    {
-      "id": "v24",
-      "name": "Jaran Hill",
-      "roles": [
-        "visit"
-      ],
-      "source_list": {
-        "name": "Хочу поеду",
-        "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-21",
-        "current_membership_confirmed": true
-      },
-      "place_url": "https://www.google.com/maps/place/Jaran+Hill/@-8.2409771,114.5662439,10z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd25002559594d7:0x9979076c84736720!8m2!3d-8.8239322!4d115.0851908!16s%2Fg%2F11gbtz0k0n?coh=318247&entry=tt&ved=1t%3A314688",
-      "address": {
-        "value": "53GP+C3G, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
-        "status": "historical_snapshot"
-      },
-      "coordinates": {
-        "lat": -8.8239322,
-        "lon": 115.0851908,
-        "status": "Google Maps card verified 2026-10-21",
-        "source_url": "https://www.google.com/maps/place/Jaran+Hill/@-8.2409771,114.5662439,10z/data=!4m10!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m5!1s0x2dd25002559594d7:0x9979076c84736720!8m2!3d-8.8239322!4d115.0851908!16s%2Fg%2F11gbtz0k0n?coh=318247&entry=tt&ved=1t%3A314688"
-      },
-      "area": {
-        "value": "ULUWATU",
-        "status": "previous_editorial_classification"
-      },
-      "type": "Достопримечательность",
-      "hours": {
-        "value": "NOT VERIFIED",
-        "by_day": {},
-        "status": "historical_or_unknown",
-        "snapshot_date": "2026-10-06",
-        "last_order": null
-      },
-      "operating_status": "card_checked_2026-10-21_access_not_guaranteed",
-      "recommended_duration_minutes": null,
-      "entrance": null,
-      "parking": null,
-      "walking_approach": null,
-      "booking_requirement": null,
-      "access_restrictions": null,
-      "assigned_date": "2026-10-22",
-      "unverified": [
-        "Текущий статус и часы",
-        "Вход и парковка",
-        "Пеший подход",
-        "Бронирование",
-        "Ограничения доступа"
-      ],
-      "verification_note": "\nПосмотреть фото\nJaran Hill\n4,7\n(348)\nДостопримечательность·\nОбзор\nОтзывы\nИнформация\n\nПроложить маршрут\n\nСохранить\n\nИскать поблизости\n\nОтправить на телефон\n\nПоделиться\n\nСохранено в списке \"Хочу поеду\"\n\n \n\n53GP+C3G, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Индонезия\n\n\nЯ владелец компании\n\n \n\nПредложить правку\n \nДобавьте данные\n\n\nДобавить номер телефона места\n\nДобавить часы работы\n\nДобавить сайт\n \nФото\n\n1450 фото\n \n\nДобавить фото и видео\n \n",
-      "schedule_status": "planned"
-    },
-    {
-      "id": "v25",
-      "name": "Melasti Beach",
-      "roles": [
-        "visit"
-      ],
-      "source_list": {
-        "name": "Хочу поеду",
-        "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-21",
-        "current_membership_confirmed": true
-      },
-      "place_url": "https://www.google.com/maps/place/Melasti+Beach/@-8.2409771,114.5662439,10z/data=!4m9!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m4!1s0x2dd25be3c65bc987:0xfadb552ebfa90802!8m2!3d-8.8482935!4d115.1631697?coh=318247&entry=tt&ved=1t%3A314688",
-      "address": {
-        "value": "Jl. Melasti Ungasan, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Indonesia",
-        "status": "historical_snapshot"
-      },
-      "coordinates": {
-        "lat": -8.8482935,
-        "lon": 115.1631697,
-        "status": "Google Maps card verified 2026-10-21",
-        "source_url": "https://www.google.com/maps/place/Melasti+Beach/@-8.2409771,114.5662439,10z/data=!4m9!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m4!1s0x2dd25be3c65bc987:0xfadb552ebfa90802!8m2!3d-8.8482935!4d115.1631697?coh=318247&entry=tt&ved=1t%3A314688"
-      },
-      "area": {
-        "value": "SOUTH / UNGASAN",
-        "status": "previous_editorial_classification"
-      },
-      "type": "Пляж",
-      "hours": {
-        "value": "NOT VERIFIED",
-        "by_day": {},
-        "status": "historical_or_unknown",
-        "snapshot_date": "2026-10-06",
-        "last_order": null
-      },
-      "operating_status": "card_checked_2026-10-21_access_not_guaranteed",
-      "recommended_duration_minutes": null,
-      "entrance": null,
-      "parking": null,
-      "walking_approach": null,
-      "booking_requirement": null,
-      "access_restrictions": null,
-      "assigned_date": "2026-10-22",
-      "unverified": [
-        "Текущий статус и часы",
-        "Вход и парковка",
-        "Пеший подход",
-        "Бронирование",
-        "Ограничения доступа"
-      ],
-      "verification_note": "\nПосмотреть фото\nMelasti Beach\n4,6\n(4 497)\nПляж\nОбзор\nОтзывы\nИнформация\n\nПроложить маршрут\n\nСохранить\n\nИскать поблизости\n\nОтправить на телефон\n\nПоделиться\n\nСохранено в списке \"Хочу поеду\"\n\nПесчаная коса, известная своими потрясающими закатами, с живописными скалами и курортными отелям.\n \n\nJl. Melasti Ungasan, Ungasan, Kec. Kuta Sel., Kabupaten Badung, Bali 80361, Индонезия\n\n \nФото\nФото\n\n \n\nДобавить фото и видео\n \n",
-      "schedule_status": "planned"
-    },
-    {
-      "id": "v26",
-      "name": "Пляж Пандава",
-      "roles": [
-        "visit"
-      ],
-      "source_list": {
-        "name": "Хочу поеду",
-        "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-21",
-        "current_membership_confirmed": true
-      },
-      "place_url": "https://www.google.com/maps/place/%D0%9F%D0%BB%D1%8F%D0%B6+%D0%9F%D0%B0%D0%BD%D0%B4%D0%B0%D0%B2%D0%B0/@-8.8239322,114.5084086,10z/data=!4m9!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m4!1s0x2dd25b7cd8ba1f31:0x41b8785dd055b2a4!8m2!3d-8.8452802!4d115.1870679?coh=318247&entry=tt&ved=1t%3A314688",
-      "address": {
-        "value": "Бали, Indonesia",
-        "status": "historical_snapshot"
-      },
-      "coordinates": {
-        "lat": -8.8452802,
-        "lon": 115.1870679,
-        "status": "Google Maps card verified 2026-10-21",
-        "source_url": "https://www.google.com/maps/place/%D0%9F%D0%BB%D1%8F%D0%B6+%D0%9F%D0%B0%D0%BD%D0%B4%D0%B0%D0%B2%D0%B0/@-8.8239322,114.5084086,10z/data=!4m9!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m4!1s0x2dd25b7cd8ba1f31:0x41b8785dd055b2a4!8m2!3d-8.8452802!4d115.1870679?coh=318247&entry=tt&ved=1t%3A314688"
-      },
-      "area": {
-        "value": "SOUTH / KUTUH",
-        "status": "previous_editorial_classification"
-      },
-      "type": "Пляж",
-      "hours": {
-        "value": "NOT VERIFIED",
-        "by_day": {},
-        "status": "historical_or_unknown",
-        "snapshot_date": "2026-10-06",
-        "last_order": null
-      },
-      "operating_status": "card_checked_2026-10-21_access_not_guaranteed",
-      "recommended_duration_minutes": null,
-      "entrance": null,
-      "parking": null,
-      "walking_approach": null,
-      "booking_requirement": null,
-      "access_restrictions": null,
-      "assigned_date": "2026-10-22",
-      "unverified": [
-        "Текущий статус и часы",
-        "Вход и парковка",
-        "Пеший подход",
-        "Бронирование",
-        "Ограничения доступа"
-      ],
-      "verification_note": "\nПосмотреть фото\nПляж Пандава\nPantai Pandawa\n4,6\n(11 377)\nПляж\nОбзор\nОтзывы\nИнформация\n\nПроложить маршрут\n\nСохранить\n\nИскать поблизости\n\nОтправить на телефон\n\nПоделиться\n\nСохранено в списке \"Хочу поеду\"\n\nПляж с белым песком, скалами, статуями, прокатом шезлонгов и местами для плавания и гребли.\n \n\nБали, Индонезия\n\n \nФото\nФото\n \n\nДобавить фото и видео\n \n",
       "schedule_status": "planned"
     },
     {
@@ -5309,24 +5089,6 @@
         "Ограничения доступа",
         "Последний заказ"
       ],
-      "dining_research": {
-        "id": "r29",
-        "name": "Ramu Kitchen",
-        "hours_label": "Официальный сайт 07:00-22:00; используем вечерний визит",
-        "planning_windows": [
-          [
-            900,
-            1320
-          ]
-        ],
-        "source": "https://titikdua.id/ramu-kitchen/",
-        "checked": "2026-10-16",
-        "hours_status": "official_current",
-        "last_order": null,
-        "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
-        "booking_required": false,
-        "current_availability_confirmed": false
-      },
       "review_snapshot": {
         "name": "Taman Dedari",
         "rating": 4.7,
@@ -5390,24 +5152,6 @@
         "Ограничения доступа",
         "Последний заказ"
       ],
-      "dining_research": {
-        "id": "r29",
-        "name": "Ramu Kitchen",
-        "hours_label": "Официальный сайт 07:00-22:00; используем вечерний визит",
-        "planning_windows": [
-          [
-            900,
-            1320
-          ]
-        ],
-        "source": "https://titikdua.id/ramu-kitchen/",
-        "checked": "2026-10-16",
-        "hours_status": "official_current",
-        "last_order": null,
-        "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
-        "booking_required": false,
-        "current_availability_confirmed": false
-      },
       "review_snapshot": {
         "name": "MASONRY. Restaurant Uluwatu",
         "rating": 4.6,
