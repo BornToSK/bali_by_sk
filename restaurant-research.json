@@ -20,16 +20,16 @@
   "r02": {
     "id": "r02",
     "name": "Batu Karu Kopi",
-    "hours_label": "08:00–17:00 в будни; 08:00–18:00 в выходные",
+    "hours_label": "Сегодня открыт, закрытие 17:00 по Google Maps",
     "planning_windows": [
       [
         480,
         1020
       ]
     ],
-    "source": "https://www.instagram.com/batukarukopi/",
-    "checked": "2026-10-08",
-    "hours_status": "historical_snapshot_not_currently_reverified",
+    "source": "https://www.google.com/maps/place/Batu+Karu+Kopi/@-8.4751788,114.6683007,10z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd227ff032568f3:0x9e4262493e09fa4d!8m2!3d-8.3628743!4d115.1345965!16s%2Fg%2F11hz2kp_ym?coh=318247&entry=tt&ved=1t%3A314688",
+    "checked": "2026-10-21",
+    "hours_status": "google_card_checked",
     "last_order": null,
     "booking_note": "Уточнить наличие полноценного обеда: нужен сэндвич/тосты с начинкой, а не только кофе. Last order не подтверждён.",
     "booking_required": false,
@@ -766,16 +766,16 @@
   "r18": {
     "id": "r18",
     "name": "LUSA Bistro",
-    "hours_label": "07:30–22:00",
+    "hours_label": "Сегодня открыт, закрытие 23:00 по Google Maps",
     "planning_windows": [
       [
-        450,
-        1320
+        600,
+        1380
       ]
     ],
-    "source": "https://www.bysuka.com/lusa-by-suka",
-    "checked": "2026-10-09",
-    "hours_status": "official_current",
+    "source": "https://www.google.com/maps/place/LUSA+Bistro/@-8.4751788,114.6683007,10z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd24715b3648a71:0xdee432f569053308!8m2!3d-8.6601698!4d115.139835!16s%2Fg%2F11pd7x81cs?coh=318247&entry=tt&ved=1t%3A314688",
+    "checked": "2026-10-21",
+    "hours_status": "google_card_checked",
     "last_order": null,
     "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
     "booking_required": false,
@@ -822,17 +822,17 @@
   },
   "r21": {
     "id": "r21",
-    "name": "SODA CAFE",
-    "hours_label": "07:00–22:00 ежедневно",
+    "name": "SODA CAFE UNGASAN",
+    "hours_label": "Четверг 07:00-22:00 по недельному расписанию Google Maps",
     "planning_windows": [
       [
         420,
         1320
       ]
     ],
-    "source": "https://linktr.ee/Soda_cafe",
-    "checked": "2026-10-09",
-    "hours_status": "official_current",
+    "source": "https://www.google.com/maps/place/SODA+CAFE+UNGASAN/@-8.4751788,114.6683007,10z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd25b150682d38d:0x448a3c59a99fce96!8m2!3d-8.8269523!4d115.1399416!16s%2Fg%2F11lnlhjr2y?coh=318247&entry=tt&ved=1t%3A314688",
+    "checked": "2026-10-21",
+    "hours_status": "google_card_checked",
     "last_order": null,
     "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
     "booking_required": false,

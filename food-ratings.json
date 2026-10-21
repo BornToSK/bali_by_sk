@@ -1,138 +1,90 @@
 {
-  "checked": "2026-10-16",
+  "checked": "2026-10-21",
   "source": "https://maps.app.goo.gl/dVKJRWaUCJGBBQHs7",
   "records": [
     {
-      "name": "Amok Sunset Restaurant & Bar",
+      "name": "Taman Dedari",
+      "rating": 4.7,
+      "reviews": 7706,
+      "category": "Ресторан индонезийской кухни"
+    },
+    {
+      "name": "MASONRY. Restaurant Uluwatu",
       "rating": 4.6,
-      "reviews": 3855,
-      "category": "Ресторан"
+      "reviews": 1476,
+      "category": "Ресторан средиземноморской кухни"
     },
     {
       "name": "Batu Karu Kopi",
       "rating": 4.6,
-      "reviews": 801,
+      "reviews": 804,
       "category": "Кофейня"
-    },
-    {
-      "name": "Paperhills",
-      "rating": 4.5,
-      "reviews": 3489,
-      "category": "Кофейня"
-    },
-    {
-      "name": "el lago",
-      "rating": 4.7,
-      "reviews": 7595,
-      "category": "Кафе"
     },
     {
       "name": "Tis Cafe",
       "rating": 4.8,
-      "reviews": 13086,
-      "category": "Кофейня"
-    },
-    {
-      "name": "AKASA",
-      "rating": 4.5,
-      "reviews": 11604,
+      "reviews": 13157,
       "category": "Кофейня"
     },
     {
       "name": "Old Man's",
       "rating": 4.4,
-      "reviews": 6553,
+      "reviews": 6559,
       "category": "Бар"
-    },
-    {
-      "name": "Vedzpresso Coffee",
-      "rating": 4.2,
-      "reviews": 80,
-      "category": "Кофейня"
-    },
-    {
-      "name": "ATTALAS CAFE",
-      "rating": 4.4,
-      "reviews": 442,
-      "category": "Кофейня"
-    },
-    {
-      "name": "warung baling baling",
-      "rating": 4.4,
-      "reviews": 381,
-      "category": "Ресторан"
-    },
-    {
-      "name": "Mahen Cafe",
-      "rating": 4.5,
-      "reviews": 400,
-      "category": "Кафе"
     },
     {
       "name": "Brie Restaurant & Cheesery | Italian Season",
       "rating": 4.8,
-      "reviews": 1958,
+      "reviews": 1966,
       "category": "Ресторан"
     },
     {
       "name": "Tebasari Resto, Bar & Lounge",
       "rating": 4.7,
-      "reviews": 8514,
+      "reviews": 8526,
       "category": "Ресторан азиатской фьюжн-кухни"
     },
     {
       "name": "Teamo - Gastro-Bistro, Restaurant Canggu",
       "rating": 4.7,
-      "reviews": 3032,
-      "category": "Ресторан"
-    },
-    {
-      "name": "Echo Beach Sunset Point",
-      "rating": 4.3,
-      "reviews": 145,
+      "reviews": 3043,
       "category": "Ресторан"
     },
     {
       "name": "Motel Mexicola | Canggu",
       "rating": 4.6,
-      "reviews": 2608,
+      "reviews": 2619,
       "category": "Ресторан"
     },
     {
       "name": "Artisan - Pererenan",
       "rating": 4.7,
-      "reviews": 716,
+      "reviews": 719,
       "category": "Ресторан современной европейской кухни"
     },
     {
       "name": "LUSA Bistro",
       "rating": 4.8,
-      "reviews": 4662,
+      "reviews": 4679,
       "category": "Кафе"
     },
     {
       "name": "LOLITAS Cantina Mexicana",
       "rating": 4.4,
-      "reviews": 438,
+      "reviews": 439,
       "category": "Ресторан мексиканской кухни"
     },
     {
       "name": "Tarragon Georgian Restaurant and Lounge Bar",
       "rating": 4.7,
-      "reviews": 725,
+      "reviews": 732,
       "category": "Ресторан"
     },
     {
-      "name": "SODA CAFE",
+      "name": "SODA CAFE UNGASAN",
       "rating": 4.8,
-      "reviews": 2759,
+      "reviews": 2790,
       "category": "Ресторан"
-    },
-    {
-      "name": "Солтвуд Бингин",
-      "rating": 4.4,
-      "reviews": 792,
-      "category": "Закрыто навсегда"
     },
     {
       "name": "My Place cafe beach",
@@ -142,267 +94,237 @@
     },
     {
       "name": "FROM HERE BALI",
-      "rating": 4.9,
-      "reviews": 498,
-      "category": "Ресторан (специализация: завтраки)"
-    },
-    {
-      "name": "Akar Ubud by K Club",
       "rating": 4.8,
-      "reviews": 1513,
-      "category": "Ресторан"
+      "reviews": 505,
+      "category": "Ресторан (специализация: завтраки)"
     },
     {
       "name": "FLOCK Bali",
       "rating": 4.7,
-      "reviews": 896,
+      "reviews": 901,
       "category": "Ресторан"
     },
     {
       "name": "Milk & Madu Ubud",
       "rating": 4.6,
-      "reviews": 6240,
+      "reviews": 6247,
       "category": "Кафе"
     },
     {
       "name": "Ramu Kitchen",
       "rating": 4.9,
-      "reviews": 1142,
+      "reviews": 1148,
       "category": "Ресторан паназиатской кухни"
     },
     {
       "name": "Zest",
       "rating": 4.3,
-      "reviews": 4059,
+      "reviews": 4058,
       "category": "Веганский ресторан"
     },
     {
       "name": "SkaZka Bali",
       "rating": 5,
-      "reviews": 470,
-      "category": "Ресторан"
+      "reviews": 480,
+      "category": "SkaZka Bali"
     },
     {
       "name": "Nyom Nyom Coffee",
       "rating": 4.5,
-      "reviews": 1827,
-      "category": "Кофейня"
+      "reviews": 1834,
+      "category": "Nyom Nyom Coffee"
     },
     {
       "name": "Monsieur Spoon Canggu",
       "rating": 4.3,
-      "reviews": 2498,
-      "category": "Пекарня"
+      "reviews": 2497,
+      "category": "Monsieur Spoon Canggu"
     },
     {
       "name": "TWO FACE Canggu",
       "rating": 4.8,
-      "reviews": 2098,
-      "category": "Кафе"
+      "reviews": 2117,
+      "category": "TWO FACE Canggu"
     },
     {
       "name": "Фабрика авокадо",
       "rating": 4.5,
-      "reviews": 3998,
-      "category": "Ресторан здорового питания"
+      "reviews": 4003,
+      "category": "Фабрика авокадо"
     },
     {
       "name": "WOODS PERERENAN",
       "rating": 4.7,
-      "reviews": 3858,
-      "category": "Ресторан"
+      "reviews": 3873,
+      "category": "WOODS PERERENAN"
     },
     {
       "name": "Penny Lane",
       "rating": 4.5,
-      "reviews": 7312,
-      "category": "Ресторан"
+      "reviews": 7323,
+      "category": "Penny Lane"
     },
     {
       "name": "LOVA CAFE",
       "rating": 4.6,
-      "reviews": 1174,
-      "category": "Ресторан"
+      "reviews": 1179,
+      "category": "LOVA CAFE"
     },
     {
       "name": "BELLA. Canggu",
       "rating": 4.7,
-      "reviews": 1604,
-      "category": "Ресторан"
+      "reviews": 1614,
+      "category": "BELLA. Canggu"
     },
     {
       "name": "nüde cafe Berawa",
       "rating": 4.8,
-      "reviews": 9001,
-      "category": "Кафе"
+      "reviews": 9035,
+      "category": "nüde cafe Berawa"
     },
     {
       "name": "Neighbourhood Food",
       "rating": 4.5,
       "reviews": 650,
-      "category": "Ресторан"
+      "category": "Neighbourhood Food"
     },
     {
       "name": "Копенгаген",
       "rating": 4.4,
-      "reviews": 3144,
-      "category": "Ресторан поздних завтраков"
+      "reviews": 3152,
+      "category": "Копенгаген"
     },
     {
       "name": "Margaret Bistro",
       "rating": 4.8,
-      "reviews": 3404,
-      "category": "Ресторан итальянской кухни"
+      "reviews": 3407,
+      "category": "Margaret Bistro"
     },
     {
       "name": "La Baracca Bali (Uluwatu)",
       "rating": 4.6,
-      "reviews": 3302,
-      "category": "Ресторан итальянской кухни"
+      "reviews": 3342,
+      "category": "La Baracca Bali (Uluwatu)"
     },
     {
       "name": "Ours Uluwatu",
       "rating": 4.2,
-      "reviews": 2361,
-      "category": "Ресторан"
+      "reviews": 2364,
+      "category": "Ours Uluwatu"
     },
     {
       "name": "AVLI Uluwatu - Modern Greek",
       "rating": 4.8,
-      "reviews": 1287,
-      "category": "Ресторан греческой кухни"
+      "reviews": 1303,
+      "category": "AVLI Uluwatu - Modern Greek"
     },
     {
       "name": "Alma Tapas Bar - Uluwatu",
       "rating": 4.9,
-      "reviews": 1463,
-      "category": "Тапас-бар"
+      "reviews": 1468,
+      "category": "Alma Tapas Bar - Uluwatu"
     },
     {
       "name": "ZALI Uluwatu | Lebanese Restaurant",
-      "rating": 4.7,
-      "reviews": 1367,
-      "category": "Ресторан"
-    },
-    {
-      "name": "YUKI Uluwatu",
-      "rating": 4.7,
-      "reviews": 2016,
-      "category": "Ресторан японской кухни"
+      "rating": 4.8,
+      "reviews": 1390,
+      "category": "ZALI Uluwatu | Lebanese Restaurant"
     },
     {
       "name": "KALA Uluwatu - Greek Inspired Grill",
       "rating": 4.7,
-      "reviews": 1748,
-      "category": "Ресторан греческой кухни"
-    },
-    {
-      "name": "Analog Uluwatu | Cafe | Bar | Bistro",
-      "rating": 4.7,
-      "reviews": 1387,
-      "category": "Кафе"
+      "reviews": 1780,
+      "category": "KALA Uluwatu - Greek Inspired Grill"
     },
     {
       "name": "SUKA ULUWATU",
       "rating": 4.8,
-      "reviews": 11493,
-      "category": "Ресторан"
+      "reviews": 11579,
+      "category": "SUKA ULUWATU"
     },
     {
       "name": "Alchemy Uluwatu",
       "rating": 4.6,
-      "reviews": 4187,
-      "category": "Ресторан"
+      "reviews": 4196,
+      "category": "Alchemy Uluwatu"
     },
     {
       "name": "Drifter Surf Shop & Cafe - Uluwatu",
       "rating": 4.4,
-      "reviews": 1329,
-      "category": "Магазин товаров для серфинга"
+      "reviews": 1333,
+      "category": "Drifter Surf Shop & Cafe - Uluwatu"
     },
     {
       "name": "The Loft",
       "rating": 4.3,
-      "reviews": 1387,
-      "category": "Ресторан здорового питания"
+      "reviews": 1388,
+      "category": "The Loft"
     },
     {
       "name": "Boneka Restaurant",
       "rating": 4.8,
       "reviews": 334,
-      "category": "Ресторан самообслуживания"
+      "category": "Boneka Restaurant"
     },
     {
       "name": "The Community",
       "rating": 4.6,
-      "reviews": 714,
-      "category": "Ресторан русской кухни"
+      "reviews": 715,
+      "category": "The Community"
     },
     {
       "name": "Signa Cafe",
       "rating": 4.7,
       "reviews": 1545,
-      "category": "Ресторан"
-    },
-    {
-      "name": "HEDONIST SPACE restaurant | lounge | bar",
-      "rating": 4.7,
-      "reviews": 1373,
-      "category": "Ресторан"
+      "category": "Signa Cafe"
     },
     {
       "name": "Eden Lounge Uluwatu — Restaurant with live music and Co-working space",
       "rating": 4.9,
-      "reviews": 1507,
-      "category": "Кальянная"
+      "reviews": 1517,
+      "category": "Eden Lounge Uluwatu — Restaurant with live music and Co-working space"
     },
     {
       "name": "NOURISH CAFE WHOLEFOODS PIZZERIA & BAKERY - UNGASAN",
       "rating": 4.5,
-      "reviews": 3812,
-      "category": "Ресторан"
+      "reviews": 3842,
+      "category": "NOURISH CAFE WHOLEFOODS PIZZERIA & BAKERY - UNGASAN"
     },
     {
       "name": "Artisan - Ungasan",
       "rating": 4.7,
-      "reviews": 1690,
-      "category": "Ресторан"
+      "reviews": 1696,
+      "category": "Artisan - Ungasan"
     },
     {
       "name": "AMINO - Early Breakfast, Lunch, Dinner",
       "rating": 4.8,
-      "reviews": 1945,
-      "category": "Ресторан"
+      "reviews": 1955,
+      "category": "AMINO - Early Breakfast, Lunch, Dinner"
     },
     {
       "name": "Made’s Bakery Cafe Playground",
       "rating": 4.4,
       "reviews": 1249,
-      "category": "Ресторан"
-    },
-    {
-      "name": "Sari timbul resto by kububali",
-      "rating": 4.7,
-      "reviews": 1025,
-      "category": "Ресторан"
+      "category": "Made’s Bakery Cafe Playground"
     },
     {
       "name": "Rumah Gemuk Bali",
       "rating": 4.4,
-      "reviews": 1579,
-      "category": "Ресторан"
+      "reviews": 1580,
+      "category": "Rumah Gemuk Bali"
     },
     {
       "name": "Single Fin Bali",
       "rating": 4.6,
-      "reviews": 14316,
-      "category": "Ресторан"
+      "reviews": 14349,
+      "category": "Single Fin Bali"
     },
     {
-      "name": "Koral: Bali’s First Aquarium Restaurant",
-      "rating": 4.4,
-      "reviews": 2269,
-      "category": "Ресторан гастрономической кухни"
+      "name": "Analog Uluwatu | All Day Cafe",
+      "rating": 4.7,
+      "reviews": 1396,
+      "category": "Analog Uluwatu | Cafe | Bar | Bistro"
     }
   ]
 }

@@ -1,51 +1,32 @@
 ﻿id,name,date,type,status
-v03,Ulun Danu Buyan Temple,2026-10-19,visit,planned_access_provisional
-v04,Кристал Бэй Наса Пенида,2026-10-17,visit,planned_access_provisional
-v05,Broken Beach,2026-10-17,visit,planned_access_provisional
-v06,Angel's Billabong,2026-10-17,visit,planned_access_provisional
-v07,Келингкинг Бич,2026-10-17,visit,planned_access_provisional
-v09,Satya Dharma Temple,2026-10-21,visit,planned_access_provisional
-v10,Храм Пура Бесаких,2026-10-18,visit,planned_access_provisional
-v11,Tukad Cepung Waterfall,2026-10-21,visit,planned_access_provisional
-v16,Sari Timbul Art Gallery,2026-10-18,visit,planned_access_provisional
-v17,Улун дану бератан,2026-10-19,visit,planned_access_provisional
-v18,Leke Leke Waterfall,2026-10-20,visit,planned_access_provisional
-v19,Jatiluwih Rice Terraces,2026-10-19,visit,planned_access_provisional
-v21,Bali Farm House,2026-10-19,visit,planned_access_provisional
-v22,Nuanu Gate,2026-10-20,visit,planned_access_provisional
-v24,Jaran Hill,2026-10-22,visit,planned_access_provisional
-v25,Melasti Beach,2026-10-16,visit,planned_access_provisional
-v26,Пляж Пандава,2026-10-16,visit,planned_access_provisional
-v27,Mengiat Beach,2026-10-21,visit,planned_access_provisional
-v28,Waterblow,2026-10-21,visit,planned_access_provisional
-r01,Amok Sunset Restaurant & Bar,2026-10-17,meal,planned
-r02,Batu Karu Kopi,2026-10-19,meal,planned
-r03,Paperhills,,meal,reserve
-r04,el lago,2026-10-18,meal,planned
-r05,Tis Cafe,2026-10-18,meal,planned
-r06,AKASA,,meal,reserve
+v03,Ulun Danu Buyan Temple,2026-10-21,visit,planned
+v17,Улун дану бератан,2026-10-21,visit,planned
+v18,Leke Leke Waterfall,,visit,reserve
+v19,Jatiluwih Rice Terraces,2026-10-21,visit,planned
+v21,Bali Farm House,2026-10-21,visit,planned
+v22,Nuanu Gate,,visit,reserve
+v24,Jaran Hill,2026-10-22,visit,planned
+v25,Melasti Beach,2026-10-22,visit,planned
+v26,Пляж Пандава,2026-10-22,visit,planned
+v27,Mengiat Beach,2026-10-22,visit,planned
+v28,Waterblow,2026-10-22,visit,planned
+r02,Batu Karu Kopi,2026-10-21,meal,planned
+r05,Tis Cafe,,meal,reserve
 r07,Old Man's,,meal,reserve
-r08,Vedzpresso Coffee,,meal,reserve
-r09,ATTALAS CAFE,,meal,reserve
-r10,warung baling baling,,meal,reserve
-r11,Mahen Cafe,,meal,reserve
 r12,Brie Restaurant & Cheesery | Italian Season,,meal,reserve
 r13,"Tebasari Resto, Bar & Lounge",,meal,reserve
 r14,"Teamo - Gastro-Bistro, Restaurant Canggu",,meal,reserve
-r15,Echo Beach Sunset Point,,meal,reserve
 r16,Motel Mexicola | Canggu,,meal,reserve
 r17,Artisan - Pererenan,,meal,reserve
-r18,LUSA Bistro,2026-10-19,meal,planned
+r18,LUSA Bistro,2026-10-21,meal,planned
 r19,LOLITAS Cantina Mexicana,,meal,reserve
 r20,Tarragon Georgian Restaurant and Lounge Bar,,meal,reserve
-r21,SODA CAFE,2026-10-21,meal,planned
-r22,Солтвуд Бингин,,meal,reserve
+r21,SODA CAFE UNGASAN,2026-10-22,meal,planned
 r23,My Place cafe beach,,meal,reserve
 r24,FROM HERE BALI,,meal,reserve
-r25,Akar Ubud by K Club,,meal,reserve
 r26,FLOCK Bali,,meal,reserve
 r27,Milk & Madu Ubud,,meal,reserve
-r29,Ramu Kitchen,2026-10-18,meal,planned
+r29,Ramu Kitchen,,meal,reserve
 r30,Zest,,meal,reserve
 r31,SkaZka Bali,,meal,reserve
 r32,Nyom Nyom Coffee,,meal,reserve
@@ -56,32 +37,31 @@ r36,WOODS PERERENAN,,meal,reserve
 r37,Penny Lane,,meal,reserve
 r38,LOVA CAFE,,meal,reserve
 r39,BELLA. Canggu,,meal,reserve
-r40,nüde cafe Berawa,2026-10-20,meal,planned
+r40,nüde cafe Berawa,,meal,reserve
 r41,Neighbourhood Food,,meal,reserve
 r42,Копенгаген,,meal,reserve
-r43,Margaret Bistro,2026-10-20,meal,planned
+r43,Margaret Bistro,,meal,reserve
 r45,La Baracca Bali (Uluwatu),,meal,reserve
 r46,Ours Uluwatu,,meal,reserve
-r47,AVLI Uluwatu - Modern Greek,2026-10-16,meal,planned
-r48,Alma Tapas Bar - Uluwatu,2026-10-22,meal,planned
+r47,AVLI Uluwatu - Modern Greek,,meal,reserve
+r48,Alma Tapas Bar - Uluwatu,,meal,reserve
 r49,ZALI Uluwatu | Lebanese Restaurant,,meal,reserve
-r50,YUKI Uluwatu,2026-10-17,meal,planned
 r51,KALA Uluwatu - Greek Inspired Grill,,meal,reserve
-r53,Analog Uluwatu | Cafe | Bar | Bistro,,meal,reserve
-r54,SUKA ULUWATU,2026-10-21,meal,planned
+r53,Analog Uluwatu | All Day Cafe,,meal,reserve
+r54,SUKA ULUWATU,,meal,reserve
 r55,Alchemy Uluwatu,,meal,reserve
 r56,Drifter Surf Shop & Cafe - Uluwatu,,meal,reserve
 r57,The Loft,,meal,reserve
 r59,Boneka Restaurant,,meal,reserve
 r61,The Community,,meal,reserve
 r62,Signa Cafe,,meal,reserve
-r63,HEDONIST SPACE restaurant | lounge | bar,,meal,reserve
 r64,Eden Lounge Uluwatu — Restaurant with live music and Co-working space,,meal,reserve
 r65,NOURISH CAFE WHOLEFOODS PIZZERIA & BAKERY - UNGASAN,,meal,reserve
 r66,Artisan - Ungasan,,meal,reserve
-r67,"AMINO - Early Breakfast, Lunch, Dinner",2026-10-22,meal,planned
+r67,"AMINO - Early Breakfast, Lunch, Dinner",,meal,reserve
 r68,Made’s Bakery Cafe Playground,,meal,reserve
-r69,Sari timbul resto by kububali,,meal,reserve
 r70,Rumah Gemuk Bali,,meal,reserve
 r71,Single Fin Bali,,meal,reserve
-r72,Koral: Bali’s First Aquarium Restaurant,,meal,reserve
+v30,Гегер Бич,2026-10-22,visit,planned
+r73,Taman Dedari,,meal,reserve
+r74,MASONRY. Restaurant Uluwatu,,meal,reserve
