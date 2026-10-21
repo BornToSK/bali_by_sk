@@ -4,8 +4,7 @@ v17,Улун дану бератан,2026-10-21,visit,planned
 v18,Leke Leke Waterfall,,visit,reserve
 v19,Jatiluwih Rice Terraces,2026-10-21,visit,planned
 v21,Bali Farm House,2026-10-21,visit,planned
-v27,Mengiat Beach,2026-10-22,visit,planned
-v28,Waterblow,2026-10-22,visit,planned
+v27,Mengiat Beach,,visit,reserve
 r02,Batu Karu Kopi,2026-10-21,meal,planned
 r05,Tis Cafe,,meal,reserve
 r07,Old Man's,,meal,reserve
@@ -17,7 +16,7 @@ r17,Artisan - Pererenan,,meal,reserve
 r18,LUSA Bistro,2026-10-21,meal,planned
 r19,LOLITAS Cantina Mexicana,,meal,reserve
 r20,Tarragon Georgian Restaurant and Lounge Bar,,meal,reserve
-r21,SODA CAFE UNGASAN,2026-10-22,meal,planned
+r21,SODA CAFE UNGASAN,,meal,reserve
 r23,My Place cafe beach,,meal,reserve
 r24,FROM HERE BALI,,meal,reserve
 r26,FLOCK Bali,,meal,reserve
@@ -58,6 +57,6 @@ r67,"AMINO - Early Breakfast, Lunch, Dinner",,meal,reserve
 r68,Made’s Bakery Cafe Playground,,meal,reserve
 r70,Rumah Gemuk Bali,,meal,reserve
 r71,Single Fin Bali,,meal,reserve
-v30,Гегер Бич,2026-10-22,visit,planned
+v30,Гегер Бич,,visit,reserve
 r73,Taman Dedari,,meal,reserve
 r74,MASONRY. Restaurant Uluwatu,,meal,reserve

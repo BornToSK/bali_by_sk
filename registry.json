@@ -2,15 +2,15 @@
   "schema_version": 1,
   "created_date": "2026-10-21",
   "status": "author_meal_selection_authorized",
-  "source": "21 октября повторно сверены списки: 54 заведения и 8 мест. Карточки и координаты всех 8 мест и выбранных ресторанов проверены 21 октября. В программе 7 мест; Leke Leke в резерве. Пандава, Melasti, Jaran Hill и Nuanu Gate удалены из текущего списка.",
+  "source": "21 октября повторно сверены списки: 54 заведения и 7 мест. Карточки и координаты всех 7 мест и выбранных ресторанов проверены 21 октября. На 21 октября запланированы 4 места. Leke Leke, Geger и Mengiat в резерве; 22 октября только подготовка к вылету. Waterblow, Пандава, Melasti, Jaran Hill и Nuanu Gate удалены из текущего списка.",
   "counts": {
-    "attractions": 8,
-    "scheduled_attractions": 7,
-    "optional_attractions": 1,
+    "attractions": 7,
+    "scheduled_attractions": 4,
+    "optional_attractions": 3,
     "restaurants": 54,
-    "selected_restaurants": 3,
-    "reserve_restaurants": 51,
-    "total_records": 62
+    "selected_restaurants": 2,
+    "reserve_restaurants": 52,
+    "total_records": 61
   },
   "duplicate_audit": {
     "exact_name_duplicates": [],
@@ -19,8 +19,8 @@
   },
   "meal_capacity": {
     "restaurant_count": 54,
-    "selected_restaurants": 3,
-    "note": "Три заведения по пути, без попытки посетить весь список."
+    "selected_restaurants": 2,
+    "note": "Два заведения 21 октября по пути, без попытки посетить весь список."
   },
   "places": [
     {
@@ -362,7 +362,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-22",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -371,59 +371,7 @@
         "Ограничения доступа"
       ],
       "verification_note": "\nПосмотреть фото\nMengiat Beach\n4,7\n(1 931)\nОбщественный пляж·\nОбзор\nОтзывы\nИнформация\n\nПроложить маршрут\n\nСохранить\n\nИскать поблизости\n\nОтправить на телефон\n\nПоделиться\n\nСохранено в списке \"Хочу поеду\"\n\n \n\nAyodya Hotel, Jl.Pantai Mengiat Kawasan ITDC Nusa Dua, Benoa, Kec. Kuta Sel., Kabupaten Badung, Bali 80363, Индонезия\n\n\nКруглосуточно\n\n\n56VJ+3W Benoa, Бадунг, Бали, Индонезия\n\n\n \n\nПредложить правку\n \nДобавьте данные\n\n\nДобавить номер телефона места\n\nДобавить сайт\n \nФото\n\n4552 фото\n \n\nДобавить фото и видео\n \nЧто здесь есть\nBaliball\n4,3(13)\nПлощадка для пляжного волейбола\nКруглосуточно\n",
-      "schedule_status": "planned"
-    },
-    {
-      "id": "v28",
-      "name": "Waterblow",
-      "roles": [
-        "visit"
-      ],
-      "source_list": {
-        "name": "Хочу поеду",
-        "url": "https://maps.app.goo.gl/nnRjtuZ1NpwMso9WA",
-        "snapshot_date": "2026-10-21",
-        "current_membership_confirmed": true
-      },
-      "place_url": "https://www.google.com/maps/place/Waterblow/@-8.8239322,114.5084086,10z/data=!4m9!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m4!1s0x2dd242d64fdf1499:0x693ff9065fcd1f44!8m2!3d-8.8038567!4d115.2398639?coh=318247&entry=tt&ved=1t%3A314688",
-      "address": {
-        "value": "Benoa, South Kuta, Badung Regency, Bali 80363, Indonesia",
-        "status": "historical_snapshot"
-      },
-      "coordinates": {
-        "lat": -8.8038567,
-        "lon": 115.2398639,
-        "status": "Google Maps card verified 2026-10-21",
-        "source_url": "https://www.google.com/maps/place/Waterblow/@-8.8239322,114.5084086,10z/data=!4m9!1m3!11m2!2sbse_iLEXaL7TLVGs7evdLw!3e3!3m4!1s0x2dd242d64fdf1499:0x693ff9065fcd1f44!8m2!3d-8.8038567!4d115.2398639?coh=318247&entry=tt&ved=1t%3A314688"
-      },
-      "area": {
-        "value": "NUSA DUA",
-        "status": "previous_editorial_classification"
-      },
-      "type": "Достопримечательность",
-      "hours": {
-        "value": "09:00–17:00 по опубликованным условиям ITDC 2022; актуальность на 2026 уточнить",
-        "status": "official_historical_published",
-        "source": "https://www.itdc.co.id/index.php/press-release?page=75",
-        "checked": "2026-10-09"
-      },
-      "operating_status": "card_checked_2026-10-21_access_not_guaranteed",
-      "recommended_duration_minutes": null,
-      "entrance": null,
-      "parking": null,
-      "walking_approach": null,
-      "booking_requirement": null,
-      "access_restrictions": null,
-      "assigned_date": "2026-10-22",
-      "unverified": [
-        "Текущий статус и часы",
-        "Вход и парковка",
-        "Пеший подход",
-        "Бронирование",
-        "Ограничения доступа"
-      ],
-      "verification_note": "\nПосмотреть фото\nWaterblow\n4,4\n(10 039)\nДостопримечательность·\nОбзор\nОтзывы\nИнформация\n\nПроложить маршрут\n\nСохранить\n\nИскать поблизости\n\nОтправить на телефон\n\nПоделиться\n\nСохранено в списке \"Хочу поеду\"\n\nРиф, о который разбиваются сильные волны. Всплеск может достигать 8 км в высоту.\n\n \n\nBenoa, South Kuta, Badung Regency, Bali 80363, Индонезия\n\n\nОткрыто · Закроется в 18:00\n\n\n56WQ+FW Benoa, Бадунг, Бали, Индонезия\n\n\n \n\nПредложить правку\n \nДобавьте данные\n\n\nДобавить номер телефона места\n\nДобавить сайт\n \nФото\n\n35331 фото\n \n\nДобавить фото и видео\n \n",
-      "schedule_status": "planned"
+      "schedule_status": "reserve"
     },
     {
       "id": "r02",
@@ -1416,7 +1364,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-22",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -1449,9 +1397,9 @@
         "reviews": 2790,
         "category": "Ресторан"
       },
-      "curated": true,
-      "selection_reason": "Обед между пляжами юга; 4,8, четверг 07:00-22:00 по карточке.",
-      "schedule_status": "planned",
+      "curated": false,
+      "selection_reason": "Резерв: выбрать вместо основного ресторана, без дополнительного крюка.",
+      "schedule_status": "reserve",
       "verification_note": "\nПосмотреть фото\nSODA CAFE UNGASAN\n4,8\n(2 790)\nРесторан\nОбзор\nОтзывы\n\nПроложить маршрут\n\nСохранить\n\nИскать поблизости\n\nОтправить на телефон\n\nПоделиться\n\nСохранено в списке \"Еда Бали\"\n\n \n\nJimbaran - Uluwatu, Pecatu, Kec. Kuta Sel., Kabupaten Badung, Bali 80362, Индонезия\n\n\nОткрыто · Закроется в 20:00\n\n\nОформить заказ\ngofood.co.id\n\n\nlinktr.ee\n\n\n\n+62 813-3080-0114\n\n\n\n54FQ+6X Pecatu, Бадунг, Бали, Индонезия\n\n\n \n\nПредложить правку\n \nФото\n\n2816 фото\n \n\nДобавить фото и видео\n \n"
     },
     {
@@ -5025,7 +4973,7 @@
       "walking_approach": null,
       "booking_requirement": null,
       "access_restrictions": null,
-      "assigned_date": "2026-10-22",
+      "assigned_date": null,
       "unverified": [
         "Текущий статус и часы",
         "Вход и парковка",
@@ -5034,7 +4982,7 @@
         "Ограничения доступа"
       ],
       "verification_note": "\nПосмотреть фото\nГегер Бич\nGeger Beach\n4,7\n(1 970)\nОбщественный пляж\nОбзор\nОтзывы\n\nПроложить маршрут\n\nСохранить\n\nИскать поблизости\n\nОтправить на телефон\n\nПоделиться\n\nСохранено в списке \"Хочу поеду\"\n\n \n\n56MG+RFQ, Benoa, Kec. Kuta Sel., Kabupaten Badung, Bali, Индонезия\n\n \n\nПредложить правку\n \nДобавьте данные\n\n\nДобавить номер телефона места\n\nДобавить часы работы\n\nДобавить сайт\n \nФото\n\n3826 фото\n \n\nДобавить фото и видео\n \nЧто здесь есть\nGeger Beach Cafe\n4,6(303)\nКафе · 1 этаж\nОткрыто · Закроется в 18:00\nFleet Bar & Cafe\n4,3(289) · ₽\nГриль-бар\nОткрыто · Закроется в 19:00\nPeminge Mandiri Transport\n4,3(3)\nТранспортные услуги\nОткрыто · Закроется в 18:00\n\nПроложить маршрут\n",
-      "schedule_status": "planned"
+      "schedule_status": "reserve"
     },
     {
       "id": "r73",

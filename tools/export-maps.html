@@ -13,7 +13,7 @@ const features=days.flatMap(d=>d.legs.map(l=>({type:'Feature',properties:{back:l
 map.addSource('roads',{type:'geojson',data:line});map.addLayer({id:'road-border',type:'line',source:'roads',paint:{'line-color':'#fff','line-width':7}});
 map.addLayer({id:'road',type:'line',source:'roads',paint:{'line-color':['case',['get','back'],'#bd744e','#235749'],'line-width':4}});
 let stops=days.flatMap(d=>d.route_stops);if(n==='overview')stops=[...new Map(stops.map(s=>[s.id,s])).values()];
-stops=[data.hotel,...(days[0].island?data.logistics_points.filter(p=>p.role==='port'):[]),...stops,...(days[0].last?data.logistics_points.filter(p=>p.role==='airport'):[])];
+stops=[data.hotel,...(days[0].island?data.logistics_points.filter(p=>p.role==='port'):[]),...stops,...(days.some(d=>d.last)?data.logistics_points.filter(p=>p.role==='airport'):[])];
 const pins={type:'FeatureCollection',features:stops.map(p=>({type:'Feature',geometry:{type:'Point',coordinates:[p.lon,p.lat]},properties:{label:n==='overview'?p.name:`${p.number||'База'}. ${p.name}`,number:String(p.number||'Б'),food:p.role==='meal'}}))};
 map.addSource('pins',{type:'geojson',data:pins});map.addLayer({id:'dots',type:'circle',source:'pins',paint:{'circle-radius':12,'circle-color':['case',['get','food'],'#c47850','#235749'],'circle-stroke-color':'#fff','circle-stroke-width':2}});
 map.addLayer({id:'numbers',type:'symbol',source:'pins',layout:{'text-field':['get','number'],'text-font':['Noto Sans Regular'],'text-size':12,'text-allow-overlap':true},paint:{'text-color':'white'}});
