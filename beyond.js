@@ -3,9 +3,9 @@
   const scenes=[
     {n:'02',label:'Океан и скалы',title:'Там, где скалы встречают океан',copy:'Пандава и Меласти. Первый день начинается на южном берегу Букита.',art:'coast',day:1,tone:'ocean'},
     {n:'03',label:'В сердце джунглей',title:'Вода под пологом джунглей',copy:'Канто Лампо и Тибумана, затем дорога к Тегаллалангу.',art:'beyond-jungle',day:3,tone:'deep'},
-    {n:'04',label:'Рисовые террасы',title:'Зелёный рисунок склонов',copy:'Джатилувих, водопад Леке Леке и вечер в Чангу.',art:'rice',day:11,tone:'olive'},
-    {n:'05',label:'За проливом',title:'За проливом — Пенида',copy:'Утренний катер из Санура и запад острова за один день.',art:'penida',day:7,tone:'ocean'},
-    {n:'06',label:'Север Бали',title:'Ловина до рассвета',copy:'Ночной выезд через Бедугул, лодка на рассвете и Брахмавихара-Арама.',art:'bukit-journal',day:10,tone:'deep'},
+    {n:'04',label:'За проливом',title:'За проливом — Пенида',copy:'Утренний катер из Санура и запад острова за один день.',art:'penida',day:7,tone:'ocean'},
+    {n:'05',label:'Север Бали',title:'Ловина до рассвета',copy:'Ночной выезд через Бедугул, лодка на рассвете и Брахмавихара-Арама.',art:'bukit-journal',day:10,tone:'deep'},
+    {n:'06',label:'Рисовые террасы',title:'Зелёный рисунок склонов',copy:'Джатилувих, водопад Леке Леке и вечер в Чангу.',art:'rice',day:11,tone:'olive'},
     {n:'07',label:'Вкус Бали',title:'Остров за столом',copy:'72 точки питания по маршруту: от раннего кофе до ужина у воды.',art:'coast',link:'restaurants.html',tone:'sand'},
     {n:'08',label:'Ваш маршрут',title:'Путешествие в вашем ритме',copy:'Двенадцать дней. Выберите главу и откройте её карту и расписание.',art:'penida',link:'#overviewHeading',tone:'olive'}
   ];
@@ -34,7 +34,7 @@
     let current=-1;
     track.innerHTML=scenes.map((s,i)=>`<article class="beyond-story-chapter" data-chapter="${i}">
       <img data-lazy-src="${artwork(s.art,true)}" width="640" height="426" alt="">
-      <div class="beyond-story-copy"><p class="beyond-kicker">${s.n} / ${s.label}</p><h3>${s.title}</h3><p>${s.copy}</p>
+      <div class="beyond-story-copy"><p class="beyond-kicker">${s.day ? 'День '+s.day+' / ' : ''}${s.label}</p><h3>${s.title}</h3><p>${s.copy}</p>
       <a href="${s.link||directDay(s.day)}" ${s.day?'data-story-day="'+s.day+'"':''}>${s.day?'Открыть день '+s.day:s.link.startsWith('#')?'Выбрать день':'Каталог заведений'} ↗</a></div>
     </article>`).join('');
     const chapters=[...track.children];
@@ -83,7 +83,7 @@
   }
 
   function diary() {
-    const entries=[scenes[0],scenes[3],scenes[2],scenes[4]];
+    const entries=[1,7,11,10].map(day=>scenes.find(scene=>scene.day===day));
     const grid=document.getElementById('beyondDiaryGrid');
     const dialog=document.getElementById('beyondLightbox');
     let current=0, trigger, swipe;
