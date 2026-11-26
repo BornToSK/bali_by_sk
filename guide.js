@@ -3,7 +3,37 @@ let data,activeDay=1,map,markers=[],mapLoaded=false;
 let fallbackScale=1,fallbackX=0,fallbackY=0,mapExpanded=false;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const image=d=>`assets/${d.image}.png`;
+const image = (day, thumbnail = false) => `assets/${day.image}${thumbnail ? '-card' : ''}.webp`;
+const dayCrops = ['60% 54%', '25% 43%', '35% 72%', '79% 43%', '61% 34%', '72% 70%', '55% 49%', '80% 55%', '47% 32%', '15% 52%', '48% 68%', '75% 29%'];
+function scrollToSection(id) {
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $(id).scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' });
+}
+function revealMobileMap() {
+  const mapPanel = $('map-section');
+  if (matchMedia('(max-width: 760px)').matches && mapPanel.getBoundingClientRect().top > innerHeight / 2) {
+    scrollToSection('map-section');
+  }
+}
+function updateDayNavigation(day) {
+  for (const button of document.querySelectorAll('#dayNav button, #dayGrid button')) {
+    const selected = Number(button.dataset.day) === day;
+    if (selected) button.setAttribute('aria-current', 'date');
+    else button.removeAttribute('aria-current');
+    if (button.closest('#dayNav')) {
+      button.classList.toggle('active', selected);
+      button.setAttribute('aria-pressed', String(selected));
+      if (selected) {
+        const rail = $('dayNav');
+        const tab = button.getBoundingClientRect();
+        const viewport = rail.getBoundingClientRect();
+        if (tab.left < viewport.left || tab.right > viewport.right) {
+          rail.scrollLeft += tab.left - viewport.left - (rail.clientWidth - button.offsetWidth) / 2;
+        }
+      }
+    }
+  }
+}
 const dateLabel=d=>new Intl.DateTimeFormat('ru',{day:'numeric',month:'long',timeZone:'Asia/Makassar'}).format(new Date(d.date+'T12:00:00+08:00'));
 function mapStops(d){const grouped=new Map();for(const s of d.route_stops||d.stops){if(grouped.has(s.id)){const p=grouped.get(s.id);p.number+='·'+s.number;}else grouped.set(s.id,{...s,number:String(s.number)});}return [...grouped.values()];}
 function tripPoints(d){return [data.hotel,...(d.island?data.logistics_points.filter(p=>p.role==='port'):[]),...mapStops(d),...(d.last?data.logistics_points.filter(p=>p.role==='airport'):[])].filter(p=>p.lon!=null&&p.lat!=null);}
@@ -61,7 +91,7 @@ function drawTimeline(d){let prev='';$('timeline').innerHTML=d.timeline.map(r=>{
  if(r.kind==='meal')return heading+`<article class="meal-row ${r.meal_type==='coffee'?'coffee-row':''}" data-restaurant="${r.restaurant_id}"><span class="meal-icon">${r.number||'♧'}</span><div><span class="time">${interval} · ${r.duration_minutes} мин</span><strong>${esc(r.title)}</strong><span class="meal-badge">${r.meal_mode==='packed'?'Согласовать бокс заранее':r.booking_required?'Бронь обязательна':r.user_choice?'Ваш выбор':'Мой выбор'}</span><p>${esc(r.note)}</p>${r.meal_mode==='onsite'?`<p class="meal-hours">${esc(r.hours_label)}</p>`:''}<div class="meal-actions">${r.meal_mode==='onsite'?`<button data-stop="${r.restaurant_id}">На карте</button>`:''}<a href="${esc(r.place_url)}" target="_blank" rel="noopener">Открыть ресторан ↗</a><a href="${esc(r.source_url)}" target="_blank" rel="noopener">Источник · ${esc(r.checked)}</a></div></div></article>`;
  if(r.kind==='buffer')return heading+`<div class="buffer-row">${interval} · ${esc(r.title)}</div>`;
  return heading+`<article class="logistic-row"><span class="time">${interval}</span><strong>${r.kind==='boat'?'⚓ ':''}${esc(r.title)}</strong><p>${esc(r.note)}</p></article>`;
- }).join('');$('timeline').querySelectorAll('[data-leg]').forEach(b=>b.onclick=()=>selectLeg(Number(b.dataset.leg)));$('timeline').querySelectorAll('[data-stop]').forEach(b=>b.onclick=()=>focusStop(b.dataset.stop));}
+ }).join('');$('timeline').querySelectorAll('[data-leg]').forEach(b=>b.onclick=()=>{selectLeg(Number(b.dataset.leg));revealMobileMap();});$('timeline').querySelectorAll('[data-stop]').forEach(b=>b.onclick=()=>{focusStop(b.dataset.stop);revealMobileMap();});}
 function selectDay(n,scroll=false){if(data&&$('restaurantCoverageTable'))$('restaurantCoverageTable').innerHTML=data.restaurant_coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}${p.id==='r15'?' · еда не подтверждена':''}</span><span>${Number(p.date.slice(-2))} окт</span></div>`).join('');activeDay=Math.max(1,Math.min(12,n));const d=data.days[activeDay-1];window.__guide.currentDay=activeDay;fallbackScale=1;fallbackX=fallbackY=0;drawFallback();$('mapFallback').src=`maps/day-${String(activeDay).padStart(2,'0')}.png`;
  $('dayHeader').innerHTML=`<div class="day-heading"><div><span class="eyebrow">ДЕНЬ ${d.number} · ${dateLabel(d).toLocaleUpperCase('ru')} · ${esc(d.weekday.toLocaleUpperCase('ru'))}</span><h2>${esc(d.title)}</h2><p>${esc(d.subtitle)}</p></div><img src="${image(d)}" alt="Сгенерированная иллюстрация для настроения дня"></div>`;
  $('daySummary').innerHTML=[['Подъём',d.wake,''],['Выезд',d.depart,''],[d.last?'Аэропорт · оценка':'Возвращение · оценка',d.return_time,''],['Дорога',`${d.distance_km_known}${d.missing_legs?' + ?':''} км`,d.island?'без морских участков':''],['Нагрузка',d.load,`${Math.floor(d.road_minutes/60)} ч ${d.road_minutes%60} мин в дороге`]].map(([label,value,note])=>`<div class="summary-item"><span>${label}</span><strong>${esc(value)}</strong>${note?`<br><small>${esc(note)}</small>`:''}</div>`).join('');drawTimeline(d);
@@ -69,11 +99,12 @@ function selectDay(n,scroll=false){if(data&&$('restaurantCoverageTable'))$('rest
  $('restaurantAlternatives').innerHTML=`<div class="section-head"><div><span class="eyebrow">ВАШ ВЫБОР ВСЕГДА ОСТАЁТСЯ ЗА ВАМИ</span><h3>Не подходит? Выберите сами.</h3></div><a class="text-link" href="restaurants.html?day=${d.number}">Все 72 ресторана ↗</a></div><p>Мой выбор уже стоит в расписании, каждый ресторан посещается один раз. Кнопка «Поменять мой выбор» переставляет два заведения и проверяет оба дня, сохраняя покрытие без повторов. PDF содержит основной вариант; ваш выбор можно сохранить в JSON.</p><div class="alternatives-grid">${d.alternatives.map(p=>`<article><span class="eyebrow">${esc(p.area)}</span><h4>${esc(p.name)}</h4><p>${esc(p.note)}</p><small>${esc(p.hours_label)}</small><a href="${esc(p.place_url)}" target="_blank" rel="noopener">Посмотреть ресторан ↗</a></article>`).join('')}</div>`;
  $('mapNotice').textContent=d.missing_legs?'Pantai Samuh: координаты не подтверждены. Два участка не нарисованы; километраж неполный.':d.island?'Катер показан в расписании, морская геометрия не выдумывалась. Дороги включают материк и Пениду.':'Входы, парковки и пешие подходы ещё проверяются. Автомобильный расчёт не гарантирует доступ для байка.';
  $('mapLinks').replaceChildren();if(d.island){const b=document.createElement('button');b.className='secondary';b.textContent='Пенида крупно';b.onclick=()=>fitDay(d,'island');$('mapLinks').append(b);}for(const [leg,label]of[[d.legs[0],'Первый переезд ↗'],[d.legs.at(-1),'Обратно / аэропорт ↗']]){const a=document.createElement('a');a.textContent=label;a.href=leg.navigation_url;a.target='_blank';a.rel='noopener';$('mapLinks').append(a);}
- $('prevDay').disabled=activeDay===1;$('nextDay').disabled=activeDay===12;$('pageIndex').textContent=`День ${activeDay} из 12`;document.querySelectorAll('#dayNav button').forEach(b=>{const selected=Number(b.dataset.day)===activeDay;b.classList.toggle('active',selected);b.setAttribute('aria-pressed',String(selected));});renderMap(d);document.dispatchEvent(new Event('bali-day-changed'));if(scroll){history.replaceState(null,'',`#day-${activeDay}`);$('days').scrollIntoView({behavior:'smooth'});}}
+ $('prevDay').disabled=activeDay===1;$('nextDay').disabled=activeDay===12;$('pageIndex').textContent=`День ${activeDay} из 12`;updateDayNavigation(activeDay);renderMap(d);document.dispatchEvent(new Event('bali-day-changed'));if(scroll){history.replaceState(null,'',`#day-${activeDay}`);scrollToSection('days');}}
 async function init(){try{const r=await fetch('itinerary.json');if(!r.ok)throw new Error('Не удалось загрузить данные маршрута');data=await r.json();window.__guide={data,currentDay:1,currentMapDay:null,mapLoaded:false,mapErrors:[],selectDay,fitDay,selectLeg};
- $('dayGrid').innerHTML=data.days.map(d=>`<button class="day-card" data-day="${d.number}" aria-label="Открыть день ${d.number}: ${esc(d.title)}"><div class="day-card-photo"><img src="${image(d)}" alt="" loading="lazy"><span class="card-day">День ${d.number}</span><span class="card-date">${dateLabel(d)} · ${esc(d.weekday)}</span></div><div class="card-body"><strong>${esc(d.title)}</strong><p>${esc(d.subtitle)}</p><div class="card-bottom"><span>${d.stops.length} мест · ${d.meals.filter(m=>m.meal_mode==='onsite').length} заведений</span><b>↗</b></div></div></button>`).join('');$('dayNav').innerHTML=data.days.map(d=>`<button data-day="${d.number}"><strong>День ${d.number}</strong>${Number(d.date.slice(-2))} окт</button>`).join('');document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>selectDay(Number(b.dataset.day),true));
+ $('dayGrid').innerHTML=data.days.map(d=>`<button class="day-card" data-day="${d.number}" aria-label="Открыть день ${d.number}: ${esc(d.title)}"><div class="day-card-photo" style="--crop:${dayCrops[d.number - 1]}"><img src="${image(d, true)}" alt="" loading="lazy"><span class="card-day">День ${d.number}</span><span class="card-date">${dateLabel(d)} · ${esc(d.weekday)}</span></div><div class="card-body"><strong>${esc(d.title)}</strong><p>${esc(d.subtitle)}</p><div class="card-bottom"><span>${d.stops.length} мест · ${d.meals.filter(m=>m.meal_mode==='onsite').length} заведений</span><b>↗</b></div></div></button>`).join('');$('dayNav').innerHTML=data.days.map(d=>`<button data-day="${d.number}"><strong>День ${d.number}</strong>${Number(d.date.slice(-2))} окт</button>`).join('');document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>selectDay(Number(b.dataset.day),true));
  $('restaurantCoverageTable').innerHTML=data.restaurant_coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}${p.id==='r15'?' · еда не подтверждена':''}</span><span>${Number(p.date.slice(-2))} окт</span></div>`).join('');
- $('coverageTable').innerHTML=data.coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}</span><button data-date="${p.planned_date}">${Number(p.planned_date.slice(-2))} окт ↗</button></div>`).join('');document.querySelectorAll('[data-date]').forEach(b=>b.onclick=()=>selectDay(data.days.find(d=>d.date===b.dataset.date).number,true));$('limitations').innerHTML=data.limitations.map(s=>`<li>${esc(s)}</li>`).join('');$('sourceLinks').innerHTML=data.sources.map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} ↗</a> · ${esc(s.checked)}</p>`).join('');$('prevDay').onclick=()=>selectDay(activeDay-1,true);$('nextDay').onclick=()=>selectDay(activeDay+1,true);initMapControls();selectDay(Number(location.hash.match(/^#day-(\d+)$/)?.[1]||1));initMap();$('pdfLink').hidden=false;$('downloadSection').hidden=false;
+ $('coverageTable').innerHTML=data.coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}</span><button data-date="${p.planned_date}">${Number(p.planned_date.slice(-2))} окт ↗</button></div>`).join('');document.querySelectorAll('[data-date]').forEach(b=>b.onclick=()=>selectDay(data.days.find(d=>d.date===b.dataset.date).number,true));$('limitations').innerHTML=data.limitations.map(s=>`<li>${esc(s)}</li>`).join('');$('sourceLinks').innerHTML=data.sources.map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} ↗</a> · ${esc(s.checked)}</p>`).join('');$('prevDay').onclick=()=>selectDay(activeDay-1,true);$('nextDay').onclick=()=>selectDay(activeDay+1,true);for (const button of document.querySelectorAll('[data-jump]')) button.onclick = () => scrollToSection(button.dataset.jump);
+ initMapControls();selectDay(Number(location.hash.match(/^#day-(\d+)$/)?.[1]||1));initMap();$('pdfLink').hidden=false;$('downloadSection').hidden=false;
  }catch(e){$('globalError').hidden=false;$('globalError').textContent=e.message;}}
 init();
 
