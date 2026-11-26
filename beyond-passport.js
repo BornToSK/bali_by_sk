@@ -10,9 +10,8 @@
   let storageAvailable = true;
   let lastDetectedDay = 0;
   let recordsRequest;
-  let sound;
   let summary;
-  let motionSelect, ambientButton;
+  let motionSelect;
 
   const canonicalKind = kind => kind === 'visit' ? 'visited' : kind;
   const validId = id => typeof id === 'string' && /^(?:r(?:0[1-9]|[1-6][0-9]|7[0-2])|v(?:0[1-79]|[12][0-9]|30))$/.test(id);
@@ -236,13 +235,12 @@
           <label>Эффекты <select data-passport-motion>
             <option value="full">Полный режим</option><option value="balanced">Сбалансированный</option><option value="reduced">Минимум движения</option>
           </select></label>
-          <button type="button" class="passport-tool passport-ambient" aria-pressed="false">Звук океана</button>
+          <button type="button" class="passport-tool passport-ambient" data-ocean-sound aria-pressed="false">Звук океана</button>
         </div>
         <p data-passport="storage" class="passport-storage"></p>
       </div>`;
     summary = Object.fromEntries([...mount.querySelectorAll('[data-passport]')].map(node => [node.dataset.passport, node]));
     motionSelect = mount.querySelector('[data-passport-motion]');
-    ambientButton = mount.querySelector('.passport-ambient');
     motionSelect.addEventListener('change', () => {
       if (!moods.includes(motionSelect.value)) return;
       state.motion = motionSelect.value;
@@ -250,7 +248,6 @@
       applyMotion();
       update();
     });
-    ambientButton.addEventListener('click', toggleOcean);
     summary.last.addEventListener('click', event => {
       if (!state.lastDay || !window.__guide?.selectDay) return;
       event.preventDefault();
@@ -304,64 +301,60 @@
   });
   systemReduced.addEventListener?.('change', applyMotion);
 
-  async function toggleOcean() {
-    if (sound) {
-      const previous = sound;
-      sound = null;
-      ambientButton.setAttribute('aria-pressed', 'false');
-      await previous.close().catch(() => {});
-      return;
-    }
-    const Context = window.AudioContext || window.webkitAudioContext;
-    if (!Context) {
-      ambientButton.textContent = 'Звук недоступен';
-      ambientButton.disabled = true;
-      return;
-    }
-    let context;
-    try {
-      context = new Context();
-      sound = context;
-      const length = Math.floor(context.sampleRate * 8);
-      const buffer = context.createBuffer(1, length, context.sampleRate);
-      const samples = buffer.getChannelData(0);
-      let colored = 0;
-      for (let i = 0; i < length; i++) {
-        colored = colored * .975 + (Math.random() * 2 - 1) * .025;
-        const swell = Math.sin(Math.PI * i / length) ** 2;
-        samples[i] = colored * swell;
+  function initializeOcean() {
+    if (!mount) return;
+    const buttons = [...document.querySelectorAll('[data-ocean-sound]')];
+    const preferenceKey = 'bali-ocean-muted';
+    let muted = false;
+    try { muted = localStorage.getItem(preferenceKey) === 'true'; }
+    catch { /* Audio remains usable without storage. */ }
+
+    const ocean = new Audio(new URL('assets/ocean-waves.mp3', location.href));
+    ocean.loop = true;
+    ocean.preload = 'none';
+
+    function renderSound() {
+      const playing = !ocean.paused && !muted && !document.hidden && !ocean.error;
+      for (const button of buttons) {
+        button.hidden = Boolean(ocean.error);
+        button.setAttribute('aria-pressed', String(playing));
+        button.title = playing ? 'Выключить звук океана' : 'Включить звук океана';
       }
-      const source = context.createBufferSource();
-      source.buffer = buffer;
-      source.loop = true;
-      const filter = context.createBiquadFilter();
-      filter.type = 'lowpass';
-      filter.frequency.value = 600;
-      const gain = context.createGain();
-      gain.gain.value = .42;
-      source.connect(filter).connect(gain).connect(context.destination);
-      source.start();
-      await context.resume();
-      if (sound === context) ambientButton.setAttribute('aria-pressed', 'true');
-    } catch {
-      if (sound === context) sound = null;
-      context?.close().catch(() => {});
-      ambientButton.textContent = 'Звук недоступен';
-      ambientButton.setAttribute('aria-pressed', 'false');
     }
+
+    function startOcean() {
+      if (muted || document.hidden || !ocean.paused || ocean.error) return;
+      ocean.play().catch(() => {
+        // Autoplay can be blocked until the next trusted click.
+        renderSound();
+      });
+    }
+
+    function toggleOcean() {
+      muted = !muted && !ocean.paused;
+      try { localStorage.setItem(preferenceKey, String(muted)); }
+      catch { /* Keep the preference for this page. */ }
+      if (muted) ocean.pause();
+      else startOcean();
+      renderSound();
+    }
+
+    for (const button of buttons) button.addEventListener('click', toggleOcean);
+    for (const event of ['playing', 'pause', 'error']) ocean.addEventListener(event, renderSound);
+    document.addEventListener('click', event => {
+      if (event.isTrusted && !event.target.closest?.('[data-ocean-sound]')) startOcean();
+    }, {capture: true});
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) ocean.pause();
+      else startOcean();
+      renderSound();
+    });
+    addEventListener('pagehide', () => ocean.pause());
+    addEventListener('pageshow', event => {
+      if (event.persisted) startOcean();
+    });
+    renderSound();
+    if (navigator.getAutoplayPolicy?.('mediaelement') !== 'disallowed') startOcean();
   }
-  addEventListener('pagehide', () => {
-    const previous = sound;
-    sound = null;
-    ambientButton?.setAttribute('aria-pressed', 'false');
-    previous?.close().catch(() => {});
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden && sound) {
-      const previous = sound;
-      sound = null;
-      ambientButton?.setAttribute('aria-pressed', 'false');
-      previous.close().catch(() => {});
-    }
-  });
+  initializeOcean();
 })();

@@ -86,7 +86,7 @@
     const entries=[scenes[0],scenes[3],scenes[2],scenes[4]];
     const grid=document.getElementById('beyondDiaryGrid');
     const dialog=document.getElementById('beyondLightbox');
-    let current=0,trigger;
+    let current=0, trigger, swipe;
     grid.innerHTML=entries.map((s,i)=>`<button type="button" class="beyond-print" data-print="${i}">
       <img data-lazy-src="${artwork(s.art,true)}" alt="" width="640" height="426">
       <span>${s.label}</span><small>День ${s.day} · иллюстрация ИИ</small>
@@ -98,6 +98,7 @@
       img.src=artwork(s.art);
       img.alt='Сгенерированная иллюстрация · '+s.title;
       dialog.querySelector('h3').textContent=s.title;
+      dialog.querySelector('[data-gallery-caption]').textContent='День '+s.day+' · иллюстрация ИИ';
       dialog.querySelector('output').textContent=(current+1)+' / '+entries.length;
       const link=dialog.querySelector('[data-story-day]');
       link.href=directDay(s.day);
@@ -106,28 +107,37 @@
     function advance(delta) {
       current=(current+delta+entries.length)%entries.length;
       render();
+      if (mode()!=='reduced') {
+        const image=dialog.querySelector('img');
+        const src=image.src;
+        image.decode().then(()=>{
+          if (dialog.open && image.src===src) image.animate([{opacity:.5},{opacity:1}],{duration:210,easing:'ease-out'});
+        }).catch(()=>{});
+      }
     }
-    const modalImage=dialog.querySelector('img');
     for(const button of grid.querySelectorAll('button')) button.onclick=()=>{
       current=Number(button.dataset.print);
       trigger=button;
-      const thumbnail=button.querySelector('img');
-      function open(){render();dialog.showModal();}
-      if(!document.startViewTransition||mode()==='reduced'){open();return;}
-      thumbnail.style.viewTransitionName='bali-diary-frame';
-      const transition=document.startViewTransition(()=>{
-        thumbnail.style.viewTransitionName='';
-        open();
-        modalImage.style.viewTransitionName='bali-diary-frame';
-      });
-      transition.finished.catch(()=>{}).finally(()=>{
-        thumbnail.style.viewTransitionName='';
-        modalImage.style.viewTransitionName='';
-      });
+      render();
+      dialog.showModal();
     };
+    dialog.addEventListener('pointerdown',event=>{
+      if(event.pointerType!=='touch'||!event.isPrimary||event.target.closest('button,a')) return;
+      swipe={id:event.pointerId,x:event.clientX,y:event.clientY};
+    });
+    dialog.addEventListener('pointerup',event=>{
+      if(swipe?.id!==event.pointerId) return;
+      const dx=event.clientX-swipe.x, dy=event.clientY-swipe.y;
+      swipe=null;
+      if(Math.abs(dx)>40 && Math.abs(dx)>1.4*Math.abs(dy)) advance(dx<0?1:-1);
+    });
+    dialog.addEventListener('pointercancel',()=>{swipe=null;});
     for(const b of dialog.querySelectorAll('[data-gallery-step]')) b.onclick=()=>advance(Number(b.dataset.galleryStep));
     dialog.querySelector('[data-story-day]').onclick=e=>{dialog.close();openDay(e);};
-    dialog.addEventListener('close',()=>trigger?.focus({preventScroll:true}));
+    dialog.addEventListener('close',()=>{
+      swipe=null;
+      trigger?.focus({preventScroll:true});
+    });
     dialog.addEventListener('keydown',e=>{
       if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();advance(e.key==='ArrowLeft'?-1:1);}
     });
