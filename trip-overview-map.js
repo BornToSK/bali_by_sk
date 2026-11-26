@@ -170,7 +170,6 @@ function initTripOverview(itinerary, openDay) {
   async function start() {
     if (started) return;
     started = true;
-    image.src = image.dataset.src;
     tell('Загружаем интерактивную карту…');
     try {
       await loadMapLibrary();
@@ -189,6 +188,9 @@ function initTripOverview(itinerary, openDay) {
         }
       });
       map.once('load', () => {
+        for (const [layer, color] of [['water','#a7cfd0'], ['park','#cadcb8'], ['landcover_wood','#8cae83']]) {
+          if (map.getLayer(layer)?.type === 'fill') map.setPaintProperty(layer,'fill-color',color);
+        }
         map.addSource('overview-routes', {type: 'geojson', data: {type: 'FeatureCollection', features}});
         const routeLayer = {
           type: 'line', source: 'overview-routes', layout: {'line-join': 'round', 'line-cap': 'round'},

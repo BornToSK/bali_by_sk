@@ -221,36 +221,53 @@ html:has(.beyond-lightbox[open]) { overflow:hidden; }
 [data-bali-motion="reduced"] .beyond :is(.exp-hero-art,.exp-wordmark span,.beyond-foliage,.beyond-print,.beyond-story) { animation:none!important; transition:none!important; transform:none!important; }
 @media(prefers-reduced-motion:reduce){.beyond-foliage,.beyond .exp-hero-art img,.beyond-print { transform:none!important; }}
 
-.beyond .exp-atlas-lead h2 { line-height:.97; }
-.exp-atlas-lead .exp-atlas-preview {
-  position:relative;
-  display:block;
-  padding:0;
-  margin:0 0 8px;
-  border:1px solid #b8c9ab52;
-  border-radius:15px;
-  overflow:hidden;
-  box-shadow:0 16px 34px #0d24264d;
+.beyond .trip-map-overview {
+  padding:clamp(14px,3vw,44px);
+  scroll-margin-block-start:78px;
+  background:radial-gradient(ellipse at 80% 0%,#355347,transparent 60%),#19332b;
 }
-.exp-atlas-preview img { transition:filter 180ms ease; }
-.exp-atlas-preview:hover img,
-.exp-atlas-preview:focus-visible img { filter:brightness(1.12); }
-.exp-atlas-preview span {
-  position:absolute;
-  left:clamp(12px, 2.8vw, 36px);
-  bottom:clamp(12px, 2.8vw, 36px);
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-  padding:7px 11px;
-  border:1px solid #ecc99880;
-  border-radius:6px;
-  background:#132d2e;
-  color:#f8e2b8;
-  font-size:11px;
-  text-decoration:none;
+.beyond .exp-atlas-lead {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  flex-wrap:wrap;
+  margin-bottom:clamp(16px,2vw,26px);
+  gap:10px 24px;
 }
-.exp-atlas-preview b { font-size:15px; }
+.beyond .exp-atlas-lead h2 {
+  font-size:clamp(38px,6.1vw,88px);
+  line-height:.98;
+}
+.beyond .exp-atlas-lead h2 em { color:#e8cda0; }
+.beyond .exp-atlas-lead p { margin:0; color:#d7e1d7; }
+.beyond .overview-panel {
+  color:#f1eddf;
+  background:#122b27;
+  border-color:#9bb39c59;
+  scroll-margin-block-start:78px;
+  box-shadow:0 14px 30px #091e1c42;
+  border-radius:18px;
+}
+.beyond .overview-panel.overview-expanded { border-radius:0; }
+.beyond .overview-viewport { background:#a7cfd0; }
+.beyond .overview-mode { background:#28473d; }
+.beyond .overview-mode button { color:#f4e7d2; }
+.beyond .overview-mode button[aria-pressed="true"] { color:#172f29; background:#f1d9ad; }
+.beyond .overview-filter select { background:#f4efe4; border-color:#d4c5aa; }
+.beyond .overview-filter button { border-color:#afbea480; color:#f4e7d2; }
+.beyond .overview-panel :is(.map-legend,.map-wheel-hint) { color:#dce6d7; }
+.beyond .overview-footer .legend-line:not(.back) { background:#4fba9d; }
+.beyond .overview-footer .legend-line.back { border-color:#efa77c; }
+.beyond .overview-footer .legend-pin { color:#f2d8a7; }
+.beyond .overview-panel[data-mode="satellite"] .legend-line:not(.back) { background:#e6f5ac; }
+@media(max-width:620px) {
+  .beyond .overview-toolbar { align-items:stretch; }
+  .beyond .overview-filter { flex:1 0 100%; justify-content:start; flex-wrap:wrap; }
+  .beyond .overview-filter select { width:100%; }
+  .beyond .overview-viewport { height:clamp(350px,62svh,500px); }
+  .beyond .overview-expanded .overview-viewport { height:auto; }
+}
+
 .exp-sound {
   position:fixed;
   right:max(16px, env(safe-area-inset-right));
@@ -273,6 +290,17 @@ html:has(.beyond-lightbox[open]) { overflow:hidden; }
 @media (max-width:760px) {
   .exp-sound { bottom:calc(77px + env(safe-area-inset-bottom)); }
 }
-@media (prefers-reduced-motion:reduce) {
-  .exp-atlas-preview img { transition:none; }
+.exp-sound-label { display:none; }
+html:not(.beyond-compact-nav) .exp-sound[data-needs-gesture] {
+  width:auto;
+  padding-inline:12px 15px;
+  grid-auto-flow:column;
+  gap:7px;
+  border-radius:24px;
+}
+html:not(.beyond-compact-nav) .exp-sound[data-needs-gesture] .exp-sound-label {
+  display:inline;
+  font-size:12px;
+  font-weight:800;
+  white-space:nowrap;
 }
