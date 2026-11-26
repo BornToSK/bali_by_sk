@@ -1,0 +1,135 @@
+.catalog-experience {
+  background:#f7f4eb;
+  color:#20372d;
+}
+.dining-cover {
+  position:relative;
+  display:grid;
+  align-items:end;
+  min-height:clamp(420px,62svh,650px);
+  isolation:isolate;
+  overflow:hidden;
+  color:#fff8e8;
+  background:#26382a;
+}
+.dining-cover-art, .dining-cover-art img, .dining-cover::after {
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+}
+.dining-cover-art { z-index:-2; }
+.dining-cover-art img { display:block; object-fit:cover; object-position:50% 44%; }
+.dining-cover::after {
+  content:"";
+  z-index:-1;
+  background:linear-gradient(90deg,#0f2018f2 0%,#14271ccc 34%,#1726191a 71%),linear-gradient(0deg,#0b201885,transparent 40%);
+}
+.dining-cover-inner {
+  position:relative;
+  width:min(1440px,100%);
+  margin-inline:auto;
+  padding:clamp(25px,6vw,80px) var(--exp-gutter,24px);
+}
+.dining-cover-copy { max-width:610px; padding-bottom:12px; }
+.dining-cover-copy .eyebrow {
+  color:#f1cda0;
+  letter-spacing:.16em;
+  font-weight:800;
+  font-size:11px;
+  text-transform:uppercase;
+}
+.dining-cover h1 {
+  margin:10px 0 17px;
+  color:#fff8e8;
+  font:600 clamp(62px,8vw,118px)/.87 var(--exp-display,Georgia,serif);
+  letter-spacing:-.037em;
+}
+.dining-cover h1 em { display:block; color:#f6d3a3; }
+.dining-cover-copy > p:not(.eyebrow) { max-width:36ch; color:#fff5e7; line-height:1.5; font-size:clamp(14px,1.4vw,18px); }
+.dining-cover .dining-cover-link {
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  min-height:46px;
+  padding:8px 15px;
+  margin-top:8px;
+  border-radius:7px;
+  color:#26392b;
+  background:#f7e4be;
+  font-size:13px;
+  font-weight:800;
+}
+.dining-cover .dining-cover-link:hover { background:#fff2d5; }
+.dining-cover .dining-cover-link:focus-visible { outline:2px solid #fff2d5; outline-offset:4px; }
+.dining-cover-credit {
+  margin:0;
+  position:absolute;
+  bottom:12px;
+  right:var(--exp-gutter,24px);
+  padding:3px 7px;
+  border-radius:4px;
+  background:#12251cce;
+  color:#ffefd6;
+  font-size:10px;
+}
+#diningCatalog { scroll-margin-top:18px; }
+.dining-catalog-head {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:end;
+  justify-content:space-between;
+  gap:6px 16px;
+  padding-block:clamp(26px,5vw,64px) 12px;
+}
+.dining-catalog-head h2 { margin:0; font:600 clamp(36px,5vw,70px)/1 var(--exp-display,Georgia,serif); }
+.dining-catalog-head a { font-size:13px; text-decoration:underline; text-underline-offset:4px; }
+.catalog-experience .cards .card {
+  overflow:hidden;
+  box-shadow:0 6px 19px #18382e10;
+}
+.dining-card-art {
+  position:relative;
+  margin:0 0 11px;
+  aspect-ratio:2.1;
+  overflow:hidden;
+  border-radius:9px;
+  background:#d9dfcf;
+}
+.dining-card-art img { display:block; width:100%; height:100%; object-fit:cover; }
+.dining-card-art figcaption {
+  position:absolute;
+  bottom:6px;
+  right:6px;
+  padding:2px 6px;
+  border-radius:4px;
+  background:#12251cdb;
+  color:#fff5e7;
+  line-height:1.25;
+  font-size:9px;
+}
+.catalog-experience .dining-sources {
+  margin-block:22px;
+  padding:10px 0;
+  border-top:1px solid #dcd8c8;
+  font-size:13px;
+}
+.dining-sources summary { cursor:pointer; font-weight:800; }
+.dining-sources .links { display:flex; flex-wrap:wrap; gap:6px 14px; }
+.dining-sources .links a { text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:620px) {
+  .dining-cover { min-height:clamp(390px,68svh,530px); }
+  .dining-cover-art img { object-position:50% 37%; }
+  .dining-cover::after { background:linear-gradient(0deg,#102218 0%,#102218d9 32%,#16291e1a 76%); }
+  .dining-cover h1 { font-size:clamp(56px,11vw,82px); }
+  .dining-cover-copy { padding-bottom:20px; }
+}
+@media (prefers-reduced-motion:no-preference) {
+  html:not([data-bali-motion="reduced"]) .dining-cover-art img { animation:dining-cover-settle 1.35s cubic-bezier(.2,.78,.29,1) both; }
+  html:not([data-bali-motion="reduced"]) .dining-cover-copy { animation:dining-arrive .65s .08s ease-out both; }
+  html:not([data-bali-motion="reduced"]) .dining-card-art img { transition:transform .45s cubic-bezier(.2,.78,.29,1); }
+  html:not([data-bali-motion="reduced"]) .card:is(:hover,:focus-within) .dining-card-art img { transform:scale(1.06); }
+}
+@keyframes dining-cover-settle { from {transform:scale(1.06)} to {transform:scale(1)} }
+@keyframes dining-arrive { from {opacity:0;transform:translateY(14px)} to {opacity:1;transform:none} }

@@ -14,6 +14,36 @@ function sortedValues(records, getter) {
   return [...new Set(records.map(getter).filter(Boolean))].sort((a,b) => a.localeCompare(b,'ru'));
 }
 
+function catalogueArt(p) {
+  if (role === 'meal') {
+    if (/кофейн|пекарн|завтрак|бранч|кафе/i.test(p.type)) return 'dining-coffee.webp';
+    if (/бар|кальян/i.test(p.type)) return 'dining-sunset.webp';
+    return 'dining-table.webp';
+  }
+  const area = p.area?.value || '';
+  if (/пенида|penida/i.test(area)) return 'penida-card.webp';
+  if (/пляж|лодочная/i.test(p.type)) return 'coast-card.webp';
+  return 'rice-card.webp';
+}
+
+function cataloguePicture(p) {
+  const figure=document.createElement('figure');
+  figure.className='dining-card-art';
+  const img=document.createElement('img');
+  img.src='assets/'+catalogueArt(p);
+  img.alt='';
+  img.width=490;
+  img.height=286;
+  img.loading='lazy';
+  img.decoding='async';
+  const credit=document.createElement('figcaption');
+  credit.textContent='Иллюстрация ИИ';
+  figure.append(img,credit);
+  return figure;
+}
+
+
+
 function renderPlace(p) {
   const card=document.createElement('article');
   card.className='card'+(chosen.has(p.id)?' chosen':'');
@@ -42,7 +72,7 @@ function renderPlace(p) {
   meta.textContent=[p.area.value,p.type,p.assigned_date && p.assigned_date.slice(-2)+' окт.'].filter(Boolean).join(' · ');
   const address=document.createElement('p');
   address.textContent=!p.address.value || p.address.value==='TBD' ? 'Адрес требует проверки' : p.address.value;
-  card.append(label,meta,address);
+  card.append(cataloguePicture(p),label,meta,address);
   const hours=document.createElement('p');
   hours.className='catalog-status';
   const published=['official_current','official'].includes(p.hours?.status);
