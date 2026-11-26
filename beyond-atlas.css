@@ -30,8 +30,8 @@
 .bx-atlas-intro h2 {
   margin: 8px 0 0;
   color: var(--bx-text);
-  font: 600 clamp(46px, 7vw, 106px)/.8 var(--exp-display, Georgia, serif);
-  letter-spacing: -.045em;
+  font: 600 clamp(42px, 7vw, 106px)/.98 var(--exp-display, Georgia, serif);
+  letter-spacing: -.025em;
 }
 .bx-atlas-intro p { max-width: 29rem; margin: 0; color: #e8e4d7; font-size: clamp(13px, 1.5vw, 17px); }
 .bx-atlas-kicker { color: var(--bx-accent); font-size: 10px; font-weight: 800; letter-spacing: .16em; }
@@ -122,13 +122,14 @@
 .bx-atlas-roads.is-day path { stroke-width: 2; stroke-opacity: 1; }
 .bx-atlas-roads.is-day path.is-return { stroke: #e7a373; stroke-opacity: .85; }
 .bx-atlas-pin {
-  display: block;
+  display: grid;
+  place-items: center;
   position: absolute;
   pointer-events: auto;
   border: 0;
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
   padding: 0;
   background: transparent;
   transform: translate(-50%, -50%);
@@ -136,24 +137,22 @@
 }
 .bx-atlas-pin::before {
   content: '';
-  display: block;
-  width: 7px;
-  height: 7px;
-  margin: 6px;
-  border: 1px solid #fff9e8;
+  box-sizing: border-box;
+  width: clamp(11px, 1.05vw, 15px);
+  aspect-ratio: 1;
+  border: 2px solid #fff9e8;
   border-radius: 50%;
-  background: #b97852;
-  box-shadow: 0 1px 4px #10261c;
+  background: #c96f4e;
+  box-shadow: 0 0 0 1px #1b332a, 0 2px 5px #10261caa;
 }
 .bx-atlas-pin:hover,
 .bx-atlas-pin.active { z-index: 2; }
 .bx-atlas-pin:hover::before,
 .bx-atlas-pin.active::before {
-  width: 12px;
-  height: 12px;
-  margin: 4px;
   background: #fff0bf;
-  outline: 2px solid #203a2d;
+  border-color: #203a2d;
+  box-shadow: 0 0 0 2px #fff0bf, 0 3px 6px #10261caa;
+  transform: scale(1.18);
 }
 .bx-atlas-model-foot { border-top: 1px solid #e6cba338; }
 .bx-atlas-model-foot p { flex: 1; margin: 0; font-size: 10px; line-height: 1.4; color: #e8e4d7; }

@@ -30,7 +30,7 @@
   root.innerHTML = `
     <header class="bx-atlas-intro">
       <div><span class="bx-atlas-kicker">БАЛИ ОТ SK / АТЛАС ОСТРОВА</span>
-        <h2 id="bxAtlasTitle">География<br><em>путешествия.</em></h2></div>
+        <h2 id="bxAtlasTitle">География<br> <em>путешествия.</em></h2></div>
       <p>Выберите тему или день, найдите точку на острове и откройте её в расписании.</p>
     </header>
     <div class="bx-atlas-tabs" role="group" aria-label="Категории мест"></div>
