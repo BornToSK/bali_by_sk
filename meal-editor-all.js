@@ -28,7 +28,7 @@
    const wait=until=>{if(until>t){rows.push({kind:'buffer',title:'Запас до временного окна',start:clock(t),end:clock(until),duration_minutes:until-t,note:''});t=until;}};
    for(const r of d.timeline){const original=minute(r.start);if(r.kind==='buffer'&&r.title==='Запас до временного окна'){wait(minute(r.end));continue;}if(r.kind==='meal'||r.kind==='visit'||r.kind==='boat')wait(original);if(r.kind==='meal'){if(r.meal_type!=='coffee'){wait(last+210);last=t;}if(r.meal_mode==='onsite'){const h=info(r.restaurant_id).dining_research,w=h.planning_windows.find(([a,b])=>Math.max(t,a)+r.duration_minutes<=b);if(!w)throw Error('Обмен выходит за часы '+r.title+'. Выберите другой обмен.');wait(w[0]);}}if((r.kind==='boat'||r.place_id==='v30')&&t!==original)throw Error('Обмен сдвигает лодку. Изменение не применено.');r.start=clock(t);t+=r.duration_minutes;r.end=clock(t);rows.push(r);}
    if(t>=1440||d.last&&t>1290||d.sleep_window&&t>945)throw Error('Обмен нарушает сон, аэропорт или возвращение в тот же день.');
-   if(d.last&&rows.some(r=>r.title.includes('checkout')&&minute(r.end)>720))throw Error('Нарушен checkout до 12:00.');
+   if(d.last&&rows.some(r=>r.title.includes('checkout')&&minute(r.end)>720))throw Error('Выезд из отеля запланирован позже 12:00.');
    d.timeline=rows;d.meals=rows.filter(r=>r.kind==='meal');d.return_time=clock(t);d.road_minutes=d.legs.reduce((s,l)=>s+l.plan_minutes,0);d.distance_km_known=Math.round(d.legs.reduce((s,l)=>s+l.distance_km,0)*10)/10;d.customized=true;d.risk+=' Ваш обмен сохранён; PDF содержит основной вариант.';
   }
   const wake=['10:30','06:30','06:00','05:45','05:55','06:20','04:10','05:30','04:30','23:15','05:00','07:30'];

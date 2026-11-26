@@ -1,13 +1,13 @@
 'use strict';
 (() => {
   const scenes=[
-    {n:'02',en:'Ocean & Cliffs',title:'Там, где скалы встречают океан',copy:'Пандава и Меласти. Первый день начинается на южном берегу Букита.',art:'coast',day:1,tone:'ocean'},
-    {n:'03',en:'Into the Jungle',title:'Вода под пологом джунглей',copy:'Канто Лампо и Тибумана, затем дорога к Тегаллалангу.',art:'beyond-jungle',day:3,tone:'deep'},
-    {n:'04',en:'Rice Terraces',title:'Зелёный рисунок склонов',copy:'Джатилувих, водопад Леке Леке и вечер в Чангу.',art:'rice',day:11,tone:'olive'},
-    {n:'05',en:'Beyond the Island',title:'За проливом — Пенида',copy:'Утренний катер из Санура и запад острова за один день.',art:'penida',day:7,tone:'ocean'},
-    {n:'06',en:'Northern Bali',title:'Ловина до рассвета',copy:'Ночной выезд через Бедугул, лодка на рассвете и Брахмавихара-Арама.',art:'bukit-journal',day:10,tone:'deep'},
-    {n:'07',en:'Taste of Bali',title:'Остров за столом',copy:'72 точки питания по маршруту: от раннего кофе до ужина у воды.',art:'coast',link:'restaurants.html',tone:'sand'},
-    {n:'08',en:'Your Journey',title:'Путешествие в вашем ритме',copy:'Двенадцать дней. Выберите главу и откройте её карту и расписание.',art:'penida',link:'#overviewHeading',tone:'olive'}
+    {n:'02',label:'Океан и скалы',title:'Там, где скалы встречают океан',copy:'Пандава и Меласти. Первый день начинается на южном берегу Букита.',art:'coast',day:1,tone:'ocean'},
+    {n:'03',label:'В сердце джунглей',title:'Вода под пологом джунглей',copy:'Канто Лампо и Тибумана, затем дорога к Тегаллалангу.',art:'beyond-jungle',day:3,tone:'deep'},
+    {n:'04',label:'Рисовые террасы',title:'Зелёный рисунок склонов',copy:'Джатилувих, водопад Леке Леке и вечер в Чангу.',art:'rice',day:11,tone:'olive'},
+    {n:'05',label:'За проливом',title:'За проливом — Пенида',copy:'Утренний катер из Санура и запад острова за один день.',art:'penida',day:7,tone:'ocean'},
+    {n:'06',label:'Север Бали',title:'Ловина до рассвета',copy:'Ночной выезд через Бедугул, лодка на рассвете и Брахмавихара-Арама.',art:'bukit-journal',day:10,tone:'deep'},
+    {n:'07',label:'Вкус Бали',title:'Остров за столом',copy:'72 точки питания по маршруту: от раннего кофе до ужина у воды.',art:'coast',link:'restaurants.html',tone:'sand'},
+    {n:'08',label:'Ваш маршрут',title:'Путешествие в вашем ритме',copy:'Двенадцать дней. Выберите главу и откройте её карту и расписание.',art:'penida',link:'#overviewHeading',tone:'olive'}
   ];
   const os=matchMedia('(prefers-reduced-motion: reduce)');
   const mode=()=>window.BaliPassport?.motion?.()||document.documentElement.dataset.baliMotion||(os.matches?'reduced':'balanced');
@@ -34,7 +34,7 @@
     let current=-1;
     track.innerHTML=scenes.map((s,i)=>`<article class="beyond-story-chapter" data-chapter="${i}">
       <img data-lazy-src="${artwork(s.art,true)}" width="640" height="426" alt="">
-      <div class="beyond-story-copy"><p class="beyond-kicker">${s.n} / ${s.en}</p><h3>${s.title}</h3><p>${s.copy}</p>
+      <div class="beyond-story-copy"><p class="beyond-kicker">${s.n} / ${s.label}</p><h3>${s.title}</h3><p>${s.copy}</p>
       <a href="${s.link||directDay(s.day)}" ${s.day?'data-story-day="'+s.day+'"':''}>${s.day?'Открыть день '+s.day:s.link.startsWith('#')?'Выбрать день':'Каталог заведений'} ↗</a></div>
     </article>`).join('');
     const chapters=[...track.children];
@@ -54,7 +54,7 @@
         if(mode()!=='reduced') visual.animate([{clipPath:'inset(2% 12% 2% 0)',transform:'scale(1.05)'},{clipPath:'inset(0)',transform:'scale(1)'}],{duration:650,easing:'cubic-bezier(.2,.65,.3,1)'});
       });
       document.getElementById('beyondStoryIndex').textContent=s.n+' / 08';
-      document.getElementById('beyondStoryName').textContent=s.en;
+      document.getElementById('beyondStoryName').textContent=s.label;
       chapters.forEach((chapter,index)=>chapter.toggleAttribute('data-active',index===i));
     }
     const mobile=matchMedia('(max-width: 760px)');
@@ -89,7 +89,7 @@
     let current=0,trigger;
     grid.innerHTML=entries.map((s,i)=>`<button type="button" class="beyond-print" data-print="${i}">
       <img data-lazy-src="${artwork(s.art,true)}" alt="" width="640" height="426">
-      <span>${s.en}</span><small>День ${s.day} · AI-иллюстрация</small>
+      <span>${s.label}</span><small>День ${s.day} · иллюстрация ИИ</small>
     </button>`).join('');
     loadEditorialImages(grid);
     function render() {

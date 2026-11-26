@@ -83,7 +83,7 @@ async function loadItinerary() {
 function initLazyMealEditor() {
   function load() {
     const script = document.createElement('script');
-    script.src = 'meal-editor-all.js?v=audit2';
+    script.src = 'meal-editor-all.js?v=ru1';
     document.head.append(script);
   }
   if (!('IntersectionObserver' in window)) { load(); return; }

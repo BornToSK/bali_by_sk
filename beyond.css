@@ -26,7 +26,7 @@
 .beyond .exp-hero-inner { z-index:3; padding-block:135px 73px; }
 .beyond .exp-wordmark {
   position:relative; z-index:2; justify-content:flex-start; gap:.055em;
-  font-size:clamp(122px,32vw,485px); line-height:.68; color:#f5f2e9ed;
+  font-size:clamp(104px,28vw,405px); line-height:.68; color:#f5f2e9ed;
   margin:clamp(30px,6vw,80px) 0 clamp(34px,6vw,74px);
   text-shadow:0 12px 45px #162d2461;
 }
@@ -100,7 +100,7 @@
 @media(max-width:760px){
   .beyond .exp-hero { min-height:min(810px,max(630px,93svh)); }
   .beyond .exp-hero-inner { padding-block:75px 83px; }
-  .beyond .exp-wordmark { justify-content:space-between; gap:0; font-size:clamp(100px,28vw,210px); }
+  .beyond .exp-wordmark { justify-content:space-between; gap:0; font-size:clamp(84px,25.5vw,188px); }
   .beyond-foliage { width:109%; opacity:.65; right:-14%; bottom:1%; mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 76%,transparent); }
   .beyond .exp-hero-foot .beyond-secondary { padding-inline:8px; }
   .beyond .exp-nav { grid-template-columns:repeat(6,minmax(0,1fr)); }

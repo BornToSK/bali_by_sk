@@ -7,9 +7,9 @@
   const escape = value => String(value ?? '').replace(/[&<>"']/g, char =>
     ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[char]));
   const portrait = {
-    coast: ['assets/coast-card.webp', 'assets/coast.webp', 'Побережье · AI-иллюстрация'],
-    rice: ['assets/rice-card.webp', 'assets/rice.webp', 'Террасы и холмы · AI-иллюстрация'],
-    penida: ['assets/penida-card.webp', 'assets/penida.webp', 'Пенида · AI-иллюстрация'],
+    coast: ['assets/coast-card.webp', 'assets/coast.webp', 'Побережье · иллюстрация ИИ'],
+    rice: ['assets/rice-card.webp', 'assets/rice.webp', 'Террасы и холмы · иллюстрация ИИ'],
+    penida: ['assets/penida-card.webp', 'assets/penida.webp', 'Пенида · иллюстрация ИИ'],
   };
   const ids = (...values) => item => values.includes(item.id);
   const categories = [
@@ -29,7 +29,7 @@
   root.setAttribute('aria-labelledby','bxAtlasTitle');
   root.innerHTML = `
     <header class="bx-atlas-intro">
-      <div><span class="bx-atlas-kicker">BALI BY SK / EXPLORE BALI</span>
+      <div><span class="bx-atlas-kicker">БАЛИ ОТ SK / АТЛАС ОСТРОВА</span>
         <h2 id="bxAtlasTitle">География<br><em>путешествия.</em></h2></div>
       <p>Выберите тему или день, найдите точку на острове и откройте её в расписании.</p>
     </header>
@@ -60,7 +60,7 @@
       </div>
       <div class="bx-atlas-feature">
         <img src="assets/rice-card.webp" alt="" width="650" height="433" loading="lazy" decoding="async">
-        <div><span class="bx-atlas-art-label">Террасы и холмы · AI-иллюстрация</span>
+        <div><span class="bx-atlas-art-label">Террасы и холмы · иллюстрация ИИ</span>
         <h3>Главное</h3><p></p><strong class="bx-atlas-count" role="status">Загружаем места…</strong></div>
       </div>
     </div>

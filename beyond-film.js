@@ -149,7 +149,7 @@ function initBeyondFilm() {
       </div>
     </div>
     <div class="film-stage" id="filmStage" hidden>
-      <img class="film-stage-image" alt="AI-иллюстрация главы" width="70" height="70">
+      <img class="film-stage-image" alt="Иллюстрация ИИ главы" width="70" height="70">
       <div class="film-stage-copy">
         <div class="film-stage-live" aria-live="polite">
           <span id="filmStageMeta"></span>
@@ -275,10 +275,10 @@ function initBeyondFilm() {
     const time = row.start && (row.end && row.start!==row.end?`${row.start}–${row.end}`:row.start);
     const stopNo = row.number ? ` · остановка ${row.number}` : '';
     button('filmStageMeta').textContent = [`${pad(index+1)} / ${pad(steps.length)}`, categories[row.kind]+stopNo, time].filter(Boolean).join(' · ');
-    button('filmStageName').textContent=row.title;
+    button('filmStageName').textContent=routeText(row.title);
     button('filmStageNote').textContent=row.kind==='boat'?'Морской этап указан в расписании. Дорожная линия продолжится после прибытия.':
       row.kind==='road' && nextVisit ? `Далее · ${nextVisit.start} · ${point.name}`:
-        row.note ? row.note : '';
+        routeText(row.note);
     slideImage.src=tiny(day);
     measure(leg?.geometry?.coordinates);
     routeWasReady=Boolean(map);

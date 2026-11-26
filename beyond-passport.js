@@ -214,7 +214,7 @@
       <div class="passport-cover">
         <div class="passport-emblem" aria-hidden="true">SK</div>
         <p class="passport-kicker">ЛИЧНЫЙ АРХИВ</p>
-        <h2 id="passportTitle">My Bali</h2>
+        <h2 id="passportTitle">Мой Бали</h2>
         <p>Паспорт путешествия</p>
         <a class="passport-resume" data-passport="last"></a>
       </div>
