@@ -65,6 +65,13 @@
     else start();
     render();
   });
+  addEventListener('storage', event => {
+    if (event.key !== preferenceKey) return;
+    muted = event.newValue === 'true';
+    if (muted) ocean.pause();
+    else start();
+    render();
+  });
   addEventListener('pagehide', () => ocean.pause());
   addEventListener('pageshow', event => {
     if (event.persisted) start();
