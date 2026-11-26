@@ -61,3 +61,7 @@ python -m http.server 8778 --bind 127.0.0.1
 
 Откройте http://127.0.0.1:8778/ . PDF: [guide.pdf](guide.pdf). Данные: [itinerary.json](itinerary.json). Бронирования: [BOOKINGS.md](BOOKINGS.md). Для Windows также подходит `py -m http.server 8778 --bind 127.0.0.1`.
 
+
+### После изменения маршрута
+
+Обновите сжатую копию для сайта командой `python scripts/build-web-data.py`. Исходный `itinerary.json` используется для скачивания и остаётся резервным источником для браузеров без распаковки gzip.

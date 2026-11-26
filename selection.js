@@ -10,7 +10,148 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify([...chosen]));}catch
 function payload(){return {schema_version:1,day_context:dayContext,list_snapshot_date:'2026-10-06',user_updates:registry.user_updates||[],lists_unchanged_confirmed:el('unchanged').checked,selected_restaurants:registry.places.filter(p=>chosen.has(p.id)).map(p=>({id:p.id,name:p.name,place_url:p.place_url})),note:'Личный выбор; совместимость с расписанием ещё не проверена'};}
 function selectionText(){const p=payload();return `${dayContext?"Замены ресторанов для дня "+dayContext+" ("+(10+dayContext)+" октября).\n":""}Списки после 6 октября: ${p.lists_unchanged_confirmed?'не менялись, подтверждаю':'актуальность пока не подтверждена'}.\nВыбрано ресторанов: ${p.selected_restaurants.length}.\n${p.selected_restaurants.map((r,i)=>`${i+1}. ${r.name}`).join('\n')}`;}
 function updateSummary(){el('selectedCount').textContent=`Выбрано ${chosen.size} / 72`;el('selectionHint').textContent=!storageWorks?'Сохраните JSON: локальное хранение недоступно':chosen.size>72?'В списке всего 72 заведения':chosen.size?'Все 72 уже назначены; здесь ваш список для уточнений':'Добавьте рестораны для вашего маршрута';el('selectionText').value=selectionText();}
-function draw(){const query=el('search').value.trim().toLocaleLowerCase('ru');const area=el('area').value;const records=registry.places.filter(p=>p.roles.includes(role)&&(!area||p.area.value===area)&&(!el('onlySelected').checked||chosen.has(p.id))&&(`${p.name} ${p.address.value||''}`).toLocaleLowerCase('ru').includes(query));el('resultCount').textContent=`Показано ${records.length} из ${role==='meal'?72:29} · районы предварительные`;el('cards').replaceChildren();for(const p of records){const card=document.createElement('article');card.className='card'+(chosen.has(p.id)?' chosen':'');const label=document.createElement(role==='meal'?'label':'div');label.className='label';if(role==='meal'){const cb=document.createElement('input');cb.type='checkbox';cb.checked=chosen.has(p.id);cb.setAttribute('aria-label',`Выбрать ${p.name}`);cb.addEventListener('change',()=>{if(cb.checked)chosen.add(p.id);else chosen.delete(p.id);save();updateSummary();if(el('onlySelected').checked)draw();else card.classList.toggle('chosen',cb.checked);});label.append(cb);}const name=document.createElement('span');name.textContent=p.name;label.append(name);card.append(label);const district=document.createElement('div');district.className='area';district.textContent=p.area.value;card.append(district);const address=document.createElement('p');address.textContent=p.address.value==='TBD'?'Адрес требует проверки':p.address.value||'Адрес требует проверки';card.append(address);const link=document.createElement('a');link.href=p.place_url;link.target='_blank';link.rel='noopener';link.textContent='Открыть место в Google Maps ↗';card.append(link);el('cards').append(card);}if(!records.length){const empty=document.createElement('p');empty.className='empty';empty.textContent='Нет совпадений. Измените поиск или фильтр.';el('cards').append(empty);}}
-function setRole(value){role=value;el('onlySelected').checked=false;el('onlySelected').disabled=role==='visit';el('area').replaceChildren(new Option('Все районы',''));const areas=[...new Set(registry.places.filter(p=>p.roles.includes(role)).map(p=>p.area.value))].sort((a,b)=>a.localeCompare(b));areas.forEach(a=>el('area').add(new Option(a,a)));document.querySelectorAll('.tab').forEach(b=>{const active=b.dataset.role===role;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});draw();}
-async function start(){try{const response=await fetch('registry.json');if(!response.ok)throw new Error('HTTP '+response.status);registry=await response.json();if(dayContext){const h=document.createElement('p');h.className='eyebrow';h.textContent='Альтернативы для дня '+dayContext+' · '+(10+dayContext)+' октября';document.querySelector('.notice').prepend(h);}if(registry.places.length!==101)throw new Error('Неполный реестр');const valid=new Set(registry.places.filter(p=>p.roles.includes('meal')).map(p=>p.id));chosen=new Set([...chosen].filter(id=>valid.has(id)));setRole(role);updateSummary();document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>setRole(b.dataset.role)));['search','area','onlySelected'].forEach(id=>el(id).addEventListener('input',draw));el('unchanged').addEventListener('change',updateSummary);el('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(selectionText());el('message').textContent='Выбор скопирован. Вставьте его в чат.';}catch{document.querySelector('details').open=true;el('selectionText').focus();el('selectionText').select();el('message').textContent='Копирование недоступно. Выделенный текст можно скопировать вручную.';}});el('download').addEventListener('click',()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(payload(),null,2)],{type:'application/json;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download='bali-restaurants-selection.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});}catch(error){el('error').hidden=false;el('error').textContent=`Реестр не загрузился. Откройте страницу через локальный сервер по инструкции README. Подробности: ${error.message}`;el('resultCount').textContent='Не удалось загрузить список';el('copy').disabled=true;el('download').disabled=true;}}
+function sortedValues(records, getter) {
+  return [...new Set(records.map(getter).filter(Boolean))].sort((a,b) => a.localeCompare(b,'ru'));
+}
+
+function renderPlace(p) {
+  const card=document.createElement('article');
+  card.className='card'+(chosen.has(p.id)?' chosen':'');
+  const label=document.createElement(role==='meal'?'label':'h2');
+  label.className='label';
+  if (role==='meal') {
+    const checkbox=document.createElement('input');
+    checkbox.type='checkbox';
+    checkbox.checked=chosen.has(p.id);
+    checkbox.setAttribute('aria-label','Выбрать '+p.name);
+    checkbox.addEventListener('change',()=>{
+      if(checkbox.checked) chosen.add(p.id);
+      else chosen.delete(p.id);
+      save();
+      updateSummary();
+      if(el('onlySelected').checked) draw();
+      else card.classList.toggle('chosen',checkbox.checked);
+    });
+    label.append(checkbox);
+  }
+  const name=document.createElement('span');
+  name.textContent=p.name;
+  label.append(name);
+  const meta=document.createElement('div');
+  meta.className='area';
+  meta.textContent=[p.area.value,p.type,p.assigned_date && p.assigned_date.slice(-2)+' окт.'].filter(Boolean).join(' · ');
+  const address=document.createElement('p');
+  address.textContent=!p.address.value || p.address.value==='TBD' ? 'Адрес требует проверки' : p.address.value;
+  card.append(label,meta,address);
+  const hours=document.createElement('p');
+  hours.className='catalog-status';
+  const published=['official_current','official'].includes(p.hours?.status);
+  hours.textContent=published && p.hours.value ? 'Опубликованные часы · '+p.hours.value : 'Часы и условия посещения уточнить';
+  card.append(hours);
+  const place=document.createElement('a');
+  place.href=p.place_url;
+  place.target='_blank';
+  place.rel='noopener';
+  place.textContent='Открыть место в Google Maps ↗';
+  card.append(place);
+  if (p.assigned_date) {
+    const stop=document.createElement('a');
+    stop.className='route-stop-link';
+    stop.href='index.html#day-'+(Number(p.assigned_date.slice(-2))-10)+'-stop-'+p.id;
+    stop.textContent='Открыть остановку в расписании →';
+    card.append(stop);
+  }
+  return card;
+}
+
+function draw() {
+  const query=el('search').value.trim().toLocaleLowerCase('ru');
+  const area=el('area').value, day=el('filterDay').value, type=el('filterType').value;
+  const group=registry.places.filter(p=>p.roles.includes(role));
+  const places=group.filter(p=>
+    (!area || p.area.value===area) &&
+    (!day || p.assigned_date===day) &&
+    (!type || p.type===type) &&
+    (!el('onlySelected').checked || chosen.has(p.id)) &&
+    (p.name+' '+(p.address.value||'')).toLocaleLowerCase('ru').includes(query));
+  el('resultCount').textContent='Показано '+places.length+' из '+group.length+' · районы предварительные';
+  const container=el('cards');
+  container.replaceChildren(...places.map(renderPlace));
+  if (!places.length) {
+    const empty=document.createElement('div');
+    empty.className='empty';
+    const title=document.createElement('p');
+    title.textContent='Ничего не найдено. Попробуйте другой запрос или сбросьте фильтры.';
+    const reset=document.createElement('button');
+    reset.type='button';
+    reset.textContent='Сбросить фильтры';
+    reset.onclick=()=>{
+      for(const id of ['search','area','filterDay','filterType']) el(id).value='';
+      el('onlySelected').checked=false;
+      draw();
+      el('search').focus();
+    };
+    empty.append(title,reset);
+    container.append(empty);
+  }
+}
+function setRole(value) {
+  role=value;
+  el('onlySelected').checked=false;
+  el('onlySelected').disabled=role==='visit';
+  const group=registry.places.filter(p=>p.roles.includes(role));
+  el('area').replaceChildren(new Option('Все районы',''),...sortedValues(group,p=>p.area.value).map(v=>new Option(v,v)));
+  el('filterType').replaceChildren(new Option('Все категории',''),...sortedValues(group,p=>p.type).map(v=>new Option(v,v)));
+  for(const button of document.querySelectorAll('.tab')){
+    const active=button.dataset.role===role;
+    button.classList.toggle('active',active);
+    button.setAttribute('aria-pressed',String(active));
+  }
+  draw();
+}
+async function start() {
+  try {
+    const response=await fetch('registry.json');
+    if(!response.ok) throw new Error('HTTP '+response.status);
+    registry=await response.json();
+    if(registry.places.length!==101) throw new Error('Неполный реестр');
+    for(const date of sortedValues(registry.places,p=>p.assigned_date)) {
+      el('filterDay').append(new Option(Number(date.slice(-2))+' октября',date));
+      if(dayContext===Number(date.slice(-2))-10) el('filterDay').value=date;
+    }
+    const valid=new Set(registry.places.filter(p=>p.roles.includes('meal')).map(p=>p.id));
+    chosen=new Set([...chosen].filter(id=>valid.has(id)));
+    setRole(role);
+    updateSummary();
+    document.querySelectorAll('.tab').forEach(button=>button.addEventListener('click',()=>setRole(button.dataset.role)));
+    el('search').addEventListener('input',draw);
+    for(const id of ['area','filterDay','filterType','onlySelected']) el(id).addEventListener('change',draw);
+    el('unchanged').addEventListener('change',updateSummary);
+    el('copy').addEventListener('click',async()=>{
+      try {
+        await navigator.clipboard.writeText(selectionText());
+        el('message').textContent='Выбор скопирован. Вставьте его в чат.';
+      } catch {
+        document.querySelector('.handoff details').open=true;
+        el('selectionText').focus();
+        el('selectionText').select();
+        el('message').textContent='Копирование недоступно. Выделенный текст можно скопировать вручную.';
+      }
+    });
+    el('download').addEventListener('click',()=>{
+      const url=URL.createObjectURL(new Blob([JSON.stringify(payload(),null,2)],{type:'application/json;charset=utf-8'}));
+      const link=document.createElement('a');
+      link.href=url;
+      link.download='bali-restaurants-selection.json';
+      link.click();
+      setTimeout(()=>URL.revokeObjectURL(url),1000);
+    });
+  } catch(error) {
+    el('error').hidden=false;
+    el('error').textContent='Реестр не загрузился. Подробности: '+error.message;
+    el('resultCount').textContent='Не удалось загрузить список';
+    el('copy').disabled=true;
+    el('download').disabled=true;
+  }
+}
 start();

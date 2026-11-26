@@ -14,27 +14,35 @@ function initTripOverview(itinerary, openDay) {
   let map, ready = false, started = false, mode = 'roads', expanded = false;
   let scale = 1, x = 0, y = 0, drag;
 
-  const features = itinerary.days.flatMap(day => day.legs.filter(leg => leg.geometry).map(leg => ({
-    type: 'Feature',
-    geometry: leg.geometry,
-    properties: { day: day.number, returning: Boolean(leg.returning) },
-  })));
+  let features, allBounds, routeDays;
   const boundsByDay = new Map();
-  const allBounds = [itinerary.hotel.lon, itinerary.hotel.lat, itinerary.hotel.lon, itinerary.hotel.lat];
   function extend(bounds, [lon, lat]) {
     bounds[0] = Math.min(bounds[0], lon);
     bounds[1] = Math.min(bounds[1], lat);
     bounds[2] = Math.max(bounds[2], lon);
     bounds[3] = Math.max(bounds[3], lat);
   }
-  for (const {geometry, properties} of features) {
-    const bounds = boundsByDay.get(properties.day) || [Infinity, Infinity, -Infinity, -Infinity];
-    for (const point of geometry.coordinates) {
-      extend(bounds, point);
-      extend(allBounds, point);
+  function refreshRoads() {
+    if (routeDays === itinerary.days) return;
+    routeDays = itinerary.days;
+    features = routeDays.flatMap(day => day.legs.filter(leg => leg.geometry).map(leg => ({
+      type: 'Feature', geometry: leg.geometry,
+      properties: { day: day.number, returning: Boolean(leg.returning) },
+    })));
+    allBounds = [itinerary.hotel.lon, itinerary.hotel.lat, itinerary.hotel.lon, itinerary.hotel.lat];
+    boundsByDay.clear();
+    for (const {geometry, properties} of features) {
+      const bounds = boundsByDay.get(properties.day) || [Infinity, Infinity, -Infinity, -Infinity];
+      for (const point of geometry.coordinates) {
+        extend(bounds, point);
+        extend(allBounds, point);
+      }
+      boundsByDay.set(properties.day, bounds);
     }
-    boundsByDay.set(properties.day, bounds);
+    if (ready) map.getSource('overview-routes').setData({type:'FeatureCollection',features});
   }
+  refreshRoads();
+  document.addEventListener('bali-day-changed', refreshRoads);
   for (const day of itinerary.days) {
     const option = document.createElement('option');
     option.value = day.number;
@@ -159,11 +167,13 @@ function initTripOverview(itinerary, openDay) {
   image.addEventListener('lostpointercapture', () => { drag = null; });
   new ResizeObserver(() => { map?.resize(); drawSaved(); }).observe(viewport);
 
-  function start() {
+  async function start() {
     if (started) return;
     started = true;
+    image.src = image.dataset.src;
     tell('Загружаем интерактивную карту…');
     try {
+      await loadMapLibrary();
       map = new maplibregl.Map({
         container: mapElement, style: 'https://tiles.openfreemap.org/styles/liberty',
         center: [115.18, -8.48], zoom: 9, minZoom: 5, maxZoom: 18,

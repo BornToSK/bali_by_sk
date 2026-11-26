@@ -1,18 +1,22 @@
 'use strict';
 let data,activeDay=1,map,markers=[],mapLoaded=false;
 let fallbackScale=1,fallbackX=0,fallbackY=0,mapExpanded=false;
+let dailyMapStarted=false, pendingMapAction;
 const $=id=>document.getElementById(id);
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const image = (day, thumbnail = false) => `assets/${day.image}${thumbnail ? '-card' : ''}.webp`;
 const dayCrops = ['60% 54%', '25% 43%', '35% 72%', '79% 43%', '61% 34%', '72% 70%', '55% 49%', '80% 55%', '47% 32%', '15% 52%', '48% 68%', '75% 29%'];
+const dayRegions = ['Букит','Джимбаран · Нуса-Дуа','Гианьяр · Тегаллаланг','Гианьяр · Убуд',
+  'Бесаких · Кинтамани','Карангасем · Улувату','Санур · Нуса-Пенида','Бедугул · Переренан',
+  'Нуса-Дуа · Букит','Ловина · Берава','Джатилувих · Чангу','Нуса-Дуа · Чангу · Кутух'];
 function scrollToSection(id) {
   $(id).scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
 }
 
 function initPageMotion() {
   if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
-  const targets = document.querySelectorAll('.chapter-card, .day-card, .logistics-grid article, .download-section');
+  const targets = document.querySelectorAll('.chapter-card, .day-card, .exp-island, .logistics-grid article, .download-section');
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
@@ -30,18 +34,55 @@ function renderChapterHighlights(days) {
   if (!highlights.length) return;
   $('chapterGrid').innerHTML = highlights.map(({day, title, description, art}) => `
     <button type="button" class="chapter-card" data-day="${day.number}">
-      <img src="assets/${art}.webp" alt="" loading="lazy" decoding="async">
+      <img data-lazy-src="assets/${art}${compactDay.matches?'-card':''}.webp" alt="" decoding="async">
       <div><time datetime="${esc(day.date)}">${dateLabel(day)} · день ${day.number}</time>
         <strong>${title}</strong><p>${description}</p></div>
       <span class="chapter-arrow" aria-hidden="true">↗</span>
     </button>`).join('');
   $('chapterShowcase').hidden = false;
 }
+const compactDay = matchMedia('(max-width: 760px)');
+function setDayView(view) {
+  $('days').dataset.view = view;
+  for (const button of document.querySelectorAll('[data-day-view]')) {
+    button.setAttribute('aria-pressed', String(button.dataset.dayView === view));
+  }
+  if (view === 'map') {
+    initMap();
+    if (mapLoaded) map.resize();
+  }
+}
 function revealMobileMap() {
-  const mapPanel = $('map-section');
-  if (matchMedia('(max-width: 760px)').matches && mapPanel.getBoundingClientRect().top > innerHeight / 2) {
+  if (!compactDay.matches) return;
+  const wasHidden = $('days').dataset.view !== 'map';
+  setDayView('map');
+  if (wasHidden || $('map-section').getBoundingClientRect().top > innerHeight / 2) {
+    $('dayMapTitle').focus({preventScroll:true});
     scrollToSection('map-section');
   }
+}
+function initDayViews() {
+  for (const button of document.querySelectorAll('[data-day-view]')) {
+    button.onclick = () => setDayView(button.dataset.dayView);
+  }
+  setDayView('schedule');
+  if (!('IntersectionObserver' in window)) { initMap(); return; }
+  const observer = new IntersectionObserver(entries => {
+    if (!entries.some(entry => entry.isIntersecting)) return;
+    observer.disconnect();
+    initMap();
+  }, {rootMargin:'180px'});
+  observer.observe($('map-section'));
+}
+function chooseDay(number) {
+  const header = $('dayHeader');
+  const box = header.getBoundingClientRect();
+  if (activeDay !== number && document.startViewTransition && !reducedMotion.matches &&
+      !compactDay.matches && box.top > 0 && box.top < innerHeight) {
+    header.classList.add('transitioning-day');
+    const transition = document.startViewTransition(() => selectDay(number, true));
+    transition.finished.catch(() => {}).finally(() => header.classList.remove('transitioning-day'));
+  } else selectDay(number, true);
 }
 function updateDayNavigation(day) {
   for (const button of document.querySelectorAll('#dayNav button, #dayGrid button')) {
@@ -79,7 +120,7 @@ function renderMap(d){if(!mapLoaded)return;
  map.addLayer({id:'route-directions',type:'symbol',source:'route',layout:{'symbol-placement':'line','symbol-spacing':100,'icon-image':'bali-route-arrow','icon-size':.7,'icon-allow-overlap':true,'icon-rotation-alignment':'map'}});
  }
  map.setFilter('route-highlight',['==',['get','index'],-1]);markers.forEach(m=>m.remove());markers=[];
- for(const p of tripPoints(d)){const element=document.createElement('button');element.className='map-pin'+(p.role==='hotel'?' home':p.role==='port'?' port':p.role==='meal'?' meal':'');element.textContent=p.number||(p.role==='hotel'?'⌂':p.role==='port'?'⚓':'✈');element.setAttribute('aria-label',p.name);const content=document.createElement('div');content.className='pin-title';const name=document.createElement('strong');name.textContent=p.name;content.append(name);const a=document.createElement('a');a.href=p.place_url;a.target='_blank';a.rel='noopener';a.textContent='Открыть место ↗';content.append(a);markers.push(new maplibregl.Marker({element,offset:p.id==='v05'?[-12,-8]:p.id==='v06'?[12,8]:p.id==='r18'?[-14,-14]:p.id==='r43'?[14,14]:[0,0]}).setLngLat([p.lon,p.lat]).setPopup(new maplibregl.Popup({offset:18}).setDOMContent(content)).addTo(map));}
+ for(const p of tripPoints(d)){const element=document.createElement('button');element.className='map-pin'+(p.role==='hotel'?' home':p.role==='port'?' port':p.role==='meal'?' meal':'');element.textContent=p.number||(p.role==='hotel'?'⌂':p.role==='port'?'⚓':'✈');element.setAttribute('aria-label',p.name);element.dataset.placeId=p.id;const content=document.createElement('div');content.className='pin-title';const name=document.createElement('strong');name.textContent=p.name;content.append(name);const a=document.createElement('a');a.href=p.place_url;a.target='_blank';a.rel='noopener';a.textContent='Открыть место ↗';content.append(a);markers.push(new maplibregl.Marker({element,offset:p.id==='v05'?[-12,-8]:p.id==='v06'?[12,8]:p.id==='r18'?[-14,-14]:p.id==='r43'?[14,14]:[0,0]}).setLngLat([p.lon,p.lat]).setPopup(new maplibregl.Popup({offset:18}).setDOMContent(content)).addTo(map));}
  const labels={type:'FeatureCollection',features:mapStops(d).filter(p=>p.lon!=null).map(p=>({type:'Feature',geometry:{type:'Point',coordinates:[p.lon,p.lat]},properties:{name:`${p.number}. ${p.name}`,role:p.role}}))};
  if(map.getSource('stop-labels'))map.getSource('stop-labels').setData(labels);else{map.addSource('stop-labels',{type:'geojson',data:labels});map.addLayer({id:'stop-names',type:'symbol',source:'stop-labels',layout:{'text-field':['get','name'],'text-font':['Noto Sans Regular'],'text-size':11,'text-variable-anchor':['bottom','top','left','right'],'text-radial-offset':1.7,'text-max-width':13},paint:{'text-color':'#173f37','text-halo-color':'#fff','text-halo-width':2}});}
  fitDay(d);window.__guide.currentMapDay=d.number;
@@ -128,31 +169,113 @@ function initMapControls(){
  img.addEventListener('dblclick',()=>zoomMap(1));
  new ResizeObserver(()=>{map?.resize();drawFallback();}).observe(viewport);
 }
-function initMap(){try{if(!window.maplibregl)throw new Error('Библиотека карты не загрузилась');map=new maplibregl.Map({container:'map',style:'https://tiles.openfreemap.org/styles/liberty',center:[115.18,-8.8],zoom:10,scrollZoom:true,cooperativeGestures:false,attributionControl:false,preserveDrawingBuffer:true});window.__guide.map=map;map.addControl(new maplibregl.ScaleControl({unit:'metric'}),'bottom-left');map.addControl(new maplibregl.AttributionControl({compact:false}),'bottom-right');map.on('load',()=>{mapLoaded=true;$('mapState').hidden=true;$('mapFallback').hidden=true;window.__guide.map=map;window.__guide.mapLoaded=true;renderMap(data.days[activeDay-1]);});map.on('error',e=>{window.__guide.mapErrors.push(String(e.error?.message||e.error));mapError('Интерактивная карта пока недоступна. Показана сохранённая карта дня; расписание и навигационные ссылки доступны.');});setTimeout(()=>{if(!mapLoaded)mapError('Карта загружается дольше обычного. Проверьте интернет и обновите страницу.');},20000);}catch(e){mapError('Не удалось открыть карту: '+e.message);}}
-function selectLeg(index){const leg=data.days[activeDay-1].legs[index];document.querySelectorAll('.road-row').forEach(b=>b.classList.toggle('selected',Number(b.dataset.leg)===index));if(!mapLoaded||!leg.geometry||!$('mapFallback').hidden){$('mapNotice').textContent='Выбран переезд: '+leg.key+'. Сейчас показана сохранённая карта; для выделения участка нужен интерактивный режим. Ссылка на этот переезд доступна в расписании.';return;}map.setFilter('route-highlight',['==',['get','index'],index]);fitPoints(leg.geometry.coordinates,15);}
-function focusStop(id){const p=(data.days[activeDay-1].route_stops||data.days[activeDay-1].stops).find(s=>s.id===id);if(p?.lon!=null&&mapLoaded&&$('mapFallback').hidden){map.flyTo({center:[p.lon,p.lat],zoom:14,duration:reducedMotion.matches?0:450});markers.find(m=>m.getElement().getAttribute('aria-label')===p.name)?.togglePopup();}else $('mapNotice').textContent='Сейчас показана сохранённая карта. Номер остановки и ссылка на место доступны в расписании.';}
+async function initMap() {
+  if (dailyMapStarted) return;
+  dailyMapStarted=true;
+  $('mapFallback').src = $('mapFallback').dataset.src;
+  try {
+    await loadMapLibrary();
+    map=new maplibregl.Map({container:'map',style:'https://tiles.openfreemap.org/styles/liberty',
+      center:[115.18,-8.8],zoom:10,scrollZoom:true,cooperativeGestures:false,attributionControl:false});
+    window.__guide.map=map;
+    map.addControl(new maplibregl.ScaleControl({unit:'metric'}),'bottom-left');
+    map.addControl(new maplibregl.AttributionControl({compact:false}),'bottom-right');
+    map.on('load',()=>{
+      mapLoaded=true;
+      $('mapState').hidden=true;
+      $('mapFallback').hidden=true;
+      window.__guide.mapLoaded=true;
+      renderMap(data.days[activeDay-1]);
+      pendingMapAction?.();
+      pendingMapAction=null;
+    });
+    map.on('error',event=>{
+      window.__guide.mapErrors.push(String(event.error?.message||event.error));
+      mapError('Интерактивная карта пока недоступна. Показана сохранённая карта дня.');
+    });
+    setTimeout(()=>{if(!mapLoaded)mapError('Карта загружается дольше обычного.');},16000);
+  } catch(error) { mapError('Не удалось открыть карту: '+error.message); }
+}
+function clearMapSelection() {
+  for (const row of $('timeline').querySelectorAll('.selected')) row.classList.remove('selected');
+  for (const button of $('timeline').querySelectorAll('[aria-pressed="true"]')) button.setAttribute('aria-pressed','false');
+  for (const marker of markers) {
+    marker.getElement().classList.remove('is-selected');
+    marker.getPopup()?.remove();
+  }
+}
+function selectLeg(index) {
+  const leg=data.days[activeDay-1].legs[index];
+  clearMapSelection();
+  const row=$('timeline').querySelector(`[data-leg="${index}"]`);
+  row?.classList.add('selected');
+  row?.setAttribute('aria-pressed','true');
+  if (!mapLoaded || !leg.geometry) {
+    if (leg.geometry) pendingMapAction=()=>selectLeg(index);
+    initMap();
+    $('mapNotice').textContent='Выбран переезд: '+leg.key+'. Откройте его в Google Maps или дождитесь подложки.';
+    return;
+  }
+  $('mapNotice').textContent='Выбранный переезд подсвечен на карте.';
+  map.setFilter('route-highlight',['==',['get','index'],index]);
+  fitPoints(leg.geometry.coordinates,15);
+}
+function focusStop(id, navigate=false) {
+  const p=tripPoints(data.days[activeDay-1]).find(stop=>stop.id===id);
+  if (!p) return;
+  clearMapSelection();
+  const row=document.getElementById('stop-'+id);
+  row?.classList.add('selected');
+  row?.querySelector('[data-stop]')?.setAttribute('aria-pressed','true');
+  if(navigate && row) {
+    setDayView('schedule');
+    row.scrollIntoView({block:'center',behavior:'instant'});
+    row.querySelector('[data-stop]')?.focus({preventScroll:true});
+  }
+  if(!mapLoaded) {
+    pendingMapAction=()=>focusStop(id);
+    $('mapNotice').textContent='Выбрано: '+p.name+'. На сохранённой карте найдите номер остановки.';
+    return;
+  }
+  map.setFilter('route-highlight',['==',['get','index'],-1]);
+  map.flyTo({center:[p.lon,p.lat],zoom:14,duration:reducedMotion.matches?0:450});
+  const marker=markers.find(item=>item.getElement().dataset.placeId===id);
+  marker?.getElement().classList.add('is-selected');
+  if(marker && !marker.getPopup()?.isOpen()) marker.togglePopup();
+  $('mapNotice').textContent='На карте: '+p.name+'.';
+}
 function period(t){const h=Number(t.split(':')[0]);return h<5?'☾ Ночь':h<12?'☀ Утро':h<17?'◌ День':'☾ Вечер';}
 function drawTimeline(d){let prev='';$('timeline').innerHTML=d.timeline.map(r=>{const p=period(r.start),heading=p!==prev?`<div class="period-label">${p}</div>`:'';prev=p;const interval=`${r.start}${r.end!==r.start?' – '+r.end:''}`;
- if(r.kind==='visit')return heading+`<article class="timeline-stop"><div class="stop-number">${r.number}</div><div class="stop-info"><span class="time">${interval} · ${r.duration_minutes} мин</span><h4>${esc(r.title)}</h4><p>${esc(r.note)}</p><div class="stop-actions"><button data-stop="${r.place_id}">Показать на карте</button><a href="${esc(r.place_url)}" target="_blank" rel="noopener">Открыть место ↗</a></div></div></article>`;
- if(r.kind==='road')return heading+`<button class="road-row" data-leg="${r.leg_index}"><span><strong>${esc(r.title)}</strong><small>${r.start} → ${r.end} · ${r.distance_km==null?'км не подтверждены':r.distance_km+' км'} · ${r.range_minutes.join('–')} мин</small><small>План: ${r.duration_minutes} мин · выделить участок</small></span><span class="road-arrow">↗</span></button><div class="road-navigation"><a href="${esc(r.navigation_url)}" target="_blank" rel="noopener">Открыть переезд в Google Maps ↗</a></div>`;
- if(r.kind==='meal')return heading+`<article class="meal-row ${r.meal_type==='coffee'?'coffee-row':''}" data-restaurant="${r.restaurant_id}"><span class="meal-icon">${r.number||'♧'}</span><div><span class="time">${interval} · ${r.duration_minutes} мин</span><strong>${esc(r.title)}</strong><span class="meal-badge">${r.meal_mode==='packed'?'Согласовать бокс заранее':r.booking_required?'Бронь обязательна':r.user_choice?'Ваш выбор':'Мой выбор'}</span><p>${esc(r.note)}</p>${r.meal_mode==='onsite'?`<p class="meal-hours">${esc(r.hours_label)}</p>`:''}<div class="meal-actions">${r.meal_mode==='onsite'?`<button data-stop="${r.restaurant_id}">На карте</button>`:''}<a href="${esc(r.place_url)}" target="_blank" rel="noopener">Открыть ресторан ↗</a><a href="${esc(r.source_url)}" target="_blank" rel="noopener">Источник · ${esc(r.checked)}</a></div></div></article>`;
+ if(r.kind==='visit')return heading+`<article class="timeline-stop" id="stop-${esc(r.place_id)}"><div class="stop-number">${r.number}</div><div class="stop-info"><span class="time">${interval} · ${r.duration_minutes} мин</span><h4>${esc(r.title)}</h4><p>${esc(r.note)}</p><div class="stop-actions"><button aria-pressed="false" data-stop="${r.place_id}">Показать на карте</button><a href="${esc(r.place_url)}" target="_blank" rel="noopener">Открыть место ↗</a></div></div></article>`;
+ if(r.kind==='road')return heading+`<button class="road-row" aria-pressed="false" data-leg="${r.leg_index}"><span><strong>${esc(r.title)}</strong><small>${r.start} → ${r.end} · ${r.distance_km==null?'км не подтверждены':r.distance_km+' км'} · ${r.range_minutes.join('–')} мин</small><small>План: ${r.duration_minutes} мин · выделить участок</small></span><span class="road-arrow">↗</span></button><div class="road-navigation"><a href="${esc(r.navigation_url)}" target="_blank" rel="noopener">Открыть переезд в Google Maps ↗</a></div>`;
+ if(r.kind==='meal')return heading+`<article class="meal-row ${r.meal_type==='coffee'?'coffee-row':''}" data-restaurant="${r.restaurant_id}"${r.meal_mode==='onsite'?` id="stop-${esc(r.restaurant_id)}"`:''}><span class="meal-icon">${r.number||'♧'}</span><div><span class="time">${interval} · ${r.duration_minutes} мин</span><strong>${esc(r.title)}</strong><span class="meal-badge">${r.meal_mode==='packed'?'Согласовать бокс заранее':r.booking_required?'Бронь обязательна':r.user_choice?'Ваш выбор':'Мой выбор'}</span><p>${esc(r.note)}</p>${r.meal_mode==='onsite'?`<p class="meal-hours">${esc(r.hours_label)}</p>`:''}<div class="meal-actions">${r.meal_mode==='onsite'?`<button aria-pressed="false" data-stop="${r.restaurant_id}">На карте</button>`:''}<a href="${esc(r.place_url)}" target="_blank" rel="noopener">Открыть ресторан ↗</a><a href="${esc(r.source_url)}" target="_blank" rel="noopener">Источник · ${esc(r.checked)}</a></div></div></article>`;
  if(r.kind==='buffer')return heading+`<div class="buffer-row">${interval} · ${esc(r.title)}</div>`;
  return heading+`<article class="logistic-row"><span class="time">${interval}</span><strong>${r.kind==='boat'?'⚓ ':''}${esc(r.title)}</strong><p>${esc(r.note)}</p></article>`;
- }).join('');$('timeline').querySelectorAll('[data-leg]').forEach(b=>b.onclick=()=>{selectLeg(Number(b.dataset.leg));revealMobileMap();});$('timeline').querySelectorAll('[data-stop]').forEach(b=>b.onclick=()=>{focusStop(b.dataset.stop);revealMobileMap();});}
-function selectDay(n,scroll=false){if(data&&$('restaurantCoverageTable'))$('restaurantCoverageTable').innerHTML=data.restaurant_coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}${p.id==='r15'?' · еда не подтверждена':''}</span><span>${Number(p.date.slice(-2))} окт</span></div>`).join('');activeDay=Math.max(1,Math.min(12,n));const d=data.days[activeDay-1];window.__guide.currentDay=activeDay;$('mapFallback').classList.remove('wheel-zooming');fallbackScale=1;fallbackX=fallbackY=0;drawFallback();$('mapFallback').src=`maps/day-${String(activeDay).padStart(2,'0')}.png`;
- $('dayHeader').innerHTML=`<div class="day-heading"><div><span class="eyebrow">ДЕНЬ ${d.number} · ${dateLabel(d).toLocaleUpperCase('ru')} · ${esc(d.weekday.toLocaleUpperCase('ru'))}</span><h2>${esc(d.title)}</h2><p>${esc(d.subtitle)}</p></div><img src="${image(d)}" alt="Сгенерированная иллюстрация для настроения дня"></div>`;
+ }).join('');$('timeline').querySelectorAll('[data-leg]').forEach(b=>b.onclick=()=>{revealMobileMap();selectLeg(Number(b.dataset.leg));});$('timeline').querySelectorAll('[data-stop]').forEach(b=>b.onclick=()=>{revealMobileMap();focusStop(b.dataset.stop);initMap();});}
+function selectDay(n,scroll=false){if(data&&$('restaurantCoverageTable'))$('restaurantCoverageTable').innerHTML=data.restaurant_coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}${p.id==='r15'?' · еда не подтверждена':''}</span><span>${Number(p.date.slice(-2))} окт</span></div>`).join('');pendingMapAction=null;activeDay=Math.max(1,Math.min(data.days.length,n));const d=data.days[activeDay-1];window.__guide.currentDay=activeDay;$('mapFallback').classList.remove('wheel-zooming');fallbackScale=1;fallbackX=fallbackY=0;drawFallback();const savedMap=$('mapFallback');savedMap.dataset.src=`maps/day-${String(activeDay).padStart(2,'0')}.png`;if(dailyMapStarted)savedMap.src=savedMap.dataset.src;
+ $('dayHeader').innerHTML=`<div class="day-heading"><div><span class="eyebrow">ДЕНЬ ${d.number} · ${dateLabel(d).toLocaleUpperCase('ru')} · ${esc(d.weekday.toLocaleUpperCase('ru'))}</span><h2>${esc(d.title)}</h2><p>${esc(d.subtitle)}</p></div><img data-lazy-src="${image(d)}" alt="Сгенерированная иллюстрация для настроения дня"></div>`;
+ loadEditorialImages($('dayHeader'));
  $('daySummary').innerHTML=[['Подъём',d.wake,''],['Выезд',d.depart,''],[d.last?'Аэропорт · оценка':'Возвращение · оценка',d.return_time,''],['Дорога',`${d.distance_km_known}${d.missing_legs?' + ?':''} км`,d.island?'без морских участков':''],['Нагрузка',d.load,`${Math.floor(d.road_minutes/60)} ч ${d.road_minutes%60} мин в дороге`]].map(([label,value,note])=>`<div class="summary-item"><span>${label}</span><strong>${esc(value)}</strong>${note?`<br><small>${esc(note)}</small>`:''}</div>`).join('');drawTimeline(d);
  $('dayAdvice').innerHTML=`<h4>Почему в таком порядке</h4><p>${esc(d.why)}</p><h4>Что важно учесть</h4><p>${esc(d.risk)}</p>${d.island?`<h4>Обратный катер</h4><p>Оценка прибытия к порту: ${d.port_arrival_estimate}. Опубликованный обратный рейс — 17:00; наличие мест и регистрацию подтвердить.</p>`:''}`;
  $('restaurantAlternatives').innerHTML=`<div class="section-head"><div><span class="eyebrow">ВАШ ВЫБОР ВСЕГДА ОСТАЁТСЯ ЗА ВАМИ</span><h3>Не подходит? Выберите сами.</h3></div><a class="text-link" href="restaurants.html?day=${d.number}">Все 72 ресторана ↗</a></div><p>Мой выбор уже стоит в расписании, каждый ресторан посещается один раз. Кнопка «Поменять мой выбор» переставляет два заведения и проверяет оба дня, сохраняя покрытие без повторов. PDF содержит основной вариант; ваш выбор можно сохранить в JSON.</p><div class="alternatives-grid">${d.alternatives.map(p=>`<article><span class="eyebrow">${esc(p.area)}</span><h4>${esc(p.name)}</h4><p>${esc(p.note)}</p><small>${esc(p.hours_label)}</small><a href="${esc(p.place_url)}" target="_blank" rel="noopener">Посмотреть ресторан ↗</a></article>`).join('')}</div>`;
  $('mapNotice').textContent=d.missing_legs?'Pantai Samuh: координаты не подтверждены. Два участка не нарисованы; километраж неполный.':d.island?'Катер показан в расписании, морская геометрия не выдумывалась. Дороги включают материк и Пениду.':'Входы, парковки и пешие подходы ещё проверяются. Автомобильный расчёт не гарантирует доступ для байка.';
  $('mapLinks').replaceChildren();if(d.island){const b=document.createElement('button');b.className='secondary';b.textContent='Пенида крупно';b.onclick=()=>fitDay(d,'island');$('mapLinks').append(b);}for(const [leg,label]of[[d.legs[0],'Первый переезд ↗'],[d.legs.at(-1),'Обратно / аэропорт ↗']]){const a=document.createElement('a');a.textContent=label;a.href=leg.navigation_url;a.target='_blank';a.rel='noopener';$('mapLinks').append(a);}
- $('prevDay').disabled=activeDay===1;$('nextDay').disabled=activeDay===12;$('pageIndex').textContent=`День ${activeDay} из 12`;updateDayNavigation(activeDay);renderMap(d);document.dispatchEvent(new Event('bali-day-changed'));if(scroll){history.replaceState(null,'',`#day-${activeDay}`);scrollToSection('days');}}
-async function init(){try{const r=await fetch('itinerary.json');if(!r.ok)throw new Error('Не удалось загрузить данные маршрута');data=await r.json();window.__guide={data,currentDay:1,currentMapDay:null,mapLoaded:false,mapErrors:[],selectDay,fitDay,selectLeg};
+ $('prevDay').disabled=activeDay===1;$('nextDay').disabled=activeDay===12;$('pageIndex').textContent=`День ${activeDay} из 12`;updateDayNavigation(activeDay);renderMap(d);document.dispatchEvent(new Event('bali-day-changed'));if(scroll){setDayView('schedule');history.replaceState(null,'',`#day-${activeDay}`);scrollToSection('days');}}
+async function init(){try{data=await loadItinerary();const originalDays=data.days;restoreMealPlan(data);window.__guide={data,originalDays,currentDay:1,currentMapDay:null,mapLoaded:false,mapErrors:[],selectDay,fitDay,selectLeg};
  renderChapterHighlights(data.days);
- $('dayGrid').innerHTML=data.days.map(d=>`<button class="day-card" data-day="${d.number}" aria-label="Открыть день ${d.number}: ${esc(d.title)}"><div class="day-card-photo" style="--crop:${dayCrops[d.number - 1]}"><img src="${image(d, true)}" alt="" loading="lazy"><span class="card-day">День ${d.number}</span><span class="card-date">${dateLabel(d)} · ${esc(d.weekday)}</span></div><div class="card-body"><strong>${esc(d.title)}</strong><p>${esc(d.subtitle)}</p><div class="card-bottom"><span>${d.stops.length} мест · ${d.meals.filter(m=>m.meal_mode==='onsite').length} заведений</span><b>↗</b></div></div></button>`).join('');$('dayNav').innerHTML=data.days.map(d=>`<button data-day="${d.number}"><strong>День ${d.number}</strong>${Number(d.date.slice(-2))} окт</button>`).join('');document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>selectDay(Number(b.dataset.day),true));
+ $('dayGrid').innerHTML=data.days.map(d=>`<button class="day-card" data-day="${d.number}" aria-label="Открыть день ${d.number}: ${esc(d.title)}"><div class="day-card-photo" style="--crop:${dayCrops[d.number - 1]}"><img data-lazy-src="${image(d, true)}" alt="" decoding="async"><span class="card-day" aria-hidden="true">${String(d.number).padStart(2,'0')}</span><span class="card-date">${dateLabel(d)} · ${esc(d.weekday)}</span></div><div class="card-body"><span class="card-region">${esc(dayRegions[d.number-1])}</span><strong>${esc(d.title)}</strong><p>${esc(d.stops.slice(0,3).map(stop=>stop.name).join(' · ') || d.subtitle)}</p><div class="card-bottom"><span>${d.stops.length} мест · ${d.meals.filter(m=>m.meal_mode==='onsite').length} заведений</span><b>↗</b></div></div></button>`).join('');$('dayNav').innerHTML=data.days.map(d=>`<button data-day="${d.number}"><strong>День ${d.number}</strong>${Number(d.date.slice(-2))} окт</button>`).join('');document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>chooseDay(Number(b.dataset.day)));
  $('restaurantCoverageTable').innerHTML=data.restaurant_coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}${p.id==='r15'?' · еда не подтверждена':''}</span><span>${Number(p.date.slice(-2))} окт</span></div>`).join('');
- $('coverageTable').innerHTML=data.coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}</span><button data-date="${p.planned_date}">${Number(p.planned_date.slice(-2))} окт ↗</button></div>`).join('');document.querySelectorAll('[data-date]').forEach(b=>b.onclick=()=>selectDay(data.days.find(d=>d.date===b.dataset.date).number,true));$('limitations').innerHTML=data.limitations.map(s=>`<li>${esc(s)}</li>`).join('');$('sourceLinks').innerHTML=data.sources.map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} ↗</a> · ${esc(s.checked)}</p>`).join('');$('prevDay').onclick=()=>selectDay(activeDay-1,true);$('nextDay').onclick=()=>selectDay(activeDay+1,true);for (const button of document.querySelectorAll('[data-jump]')) button.onclick = () => scrollToSection(button.dataset.jump);
- initMapControls();selectDay(Number(location.hash.match(/^#day-(\d+)$/)?.[1]||1));initMap();$('pdfLink').hidden=false;$('downloadSection').hidden=false;initPageMotion();
+ $('coverageTable').innerHTML=data.coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}</span><button data-date="${p.planned_date}">${Number(p.planned_date.slice(-2))} окт ↗</button></div>`).join('');document.querySelectorAll('[data-date]').forEach(b=>b.onclick=()=>selectDay(data.days.find(d=>d.date===b.dataset.date).number,true));$('limitations').innerHTML=data.limitations.map(s=>`<li>${esc(s)}</li>`).join('');$('sourceLinks').innerHTML=data.sources.map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} ↗</a> · ${esc(s.checked)}</p>`).join('');$('prevDay').onclick=()=>chooseDay(activeDay-1);$('nextDay').onclick=()=>chooseDay(activeDay+1);for (const button of document.querySelectorAll('[data-jump]')) button.onclick = () => scrollToSection(button.dataset.jump);
+ initMapControls();initDayViews();
+ const deepLink=location.hash.match(/^#day-(\d+)(?:-stop-([vr]\d+))?$/);
+ const linkedStop=deepLink?.[2];
+ const linkedDay=linkedStop && data.days.find(day=>day.route_stops.some(stop=>stop.id===linkedStop));
+ selectDay(linkedDay?.number||Number(deepLink?.[1]||1));
+ if(deepLink) {
+   const stop=deepLink[2];
+   if(stop) focusStop(stop,true);
+   else requestAnimationFrame(()=>scrollToSection('days'));
+ }$('pdfLink').hidden=false;$('downloadSection').hidden=false;initPageMotion();initLazyMealEditor();loadEditorialImages();
  if (typeof initTripOverview === "function") initTripOverview(data, selectDay);
  }catch(e){$('globalError').hidden=false;$('globalError').textContent=e.message;}}
 init();
