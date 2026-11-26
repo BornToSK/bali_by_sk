@@ -35,7 +35,7 @@ function initBeyondFilm() {
         <button type="button" aria-label="Следующий день галереи" data-rail-step="1">→</button>
       </div>
     </div>
-    <div class="film-rail" tabindex="0" role="region" aria-label="Галерея 12 дней. Используйте стрелки или прокрутку.">
+    <div class="film-rail" tabindex="0" role="region" aria-label="Галерея 12 дней. Используйте стрелки или горизонтальную прокрутку.">
       ${guide.data.days.map(day=>`<button type="button" class="film-card" data-film-day="${day.number}" style="--film-crop:${crops[day.number-1]}">
         ${picture(day)}
         <span class="film-card-head"><span>ГЛАВА ${pad(day.number)}</span><time datetime="${escapeHTML(day.date)}">${date(day)}</time></span>
@@ -48,7 +48,7 @@ function initBeyondFilm() {
         </span>
       </button>`).join('')}
     </div>
-    <div class="film-rail-note container"><p class="film-wheel-hint">Листайте колёсиком мыши или перетаскивайте карточки</p><p>Пейзажи глав · иллюстрации ИИ</p></div>`;
+    <div class="film-rail-note container"><p class="film-wheel-hint">Листайте с Shift + колёсико или перетаскивайте карточки</p><p>Пейзажи глав · иллюстрации ИИ</p></div>`;
   const rail = film.querySelector('.film-rail');
   const cards = [...rail.querySelectorAll('.film-card')];
   const indexLabel = film.querySelector('#filmIndex');
@@ -83,7 +83,7 @@ function initBeyondFilm() {
     railFrame=requestAnimationFrame(()=>{railFrame=0;paintRail(nearest());});
   },{passive:true});
   rail.addEventListener('wheel', event=>{
-    if (!event.cancelable || event.ctrlKey || event.metaKey || event.shiftKey ||
+    if (!event.cancelable || !event.shiftKey || event.ctrlKey || event.metaKey ||
         Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
     const direction = Math.sign(event.deltaY);
     if ((direction < 0 && rail.scrollLeft <= 2) ||
