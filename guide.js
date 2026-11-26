@@ -2,12 +2,25 @@
 let data,activeDay=1,map,markers=[],mapLoaded=false;
 let fallbackScale=1,fallbackX=0,fallbackY=0,mapExpanded=false;
 const $=id=>document.getElementById(id);
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const image = (day, thumbnail = false) => `assets/${day.image}${thumbnail ? '-card' : ''}.webp`;
 const dayCrops = ['60% 54%', '25% 43%', '35% 72%', '79% 43%', '61% 34%', '72% 70%', '55% 49%', '80% 55%', '47% 32%', '15% 52%', '48% 68%', '75% 29%'];
 function scrollToSection(id) {
-  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  $(id).scrollIntoView({ behavior: reduceMotion ? 'instant' : 'smooth', block: 'start' });
+  $(id).scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
+}
+
+function initPageMotion() {
+  if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
+  const targets = document.querySelectorAll('.day-card, .trip-map-overview, .logistics-grid article, .download-section');
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      if (!reducedMotion.matches) entry.target.classList.add('reveal-in');
+      observer.unobserve(entry.target);
+    }
+  }, { threshold: 0.12 });
+  targets.forEach(target => observer.observe(target));
 }
 function revealMobileMap() {
   const mapPanel = $('map-section');
@@ -58,14 +71,31 @@ function renderMap(d){if(!mapLoaded)return;
 }
 function mapError(message){
  if(mapLoaded){$('mapFallback').hidden=true;$('mapState').hidden=true;$('mapNotice').textContent='Часть подложки не загрузилась. Масштаб и перемещение работают; недостающие фрагменты могут появиться при следующем увеличении.';return;}
- $('mapState').hidden=false;$('mapState').classList.add('error-state');$('mapState').textContent=message+' Сохранённую карту можно увеличить кнопками + / − и перетаскивать.';$('mapFallback').hidden=false;
+ $('mapState').hidden=false;$('mapState').classList.add('error-state');$('mapState').textContent=message+' Увеличивайте колёсиком или кнопками + / −.';$('mapFallback').hidden=false;
 }
 function drawFallback(){
  const box=$('mapFallback').parentElement;fallbackX=Math.max(-box.clientWidth*(fallbackScale-1)/2,Math.min(box.clientWidth*(fallbackScale-1)/2,fallbackX));fallbackY=Math.max(-box.clientHeight*(fallbackScale-1)/2,Math.min(box.clientHeight*(fallbackScale-1)/2,fallbackY));
  $('mapFallback').style.transform=`translate(${fallbackX}px,${fallbackY}px) scale(${fallbackScale})`;
 }
-function resetMapView(){fallbackScale=1;fallbackX=fallbackY=0;drawFallback();fitDay(data.days[activeDay-1]);}
-function zoomMap(delta){if(mapLoaded&&$('mapFallback').hidden){map.zoomTo(map.getZoom()+delta,{duration:180});return;}fallbackScale=Math.max(1,Math.min(8,fallbackScale*(delta>0?1.5:1/1.5)));drawFallback();}
+function resetMapView(){$('mapFallback').classList.remove('wheel-zooming');fallbackScale=1;fallbackX=fallbackY=0;drawFallback();fitDay(data.days[activeDay-1]);}
+function zoomMap(delta){if(mapLoaded&&$('mapFallback').hidden){map.zoomTo(map.getZoom()+delta,{duration:reducedMotion.matches?0:180});return;}fallbackScale=Math.max(1,Math.min(8,fallbackScale*(delta>0?1.5:1/1.5)));drawFallback();}
+function zoomSavedMapWithWheel(event, viewport) {
+  if (mapLoaded && $('mapFallback').hidden) return;
+  if (Math.abs(event.deltaX) > Math.abs(event.deltaY) || !event.deltaY) return;
+  event.preventDefault();
+  const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? viewport.clientHeight : 1;
+  const change = Math.max(-180, Math.min(180, event.deltaY * unit));
+  const nextScale = Math.max(1, Math.min(8, fallbackScale * Math.exp(-change * 0.003)));
+  const bounds = viewport.getBoundingClientRect();
+  const x = event.clientX - bounds.left - bounds.width / 2;
+  const y = event.clientY - bounds.top - bounds.height / 2;
+  const ratio = nextScale / fallbackScale;
+  fallbackX = x + (fallbackX - x) * ratio;
+  fallbackY = y + (fallbackY - y) * ratio;
+  fallbackScale = nextScale;
+  $('mapFallback').classList.add('wheel-zooming');
+  drawFallback();
+}
 function expandMap(expanded=!mapExpanded){
  mapExpanded=expanded;$('map-section').classList.toggle('map-expanded',expanded);document.body.classList.toggle('map-open',expanded);
  const b=$('mapFullscreen');b.setAttribute('aria-expanded',String(expanded));b.setAttribute('aria-label',expanded?'Закрыть полноэкранную карту':'Развернуть карту на весь экран');b.title=expanded?'Закрыть карту · Esc':'На весь экран';b.textContent=expanded?'×':'⤢';
@@ -74,16 +104,18 @@ function expandMap(expanded=!mapExpanded){
 function initMapControls(){
  $('mapZoomIn').onclick=()=>zoomMap(1);$('mapZoomOut').onclick=()=>zoomMap(-1);$('fitRoute').onclick=resetMapView;$('mapFullscreen').onclick=()=>expandMap();
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&mapExpanded){e.preventDefault();expandMap(false);}});
- const img=$('mapFallback');img.draggable=false;const pointers=new Map();let drag=null,pinchDistance=0,pinchScale=1;
- img.addEventListener('pointerdown',e=>{e.preventDefault();img.setPointerCapture(e.pointerId);pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});drag={x:e.clientX,y:e.clientY,ox:fallbackX,oy:fallbackY};if(pointers.size===2){const [a,b]=[...pointers.values()];pinchDistance=Math.hypot(a.x-b.x,a.y-b.y);pinchScale=fallbackScale;}});
+ const img=$('mapFallback');const viewport=img.parentElement;
+ img.draggable=false;const pointers=new Map();let drag=null,pinchDistance=0,pinchScale=1;
+ img.addEventListener('pointerdown',e=>{e.preventDefault();img.classList.remove('wheel-zooming');img.setPointerCapture(e.pointerId);pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});drag={x:e.clientX,y:e.clientY,ox:fallbackX,oy:fallbackY};if(pointers.size===2){const [a,b]=[...pointers.values()];pinchDistance=Math.hypot(a.x-b.x,a.y-b.y);pinchScale=fallbackScale;}});
  img.addEventListener('pointermove',e=>{if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(pointers.size===2){const [a,b]=[...pointers.values()];fallbackScale=Math.max(1,Math.min(8,pinchScale*Math.hypot(a.x-b.x,a.y-b.y)/Math.max(1,pinchDistance)));}else if(drag){fallbackX=drag.ox+e.clientX-drag.x;fallbackY=drag.oy+e.clientY-drag.y;}drawFallback();});
  const release=e=>{pointers.delete(e.pointerId);drag=null;};img.addEventListener('pointerup',release);img.addEventListener('pointercancel',release);
- img.addEventListener('wheel',e=>{e.preventDefault();zoomMap(e.deltaY<0?1:-1);},{passive:false});img.addEventListener('dblclick',()=>zoomMap(1));
- new ResizeObserver(()=>{map?.resize();drawFallback();}).observe(img.parentElement);
+ viewport.addEventListener('wheel', event => zoomSavedMapWithWheel(event, viewport), { capture: true, passive: false });
+ img.addEventListener('dblclick',()=>zoomMap(1));
+ new ResizeObserver(()=>{map?.resize();drawFallback();}).observe(viewport);
 }
-function initMap(){try{if(!window.maplibregl)throw new Error('Библиотека карты не загрузилась');map=new maplibregl.Map({container:'map',style:'https://tiles.openfreemap.org/styles/liberty',center:[115.18,-8.8],zoom:10,attributionControl:false,preserveDrawingBuffer:true});window.__guide.map=map;map.addControl(new maplibregl.ScaleControl({unit:'metric'}),'bottom-left');map.addControl(new maplibregl.AttributionControl({compact:false}),'bottom-right');map.on('load',()=>{mapLoaded=true;$('mapState').hidden=true;$('mapFallback').hidden=true;window.__guide.map=map;window.__guide.mapLoaded=true;renderMap(data.days[activeDay-1]);});map.on('error',e=>{window.__guide.mapErrors.push(String(e.error?.message||e.error));mapError('Интерактивная карта пока недоступна. Показана сохранённая карта дня; расписание и навигационные ссылки доступны.');});setTimeout(()=>{if(!mapLoaded)mapError('Карта загружается дольше обычного. Проверьте интернет и обновите страницу.');},20000);}catch(e){mapError('Не удалось открыть карту: '+e.message);}}
+function initMap(){try{if(!window.maplibregl)throw new Error('Библиотека карты не загрузилась');map=new maplibregl.Map({container:'map',style:'https://tiles.openfreemap.org/styles/liberty',center:[115.18,-8.8],zoom:10,scrollZoom:true,cooperativeGestures:false,attributionControl:false,preserveDrawingBuffer:true});window.__guide.map=map;map.addControl(new maplibregl.ScaleControl({unit:'metric'}),'bottom-left');map.addControl(new maplibregl.AttributionControl({compact:false}),'bottom-right');map.on('load',()=>{mapLoaded=true;$('mapState').hidden=true;$('mapFallback').hidden=true;window.__guide.map=map;window.__guide.mapLoaded=true;renderMap(data.days[activeDay-1]);});map.on('error',e=>{window.__guide.mapErrors.push(String(e.error?.message||e.error));mapError('Интерактивная карта пока недоступна. Показана сохранённая карта дня; расписание и навигационные ссылки доступны.');});setTimeout(()=>{if(!mapLoaded)mapError('Карта загружается дольше обычного. Проверьте интернет и обновите страницу.');},20000);}catch(e){mapError('Не удалось открыть карту: '+e.message);}}
 function selectLeg(index){const leg=data.days[activeDay-1].legs[index];document.querySelectorAll('.road-row').forEach(b=>b.classList.toggle('selected',Number(b.dataset.leg)===index));if(!mapLoaded||!leg.geometry||!$('mapFallback').hidden){$('mapNotice').textContent='Выбран переезд: '+leg.key+'. Сейчас показана сохранённая карта; для выделения участка нужен интерактивный режим. Ссылка на этот переезд доступна в расписании.';return;}map.setFilter('route-highlight',['==',['get','index'],index]);fitPoints(leg.geometry.coordinates,15);}
-function focusStop(id){const p=(data.days[activeDay-1].route_stops||data.days[activeDay-1].stops).find(s=>s.id===id);if(p?.lon!=null&&mapLoaded&&$('mapFallback').hidden){map.flyTo({center:[p.lon,p.lat],zoom:14});markers.find(m=>m.getElement().getAttribute('aria-label')===p.name)?.togglePopup();}else $('mapNotice').textContent='Сейчас показана сохранённая карта. Номер остановки и ссылка на место доступны в расписании.';}
+function focusStop(id){const p=(data.days[activeDay-1].route_stops||data.days[activeDay-1].stops).find(s=>s.id===id);if(p?.lon!=null&&mapLoaded&&$('mapFallback').hidden){map.flyTo({center:[p.lon,p.lat],zoom:14,duration:reducedMotion.matches?0:450});markers.find(m=>m.getElement().getAttribute('aria-label')===p.name)?.togglePopup();}else $('mapNotice').textContent='Сейчас показана сохранённая карта. Номер остановки и ссылка на место доступны в расписании.';}
 function period(t){const h=Number(t.split(':')[0]);return h<5?'☾ Ночь':h<12?'☀ Утро':h<17?'◌ День':'☾ Вечер';}
 function drawTimeline(d){let prev='';$('timeline').innerHTML=d.timeline.map(r=>{const p=period(r.start),heading=p!==prev?`<div class="period-label">${p}</div>`:'';prev=p;const interval=`${r.start}${r.end!==r.start?' – '+r.end:''}`;
  if(r.kind==='visit')return heading+`<article class="timeline-stop"><div class="stop-number">${r.number}</div><div class="stop-info"><span class="time">${interval} · ${r.duration_minutes} мин</span><h4>${esc(r.title)}</h4><p>${esc(r.note)}</p><div class="stop-actions"><button data-stop="${r.place_id}">Показать на карте</button><a href="${esc(r.place_url)}" target="_blank" rel="noopener">Открыть место ↗</a></div></div></article>`;
@@ -92,7 +124,7 @@ function drawTimeline(d){let prev='';$('timeline').innerHTML=d.timeline.map(r=>{
  if(r.kind==='buffer')return heading+`<div class="buffer-row">${interval} · ${esc(r.title)}</div>`;
  return heading+`<article class="logistic-row"><span class="time">${interval}</span><strong>${r.kind==='boat'?'⚓ ':''}${esc(r.title)}</strong><p>${esc(r.note)}</p></article>`;
  }).join('');$('timeline').querySelectorAll('[data-leg]').forEach(b=>b.onclick=()=>{selectLeg(Number(b.dataset.leg));revealMobileMap();});$('timeline').querySelectorAll('[data-stop]').forEach(b=>b.onclick=()=>{focusStop(b.dataset.stop);revealMobileMap();});}
-function selectDay(n,scroll=false){if(data&&$('restaurantCoverageTable'))$('restaurantCoverageTable').innerHTML=data.restaurant_coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}${p.id==='r15'?' · еда не подтверждена':''}</span><span>${Number(p.date.slice(-2))} окт</span></div>`).join('');activeDay=Math.max(1,Math.min(12,n));const d=data.days[activeDay-1];window.__guide.currentDay=activeDay;fallbackScale=1;fallbackX=fallbackY=0;drawFallback();$('mapFallback').src=`maps/day-${String(activeDay).padStart(2,'0')}.png`;
+function selectDay(n,scroll=false){if(data&&$('restaurantCoverageTable'))$('restaurantCoverageTable').innerHTML=data.restaurant_coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}${p.id==='r15'?' · еда не подтверждена':''}</span><span>${Number(p.date.slice(-2))} окт</span></div>`).join('');activeDay=Math.max(1,Math.min(12,n));const d=data.days[activeDay-1];window.__guide.currentDay=activeDay;$('mapFallback').classList.remove('wheel-zooming');fallbackScale=1;fallbackX=fallbackY=0;drawFallback();$('mapFallback').src=`maps/day-${String(activeDay).padStart(2,'0')}.png`;
  $('dayHeader').innerHTML=`<div class="day-heading"><div><span class="eyebrow">ДЕНЬ ${d.number} · ${dateLabel(d).toLocaleUpperCase('ru')} · ${esc(d.weekday.toLocaleUpperCase('ru'))}</span><h2>${esc(d.title)}</h2><p>${esc(d.subtitle)}</p></div><img src="${image(d)}" alt="Сгенерированная иллюстрация для настроения дня"></div>`;
  $('daySummary').innerHTML=[['Подъём',d.wake,''],['Выезд',d.depart,''],[d.last?'Аэропорт · оценка':'Возвращение · оценка',d.return_time,''],['Дорога',`${d.distance_km_known}${d.missing_legs?' + ?':''} км`,d.island?'без морских участков':''],['Нагрузка',d.load,`${Math.floor(d.road_minutes/60)} ч ${d.road_minutes%60} мин в дороге`]].map(([label,value,note])=>`<div class="summary-item"><span>${label}</span><strong>${esc(value)}</strong>${note?`<br><small>${esc(note)}</small>`:''}</div>`).join('');drawTimeline(d);
  $('dayAdvice').innerHTML=`<h4>Почему в таком порядке</h4><p>${esc(d.why)}</p><h4>Что важно учесть</h4><p>${esc(d.risk)}</p>${d.island?`<h4>Обратный катер</h4><p>Оценка прибытия к порту: ${d.port_arrival_estimate}. Опубликованный обратный рейс — 17:00; наличие мест и регистрацию подтвердить.</p>`:''}`;
@@ -104,7 +136,7 @@ async function init(){try{const r=await fetch('itinerary.json');if(!r.ok)throw n
  $('dayGrid').innerHTML=data.days.map(d=>`<button class="day-card" data-day="${d.number}" aria-label="Открыть день ${d.number}: ${esc(d.title)}"><div class="day-card-photo" style="--crop:${dayCrops[d.number - 1]}"><img src="${image(d, true)}" alt="" loading="lazy"><span class="card-day">День ${d.number}</span><span class="card-date">${dateLabel(d)} · ${esc(d.weekday)}</span></div><div class="card-body"><strong>${esc(d.title)}</strong><p>${esc(d.subtitle)}</p><div class="card-bottom"><span>${d.stops.length} мест · ${d.meals.filter(m=>m.meal_mode==='onsite').length} заведений</span><b>↗</b></div></div></button>`).join('');$('dayNav').innerHTML=data.days.map(d=>`<button data-day="${d.number}"><strong>День ${d.number}</strong>${Number(d.date.slice(-2))} окт</button>`).join('');document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>selectDay(Number(b.dataset.day),true));
  $('restaurantCoverageTable').innerHTML=data.restaurant_coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}${p.id==='r15'?' · еда не подтверждена':''}</span><span>${Number(p.date.slice(-2))} окт</span></div>`).join('');
  $('coverageTable').innerHTML=data.coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}</span><button data-date="${p.planned_date}">${Number(p.planned_date.slice(-2))} окт ↗</button></div>`).join('');document.querySelectorAll('[data-date]').forEach(b=>b.onclick=()=>selectDay(data.days.find(d=>d.date===b.dataset.date).number,true));$('limitations').innerHTML=data.limitations.map(s=>`<li>${esc(s)}</li>`).join('');$('sourceLinks').innerHTML=data.sources.map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} ↗</a> · ${esc(s.checked)}</p>`).join('');$('prevDay').onclick=()=>selectDay(activeDay-1,true);$('nextDay').onclick=()=>selectDay(activeDay+1,true);for (const button of document.querySelectorAll('[data-jump]')) button.onclick = () => scrollToSection(button.dataset.jump);
- initMapControls();selectDay(Number(location.hash.match(/^#day-(\d+)$/)?.[1]||1));initMap();$('pdfLink').hidden=false;$('downloadSection').hidden=false;
+ initMapControls();selectDay(Number(location.hash.match(/^#day-(\d+)$/)?.[1]||1));initMap();$('pdfLink').hidden=false;$('downloadSection').hidden=false;initPageMotion();
  }catch(e){$('globalError').hidden=false;$('globalError').textContent=e.message;}}
 init();
 

@@ -152,6 +152,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .map-panel .map-top .eyebrow { display: none; }
 .map-legend, .map-links, .map-notice, .map-source, .day-advice p { font-size: 11px; }
 .map-links a { padding-block: 5px; }
+.map-wheel-hint { margin: 8px 0 0; color: var(--muted); font-size: 11px; }
+.map-expanded .map-wheel-hint { display: none; }
 .trip-map-overview { margin-bottom: 40px; }
 .trip-map-overview img { display: block; margin-top: 14px; max-height: 430px; object-fit: contain; background: #e8efe5; border: 1px solid var(--line); }
 .coverage-item, .coverage-item button, .text-link, .logistics-grid p { font-size: 13px; }
@@ -226,6 +228,33 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .card-date { font-size: 9px; }
   .card-day { font-size: 9px; }
   .day-jumps button { padding: 7px 10px; }
+}
+@media (pointer: coarse) {
+  .map-wheel-hint { display: none; }
+}
+
+@keyframes journal-arrive {
+  from { opacity: .3; transform: translateY(13px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes journal-landscape {
+  from { transform: scale(1.07); }
+  to { transform: scale(1); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cover-art { overflow: hidden; }
+  .cover-art img { animation: journal-landscape 1.1s ease-out both; }
+  .cover-content > * { animation: journal-arrive .48s cubic-bezier(.2,.65,.3,1) both; }
+  .cover h1 { animation-delay: .08s; }
+  .cover p { animation-delay: .16s; }
+  .cover .primary, .cover-base { animation-delay: .23s; }
+  .reveal-in, .day-heading > div { animation: journal-arrive .42s ease-out both; }
+  .primary, .date-nav button, .card-bottom b, .map-tools .map-reset {
+    transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+  }
+  .cover .primary:hover { box-shadow: 0 5px 25px #f4cf8940; }
+  .day-card:hover .card-bottom b { background: var(--green); color: white; }
+  #mapFallback.wheel-zooming { transition: transform 130ms ease-out; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
