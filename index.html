@@ -1,5 +1,5 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173f37"><title>Бали вдвоём · ваш путеводитель по дням</title><meta name="description" content="Личный маршрут по Бали: 12 дней, расписание, дорожные карты и иллюстрации."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23173f37'/%3E%3Cpath d='M9 29Q18 8 31 13Q28 26 9 29' fill='%23e9b661'/%3E%3C/svg%3E"><link rel="stylesheet" href="vendor/maplibre-gl.css"><link rel="stylesheet" href="guide.css?v=all72-v2"><link rel="stylesheet" href="editorial.css?v=motion1"><script src="vendor/maplibre-gl.js" defer></script><script src="guide.js?v=motion1" defer></script><script src="meal-editor-all.js?v=all72-v2" defer></script></head>
-<body><header class="topbar"><a class="brand" href="#top"><span class="brand-icon">✦</span> Бали <em>вдвоём</em></a><nav aria-label="Главная навигация"><a href="#days">По дням</a><a href="#map-section">Карта</a><a href="restaurants.html">Рестораны</a><a href="guide.pdf" id="pdfLink" hidden>PDF ↓</a></nav><span class="trip-dates">11–22 октября ’26</span></header>
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#173f37"><title>Бали вдвоём · ваш путеводитель по дням</title><meta name="description" content="Личный маршрут по Бали: 12 дней, расписание, дорожные карты и иллюстрации."><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23173f37'/%3E%3Cpath d='M9 29Q18 8 31 13Q28 26 9 29' fill='%23e9b661'/%3E%3C/svg%3E"><link rel="stylesheet" href="vendor/maplibre-gl.css"><link rel="stylesheet" href="guide.css?v=all72-v2"><link rel="stylesheet" href="editorial.css?v=overview1"><script src="vendor/maplibre-gl.js" defer></script><script src="trip-overview-map.js?v=overview1" defer></script><script src="guide.js?v=overview1" defer></script><script src="meal-editor-all.js?v=all72-v2" defer></script></head>
+<body><header class="topbar"><a class="brand" href="#top"><span class="brand-icon">✦</span> Бали <em>вдвоём</em></a><nav aria-label="Главная навигация"><a href="#days">По дням</a><a href="#trip-map">Карта</a><a href="restaurants.html">Рестораны</a><a href="guide.pdf" id="pdfLink" hidden>PDF ↓</a></nav><span class="trip-dates">11–22 октября ’26</span></header>
 <main id="top">
 <section class="cover" aria-labelledby="coverTitle">
   <div class="cover-content">
@@ -17,7 +17,38 @@
 <section class="trip-overview container"><div><h2>Ваш маршрут</h2></div><div class="overview-stats"><div><strong>12</strong><span>дней на Бали</span></div><div><strong>29</strong><span>ваших мест</span></div><div><strong>72</strong><span>точки питания<br>без повторов</span></div></div></section>
 <div class="planning-note container"><span class="status-dot"></span><div><strong>Иллюстрированная версия для планирования</strong><p>Все 29 мест и 72 точки питания распределены по дням. Три основных приёма пищи ежедневно плюс кофе, десерты и перекусы. Подъезды включены в карты. Часы части заведений, боксы, катера и подачу еды в Echo Beach ещё нужно подтвердить.</p></div><a href="restaurants.html">Посмотреть все рестораны ↗</a></div>
 <section class="container days-overview" aria-labelledby="overviewHeading"><div class="section-head"><div><h2 id="overviewHeading">День за днём</h2></div><span class="section-hint">Нажмите на карточку — откроются расписание и карта</span></div><div id="dayGrid" class="day-grid"><p>Загружаем дни…</p></div></section>
-<section class="container trip-map-overview"><span class="eyebrow">ВСЕ ДОРОЖНЫЕ ЦЕПОЧКИ</span><h2>Бали на одной карте.</h2><a href="maps/overview.png" target="_blank"><img src="maps/overview.png" alt="Общая географическая карта всех дорожных маршрутов поездки" style="width:100%;border-radius:24px" loading="lazy"></a><p class="map-source">OpenFreeMap / OpenMapTiles / © OpenStreetMap contributors · OSRM. Крупные карты каждого дня — ниже. Катера не соединены выдуманными линиями.</p></section><section id="days" class="day-detail"><div class="date-nav" aria-label="Выбор дня"><div id="dayNav" class="date-nav-inner"></div></div><div class="container"><div id="dayHeader"></div><div id="daySummary" class="day-summary"></div>
+<section id="trip-map" class="container trip-map-overview" aria-labelledby="overviewMapHeading">
+  <h2 id="overviewMapHeading">Бали на одной карте</h2>
+  <div class="overview-panel" id="overviewPanel">
+    <div class="overview-toolbar">
+      <div class="overview-mode" role="group" aria-label="Подложка карты">
+        <button type="button" data-overview-mode="roads" aria-pressed="true" disabled>Дороги</button>
+        <button type="button" data-overview-mode="satellite" aria-pressed="false" disabled>Спутник</button>
+      </div>
+      <div class="overview-filter">
+        <select id="overviewDay" aria-label="Маршрут на карте" disabled><option value="">Вся поездка · 12 дней</option></select>
+        <button type="button" id="overviewDayLink" hidden>К расписанию ↓</button>
+      </div>
+    </div>
+    <div class="overview-viewport" id="overviewViewport">
+      <div class="overview-map" id="overviewMap" aria-label="Интерактивная карта всех маршрутов"></div>
+      <img class="overview-fallback" id="overviewFallback" src="maps/overview.png" alt="Сохранённая карта дорожных маршрутов на Бали" loading="lazy" draggable="false">
+      <div class="overview-map-tools" role="group" aria-label="Управление общей картой">
+        <button type="button" id="overviewZoomIn" class="map-reset" aria-label="Приблизить" title="Приблизить">+</button>
+        <button type="button" id="overviewZoomOut" class="map-reset" aria-label="Отдалить" title="Отдалить">−</button>
+        <button type="button" id="overviewFit" class="map-reset" aria-label="Показать выбранный маршрут целиком" title="Маршрут целиком">⌖</button>
+        <button type="button" id="overviewExpand" class="map-reset" aria-label="Развернуть общую карту" aria-expanded="false" title="Во весь экран">⤢</button>
+      </div>
+      <p class="overview-status" id="overviewStatus" role="status" hidden></p>
+    </div>
+    <div class="overview-footer">
+      <div class="map-legend"><span><i class="legend-line"></i> По маршруту</span><span><i class="legend-line back"></i> Обратно</span><span><i class="legend-pin">⌂</i> Вилла</span></div>
+      <p class="map-wheel-hint">Прокрутите колёсико для зума. Перетаскивайте карту мышью.</p>
+    </div>
+  </div>
+  <p class="map-source">Дороги · OpenFreeMap / OpenMapTiles / © OpenStreetMap. Маршруты · OSRM. Спутник · <a href="https://maps.eox.at/" target="_blank" rel="noopener">Sentinel-2 cloudless 2024 / EOX</a>. Морские участки указаны в расписании.</p>
+</section>
+<section id="days" class="day-detail"><div class="date-nav" aria-label="Выбор дня"><div id="dayNav" class="date-nav-inner"></div></div><div class="container"><div id="dayHeader"></div><div id="daySummary" class="day-summary"></div>
 <nav class="day-jumps" aria-label="Разделы дня">
   <button type="button" data-jump="scheduleTitle">Расписание ↓</button>
   <button type="button" data-jump="map-section">Карта ↓</button>

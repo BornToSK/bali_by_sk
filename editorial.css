@@ -155,7 +155,98 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .map-wheel-hint { margin: 8px 0 0; color: var(--muted); font-size: 11px; }
 .map-expanded .map-wheel-hint { display: none; }
 .trip-map-overview { margin-bottom: 40px; }
-.trip-map-overview img { display: block; margin-top: 14px; max-height: 430px; object-fit: contain; background: #e8efe5; border: 1px solid var(--line); }
+.overview-panel {
+  margin-top: 18px;
+  padding: 12px;
+  border: 1px solid #d9ded2;
+  border-radius: 22px;
+  background: #fffdf7;
+  box-shadow: 0 12px 36px #18382e12;
+}
+.overview-toolbar, .overview-mode, .overview-filter, .overview-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.overview-toolbar { justify-content: space-between; flex-wrap: wrap; padding: 3px 3px 12px; }
+.overview-mode { background: #eaf0e6; border-radius: 12px; padding: 3px; }
+.overview-mode button, .overview-filter button, .overview-filter select {
+  min-height: 40px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  padding: 6px 12px;
+  color: var(--green);
+  background: transparent;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+}
+.overview-mode button[aria-pressed="true"] { background: var(--green); color: white; }
+.overview-mode button:not(:disabled):hover, .overview-filter button:hover { box-shadow: inset 0 0 0 1px #5c8574; }
+.overview-filter { flex: 1; justify-content: end; min-width: 0; }
+.overview-filter select { width: min(100%, 280px); min-width: 0; border-color: var(--line); background: white; }
+.overview-filter button { border-color: var(--line); white-space: nowrap; }
+.overview-viewport {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: clamp(390px, 51vw, 625px);
+  border-radius: 14px;
+  background: #9bbaf2;
+}
+.overview-map, .overview-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
+.overview-map { visibility: hidden; }
+.overview-map.overview-live { visibility: visible; }
+.overview-fallback { object-fit: contain; user-select: none; touch-action: none; cursor: grab; }
+.overview-fallback:active { cursor: grabbing; }
+.overview-map-tools { position: absolute; top: 12px; right: 12px; display: grid; gap: 5px; }
+.overview-map-tools .map-reset {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: #fcf9ef;
+  border-color: #d2dcd2;
+  box-shadow: 0 2px 7px #143f3424;
+}
+.overview-map-tools .map-reset:hover { background: #e9f2e5; }
+.overview-map-tools #overviewExpand { color: white; background: var(--green); border-color: var(--green); }
+.overview-status {
+  position: absolute;
+  padding: 7px 11px;
+  margin: 0;
+  bottom: 30px;
+  left: 10px;
+  right: 10px;
+  width: fit-content;
+  max-width: calc(100% - 20px);
+  color: #1b3d32;
+  background: #fffaf0ef;
+  border-radius: 9px;
+  font-size: 12px;
+  pointer-events: none;
+}
+.overview-footer { justify-content: space-between; flex-wrap: wrap; padding: 9px 3px 0; gap: 2px 20px; }
+.overview-footer .map-legend, .overview-footer .map-wheel-hint { margin: 0; }
+.overview-footer .map-legend { font-size: 12px; }
+.overview-panel[data-mode="satellite"] .overview-footer .legend-line:not(.back) {
+  background: #e6f5ac;
+  outline: 1px solid #456245;
+}
+.overview-panel[data-mode="satellite"] .overview-footer .legend-line.back { border-color: #ba7643; }
+body.overview-open { overflow: hidden; }
+.overview-panel.overview-expanded {
+  position: fixed;
+  z-index: 1100;
+  inset: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  padding: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
+}
+.overview-expanded .overview-viewport { flex: 1; min-height: 0; height: auto; }
 .coverage-item, .coverage-item button, .text-link, .logistics-grid p { font-size: 13px; }
 .coverage-section summary { font-size: 14px; gap: 10px; }
 .download-section { background: linear-gradient(115deg, #123b31, #286055); }
@@ -220,6 +311,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .map-wrapper { height: clamp(290px, 55vw, 430px); }
   .map-panel.map-expanded { z-index: 1000; }
   .coverage-grid { grid-template-columns: 1fr; }
+  .overview-panel { padding: 8px; border-radius: 16px; }
+  .overview-filter { flex-basis: 100%; justify-content: start; }
+  .overview-filter select { flex: 1; width: auto; max-width: 280px; }
+  .overview-viewport { height: clamp(330px, 96vw, 470px); }
+  .overview-footer .map-legend { font-size: 10px; }
   .catalog .capacity { padding: 20px; }
   .catalog .capacity p { margin-block: 8px; }
 }

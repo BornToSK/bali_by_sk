@@ -12,7 +12,7 @@ function scrollToSection(id) {
 
 function initPageMotion() {
   if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
-  const targets = document.querySelectorAll('.day-card, .trip-map-overview, .logistics-grid article, .download-section');
+  const targets = document.querySelectorAll('.day-card, .logistics-grid article, .download-section');
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
@@ -137,6 +137,7 @@ async function init(){try{const r=await fetch('itinerary.json');if(!r.ok)throw n
  $('restaurantCoverageTable').innerHTML=data.restaurant_coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}${p.id==='r15'?' · еда не подтверждена':''}</span><span>${Number(p.date.slice(-2))} окт</span></div>`).join('');
  $('coverageTable').innerHTML=data.coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}</span><button data-date="${p.planned_date}">${Number(p.planned_date.slice(-2))} окт ↗</button></div>`).join('');document.querySelectorAll('[data-date]').forEach(b=>b.onclick=()=>selectDay(data.days.find(d=>d.date===b.dataset.date).number,true));$('limitations').innerHTML=data.limitations.map(s=>`<li>${esc(s)}</li>`).join('');$('sourceLinks').innerHTML=data.sources.map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} ↗</a> · ${esc(s.checked)}</p>`).join('');$('prevDay').onclick=()=>selectDay(activeDay-1,true);$('nextDay').onclick=()=>selectDay(activeDay+1,true);for (const button of document.querySelectorAll('[data-jump]')) button.onclick = () => scrollToSection(button.dataset.jump);
  initMapControls();selectDay(Number(location.hash.match(/^#day-(\d+)$/)?.[1]||1));initMap();$('pdfLink').hidden=false;$('downloadSection').hidden=false;initPageMotion();
+ if (typeof initTripOverview === "function") initTripOverview(data, selectDay);
  }catch(e){$('globalError').hidden=false;$('globalError').textContent=e.message;}}
 init();
 
