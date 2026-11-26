@@ -91,15 +91,15 @@
   position:fixed;
   inset:0;
   box-sizing:border-box;
-  width:100%;
-  height:100%;
-  height:100dvh;
-  max-width:none;
-  max-height:none;
+  width:min(1160px, calc(100% - 40px));
+  height:min(690px, 80vh);
+  height:min(690px, 80dvh);
   overflow:hidden;
   overscroll-behavior:contain;
-  border:0;
-  margin:0;
+  border:1px solid #e8cda07a;
+  border-radius:18px;
+  box-shadow:0 24px 80px #07181180;
+  margin:auto;
   padding:0;
   background:#10261c;
   color:#fffaf0;
@@ -107,7 +107,7 @@
   touch-action:pan-y pinch-zoom;
 }
 html:has(.beyond-lightbox[open]) { overflow:hidden; }
-.beyond-lightbox::backdrop { background:#10261c; }
+.beyond-lightbox::backdrop { background:#10261cb5; }
 .beyond-lightbox::after {
   content:"";
   position:absolute;
@@ -129,11 +129,11 @@ html:has(.beyond-lightbox[open]) { overflow:hidden; }
 .beyond-gallery-head,
 .beyond-gallery-bottom {
   position:absolute;
-  left:max(clamp(16px, 5vw, 88px), env(safe-area-inset-left));
-  right:max(clamp(16px, 5vw, 88px), env(safe-area-inset-right));
+  left:max(clamp(14px, 3.5vw, 50px), env(safe-area-inset-left));
+  right:max(clamp(14px, 3.5vw, 50px), env(safe-area-inset-right));
 }
 .beyond-gallery-head {
-  top:max(clamp(14px, 4vh, 48px), env(safe-area-inset-top));
+  top:max(clamp(12px, 3vh, 30px), env(safe-area-inset-top));
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -144,8 +144,8 @@ html:has(.beyond-lightbox[open]) { overflow:hidden; }
   letter-spacing:.17em;
   text-shadow:0 1px 10px #061c17;
 }
-.beyond-gallery-bottom { bottom:max(clamp(16px, 4vh, 52px), env(safe-area-inset-bottom)); }
-.beyond-gallery-caption { max-width:19em; font:600 clamp(32px, 5.8vw, 94px)/.96 var(--exp-display); }
+.beyond-gallery-bottom { bottom:max(clamp(14px, 3vh, 32px), env(safe-area-inset-bottom)); }
+.beyond-gallery-caption { max-width:19em; font:600 clamp(29px, 5.4vw, 70px)/.96 var(--exp-display); }
 .beyond-gallery-caption .beyond-kicker { color:#ffe0b4; margin:0 0 9px; }
 .beyond-gallery-caption h3 { font:inherit; max-width:15ch; margin:0; color:inherit; text-shadow:0 2px 16px #101c1780; }
 .beyond-gallery-toolbar {
@@ -189,8 +189,13 @@ html:has(.beyond-lightbox[open]) { overflow:hidden; }
 .beyond-lightbox :is(button,a):focus-visible { background:#f4e6c9; color:#132d25; }
 .beyond-lightbox :is(button,a):focus-visible { outline:2px solid #f4e6c9; outline-offset:3px; }
 @media (max-width:540px) {
+  .beyond-lightbox { width:calc(100% - 24px); height:min(560px, 78dvh); border-radius:14px; }
   .beyond-gallery-image { object-position:57% 50%; }
   .beyond-lightbox::after { background:linear-gradient(180deg,#0a1a17ba,transparent 28%,transparent 41%,#0a1a17eb 100%); }
+}
+@media (max-height:500px) {
+  .beyond-gallery-caption { font-size:clamp(25px, 6vh, 36px); }
+  .beyond-gallery-caption h3 { max-width:30ch; }
 }
 @media (prefers-reduced-motion:no-preference) {
   :root:not([data-bali-motion="reduced"]) .beyond-lightbox[open] { animation:gallery-enter .28s ease-out both; }
