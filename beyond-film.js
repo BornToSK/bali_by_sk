@@ -20,14 +20,14 @@ function initBeyondFilm() {
       <source type="image/avif" srcset="assets/bukit-journal.avif">
       <img src="assets/bukit-journal.webp" alt="" loading="lazy" decoding="async" draggable="false"></picture>`;
     return `<img src="${tiny(day)}" srcset="${tiny(day)} 650w, assets/${day.image}.webp 1560w"
-      sizes="(max-width:620px) 75vw, (max-width:1100px) 68vw, 780px" alt="" loading="lazy" decoding="async" draggable="false">`;
+      sizes="(max-width:620px) 89vw, (max-width:1900px) 81vw, 1540px" alt="" loading="lazy" decoding="async" draggable="false">`;
   };
   const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g,c=>
     ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
   const dayAt = () => guide.data.days[guide.currentDay-1];
 
   film.innerHTML = `
-    <div class="film-toolbar">
+    <div class="film-toolbar container">
       <p><strong id="filmIndex">01</strong> <span>/ ${pad(guide.data.days.length)}</span></p>
       <p id="filmPreview" class="film-preview"></p>
       <div class="film-arrows" role="group" aria-label="Управление галереей дней">
@@ -48,14 +48,16 @@ function initBeyondFilm() {
         </span>
       </button>`).join('')}
     </div>
-    <p class="film-credit">Пейзажи глав · AI-иллюстрации</p>`;
+    <div class="film-rail-note container"><p class="film-wheel-hint">Листайте колёсиком мыши или перетаскивайте карточки</p><p>Пейзажи глав · иллюстрации ИИ</p></div>`;
   const rail = film.querySelector('.film-rail');
   const cards = [...rail.querySelectorAll('.film-card')];
   const indexLabel = film.querySelector('#filmIndex');
   const preview = film.querySelector('#filmPreview');
   const arrows = [...film.querySelectorAll('[data-rail-step]')];
   let current = 0, railFrame = 0, gesture = null, suppressClickUntil = 0;
-  const targetFor = card => card.offsetLeft - rail.offsetLeft - (rail.clientWidth-card.offsetWidth)/2;
+  let lastWheelStep = -Infinity;
+  const scrollLimit = () => rail.scrollWidth - rail.clientWidth;
+  const targetFor = card => Math.min(scrollLimit(), card.offsetLeft - cards[0].offsetLeft);
   function paintRail(index) {
     current = index;
     indexLabel.textContent = pad(index+1);
@@ -80,6 +82,18 @@ function initBeyondFilm() {
     if (railFrame) return;
     railFrame=requestAnimationFrame(()=>{railFrame=0;paintRail(nearest());});
   },{passive:true});
+  rail.addEventListener('wheel', event=>{
+    if (!event.cancelable || event.ctrlKey || event.metaKey || event.shiftKey ||
+        Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
+    const direction = Math.sign(event.deltaY);
+    if ((direction < 0 && rail.scrollLeft <= 2) ||
+        (direction > 0 && rail.scrollLeft >= scrollLimit() - 2)) return;
+    event.preventDefault();
+    const now = performance.now();
+    if (now - lastWheelStep < 280) return;
+    lastWheelStep = now;
+    moveRail(nearest() + direction);
+  },{passive:false});
   arrows.forEach(button=>button.addEventListener('click',()=>moveRail(current+Number(button.dataset.railStep))));
   rail.addEventListener('keydown',event=>{
     const index = {ArrowLeft:current-1,ArrowRight:current+1,Home:0,End:cards.length-1}[event.key];
