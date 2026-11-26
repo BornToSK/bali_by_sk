@@ -13,3 +13,7 @@ Premium editorial hand-painted travel illustration for a personal Bali guide, wi
 ## assets/penida.png
 
 Create a very beautiful wide premium travel editorial illustration, hand-painted gouache with refined realistic natural textures. Nusa Penida island coastline inspired by the curved iconic headland and white crescent beach at Kelingking, high emerald limestone cliffs above luminous turquoise and deep sapphire ocean, elegant golden sunlight and tropical vegetation, dramatic depth, fresh sophisticated emerald aqua warm cream color palette with coral accents. Clean unbroken cinematic composition, no text, no labels, no map, no logos, no UI, no people. Atmospheric generated illustration for section cover of a Bali trip guide, not a geographic navigation map.
+
+## assets/bukit-journal.webp и assets/bukit-journal-mobile.webp
+
+Созданы встроенным ImageGen. Описание: широкая обложка путевого журнала с южным побережьем Букита, тёмным океаном слева и лесистыми известняковыми мысами справа; мягкий вечерний свет, плёночная цветопередача, без людей, зданий и текста. Мобильный вариант — кадр той же иллюстрации.

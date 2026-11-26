@@ -12,7 +12,7 @@ function scrollToSection(id) {
 
 function initPageMotion() {
   if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
-  const targets = document.querySelectorAll('.day-card, .logistics-grid article, .download-section');
+  const targets = document.querySelectorAll('.chapter-card, .day-card, .logistics-grid article, .download-section');
   const observer = new IntersectionObserver(entries => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
@@ -21,6 +21,21 @@ function initPageMotion() {
     }
   }, { threshold: 0.12 });
   targets.forEach(target => observer.observe(target));
+}
+function renderChapterHighlights(days) {
+  const highlights = [
+    {day: days.find(d => d.island), title: 'Остров Пенида', description: 'Катер из Санура и бирюзовые бухты.', art: 'penida'},
+    {day: days.find(d => d.stops.some(stop => stop.id === 'v30')), title: 'Рассвет в Ловине', description: 'Ночная дорога на север и лодка на рассвете.', art: 'coast'},
+  ].filter(item => item.day);
+  if (!highlights.length) return;
+  $('chapterGrid').innerHTML = highlights.map(({day, title, description, art}) => `
+    <button type="button" class="chapter-card" data-day="${day.number}">
+      <img src="assets/${art}.webp" alt="" loading="lazy" decoding="async">
+      <div><time datetime="${esc(day.date)}">${dateLabel(day)} · день ${day.number}</time>
+        <strong>${title}</strong><p>${description}</p></div>
+      <span class="chapter-arrow" aria-hidden="true">↗</span>
+    </button>`).join('');
+  $('chapterShowcase').hidden = false;
 }
 function revealMobileMap() {
   const mapPanel = $('map-section');
@@ -133,6 +148,7 @@ function selectDay(n,scroll=false){if(data&&$('restaurantCoverageTable'))$('rest
  $('mapLinks').replaceChildren();if(d.island){const b=document.createElement('button');b.className='secondary';b.textContent='Пенида крупно';b.onclick=()=>fitDay(d,'island');$('mapLinks').append(b);}for(const [leg,label]of[[d.legs[0],'Первый переезд ↗'],[d.legs.at(-1),'Обратно / аэропорт ↗']]){const a=document.createElement('a');a.textContent=label;a.href=leg.navigation_url;a.target='_blank';a.rel='noopener';$('mapLinks').append(a);}
  $('prevDay').disabled=activeDay===1;$('nextDay').disabled=activeDay===12;$('pageIndex').textContent=`День ${activeDay} из 12`;updateDayNavigation(activeDay);renderMap(d);document.dispatchEvent(new Event('bali-day-changed'));if(scroll){history.replaceState(null,'',`#day-${activeDay}`);scrollToSection('days');}}
 async function init(){try{const r=await fetch('itinerary.json');if(!r.ok)throw new Error('Не удалось загрузить данные маршрута');data=await r.json();window.__guide={data,currentDay:1,currentMapDay:null,mapLoaded:false,mapErrors:[],selectDay,fitDay,selectLeg};
+ renderChapterHighlights(data.days);
  $('dayGrid').innerHTML=data.days.map(d=>`<button class="day-card" data-day="${d.number}" aria-label="Открыть день ${d.number}: ${esc(d.title)}"><div class="day-card-photo" style="--crop:${dayCrops[d.number - 1]}"><img src="${image(d, true)}" alt="" loading="lazy"><span class="card-day">День ${d.number}</span><span class="card-date">${dateLabel(d)} · ${esc(d.weekday)}</span></div><div class="card-body"><strong>${esc(d.title)}</strong><p>${esc(d.subtitle)}</p><div class="card-bottom"><span>${d.stops.length} мест · ${d.meals.filter(m=>m.meal_mode==='onsite').length} заведений</span><b>↗</b></div></div></button>`).join('');$('dayNav').innerHTML=data.days.map(d=>`<button data-day="${d.number}"><strong>День ${d.number}</strong>${Number(d.date.slice(-2))} окт</button>`).join('');document.querySelectorAll('[data-day]').forEach(b=>b.onclick=()=>selectDay(Number(b.dataset.day),true));
  $('restaurantCoverageTable').innerHTML=data.restaurant_coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}${p.id==='r15'?' · еда не подтверждена':''}</span><span>${Number(p.date.slice(-2))} окт</span></div>`).join('');
  $('coverageTable').innerHTML=data.coverage.map(p=>`<div class="coverage-item"><span>${esc(p.name)}</span><button data-date="${p.planned_date}">${Number(p.planned_date.slice(-2))} окт ↗</button></div>`).join('');document.querySelectorAll('[data-date]').forEach(b=>b.onclick=()=>selectDay(data.days.find(d=>d.date===b.dataset.date).number,true));$('limitations').innerHTML=data.limitations.map(s=>`<li>${esc(s)}</li>`).join('');$('sourceLinks').innerHTML=data.sources.map(s=>`<p><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)} ↗</a> · ${esc(s.checked)}</p>`).join('');$('prevDay').onclick=()=>selectDay(activeDay-1,true);$('nextDay').onclick=()=>selectDay(activeDay+1,true);for (const button of document.querySelectorAll('[data-jump]')) button.onclick = () => scrollToSection(button.dataset.jump);
