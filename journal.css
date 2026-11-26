@@ -27,17 +27,18 @@
   border-radius: 0;
   background: var(--journal-forest);
 }
-.journal .cover-art { position: absolute; inset: 0; overflow: hidden; z-index: -2; min-height: 0; }
+.journal .cover-art { position: absolute; inset: 0; overflow: hidden; z-index: 0; min-height: 0; }
 .journal .cover-art img { object-position: 58% 56%; }
 .journal .cover::after {
   content: '';
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   background: linear-gradient(90deg, #0a231beb, #102a209c 37%, #132f2430 65%, transparent),
     linear-gradient(0deg, #10291ab0, transparent 39%);
 }
 .journal .cover-content {
+  z-index: 2;
   width: min(1400px, calc(100% - 110px));
   margin-inline: auto;
   padding: 65px 0 85px;
@@ -46,7 +47,7 @@
 .journal .cover-kicker { color: #fae4b6; }
 .journal .cover h1 { font-size: clamp(72px, 10.2vw, 155px); line-height: .9; letter-spacing: -.075em; margin: 32px 0 25px; }
 .journal .cover h1 em { color: #f2dfb6; font-style: italic; margin-left: .08em; }
-.journal .cover p { font-size: clamp(16px, 1.5vw, 20px); max-width: 30ch; line-height: 1.55; }
+.journal .cover p { font-size: clamp(16px, 1.5vw, 20px); max-width: min(100%, 410px); line-height: 1.55; }
 .journal .cover .primary { min-height: 49px; color: #1d372b; background: #f2dfb6; border-color: #f2dfb6; }
 .journal .cover .primary:hover { background: #fff1d4; }
 .journal .cover-base { color: #eef0e3; font-size: 13px; }
@@ -54,7 +55,7 @@
   position: absolute;
   right: 18px;
   bottom: 18px;
-  z-index: 2;
+  z-index: 3;
   color: #f3eee2;
   background: #142b25bf;
   border: 1px solid #d2c39e59;
@@ -94,8 +95,9 @@
   border-radius: 14px;
   text-align: left;
 }
-.chapter-card img { position: absolute; z-index: -2; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.chapter-card::after { content: ''; position: absolute; z-index: -1; inset: 0; background: linear-gradient(0deg,#101f17ed, #142c2180 45%, transparent 85%); }
+.chapter-card img { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.chapter-card::after { content: ''; position: absolute; z-index: 1; inset: 0; background: linear-gradient(0deg,#101f17ed, #142c2180 45%, transparent 85%); }
+.chapter-card > div, .chapter-card .chapter-arrow { position: relative; z-index: 2; }
 .chapter-card time { display: block; color: #f1dbad; font-size: 12px; font-weight: 800; letter-spacing: .06em; }
 .chapter-card strong { display: block; font: clamp(29px, 4.4vw, 52px)/1.14 var(--display); margin-block: 7px; }
 .chapter-card p { margin: 0; font-size: 13px; }
