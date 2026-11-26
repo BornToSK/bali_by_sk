@@ -1,31 +1,44 @@
 {
-  "checked": "2026-10-21",
-  "trip_start": "2026-10-21",
-  "trip_end": "2026-10-22",
-  "days": 2,
-  "food_catalog": 54,
-  "all_food_ratings_checked": true,
-  "attraction_catalog": 7,
-  "all_attraction_cards_checked": true,
-  "scheduled_attractions": 4,
-  "reserve_attractions": 3,
-  "selected_restaurants": 2,
-  "reserve_restaurants": 52,
-  "penida_removed": true,
-  "old_activities_not_repeated": true,
-  "all_markers_verified": true,
-  "airport_plan": "20:45",
-  "airport_deadline": "21:30",
-  "pdf_pages": 10,
-  "all_pages_rendered_and_visually_reviewed": true,
+  "date": "2026-10-09",
+  "attractions": 29,
+  "food_list_points": 72,
+  "no_repeated_onsite_food_visits": true,
+  "main_meals": 36,
+  "packed_meals": 7,
+  "coffee_snack_stops": 43,
+  "pdf": {
+    "pdf_pages": 70,
+    "all_pages_rendered": true,
+    "all_24_QR_match_exact_first_and_last_legs": true,
+    "text_inside_page_bounds": true,
+    "visual_review_pending": false,
+    "changed_pages": [
+      12,
+      13
+    ],
+    "all_pages_visually_reviewed": true,
+    "visual_review_method": "All 70 rendered pages inspected; changed pages 12 and 13 inspected again"
+  },
+  "mobile_and_exchange_test": {
+    "stats": {
+      "attractions": 29,
+      "restaurants": 72,
+      "onsite": 72
+    },
+    "mobile12Days": true,
+    "swapPreserves72": true,
+    "lockedBookingRejectedAtomically": true,
+    "persistenceAndReset": true
+  },
+  "localhost_HTTP_checks_passed": true,
+  "night_navigation_includes_Bedugul": true,
   "limitations": [
-    "Все 4 запланированных места стоят на 21 октября. Leke Leke, Geger и Mengiat — резерв без назначенной даты. Весь список из 7 мест после позднего старта до закрытия не помещается.",
-    "21 октября выезд 11:30 с Nunamkhalu. Если позже, сокращайте северный круг. Визиты короткие, особенно Farm House и храмы.",
-    "22 октября checkout до 12:00, хранение багажа и душ по согласованию. Аэропорт не позже 21:30; вылет 23 октября 00:30. Возврат байка и трансфер с багажом отдельные.",
-    "Еда: 2 выбранных заведения на 21 октября из 54; остальные 52 в резерве. 22 октября завтрак на вилле, обед по выбору без привязки к ресторану, ужин в аэропорту по желанию. Посещения и бронирования не подтверждены.",
-    "Все ночи на Nunamkhalu. Платные дороги разрешены; на Bali Mandara для байка отдельная полоса. OSRM: автомобильная геометрия, время без прогноза пробок.",
-    "Сверка карточек не подтверждает доступность входа, парковку и пеший подход. У Buyan и Geger часы не указаны. Прилив не является разрешением на купание.",
-    "Пенида удалена из текущего списка. Старые активности 16 октября не назначены повторно и не отмечены автоматически посещёнными.",
-    "PDF содержит основной вариант; изменения еды в браузере не меняют PDF автоматически."
+    "Echo Beach food service unconfirmed",
+    "13 restaurant opening windows estimated",
+    "Entrance, parking and walking routes not fully confirmed",
+    "Car OSRM profile; scooter permissions not fully verified",
+    "Reservations, boxes, boats and hotel post-checkout access unconfirmed",
+    "No certified full-coverage rain or major-delay fallback",
+    "Source lists: 6 October snapshot plus user changes, not fully resynced live"
   ]
 }

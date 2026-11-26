@@ -20,16 +20,16 @@
   "r02": {
     "id": "r02",
     "name": "Batu Karu Kopi",
-    "hours_label": "Сегодня открыт, закрытие 17:00 по Google Maps",
+    "hours_label": "08:00–17:00 в будни; 08:00–18:00 в выходные",
     "planning_windows": [
       [
         480,
         1020
       ]
     ],
-    "source": "https://www.google.com/maps/place/Batu+Karu+Kopi/@-8.4751788,114.6683007,10z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd227ff032568f3:0x9e4262493e09fa4d!8m2!3d-8.3628743!4d115.1345965!16s%2Fg%2F11hz2kp_ym?coh=318247&entry=tt&ved=1t%3A314688",
-    "checked": "2026-10-21",
-    "hours_status": "google_card_checked",
+    "source": "https://www.instagram.com/batukarukopi/",
+    "checked": "2026-10-08",
+    "hours_status": "historical_snapshot_not_currently_reverified",
     "last_order": null,
     "booking_note": "Уточнить наличие полноценного обеда: нужен сэндвич/тосты с начинкой, а не только кофе. Last order не подтверждён.",
     "booking_required": false,
@@ -460,15 +460,15 @@
   "r40": {
     "id": "r40",
     "name": "nüde cafe Berawa",
-    "source": "https://nude-bali.com/locations/berawa",
-    "checked": "2026-10-16",
+    "source": "https://nude-bali.com/locations/berawa/",
+    "checked": "2026-10-09",
     "planning_windows": [
       [
         420,
         1380
       ]
     ],
-    "hours_label": "Официальный сайт: ежедневно 07:00-23:00",
+    "hours_label": "07:00–23:00 ежедневно · Berawa",
     "hours_status": "official_current",
     "last_order": null,
     "booking_note": "Стол желательно согласовать к времени расписания. Last order и выдачу боксов уточнить отдельно.",
@@ -766,16 +766,16 @@
   "r18": {
     "id": "r18",
     "name": "LUSA Bistro",
-    "hours_label": "Сегодня открыт, закрытие 23:00 по Google Maps",
+    "hours_label": "07:30–22:00",
     "planning_windows": [
       [
-        600,
-        1380
+        450,
+        1320
       ]
     ],
-    "source": "https://www.google.com/maps/place/LUSA+Bistro/@-8.4751788,114.6683007,10z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd24715b3648a71:0xdee432f569053308!8m2!3d-8.6601698!4d115.139835!16s%2Fg%2F11pd7x81cs?coh=318247&entry=tt&ved=1t%3A314688",
-    "checked": "2026-10-21",
-    "hours_status": "google_card_checked",
+    "source": "https://www.bysuka.com/lusa-by-suka",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
     "last_order": null,
     "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
     "booking_required": false,
@@ -822,17 +822,17 @@
   },
   "r21": {
     "id": "r21",
-    "name": "SODA CAFE UNGASAN",
-    "hours_label": "Четверг 07:00-22:00 по недельному расписанию Google Maps",
+    "name": "SODA CAFE",
+    "hours_label": "07:00–22:00 ежедневно",
     "planning_windows": [
       [
         420,
         1320
       ]
     ],
-    "source": "https://www.google.com/maps/place/SODA+CAFE+UNGASAN/@-8.4751788,114.6683007,10z/data=!4m10!1m3!11m2!2sZZ25zUz4jvz_o_C3QxOW2g!3e3!3m5!1s0x2dd25b150682d38d:0x448a3c59a99fce96!8m2!3d-8.8269523!4d115.1399416!16s%2Fg%2F11lnlhjr2y?coh=318247&entry=tt&ved=1t%3A314688",
-    "checked": "2026-10-21",
-    "hours_status": "google_card_checked",
+    "source": "https://linktr.ee/Soda_cafe",
+    "checked": "2026-10-09",
+    "hours_status": "official_current",
     "last_order": null,
     "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
     "booking_required": false,
@@ -931,16 +931,16 @@
   "r29": {
     "id": "r29",
     "name": "Ramu Kitchen",
-    "hours_label": "Официальный сайт 07:00-22:00; используем вечерний визит",
+    "hours_label": "15:00–23:00 по меню; сайт отеля 07:00–22:00 — используем пересечение 15:00–22:00",
     "planning_windows": [
       [
         900,
         1320
       ]
     ],
-    "source": "https://titikdua.id/ramu-kitchen/",
-    "checked": "2026-10-16",
-    "hours_status": "official_current",
+    "source": "https://www.ramukitchen.com/menu",
+    "checked": "2026-10-09",
+    "hours_status": "official_conflicting_use_overlap",
     "last_order": null,
     "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",
     "booking_required": false,
@@ -1183,7 +1183,7 @@
   "r48": {
     "id": "r48",
     "name": "Alma Tapas Bar - Uluwatu",
-    "hours_label": "Официальный сайт: brunch 07:00-12:00; tapas 15:00-23:00",
+    "hours_label": "Завтрак 07:00–12:00; tapas 15:00–23:00 · Uluwatu",
     "planning_windows": [
       [
         420,
@@ -1195,7 +1195,7 @@
       ]
     ],
     "source": "https://almatapasbar.com/",
-    "checked": "2026-10-16",
+    "checked": "2026-10-09",
     "hours_status": "official_current",
     "last_order": null,
     "booking_note": "Проверить часы, последний заказ и возможность короткого посещения. Бронь не выполнена.",

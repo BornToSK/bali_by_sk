@@ -17,26 +17,3 @@
 .change-meal{background:#173f37!important;color:white!important;border-radius:8px;padding:8px 12px!important}.meal-editor{width:min(620px,calc(100% - 24px));border:1px solid #dce3d7;border-radius:20px;padding:26px;color:#243f36;background:#faf8f2;max-height:90dvh;overflow:auto;box-shadow:0 18px 80px #173f3740}.meal-editor::backdrop{background:#122f2bd0}.editor-head{display:flex;justify-content:space-between;gap:16px}.editor-close{border:0;background:transparent;font-size:30px}.meal-editor input,.meal-editor select{width:100%;font:inherit;color:inherit;border:1px solid #dce3d7;border-radius:10px;background:white;padding:12px}.meal-editor input{margin-bottom:10px}.meal-editor select option{padding:7px}.meal-editor p{font-size:12px}.editor-warning{color:#8d633b;background:#f5eddf;padding:12px;border-radius:10px}.editor-actions{display:flex;gap:10px;flex-wrap:wrap}#mealEditorStatus{color:#ab5533;padding:8px 0;font-size:12px}.personal-plan-tools{background:#fff;border:1px solid #dce3d7;border-radius:14px;padding:20px;margin:25px 0;display:flex;gap:14px;flex-wrap:wrap;align-items:center}.personal-plan-tools span{font-size:12px;flex:1;min-width:200px}
 
 .coffee-row{background:#f2ede5;border-color:#dec7aa}.coffee-row .meal-icon{background:#b98550}.coffee-row .meal-badge{background:#e9d6bd;color:#664d32}
-.cover { isolation:isolate; background:#103f3c; }
-.cover-shade { background:linear-gradient(90deg,rgba(7,45,44,.90),rgba(7,45,44,.52) 42%,transparent 78%),linear-gradient(0deg,rgba(7,37,37,.68),transparent 35%); }
-.cover h1 { letter-spacing:-.052em; text-wrap:balance; }
-.cover-content .primary { border-radius:100px; box-shadow:0 8px 28px #092f3738; }
-.day-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:clamp(16px,2vw,32px); }
-.day-card { border-radius:24px; border:1px solid #d7e2d8; box-shadow:0 8px 32px #1843390c; }
-.day-card-photo { height:clamp(175px,20vw,295px); overflow:hidden; }
-.day-card-photo img { transition:transform .65s ease; }
-.card-body { padding:clamp(18px,2vw,30px); }
-.map-top { background:#123f3b; color:#fffaf0; border-radius:16px 16px 0 0; padding:14px; gap:10px; }
-.map-top h3,.map-top .eyebrow { color:#fffaf0; }
-.map-tools button { background:#fffaf0; color:#123f3b; border:1px solid #d8dfd4; min-width:38px; min-height:38px; }
-.map-legend { background:#edf3ed; border-radius:0 0 14px 14px; padding:12px; }
-:focus-visible { outline:3px solid #ba6827; outline-offset:3px; }
-@media (max-width:640px) { .day-grid { grid-template-columns:1fr; } .map-top { flex-wrap:wrap; } .cover-shade { background:linear-gradient(90deg,#093632df,#123c3460),linear-gradient(0deg,#0c3230aa,transparent 50%); } }
-@media (prefers-reduced-motion:no-preference) {
-  @keyframes bali-arrive { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
-  @keyframes bali-coast { from { transform:scale(1.035); } to { transform:scale(1); } }
-  .cover-content { animation:bali-arrive .7s ease-out both; }
-  .cover>img { animation:bali-coast 1.5s ease-out both; }
-  .day-summary { animation:bali-arrive .45s ease-out; }
-  @media (hover:hover) { .day-card:hover .day-card-photo img { transform:scale(1.045); } }
-}
