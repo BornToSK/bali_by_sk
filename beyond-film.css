@@ -45,6 +45,9 @@
   overscroll-behavior-inline:contain;
   -webkit-overflow-scrolling:touch;
 }
+@media (hover:hover) and (pointer:fine) {
+  .film-rail { overflow-x:hidden; }
+}
 .film-rail.is-dragging { scroll-snap-type:none;cursor:grabbing;user-select:none; }
 .film-rail.is-dragging button { cursor:grabbing; }
 .film-card {
@@ -91,7 +94,7 @@
 .film-rail-note { display:flex;justify-content:space-between;align-items:center;gap:8px 20px;flex-wrap:wrap;margin-top:7px;color:#56634b;font-size:11px; }
 .film-rail-note p { margin:0; }
 .film-rail-note p:last-child { margin-left:auto; }
-@media (pointer:coarse) { .film-wheel-hint { display:none; } }
+@media (pointer:coarse) { .film-drag-hint { display:none; } }
 #routePlayer { margin-block:3px 10px;color:#203a2d; }
 #routePlayer [hidden] { display:none!important; }
 .film-player-bar { display:flex;flex-wrap:wrap;align-items:center;gap:6px; }

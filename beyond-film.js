@@ -48,14 +48,13 @@ function initBeyondFilm() {
         </span>
       </button>`).join('')}
     </div>
-    <div class="film-rail-note container"><p class="film-wheel-hint">Листайте с Shift + колёсико или перетаскивайте карточки</p><p>Пейзажи глав · иллюстрации ИИ</p></div>`;
+    <div class="film-rail-note container"><p class="film-drag-hint">Листайте стрелками или перетаскивайте карточки</p><p>Пейзажи глав · иллюстрации ИИ</p></div>`;
   const rail = film.querySelector('.film-rail');
   const cards = [...rail.querySelectorAll('.film-card')];
   const indexLabel = film.querySelector('#filmIndex');
   const preview = film.querySelector('#filmPreview');
   const arrows = [...film.querySelectorAll('[data-rail-step]')];
   let current = 0, railFrame = 0, gesture = null, suppressClickUntil = 0;
-  let lastWheelStep = -Infinity;
   const scrollLimit = () => rail.scrollWidth - rail.clientWidth;
   const targetFor = card => Math.min(scrollLimit(), card.offsetLeft - cards[0].offsetLeft);
   function paintRail(index) {
@@ -82,18 +81,6 @@ function initBeyondFilm() {
     if (railFrame) return;
     railFrame=requestAnimationFrame(()=>{railFrame=0;paintRail(nearest());});
   },{passive:true});
-  rail.addEventListener('wheel', event=>{
-    if (!event.cancelable || !event.shiftKey || event.ctrlKey || event.metaKey ||
-        Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
-    const direction = Math.sign(event.deltaY);
-    if ((direction < 0 && rail.scrollLeft <= 2) ||
-        (direction > 0 && rail.scrollLeft >= scrollLimit() - 2)) return;
-    event.preventDefault();
-    const now = performance.now();
-    if (now - lastWheelStep < 280) return;
-    lastWheelStep = now;
-    moveRail(nearest() + direction);
-  },{passive:false});
   arrows.forEach(button=>button.addEventListener('click',()=>moveRail(current+Number(button.dataset.railStep))));
   rail.addEventListener('keydown',event=>{
     const index = {ArrowLeft:current-1,ArrowRight:current+1,Home:0,End:cards.length-1}[event.key];
