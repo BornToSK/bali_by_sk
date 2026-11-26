@@ -165,6 +165,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .catalog .card { border-radius: 18px; box-shadow: 0 5px 18px #18382e0b; }
 .catalog .card:focus-within { border-color: var(--green); }
 .catalog .notice { background: #f0ebde; border-radius: 16px; }
+.catalog .selection-bar { z-index: 10; background: var(--paper); }
 
 @media (max-width: 1050px) {
   .day-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -205,6 +206,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .map-wrapper { height: clamp(290px, 55vw, 430px); }
   .map-panel.map-expanded { z-index: 1000; }
   .coverage-grid { grid-template-columns: 1fr; }
+  .catalog .capacity { padding: 20px; }
+  .catalog .capacity p { margin-block: 8px; }
 }
 @media (max-width: 380px) {
   .topbar nav { gap: 10px; font-size: 12px; }
