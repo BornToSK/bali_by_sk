@@ -4,14 +4,11 @@
   const storageKey = 'bali-passport-v1';
   const places = new Map();
   const roles = ['favorite', 'visited', 'saved'];
-  const moods = ['full', 'balanced', 'reduced'];
   const systemReduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mount = document.getElementById('myBali');
-  let storageAvailable = true;
+  const progress = document.getElementById('tripProgress');
   let lastDetectedDay = 0;
   let recordsRequest;
-  let summary;
-  let motionSelect;
 
   const canonicalKind = kind => kind === 'visit' ? 'visited' : kind;
   const validId = id => typeof id === 'string' && /^(?:r(?:0[1-9]|[1-6][0-9]|7[0-2])|v(?:0[1-79]|[12][0-9]|30))$/.test(id);
@@ -22,7 +19,6 @@
     const state = {};
     for (const kind of roles) state[kind] = new Set(Array.isArray(raw?.[kind]) ? raw[kind].filter(validId) : []);
     state.lastDay = Number.isInteger(raw?.lastDay) && raw.lastDay >= 1 && raw.lastDay <= 12 ? raw.lastDay : null;
-    state.motion = moods.includes(raw?.motion) ? raw.motion : 'balanced';
     return state;
   }
   let state = read();
@@ -30,14 +26,14 @@
   function snapshot() {
     return {
       favorite: [...state.favorite], visited: [...state.visited], saved: [...state.saved],
-      lastDay: state.lastDay, motion: state.motion,
+      lastDay: state.lastDay, motion: 'full',
     };
   }
   function save() {
     try { localStorage.setItem(storageKey, JSON.stringify(snapshot())); }
-    catch { storageAvailable = false; }
+    catch { /* Keep changes for the current page. */ }
   }
-  function effectiveMotion() { return systemReduced.matches ? 'reduced' : state.motion; }
+  function effectiveMotion() { return systemReduced.matches ? 'reduced' : 'full'; }
   function applyMotion() {
     document.documentElement.dataset.baliMotion = effectiveMotion();
     document.dispatchEvent(new CustomEvent('bali-motion-changed', {detail: effectiveMotion()}));
@@ -46,7 +42,8 @@
     for (const button of document.querySelectorAll('[data-passport-kind]')) {
       button.setAttribute('aria-pressed', String(has(button.dataset.passportKind, button.dataset.passportId)));
     }
-    renderPassport();
+    renderProgress();
+    renderCollections();
     document.dispatchEvent(new CustomEvent('bali-passport-changed', {detail: snapshot()}));
   }
   function has(kind, id) {
@@ -85,9 +82,11 @@
     const record = places.get(id);
     const day = trip?.days.find(value => value.route_stops.some(stop => stop.id === id));
     const stop = day?.route_stops.find(value => value.id === id);
+    const covered = (id.startsWith('r') ? trip?.restaurant_coverage : trip?.coverage)?.find(value => value.id === id);
     return {
-      name: record?.name || stop?.name || id,
-      date: day?.date || record?.assigned_date,
+      name: record?.name || stop?.name || covered?.name,
+      date: day?.date || covered?.planned_date || covered?.date || record?.assigned_date,
+      area: record?.area?.value?.replace(/EAST BALI|NORTH BALI|SOUTH|NORTH/g, region => ({'EAST BALI':'Восток Бали', 'NORTH BALI':'Север Бали', SOUTH:'Юг Бали', NORTH:'Север Бали'})[region]),
     };
   }
   function stopLink(id) {
@@ -100,7 +99,7 @@
     node.addEventListener('click', event => {
       if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey) return;
       const guide = window.__guide;
-      const day = guide?.data.days.find(value => value.route_stops.some(stop => stop.id === id));
+      const day = guide?.data?.days.find(value => value.route_stops.some(stop => stop.id === id));
       if (!day || typeof window.focusStop !== 'function') return;
       event.preventDefault();
       guide.selectDay(day.number);
@@ -116,7 +115,7 @@
       if (!response.ok) throw new Error('Registry unavailable');
       const registry = await response.json();
       for (const place of registry.places) places.set(place.id, place);
-      renderPassport();
+      renderCollections();
     }).catch(() => { recordsRequest = undefined; });
     return recordsRequest;
   }
@@ -164,135 +163,102 @@
   observeList('cards', enhanceCatalog);
 
   function renderCollection(kind, empty) {
-    if (!state[kind].size) return element('p', 'passport-empty', empty);
-    const list = element('ul', 'passport-collection');
+    if (!state[kind].size) return element('p', 'trip-saved-empty', empty);
+    const list = element('ul', 'trip-saved-list');
     for (const id of [...state[kind]].reverse()) {
+      const place = getPlace(id);
+      if (!place.name) continue;
       const row = element('li');
-      row.append(placeLink(id));
+      const item = placeLink(id);
+      const date = place.date && Number(place.date.slice(-2)) + ' октября';
+      const detail = [place.area, date].filter(Boolean).join(' · ');
+      if (detail) item.append(element('small', '', detail));
+      row.append(item);
       list.append(row);
     }
+    if (!list.childElementCount) return element('p', 'trip-saved-empty', 'Загружаем сохранённые точки…');
     return list;
   }
-  function renderPassport() {
-    if (!summary) return;
-    const count = state.visited.size;
-    const total = (window.__guide?.data.coverage.length || 29) + (window.__guide?.data.restaurant_coverage.length || 72);
-    const percentage = Math.round(count / total * 100);
-    summary.visited.textContent = count + ' / ' + total;
-    summary.favorite.textContent = state.favorite.size;
-    summary.saved.textContent = state.saved.size;
-    summary.progress.value = count;
-    summary.progress.max = total;
-    summary.percentage.textContent = percentage + '%';
-    summary.last.href = state.lastDay ? 'index.html#day-' + state.lastDay : '#overviewHeading';
-    summary.last.textContent = state.lastDay ? 'Вернуться к дню ' + state.lastDay + ' ↗' : 'Выбрать первый день ↗';
-    summary.favorites.replaceChildren(renderCollection('favorite', 'Добавьте первое место в избранное.'));
-    summary.restaurants.replaceChildren(renderCollection('saved', 'Сохраните ресторан из каталога или расписания.'));
-    summary.storage.textContent = storageAvailable
-      ? 'Отметки и настройки хранятся в этом браузере.'
-      : 'Хранилище недоступно. Отметки сохранятся до закрытия страницы.';
-    summary.stamps.replaceChildren();
-    const recent = [...state.visited].reverse().slice(0, 9);
-    for (const id of recent) {
-      const stamp = placeLink(id, 'passport-stamp');
-      stamp.dataset.stamp = id;
-      summary.stamps.append(stamp);
+
+  function renderCollections() {
+    if (!mount) return;
+    const empty = {
+      favorite: 'Добавьте места из атласа или расписания сердечком.',
+      saved: 'Нажмите «Сохранить ресторан» в каталоге или расписании.',
+    };
+    for (const kind of ['favorite', 'saved']) {
+      mount.querySelector('[data-collection-count="' + kind + '"]').textContent = state[kind].size;
+      mount.querySelector('[data-collection-items="' + kind + '"]').replaceChildren(renderCollection(kind, empty[kind]));
     }
-    if (!recent.length) summary.stamps.append(element('p', 'passport-empty', 'Отметьте посещение в расписании, чтобы получить первый штамп.'));
-    summary.archive.hidden = count <= recent.length;
-    if (count > recent.length) summary.archiveList.replaceChildren(renderCollection('visited', ''));
-    if (motionSelect && document.activeElement !== motionSelect) motionSelect.value = state.motion;
-    if (recordsRequest == null && !window.__guide?.data && summary.visible) loadRecords();
+    if (state.favorite.size || state.saved.size) loadRecords();
   }
 
-  function initializePassport() {
-    if (!mount) return;
-    mount.classList.add('passport-section');
-    mount.setAttribute('aria-labelledby', 'passportTitle');
-    mount.innerHTML = `
-      <div class="passport-cover">
-        <div class="passport-emblem" aria-hidden="true">SK</div>
-        <p class="passport-kicker">ЛИЧНЫЙ АРХИВ</p>
-        <h2 id="passportTitle">Мой Бали</h2>
-        <p>Паспорт путешествия</p>
-        <a class="passport-resume" data-passport="last"></a>
-      </div>
-      <div class="passport-pages">
-        <div class="passport-score">
-          <div><strong data-passport="visited"></strong><span>посещено</span></div>
-          <div><strong data-passport="favorite"></strong><span>в избранном</span></div>
-          <div><strong data-passport="saved"></strong><span>ресторанов сохранено</span></div>
-        </div>
-        <div class="passport-progress">
-          <progress data-passport="progress" aria-label="Посещённые места"></progress><strong data-passport="percentage"></strong>
-        </div>
-        <h3>Штампы поездки</h3>
-        <div data-passport="stamps" class="passport-stamps"></div>
-        <details data-passport="archive" hidden><summary>Все отметки о посещении</summary><div data-passport="archiveList"></div></details>
-        <details id="passportFavorites"><summary>Избранные места</summary><div data-passport="favorites"></div></details>
-        <details><summary>Сохранённые рестораны</summary><div data-passport="restaurants"></div></details>
-        <div class="passport-settings">
-          <label>Эффекты <select data-passport-motion>
-            <option value="full">Полный режим</option><option value="balanced">Сбалансированный</option><option value="reduced">Минимум движения</option>
-          </select></label>
-          <button type="button" class="passport-tool passport-ambient" data-ocean-sound aria-pressed="false">Звук океана</button>
-        </div>
-        <p data-passport="storage" class="passport-storage"></p>
-      </div>`;
-    summary = Object.fromEntries([...mount.querySelectorAll('[data-passport]')].map(node => [node.dataset.passport, node]));
-    motionSelect = mount.querySelector('[data-passport-motion]');
-    motionSelect.addEventListener('change', () => {
-      if (!moods.includes(motionSelect.value)) return;
-      state.motion = motionSelect.value;
-      save();
-      applyMotion();
-      update();
-    });
-    summary.last.addEventListener('click', event => {
-      if (!state.lastDay || !window.__guide?.selectDay) return;
-      event.preventDefault();
-      window.__guide.selectDay(state.lastDay, true);
-    });
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(entries => {
-        if (!entries.some(entry => entry.isIntersecting)) return;
-        summary.visible = true;
-        loadRecords();
-        observer.disconnect();
-      }, {rootMargin:'150px'});
-      observer.observe(mount);
-    } else summary.visible = true;
-    renderPassport();
+  function openDay(event) {
+    const day = Number(event.currentTarget.dataset.progressDay);
+    if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey || !day || !window.__guide?.selectDay) return;
+    event.preventDefault();
+    window.__guide.selectDay(day, true);
   }
-  initializePassport();
+
+  function renderProgress() {
+    if (!progress) return;
+    const trip = window.__guide?.data;
+    const resume = progress.querySelector('.trip-resume');
+    resume.hidden = !state.lastDay;
+    if (state.lastDay) {
+      resume.href = '#day-' + state.lastDay;
+      resume.dataset.progressDay = state.lastDay;
+      resume.textContent = 'Продолжить с дня ' + state.lastDay + ' ↗';
+    }
+    const dates = progress.querySelector('.trip-progress-days');
+    const caption = progress.querySelector('.trip-progress-count');
+    if (!trip) {
+      caption.textContent = state.visited.size + ' из 101';
+      return;
+    }
+    const records = [...trip.coverage, ...trip.restaurant_coverage];
+    const visited = records.filter(place => state.visited.has(place.id)).length;
+    caption.textContent = visited + ' из ' + records.length;
+    if (!dates.childElementCount) {
+      for (const day of trip.days) {
+        const anchor = link(String(Number(day.date.slice(-2))), '#day-' + day.number, 'trip-date');
+        anchor.dataset.progressDay = day.number;
+        anchor.append(element('span', 'trip-date-track'));
+        anchor.addEventListener('click', openDay);
+        dates.append(anchor);
+      }
+    }
+    for (const [index, day] of trip.days.entries()) {
+      const points = records.filter(place => (place.planned_date || place.date) === day.date);
+      const marked = points.filter(place => state.visited.has(place.id)).length;
+      const anchor = dates.children[index];
+      const label = Number(day.date.slice(-2)) + ' октября · ' + day.title + ' · отмечено ' + marked + ' из ' + points.length;
+      anchor.style.setProperty('--day-fill', (points.length ? marked / points.length : 0) * 100 + '%');
+      anchor.setAttribute('aria-label', label);
+      anchor.title = label;
+      anchor.classList.toggle('is-complete', marked > 0 && marked === points.length);
+    }
+  }
+
+  progress?.querySelector('.trip-resume').addEventListener('click', openDay);
+  renderProgress();
+  renderCollections();
 
   function recordDay() {
     const day = window.__guide?.currentDay;
     if (!Number.isInteger(day) || day < 1 || day > 12) return;
-    const explicit = /^#day-\d+/.test(location.hash);
-    if (!lastDetectedDay && !explicit && state.lastDay) {
-      lastDetectedDay = day;
-      return;
-    }
+    const initial = !lastDetectedDay && !/^#day-\d+/.test(location.hash);
     lastDetectedDay = day;
-    if (state.lastDay === day) return;
-    state.lastDay = day;
-    save();
-    renderPassport();
+    if ((!initial || !state.lastDay) && state.lastDay !== day) {
+      state.lastDay = day;
+      save();
+    }
+    renderProgress();
+    renderCollections();
   }
   document.addEventListener('bali-day-changed', recordDay);
   if (window.__guide) recordDay();
-  function openFavorites() {
-    if (location.hash === '#passportFavorites') {
-      const details = document.getElementById('passportFavorites');
-      if (details) {
-        details.open = true;
-        requestAnimationFrame(() => details.scrollIntoView({block:'start'}));
-      }
-    }
-  }
-  openFavorites();
-  addEventListener('hashchange', openFavorites);
+
   addEventListener('storage', event => {
     if (event.key !== storageKey) return;
     state = read();
