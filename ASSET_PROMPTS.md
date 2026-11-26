@@ -17,3 +17,9 @@ Create a very beautiful wide premium travel editorial illustration, hand-painted
 ## assets/bukit-journal.webp и assets/bukit-journal-mobile.webp
 
 Созданы встроенным ImageGen. Описание: широкая обложка путевого журнала с южным побережьем Букита, тёмным океаном слева и лесистыми известняковыми мысами справа; мягкий вечерний свет, плёночная цветопередача, без людей, зданий и текста. Мобильный вариант — кадр той же иллюстрации.
+
+## Beyond the Ordinary
+
+`assets/beyond-foreground.webp` — отдельный прозрачный слой тропических листьев для обложки. Промпт ImageGen: realistic near-camera tropical foliage, coconut palm frond arching diagonally from upper right, dark cinematic foreground, transparent background.
+
+`assets/beyond-jungle.webp` и `assets/beyond-jungle-card.webp` — иллюстрация для главы о водопадах. Промпт ImageGen: photorealistic medium-format editorial travel frame, rain-dark tropical jungle in Gianyar, a slender waterfall into a dark pool, soft morning light and muted botanical tones. Это атмосферные AI-иллюстрации, а не документальные снимки.

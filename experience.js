@@ -57,7 +57,7 @@ function waitForRouteInterest() {
       const link=event.target.closest?.('a[href^="#"]');
       if(link && link.hash!=='#top' && link.hash!=='#mainContent') start();
     }
-    for(const section of ['overviewPanel','dayGrid','days']) observer.observe(document.getElementById(section));
+    for(const section of ['exploreBali','overviewPanel','journeyFilm','days']) observer.observe(document.getElementById(section));
     addEventListener('hashchange',onHash);
     document.addEventListener('click',onLink);
   });
