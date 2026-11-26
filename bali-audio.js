@@ -15,9 +15,12 @@
   ocean.loop = true;
   let needsGesture = false;
   let playing = false;
+  let pagePresent = true;
+
+  const canPlay = () => pagePresent && !muted && !document.hidden && document.hasFocus();
 
   function render() {
-    const active = playing && !muted && !document.hidden && !ocean.error;
+    const active = playing && canPlay() && !ocean.paused && !ocean.error;
     button.hidden = Boolean(ocean.error);
     button.setAttribute('aria-pressed', String(active));
     button.toggleAttribute('data-needs-gesture', needsGesture && !muted && !active);
@@ -25,7 +28,7 @@
   }
 
   function start() {
-    if (muted || document.hidden || !ocean.paused || ocean.error) return;
+    if (!canPlay() || !ocean.paused || ocean.error) return;
     ocean.play().catch(error => {
       if (error.name === 'NotAllowedError') needsGesture = true;
       render();
@@ -42,6 +45,10 @@
   });
 
   ocean.addEventListener('playing', () => {
+    if (!canPlay()) {
+      pause();
+      return;
+    }
     playing = true;
     needsGesture = false;
     render();
@@ -60,21 +67,32 @@
   document.addEventListener('keydown', event => {
     if (event.key === 'Enter' || event.key === ' ') activate(event);
   }, {capture:true});
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) ocean.pause();
-    else start();
+  function pause() {
+    ocean.pause();
+    playing = false;
     render();
-  });
+  }
+
+  function syncActivity() {
+    if (canPlay()) start();
+    else pause();
+  }
+
+  addEventListener('blur', pause);
+  addEventListener('focus', syncActivity);
+  document.addEventListener('visibilitychange', syncActivity);
   addEventListener('storage', event => {
     if (event.key !== preferenceKey) return;
     muted = event.newValue === 'true';
-    if (muted) ocean.pause();
-    else start();
-    render();
+    syncActivity();
   });
-  addEventListener('pagehide', () => ocean.pause());
-  addEventListener('pageshow', event => {
-    if (event.persisted) start();
+  addEventListener('pagehide', () => {
+    pagePresent = false;
+    pause();
+  });
+  addEventListener('pageshow', () => {
+    pagePresent = true;
+    syncActivity();
   });
 
   needsGesture = navigator.getAutoplayPolicy?.('mediaelement') === 'disallowed';
