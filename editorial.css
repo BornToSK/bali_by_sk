@@ -165,7 +165,19 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .catalog .card { border-radius: 18px; box-shadow: 0 5px 18px #18382e0b; }
 .catalog .card:focus-within { border-color: var(--green); }
 .catalog .notice { background: #f0ebde; border-radius: 16px; }
-.catalog .selection-bar { z-index: 10; background: var(--paper); }
+.catalog .selection-bar {
+  position: static;
+  margin-block: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #eeefe4;
+  box-shadow: none;
+  flex-wrap: wrap;
+}
+.catalog .selection-bar #message { position: static; width: 100%; }
+.catalog .selection-bar #message:empty { display: none; }
+.catalog footer { padding-bottom: 26px; }
 
 @media (max-width: 1050px) {
   .day-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
